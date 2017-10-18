@@ -40,7 +40,6 @@ class Crawler {
     String get(String url) throws IOException {
         Preconditions.checkNotNull(url);
         Preconditions.checkArgument(url.length() > 0);
-        System.out.println("get> " + url);
         HttpClient client = httpClientFactory.create();
         HttpGet request = new HttpGet(url);
         HttpResponse response = client.execute(request);
@@ -54,7 +53,6 @@ class Crawler {
         while ((line = rd.readLine()) != null) {
             s.append(line);
         }
-        System.out.println("< " + s);
         return s.toString();
     }
 
