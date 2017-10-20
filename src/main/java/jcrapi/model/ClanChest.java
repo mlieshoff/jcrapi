@@ -1,7 +1,8 @@
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("com.robohorse.robopojogenerator")
 public class ClanChest{
@@ -10,7 +11,7 @@ public class ClanChest{
 	private int clanChestCrowns;
 
 	@SerializedName("clanChestCrownsPercent")
-	private int clanChestCrownsPercent;
+	private double clanChestCrownsPercent;
 
 	@SerializedName("clanChestCrownsRequired")
 	private int clanChestCrownsRequired;
@@ -23,11 +24,11 @@ public class ClanChest{
 		return clanChestCrowns;
 	}
 
-	public void setClanChestCrownsPercent(int clanChestCrownsPercent){
+	public void setClanChestCrownsPercent(double clanChestCrownsPercent){
 		this.clanChestCrownsPercent = clanChestCrownsPercent;
 	}
 
-	public int getClanChestCrownsPercent(){
+	public double getClanChestCrownsPercent(){
 		return clanChestCrownsPercent;
 	}
 
