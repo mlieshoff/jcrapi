@@ -18,6 +18,7 @@ package jcrapi;
 
 import com.google.gson.Gson;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -46,27 +47,27 @@ public class LiveTest {
         assertEquals(crawler.get(URL + "version"), api.getVersion());
     }
 
-    @Test
+    @Ignore
     public void profile() throws Exception {
         assertEquals(crawler.get(URL + "profile/Y99YRPYG"), new Gson().toJson(api.getProfile("Y99YRPYG")));
     }
 
-    @Test
+    @Ignore
     public void multiClans() throws Exception {
         assertEquals(crawler.get(URL + "clan/2CCCP,2U2GGQJ"), new Gson().toJson(api.getClans(Arrays.asList("2CCCP,2U2GGQJ".split(",")))));
     }
 
-    @Test
+    @Ignore
     public void clan() throws Exception {
         assertEquals(crawler.get(URL + "clan/2CCCP"), new Gson().toJson(api.getClan("2CCCP")));
     }
 
-    @Test
+    @Ignore
     public void topClans() throws Exception {
         assertEquals(crawler.get(URL + "top/clans"), new Gson().toJson(api.getTopClans()));
     }
 
-    @Test
+    @Ignore
     public void constants() throws Exception {
         assertEquals(crawler.get(URL + "constants"), new Gson().toJson(api.getConstants()));
     }
