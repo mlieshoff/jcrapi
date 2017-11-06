@@ -163,22 +163,22 @@ public class CurrentDeckItem{
 
 	@Override
  	public String toString(){
-		return
-			"CurrentDeckItem{" +
-			"elixir = '" + elixir + '\'' +
-			",level = '" + level + '\'' +
-			",count = '" + count + '\'' +
-			",requiredForUpgrade = '" + requiredForUpgrade + '\'' +
-			",description = '" + description + '\'' +
-			",arena = '" + arena + '\'' +
-			",type = '" + type + '\'' +
-			",card_id = '" + cardId + '\'' +
-			",leftToUpgrade = '" + leftToUpgrade + '\'' +
-			",decklink = '" + decklink + '\'' +
-			",card_key = '" + cardKey + '\'' +
-			",name = '" + name + '\'' +
-			",key = '" + key + '\'' +
-			",rarity = '" + rarity + '\'' +
+		return 
+			"CurrentDeckItem{" + 
+			"elixir = '" + elixir + '\'' + 
+			",level = '" + level + '\'' + 
+			",count = '" + count + '\'' + 
+			",requiredForUpgrade = '" + requiredForUpgrade + '\'' + 
+			",description = '" + description + '\'' + 
+			",arena = '" + arena + '\'' + 
+			",type = '" + type + '\'' + 
+			",card_id = '" + cardId + '\'' + 
+			",leftToUpgrade = '" + leftToUpgrade + '\'' + 
+			",decklink = '" + decklink + '\'' + 
+			",card_key = '" + cardKey + '\'' + 
+			",name = '" + name + '\'' + 
+			",key = '" + key + '\'' + 
+			",rarity = '" + rarity + '\'' + 
 			"}";
 		}
 }

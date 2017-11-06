@@ -1,11 +1,12 @@
 package jcrapi.model;
 
-import java.util.List;
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
+import javax.annotation.Generated;
+import java.util.List;
+
 @Generated("com.robohorse.robopojogenerator")
-public class TopClans {
+public class TopClans{
 
 	@SerializedName("lastUpdated")
 	private long lastUpdated;
@@ -31,10 +32,10 @@ public class TopClans {
 
 	@Override
  	public String toString(){
-		return
-			"Response{" +
-			"lastUpdated = '" + lastUpdated + '\'' +
-			",clans = '" + clans + '\'' +
+		return 
+			"TopClans{" + 
+			"lastUpdated = '" + lastUpdated + '\'' + 
+			",clans = '" + clans + '\'' + 
 			"}";
 		}
 }

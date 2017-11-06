@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import java.util.List;
 
 @Generated("com.robohorse.robopojogenerator")
-public class DetailedClan {
+public class DetailedClan{
 
 	@SerializedName("clanChest")
 	private ClanChest clanChest;
@@ -164,22 +164,22 @@ public class DetailedClan {
 
 	@Override
  	public String toString(){
-		return
-			"Response{" +
-			"clanChest = '" + clanChest + '\'' +
-			",donations = '" + donations + '\'' +
-			",memberCount = '" + memberCount + '\'' +
-			",typeName = '" + typeName + '\'' +
-			",description = '" + description + '\'' +
-			",type = '" + type + '\'' +
-			",currentRank = '" + currentRank + '\'' +
-			",badge = '" + badge + '\'' +
-			",score = '" + score + '\'' +
-			",requiredScore = '" + requiredScore + '\'' +
-			",members = '" + members + '\'' +
-			",name = '" + name + '\'' +
-			",tag = '" + tag + '\'' +
-			",region = '" + region + '\'' +
+		return 
+			"DetailedClan{" + 
+			"clanChest = '" + clanChest + '\'' + 
+			",donations = '" + donations + '\'' + 
+			",memberCount = '" + memberCount + '\'' + 
+			",typeName = '" + typeName + '\'' + 
+			",description = '" + description + '\'' + 
+			",type = '" + type + '\'' + 
+			",currentRank = '" + currentRank + '\'' + 
+			",badge = '" + badge + '\'' + 
+			",score = '" + score + '\'' + 
+			",requiredScore = '" + requiredScore + '\'' + 
+			",members = '" + members + '\'' + 
+			",name = '" + name + '\'' + 
+			",tag = '" + tag + '\'' + 
+			",region = '" + region + '\'' + 
 			"}";
 		}
 }
