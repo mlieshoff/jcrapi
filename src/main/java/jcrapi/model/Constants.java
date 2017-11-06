@@ -6,13 +6,16 @@ import javax.annotation.Generated;
 import java.util.List;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Constants {
+public class Constants{
 
 	@SerializedName("arenas")
 	private List<ArenasItem> arenas;
 
 	@SerializedName("badges")
 	private Badges badges;
+
+	@SerializedName("rarities")
+	private List<RaritiesItem> rarities;
 
 	@SerializedName("countryCodes")
 	private List<CountryCodesItem> countryCodes;
@@ -22,6 +25,9 @@ public class Constants {
 
 	@SerializedName("alliance")
 	private Alliance alliance;
+
+	@SerializedName("chestCycle")
+	private ChestCycle chestCycle;
 
 	public void setArenas(List<ArenasItem> arenas){
 		this.arenas = arenas;
@@ -37,6 +43,14 @@ public class Constants {
 
 	public Badges getBadges(){
 		return badges;
+	}
+
+	public void setRarities(List<RaritiesItem> rarities){
+		this.rarities = rarities;
+	}
+
+	public List<RaritiesItem> getRarities(){
+		return rarities;
 	}
 
 	public void setCountryCodes(List<CountryCodesItem> countryCodes){
@@ -63,15 +77,25 @@ public class Constants {
 		return alliance;
 	}
 
+	public void setChestCycle(ChestCycle chestCycle){
+		this.chestCycle = chestCycle;
+	}
+
+	public ChestCycle getChestCycle(){
+		return chestCycle;
+	}
+
 	@Override
  	public String toString(){
-		return
-			"Response{" +
-			"arenas = '" + arenas + '\'' +
-			",badges = '" + badges + '\'' +
-			",countryCodes = '" + countryCodes + '\'' +
-			",cards = '" + cards + '\'' +
-			",alliance = '" + alliance + '\'' +
+		return 
+			"Constants{" + 
+			"arenas = '" + arenas + '\'' + 
+			",badges = '" + badges + '\'' + 
+			",rarities = '" + rarities + '\'' + 
+			",countryCodes = '" + countryCodes + '\'' + 
+			",cards = '" + cards + '\'' + 
+			",alliance = '" + alliance + '\'' + 
+			",chestCycle = '" + chestCycle + '\'' + 
 			"}";
 		}
 }

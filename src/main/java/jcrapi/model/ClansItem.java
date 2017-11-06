@@ -1,16 +1,14 @@
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("com.robohorse.robopojogenerator")
 public class ClansItem{
 
-	@SerializedName("badge_url")
-	private String badgeUrl;
-
-	@SerializedName("score")
-	private int score;
+	@SerializedName("badge")
+	private Badge badge;
 
 	@SerializedName("previousRank")
 	private int previousRank;
@@ -30,20 +28,15 @@ public class ClansItem{
 	@SerializedName("region")
 	private Region region;
 
-	public void setBadgeUrl(String badgeUrl){
-		this.badgeUrl = badgeUrl;
+	@SerializedName("trophies")
+	private int trophies;
+
+	public void setBadge(Badge badge){
+		this.badge = badge;
 	}
 
-	public String getBadgeUrl(){
-		return badgeUrl;
-	}
-
-	public void setScore(int score){
-		this.score = score;
-	}
-
-	public int getScore(){
-		return score;
+	public Badge getBadge(){
+		return badge;
 	}
 
 	public void setPreviousRank(int previousRank){
@@ -94,18 +87,26 @@ public class ClansItem{
 		return region;
 	}
 
+	public void setTrophies(int trophies){
+		this.trophies = trophies;
+	}
+
+	public int getTrophies(){
+		return trophies;
+	}
+
 	@Override
  	public String toString(){
 		return 
 			"ClansItem{" + 
-			"badge_url = '" + badgeUrl + '\'' + 
-			",score = '" + score + '\'' + 
+			"badge = '" + badge + '\'' + 
 			",previousRank = '" + previousRank + '\'' + 
 			",memberCount = '" + memberCount + '\'' + 
 			",name = '" + name + '\'' + 
 			",rank = '" + rank + '\'' + 
 			",tag = '" + tag + '\'' + 
 			",region = '" + region + '\'' + 
+			",trophies = '" + trophies + '\'' + 
 			"}";
 		}
 }

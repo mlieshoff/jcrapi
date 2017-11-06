@@ -1,7 +1,8 @@
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("com.robohorse.robopojogenerator")
 public class Badge{
@@ -9,11 +10,11 @@ public class Badge{
 	@SerializedName("filename")
 	private String filename;
 
-	@SerializedName("url")
-	private String url;
-
 	@SerializedName("key")
 	private String key;
+
+	@SerializedName("url")
+	private String url;
 
 	public void setFilename(String filename){
 		this.filename = filename;
@@ -21,14 +22,6 @@ public class Badge{
 
 	public String getFilename(){
 		return filename;
-	}
-
-	public void setUrl(String url){
-		this.url = url;
-	}
-
-	public String getUrl(){
-		return url;
 	}
 
 	public void setKey(String key){
@@ -39,13 +32,21 @@ public class Badge{
 		return key;
 	}
 
+	public void setUrl(String url){
+		this.url = url;
+	}
+
+	public String getUrl(){
+		return url;
+	}
+
 	@Override
  	public String toString(){
 		return 
 			"Badge{" + 
 			"filename = '" + filename + '\'' + 
-			",url = '" + url + '\'' + 
 			",key = '" + key + '\'' + 
+			",url = '" + url + '\'' + 
 			"}";
 		}
 }

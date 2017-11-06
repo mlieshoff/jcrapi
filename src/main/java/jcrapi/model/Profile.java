@@ -6,10 +6,10 @@ import javax.annotation.Generated;
 import java.util.List;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Profile {
+public class Profile{
 
 	@SerializedName("globalRank")
-	private int globalRank;
+	private Integer globalRank;
 
 	@SerializedName("arena")
 	private Arena arena;
@@ -53,11 +53,11 @@ public class Profile {
 	@SerializedName("nameChanged")
 	private boolean nameChanged;
 
-	public void setGlobalRank(int globalRank){
+	public void setGlobalRank(Integer globalRank){
 		this.globalRank = globalRank;
 	}
 
-	public int getGlobalRank(){
+	public Integer getGlobalRank(){
 		return globalRank;
 	}
 
@@ -175,23 +175,23 @@ public class Profile {
 
 	@Override
  	public String toString(){
-		return
-			"Response{" +
-			"globalRank = '" + globalRank + '\'' +
-			",arena = '" + arena + '\'' +
-			",experience = '" + experience + '\'' +
-			",currentDeck = '" + currentDeck + '\'' +
-			",previousSeasons = '" + previousSeasons + '\'' +
-			",shopOffers = '" + shopOffers + '\'' +
-			",chestCycle = '" + chestCycle + '\'' +
-			",stats = '" + stats + '\'' +
-			",name = '" + name + '\'' +
-			",clan = '" + clan + '\'' +
-			",games = '" + games + '\'' +
-			",tag = '" + tag + '\'' +
-			",legendaryTrophies = '" + legendaryTrophies + '\'' +
-			",trophies = '" + trophies + '\'' +
-			",nameChanged = '" + nameChanged + '\'' +
+		return 
+			"Profile{" + 
+			"globalRank = '" + globalRank + '\'' + 
+			",arena = '" + arena + '\'' + 
+			",experience = '" + experience + '\'' + 
+			",currentDeck = '" + currentDeck + '\'' + 
+			",previousSeasons = '" + previousSeasons + '\'' + 
+			",shopOffers = '" + shopOffers + '\'' + 
+			",chestCycle = '" + chestCycle + '\'' + 
+			",stats = '" + stats + '\'' + 
+			",name = '" + name + '\'' + 
+			",clan = '" + clan + '\'' + 
+			",games = '" + games + '\'' + 
+			",tag = '" + tag + '\'' + 
+			",legendaryTrophies = '" + legendaryTrophies + '\'' + 
+			",trophies = '" + trophies + '\'' + 
+			",nameChanged = '" + nameChanged + '\'' + 
 			"}";
 		}
 }

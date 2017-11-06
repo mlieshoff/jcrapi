@@ -32,10 +32,10 @@ public class Alliance{
 
 	@Override
  	public String toString(){
-		return
-			"Alliance{" +
-			"types = '" + types + '\'' +
-			",roles = '" + roles + '\'' +
+		return 
+			"Alliance{" + 
+			"types = '" + types + '\'' + 
+			",roles = '" + roles + '\'' + 
 			"}";
 		}
 }
