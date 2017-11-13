@@ -103,6 +103,37 @@ public class ApiTest {
         }
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetProfilesBecauseNullTags() throws Exception {
+        api.getProfiles(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetProfilesBecauseEmptyTags() throws Exception {
+        api.getProfiles(new ArrayList<String>());
+    }
+
+    @Test
+    public void shouldGetProfiles() throws Exception {
+        List<Profile> profiles = new ArrayList<>();
+        List<String> tags = new ArrayList<>();
+        tags.add("abc");
+        when(client.getProfiles(tags)).thenReturn(profiles);
+        assertEquals(profiles, api.getProfiles(tags));
+    }
+
+    @Test
+    public void failGetProfiles() throws Exception {
+        List<String> tags = new ArrayList<String>();
+        tags.add("abc");
+        when(client.getProfiles(tags)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getProfiles(tags);
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
     @Test
     public void shouldGetTopClans() throws Exception {
         TopClans topClans = new TopClans();

@@ -87,6 +87,25 @@ public class ClientTest {
         assertNotNull(createClient().getProfile("abc"));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetProfilesBecauseNullTag() throws IOException {
+        createClient().getProfiles(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetProfilesBecauseEmptyTag() throws IOException {
+        createClient().getProfiles(Collections.<String>emptyList());
+    }
+
+    @Test
+    public void shouldGetProfiles() throws IOException {
+        List<String> tags = new ArrayList<String>();
+        tags.add("abc");
+        tags.add("def");
+        when(crawler.get(anyString())).thenReturn("[{}]");
+        assertNotNull(createClient().getProfiles(tags));
+    }
+
     @Test
     public void shouldGetTopClans() throws IOException {
         when(crawler.get(anyString())).thenReturn("{}");
@@ -109,9 +128,9 @@ public class ClientTest {
         assertNotNull(createClient().getClan("abc"));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void failGetClansBecauseNullTag() throws IOException {
-        createClient().getClan(null);
+        createClient().getClans(null);
     }
 
     @Test(expected = IllegalArgumentException.class)

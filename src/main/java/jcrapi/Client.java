@@ -66,6 +66,13 @@ class Client {
         return new Gson().fromJson(json, Profile.class);
     }
 
+    List<Profile> getProfiles(List<String> tags) throws IOException {
+        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
+        String json = crawlerFactory.createCrawler().get(url + "profile/" + StringUtils.join(tags, ","));
+        Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
     TopClans getTopClans() throws IOException {
         String json = crawlerFactory.createCrawler().get(url + "top/clans");
         return new Gson().fromJson(json, TopClans.class);

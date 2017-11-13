@@ -71,6 +71,18 @@ public class IntegrationTest {
     }
 
     @Test
+    public void shouldGetProfiles() throws IOException {
+        List<String> tags = new ArrayList<String>();
+        tags.add("L88P2282");
+        tags.add("9CQ2U8QJ");
+        tags.add("8L9L9GL");
+        List<Profile> profiles = new Api(URL).getProfiles(tags);
+        assertEquals("L88P2282", profiles.get(0).getTag());
+        assertEquals("9CQ2U8QJ", profiles.get(1).getTag());
+        assertEquals("8L9L9GL", profiles.get(2).getTag());
+    }
+
+    @Test
     public void shouldGetTopClans() throws IOException {
         TopClans topClans = new Api(URL).getTopClans();
         assertTrue(topClans.getLastUpdated() > 0);

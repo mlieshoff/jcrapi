@@ -29,9 +29,13 @@ public class TestProfileServlet extends TestJsonFileServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String tag = getRestTagParameter(req);
+        String filename = null;
         if ("Y99YRPYG".equals(tag)) {
-            doGet("src/test/java/jcrapi/profile.json", req, resp);
+            filename = "src/test/java/jcrapi/profile.json";
+        } else if ("L88P2282,9CQ2U8QJ,8L9L9GL".equals(tag)) {
+            filename = "src/test/java/jcrapi/profiles.json";
         }
+        super.doGet(filename, req, resp);
     }
 
 }
