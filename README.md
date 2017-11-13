@@ -18,6 +18,11 @@ Profile profile = api.getProfile("2PGGCJJL");
 ```
 
 ```java
+// get profiles
+List<Profile> profiles = api.getProfiles("L88P2282,9CQ2U8QJ,8L9L9GL");
+```
+
+```java
 // get clan
 DetailedClan detailedClan = api.getClan("RP88QQG"));
 ```
