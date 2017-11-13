@@ -67,6 +67,15 @@ public class Api {
         }
     }
 
+    public List<Profile> getProfiles(List<String> tags) {
+        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
+        try {
+            return clientFactory.createClient(url).getProfiles(tags);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
     public TopClans getTopClans() {
         try {
             return clientFactory.createClient(url).getTopClans();
