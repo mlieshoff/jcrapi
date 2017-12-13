@@ -37,17 +37,15 @@ import java.util.List;
 class Client {
 
     private final String url;
+    private final String developerKey;
 
     private final CrawlerFactory crawlerFactory;
 
-    Client(String url) {
-        this(url, new CrawlerFactory());
-    }
-
-    Client(String url, CrawlerFactory crawlerFactory) {
+    Client(String url, String developerKey, CrawlerFactory crawlerFactory) {
         checkString(url);
         Preconditions.checkNotNull(crawlerFactory);
         this.url = url;
+        this.developerKey = developerKey;
         this.crawlerFactory = crawlerFactory;
     }
 
@@ -57,42 +55,57 @@ class Client {
     }
 
     String getVersion() throws IOException {
-        return crawlerFactory.createCrawler().get(url + "version");
+        return createCrawler().get(createUrl("version"));
+    }
+
+    private Crawler createCrawler() {
+        return crawlerFactory.createCrawler();
+    }
+
+    private String createUrl(String part) {
+        StringBuilder s = new StringBuilder();
+        s.append(url);
+        s.append(part);
+        if (developerKey != null) {
+            s.append("?auth=");
+            s.append(developerKey);
+        }
+        return s.toString();
     }
 
     Profile getProfile(String tag) throws IOException {
         checkString(tag);
-        String json = crawlerFactory.createCrawler().get(url + "profile/" + tag);
+        String json = createCrawler().get(createUrl("profile/" + tag));
         return new Gson().fromJson(json, Profile.class);
     }
 
     List<Profile> getProfiles(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = crawlerFactory.createCrawler().get(url + "profile/" + StringUtils.join(tags, ","));
+        String json = createCrawler().get(createUrl("profile/" + StringUtils.join(tags, ",")));
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
     TopClans getTopClans() throws IOException {
-        String json = crawlerFactory.createCrawler().get(url + "top/clans");
+        String json = createCrawler().get(createUrl("top/clans"));
         return new Gson().fromJson(json, TopClans.class);
     }
 
     DetailedClan getClan(String tag) throws IOException {
         checkString(tag);
-        String json = crawlerFactory.createCrawler().get(url + "clan/" + tag);
+        String json = createCrawler().get(createUrl("clan/" + tag));
         return new Gson().fromJson(json, DetailedClan.class);
     }
 
     List<DetailedClan> getClans(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = crawlerFactory.createCrawler().get(url + "clan/" + StringUtils.join(tags, ","));
+        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")));
         Type listType = new TypeToken<ArrayList<DetailedClan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
     Constants getConstants() throws IOException {
-        String json = crawlerFactory.createCrawler().get(url + "constants");
+        String json = createCrawler().get(createUrl("constants"));
         return new Gson().fromJson(json, Constants.class);
     }
 

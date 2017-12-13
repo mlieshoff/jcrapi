@@ -23,10 +23,10 @@ import com.google.common.base.Preconditions;
  */
 class ClientFactory {
 
-    Client createClient(String url) {
+    Client createClient(String url, String developerKey) {
         Preconditions.checkNotNull(url);
         Preconditions.checkArgument(url.length() > 0, url);
-        return new Client(url);
+        return new Client(url, developerKey, new CrawlerFactory());
     }
 
 }
