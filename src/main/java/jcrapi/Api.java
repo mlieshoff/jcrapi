@@ -34,14 +34,20 @@ public class Api {
     private final ClientFactory clientFactory;
 
     private final String url;
+    private final String developerKey;
 
     public Api(String url) {
-        this(url, new ClientFactory());
+        this(url, null);
     }
 
-    Api(String url, ClientFactory clientFactory) {
+    public Api(String url, String developerKey) {
+        this(url, developerKey, new ClientFactory());
+    }
+
+    Api(String url, String developerKey, ClientFactory clientFactory) {
         checkString(url);
         this.url = url;
+        this.developerKey = developerKey;
         this.clientFactory = clientFactory;
     }
 
@@ -52,7 +58,7 @@ public class Api {
 
     public String getVersion() {
         try {
-            return clientFactory.createClient(url).getVersion();
+            return clientFactory.createClient(url, developerKey).getVersion();
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -61,7 +67,7 @@ public class Api {
     public Profile getProfile(String tag) {
         checkString(tag);
         try {
-            return clientFactory.createClient(url).getProfile(tag);
+            return clientFactory.createClient(url, developerKey).getProfile(tag);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -70,7 +76,7 @@ public class Api {
     public List<Profile> getProfiles(List<String> tags) {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         try {
-            return clientFactory.createClient(url).getProfiles(tags);
+            return clientFactory.createClient(url, developerKey).getProfiles(tags);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -78,7 +84,7 @@ public class Api {
 
     public TopClans getTopClans() {
         try {
-            return clientFactory.createClient(url).getTopClans();
+            return clientFactory.createClient(url, developerKey).getTopClans();
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -87,7 +93,7 @@ public class Api {
     public DetailedClan getClan(String tag) {
         checkString(tag);
         try {
-            return clientFactory.createClient(url).getClan(tag);
+            return clientFactory.createClient(url, developerKey).getClan(tag);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -96,7 +102,7 @@ public class Api {
     public List<DetailedClan> getClans(List<String> tags) {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         try {
-            return clientFactory.createClient(url).getClans(tags);
+            return clientFactory.createClient(url, developerKey).getClans(tags);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -104,7 +110,7 @@ public class Api {
 
     public Constants getConstants() {
         try {
-            return clientFactory.createClient(url).getConstants();
+            return clientFactory.createClient(url, developerKey).getConstants();
         } catch (IOException e) {
             throw new ApiException(e);
         }

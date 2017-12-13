@@ -46,8 +46,8 @@ public class ApiTest {
     public void setUp() {
         clientFactory = Mockito.mock(ClientFactory.class);
         client = Mockito.mock(Client.class);
-        when(clientFactory.createClient("lala")).thenReturn(client);
-        api = new Api("lala", clientFactory);
+        when(clientFactory.createClient("lala", "abc")).thenReturn(client);
+        api = new Api("lala", "abc", clientFactory);
     }
 
     @Test(expected = NullPointerException.class)
@@ -124,7 +124,7 @@ public class ApiTest {
 
     @Test
     public void failGetProfiles() throws Exception {
-        List<String> tags = new ArrayList<String>();
+        List<String> tags = new ArrayList<>();
         tags.add("abc");
         when(client.getProfiles(tags)).thenThrow(new IOException("crapi: 400"));
         try {
@@ -190,8 +190,8 @@ public class ApiTest {
 
     @Test
     public void shouldGetClans() throws Exception {
-        List<DetailedClan> detailedClans = new ArrayList<DetailedClan>();
-        List<String> tags = new ArrayList<String>();
+        List<DetailedClan> detailedClans = new ArrayList<>();
+        List<String> tags = new ArrayList<>();
         tags.add("abc");
         when(client.getClans(tags)).thenReturn(detailedClans);
         assertEquals(detailedClans, api.getClans(tags));
@@ -199,7 +199,7 @@ public class ApiTest {
 
     @Test
     public void failGetClans() throws Exception {
-        List<String> tags = new ArrayList<String>();
+        List<String> tags = new ArrayList<>();
         tags.add("abc");
         when(client.getClans(tags)).thenThrow(new IOException("crapi: 400"));
         try {

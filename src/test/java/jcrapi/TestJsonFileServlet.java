@@ -17,6 +17,7 @@
 package jcrapi;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,14 +33,28 @@ import java.io.PrintWriter;
 public class TestJsonFileServlet extends HttpServlet {
 
     protected void doGet(String filename, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = resp.getWriter();
-        printWriter.print(FileUtils.readFileToString(new File(filename)));
-        printWriter.flush();
+        if (!checkAuth(req)) {
+            resp.setStatus(503);
+        } else {
+            PrintWriter printWriter = resp.getWriter();
+            printWriter.print(FileUtils.readFileToString(new File(filename)));
+            printWriter.flush();
+        }
     }
 
     public String getRestTagParameter(HttpServletRequest req) {
         String uri = req.getRequestURI();
         return uri.substring(uri.lastIndexOf("/") + 1);
+    }
+
+    public boolean checkAuth(HttpServletRequest req) {
+        String auth = req.getParameter("auth");
+        if (StringUtils.isNotBlank(auth)) {
+            if (!IntegrationTest.AUTH.equals(auth)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

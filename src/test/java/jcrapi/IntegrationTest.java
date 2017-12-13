@@ -19,7 +19,6 @@ package jcrapi;
 import jcrapi.model.Constants;
 import jcrapi.model.DetailedClan;
 import jcrapi.model.Profile;
-import jcrapi.model.TopClans;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,6 +34,9 @@ import static org.junit.Assert.assertTrue;
  * @author Michael Lieshoff
  */
 public class IntegrationTest {
+
+    public static final String AUTH = "secret";
+    public static final String VERSION = "4.0.3";
 
     private static JettyServer jettyServer;
 
@@ -60,54 +62,164 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetVersion() throws IOException {
-        String version = new Api(URL).getVersion();
-        Integer.valueOf(version.replace(".", ""));
+        doGetVersion(URL, null, VERSION);
+    }
+
+    private void doGetVersion(String url, String auth, String expected) {
+        String version = new Api(url, auth).getVersion();
+        assertEquals(expected, version);
+    }
+
+    @Test
+    public void shouldGetVersionWithAuth() throws IOException {
+        doGetVersion(URL, AUTH, VERSION);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetVersionBecauseWrongAuth() throws IOException {
+        doGetVersion(URL, "abc", VERSION);
     }
 
     @Test
     public void shouldGetProfile() throws IOException {
-        Profile profile = new Api(URL).getProfile("Y99YRPYG");
-        assertEquals("Y99YRPYG", profile.getTag());
+        doGetProfile(URL, null, "Y99YRPYG");
+    }
+
+    private void doGetProfile(String url, String auth, String tag) {
+        assertEquals(tag, new Api(url, auth).getProfile(tag).getTag());
+    }
+
+    @Test
+    public void shouldGetProfileWithAuth() throws IOException {
+        doGetProfile(URL, AUTH, "Y99YRPYG");
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetProfileBecauseWrongAuth() throws IOException {
+        doGetProfile(URL, "abc", "Y99YRPYG");
     }
 
     @Test
     public void shouldGetProfiles() throws IOException {
-        List<String> tags = new ArrayList<String>();
+        doGetProfiles(URL, null, createProfileTags());
+    }
+
+    private void doGetProfiles(String url, String auth, List<String> tags) {
+        List<Profile> profiles = new Api(url, auth).getProfiles(tags);
+        assertEquals(tags.size(), profiles.size());
+        for (int i = 0, n = tags.size(); i < n; i ++) {
+            Profile profile = profiles.get(i);
+            String tag = tags.get(i);
+            assertEquals(tag, profile.getTag());
+        }
+    }
+
+    private List<String> createProfileTags() {
+        List<String> tags = new ArrayList<>();
         tags.add("L88P2282");
         tags.add("9CQ2U8QJ");
         tags.add("8L9L9GL");
-        List<Profile> profiles = new Api(URL).getProfiles(tags);
-        assertEquals("L88P2282", profiles.get(0).getTag());
-        assertEquals("9CQ2U8QJ", profiles.get(1).getTag());
-        assertEquals("8L9L9GL", profiles.get(2).getTag());
+        return tags;
+    }
+
+    @Test
+    public void shouldGetProfilesWithAuth() throws IOException {
+        doGetProfiles(URL, AUTH, createProfileTags());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetProfilesBecauseWrongAuth() throws IOException {
+        doGetProfiles(URL, "abc", createProfileTags());
     }
 
     @Test
     public void shouldGetTopClans() throws IOException {
-        TopClans topClans = new Api(URL).getTopClans();
-        assertTrue(topClans.getLastUpdated() > 0);
+        doGetTopClans(URL, null);
+    }
+
+    private void doGetTopClans(String url, String auth) {
+        assertTrue(new Api(url, auth).getTopClans().getLastUpdated() > 0);
+    }
+
+    @Test
+    public void shouldGetTopClansWithAuth() throws IOException {
+        doGetTopClans(URL, AUTH);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetTopClansBecauseWrongAuth() throws IOException {
+        doGetTopClans(URL, "abc");
     }
 
     @Test
     public void shouldGetClan() throws IOException {
-        DetailedClan detailedClan = new Api(URL).getClan("2CCCP");
-        assertEquals("2CCCP", detailedClan.getTag());
+        doGetClan(URL, null, "2CCCP");
+    }
+
+    private void doGetClan(String url, String auth, String tag) {
+        assertEquals(tag, new Api(url, auth).getClan(tag).getTag());
+    }
+
+    @Test
+    public void shouldGetClanWithAuth() throws IOException {
+        doGetClan(URL, AUTH, "2CCCP");
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanBecauseWrongAuth() throws IOException {
+        doGetClan(URL, "abc", "2CCCP");
     }
 
     @Test
     public void shouldGetClans() throws IOException {
-        List<String> tags = new ArrayList<String>();
+        doGetClans(URL, null, createClanTags());
+    }
+
+    private void doGetClans(String url, String auth, List<String> tags) {
+        List<DetailedClan> detailedClans = new Api(url, auth).getClans(tags);
+        assertEquals(tags.size(), detailedClans.size());
+        for (int i = 0, n = tags.size(); i < n; i ++) {
+            DetailedClan detailedClan = detailedClans.get(i);
+            String tag = tags.get(i);
+            assertEquals(tag, detailedClan.getTag());
+        }
+    }
+
+    private List<String> createClanTags() {
+        List<String> tags = new ArrayList<>();
         tags.add("2CCCP");
         tags.add("2U2GGQJ");
-        List<DetailedClan> detailedClans = new Api(URL).getClans(tags);
-        assertEquals("2CCCP", detailedClans.get(0).getTag());
-        assertEquals("2U2GGQJ", detailedClans.get(1).getTag());
+        return tags;
+    }
+
+    @Test
+    public void shouldGetClansWithAuth() throws IOException {
+        doGetClans(URL, AUTH, createClanTags());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClansBecauseWrongAuth() throws IOException {
+        doGetClans(URL, "abc", createClanTags());
     }
 
     @Test
     public void shouldGetConstants() throws IOException {
-        Constants constants = new Api(URL).getConstants();
+        doGetConstants(URL, null);
+    }
+
+    private void doGetConstants(String url, String auth) {
+        Constants constants = new Api(url, auth).getConstants();
         assertTrue(constants.getAlliance().getRoles().size() > 0);
+    }
+
+    @Test
+    public void shouldGetConstantsWithAuth() throws IOException {
+        doGetConstants(URL, AUTH);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetConstantsBecauseWrongAuth() throws IOException {
+        doGetConstants(URL, "abc");
     }
 
 }

@@ -5,6 +5,7 @@
 ```java
 // connect to api
 Api api = new Api("http://api.cr-api.com/");
+Api apiWithAuth = new Api("http://api.cr-api.com/", "my-developer-key");
 ```
 
 ```java

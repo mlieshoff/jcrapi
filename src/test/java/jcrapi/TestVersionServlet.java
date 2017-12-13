@@ -17,7 +17,6 @@
 package jcrapi;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,13 +25,17 @@ import java.io.PrintWriter;
 /**
  * @author Michael Lieshoff
  */
-public class TestVersionServlet extends HttpServlet {
+public class TestVersionServlet extends TestJsonFileServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = resp.getWriter();
-        printWriter.write("4.0.1");
-        printWriter.flush();
+        if (!checkAuth(req)) {
+            resp.setStatus(503);
+        } else {
+            PrintWriter printWriter = resp.getWriter();
+            printWriter.write("4.0.3");
+            printWriter.flush();
+        }
     }
 
 }

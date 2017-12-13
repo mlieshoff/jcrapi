@@ -25,12 +25,12 @@ public class ClientFactoryTest {
 
     @Test(expected = NullPointerException.class)
     public void failCreateClientBecauseNullUrl() {
-        new ClientFactory().createClient(null);
+        new ClientFactory().createClient(null, "abc");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failCreateClientBecauseEmptyUrl() {
-        new ClientFactory().createClient("");
+        new ClientFactory().createClient("", "abc");
     }
 
 }
