@@ -60,7 +60,6 @@ class Crawler {
     }
 
     private HttpGet createRequest(String url, Map<String, String> headers) {
-        System.out.println("> " + url);
         HttpGet httpGet = new HttpGet(url);
         addHeaders(httpGet, headers);
         return httpGet;
@@ -69,7 +68,6 @@ class Crawler {
     private void addHeaders(HttpGet httpGet, Map<String, String> headers) {
         for (Map.Entry<String, String> entry : headers.entrySet()) {
             httpGet.addHeader(entry.getKey(), entry.getValue());
-            System.out.println("> " + entry.getKey() + " = " + entry.getValue());
         }
     }
 
