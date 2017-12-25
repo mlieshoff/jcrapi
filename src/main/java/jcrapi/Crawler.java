@@ -25,6 +25,7 @@ import org.apache.http.client.methods.HttpGet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Map;
 
 /**
  * @author Michael Lieshoff
@@ -37,11 +38,13 @@ class Crawler {
         this.httpClientFactory = httpClientFactory;
     }
 
-    String get(String url) throws IOException {
+    String get(String url, Map<String, String> headers) throws IOException {
         Preconditions.checkNotNull(url);
         Preconditions.checkArgument(url.length() > 0);
+        Preconditions.checkNotNull(headers);
+        Preconditions.checkArgument(headers.size() > 0);
         HttpClient client = httpClientFactory.create();
-        HttpGet request = new HttpGet(url);
+        HttpGet request = createRequest(url, headers);
         HttpResponse response = client.execute(request);
         StatusLine statusLine = response.getStatusLine();
         if (statusLine.getStatusCode() != 200) {
@@ -54,6 +57,20 @@ class Crawler {
             s.append(line);
         }
         return s.toString();
+    }
+
+    private HttpGet createRequest(String url, Map<String, String> headers) {
+        System.out.println("> " + url);
+        HttpGet httpGet = new HttpGet(url);
+        addHeaders(httpGet, headers);
+        return httpGet;
+    }
+
+    private void addHeaders(HttpGet httpGet, Map<String, String> headers) {
+        for (Map.Entry<String, String> entry : headers.entrySet()) {
+            httpGet.addHeader(entry.getKey(), entry.getValue());
+            System.out.println("> " + entry.getKey() + " = " + entry.getValue());
+        }
     }
 
 }

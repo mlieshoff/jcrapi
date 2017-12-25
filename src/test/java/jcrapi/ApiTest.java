@@ -52,12 +52,22 @@ public class ApiTest {
 
     @Test(expected = NullPointerException.class)
     public void failCreateBecauseNullUrl() {
-        new Api(null);
+        new Api(null, "abc");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failCreateBecauseEmptyUrl() {
-        new Api("");
+        new Api("", "abc");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failCreateBecauseNullDeveloperKey() {
+        new Api("url", null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failCreateBecauseEmptyDeveloperKey() {
+        new Api("url", "");
     }
 
     @Test

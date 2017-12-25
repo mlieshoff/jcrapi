@@ -16,6 +16,7 @@
  */
 package jcrapi;
 
+import com.google.common.collect.ImmutableMap;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -63,60 +65,48 @@ public class ClientTest {
 
     @Test
     public void shouldGetVersion() throws IOException {
-        when(crawler.get("lala/version")).thenReturn("1.0");
+        when(crawler.get("lala/version", createHeaders())).thenReturn("1.0");
         assertEquals("1.0", createClient().getVersion());
     }
 
+    private Map<String,String> createHeaders() {
+        return ImmutableMap.<String, String>builder().put("auth", "abc").build();
+    }
+
     private Client createClient() {
-        return new Client("lala/", null, crawlerFactory);
-    }
-
-    @Test
-    public void shouldGetVersionWithAuth() throws IOException {
-        when(crawler.get("lala/version?auth=abc")).thenReturn("1.0");
-        assertEquals("1.0", createClientWithAuth().getVersion());
-    }
-
-    private Client createClientWithAuth() {
         return new Client("lala/", "abc", crawlerFactory);
     }
 
     @Test(expected = NullPointerException.class)
     public void failGetProfileBecauseNullTag() throws IOException {
-        createClientWithAuth().getProfile(null);
+        createClient().getProfile(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetProfileBecauseEmptyTag() throws IOException {
-        createClientWithAuth().getProfile("");
+        createClient().getProfile("");
     }
 
     @Test
     public void shouldGetProfile() throws IOException {
-        when(crawler.get("lala/profile/xyz")).thenReturn("{}");
+        when(crawler.get("lala/profile/xyz", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getProfile("xyz"));
-    }
-
-    @Test
-    public void shouldGetProfileWithAuth() throws IOException {
-        when(crawler.get("lala/profile/xyz?auth=abc")).thenReturn("{}");
-        assertNotNull(createClientWithAuth().getProfile("xyz"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetProfilesBecauseNullTag() throws IOException {
-        createClientWithAuth().getProfiles(null);
+        createClient().getProfiles(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetProfilesBecauseEmptyTag() throws IOException {
-        createClientWithAuth().getProfiles(Collections.<String>emptyList());
+        createClient().getProfiles(Collections.<String>emptyList());
     }
 
     @Test
     public void shouldGetProfiles() throws IOException {
         List<String> tags = createTags();
-        when(crawler.get("lala/profile/" + StringUtils.join(tags, ','))).thenReturn("[{}]");
+        when(crawler.get("lala/profile/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(tags));
     }
 
@@ -128,80 +118,48 @@ public class ClientTest {
     }
 
     @Test
-    public void shouldGetProfilesWithAuth() throws IOException {
-        List<String> tags = createTags();
-        when(crawler.get("lala/profile/" + StringUtils.join(tags, ',') + "?auth=abc")).thenReturn("[{}]");
-        assertNotNull(createClientWithAuth().getProfiles(tags));
-    }
-
-    @Test
     public void shouldGetTopClans() throws IOException {
-        when(crawler.get("lala/top/clans")).thenReturn("{}");
+        when(crawler.get("lala/top/clans", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getTopClans());
-    }
-
-    @Test
-    public void shouldGetTopClansWithAuth() throws IOException {
-        when(crawler.get("lala/top/clans?auth=abc")).thenReturn("{}");
-        assertNotNull(createClientWithAuth().getTopClans());
     }
 
     @Test(expected = NullPointerException.class)
     public void failGetClanBecauseNullTag() throws IOException {
-        createClientWithAuth().getClan(null);
+        createClient().getClan(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetClanBecauseEmptyTag() throws IOException {
-        createClientWithAuth().getClan("");
+        createClient().getClan("");
     }
 
     @Test
     public void shouldGetClan() throws IOException {
-        when(crawler.get("lala/clan/xyz")).thenReturn("{}");
+        when(crawler.get("lala/clan/xyz", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getClan("xyz"));
-    }
-
-    @Test
-    public void shouldGetClanWithAuth() throws IOException {
-        when(crawler.get("lala/clan/xyz?auth=abc")).thenReturn("{}");
-        assertNotNull(createClientWithAuth().getClan("xyz"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetClansBecauseNullTag() throws IOException {
-        createClientWithAuth().getClans(null);
+        createClient().getClans(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetClansBecauseEmptyTag() throws IOException {
-        createClientWithAuth().getClans(Collections.<String>emptyList());
+        createClient().getClans(Collections.<String>emptyList());
     }
 
     @Test
     public void shouldGetClans() throws IOException {
         List<String> tags = createTags();
-        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','))).thenReturn("[{}]");
+        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getClans(tags));
     }
 
     @Test
-    public void shouldGetClansWithAuth() throws IOException {
-        List<String> tags = createTags();
-        when(crawler.get("lala/clan/" + StringUtils.join(tags, ',') + "?auth=abc")).thenReturn("[{}]");
-        assertNotNull(createClientWithAuth().getClans(tags));
-    }
-
-    @Test
     public void shouldGetConstants() throws IOException {
-        when(crawler.get("lala/constants")).thenReturn("{}");
+        when(crawler.get("lala/constants", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getConstants());
-    }
-
-    @Test
-    public void shouldGetConstantsWithAuth() throws IOException {
-        when(crawler.get("lala/constants?auth=abc")).thenReturn("{}");
-        assertNotNull(createClientWithAuth().getConstants());
     }
 
 }

@@ -61,18 +61,13 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetVersion() throws IOException {
-        doGetVersion(URL, null, VERSION);
+    public void shouldGetVersionWithAuth() throws IOException {
+        doGetVersion(URL, AUTH, VERSION);
     }
 
     private void doGetVersion(String url, String auth, String expected) {
         String version = new Api(url, auth).getVersion();
         assertEquals(expected, version);
-    }
-
-    @Test
-    public void shouldGetVersionWithAuth() throws IOException {
-        doGetVersion(URL, AUTH, VERSION);
     }
 
     @Test(expected = ApiException.class)
@@ -81,27 +76,17 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetProfile() throws IOException {
-        doGetProfile(URL, null, "Y99YRPYG");
+    public void shouldGetProfileWithAuth() throws IOException {
+        doGetProfile(URL, AUTH, "Y99YRPYG");
     }
 
     private void doGetProfile(String url, String auth, String tag) {
         assertEquals(tag, new Api(url, auth).getProfile(tag).getTag());
     }
 
-    @Test
-    public void shouldGetProfileWithAuth() throws IOException {
-        doGetProfile(URL, AUTH, "Y99YRPYG");
-    }
-
     @Test(expected = ApiException.class)
     public void failGetProfileBecauseWrongAuth() throws IOException {
         doGetProfile(URL, "abc", "Y99YRPYG");
-    }
-
-    @Test
-    public void shouldGetProfiles() throws IOException {
-        doGetProfiles(URL, null, createProfileTags());
     }
 
     private void doGetProfiles(String url, String auth, List<String> tags) {
@@ -133,17 +118,12 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetTopClans() throws IOException {
-        doGetTopClans(URL, null);
+    public void shouldGetTopClansWithAuth() throws IOException {
+        doGetTopClans(URL, AUTH);
     }
 
     private void doGetTopClans(String url, String auth) {
         assertTrue(new Api(url, auth).getTopClans().getLastUpdated() > 0);
-    }
-
-    @Test
-    public void shouldGetTopClansWithAuth() throws IOException {
-        doGetTopClans(URL, AUTH);
     }
 
     @Test(expected = ApiException.class)
@@ -152,17 +132,12 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetClan() throws IOException {
-        doGetClan(URL, null, "2CCCP");
+    public void shouldGetClanWithAuth() throws IOException {
+        doGetClan(URL, AUTH, "2CCCP");
     }
 
     private void doGetClan(String url, String auth, String tag) {
         assertEquals(tag, new Api(url, auth).getClan(tag).getTag());
-    }
-
-    @Test
-    public void shouldGetClanWithAuth() throws IOException {
-        doGetClan(URL, AUTH, "2CCCP");
     }
 
     @Test(expected = ApiException.class)
@@ -171,8 +146,8 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetClans() throws IOException {
-        doGetClans(URL, null, createClanTags());
+    public void shouldGetClansWithAuth() throws IOException {
+        doGetClans(URL, AUTH, createClanTags());
     }
 
     private void doGetClans(String url, String auth, List<String> tags) {
@@ -192,29 +167,19 @@ public class IntegrationTest {
         return tags;
     }
 
-    @Test
-    public void shouldGetClansWithAuth() throws IOException {
-        doGetClans(URL, AUTH, createClanTags());
-    }
-
     @Test(expected = ApiException.class)
     public void failGetClansBecauseWrongAuth() throws IOException {
         doGetClans(URL, "abc", createClanTags());
     }
 
     @Test
-    public void shouldGetConstants() throws IOException {
-        doGetConstants(URL, null);
+    public void shouldGetConstantsWithAuth() throws IOException {
+        doGetConstants(URL, AUTH);
     }
 
     private void doGetConstants(String url, String auth) {
         Constants constants = new Api(url, auth).getConstants();
         assertTrue(constants.getAlliance().getRoles().size() > 0);
-    }
-
-    @Test
-    public void shouldGetConstantsWithAuth() throws IOException {
-        doGetConstants(URL, AUTH);
     }
 
     @Test(expected = ApiException.class)

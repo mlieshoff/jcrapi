@@ -36,24 +36,21 @@ public class Api {
     private final String url;
     private final String developerKey;
 
-    public Api(String url) {
-        this(url, null);
-    }
-
     public Api(String url, String developerKey) {
         this(url, developerKey, new ClientFactory());
     }
 
     Api(String url, String developerKey, ClientFactory clientFactory) {
-        checkString(url);
+        checkString(url, "url");
+        checkString(developerKey, "developerKey");
         this.url = url;
         this.developerKey = developerKey;
         this.clientFactory = clientFactory;
     }
 
-    private void checkString(String url) {
-        Preconditions.checkNotNull(url);
-        Preconditions.checkArgument(url.length() > 0, url);
+    private void checkString(String s, String key) {
+        Preconditions.checkNotNull(s, key);
+        Preconditions.checkArgument(s.length() > 0, key);
     }
 
     public String getVersion() {
@@ -65,7 +62,7 @@ public class Api {
     }
 
     public Profile getProfile(String tag) {
-        checkString(tag);
+        checkString(tag, "tag");
         try {
             return clientFactory.createClient(url, developerKey).getProfile(tag);
         } catch (IOException e) {
@@ -91,7 +88,7 @@ public class Api {
     }
 
     public DetailedClan getClan(String tag) {
-        checkString(tag);
+        checkString(tag, "tag");
         try {
             return clientFactory.createClient(url, developerKey).getClan(tag);
         } catch (IOException e) {
@@ -117,3 +114,6 @@ public class Api {
     }
 
 }
+
+
+
