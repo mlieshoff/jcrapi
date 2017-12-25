@@ -4,8 +4,8 @@
 
 ```java
 // connect to api
-Api api = new Api("http://api.cr-api.com/");
-Api apiWithAuth = new Api("http://api.cr-api.com/", "my-developer-key");
+Api api = new Api(Endpoints.BASE.getCode());
+Api apiWithAuth = new Api(Endpoints.BASE.getCode(), "my-developer-key");
 ```
 
 ```java

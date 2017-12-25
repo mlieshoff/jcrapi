@@ -16,20 +16,21 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ConstantCard {
 
     @SerializedName("card_id")
-    private int card_id;
+    private int cardId;
 
     @SerializedName("key")
     private String key;
 
     @SerializedName("card_key")
-    private String card_key;
+    private String cardKey;
 
     @SerializedName("name")
     private String name;
@@ -52,12 +53,12 @@ public class ConstantCard {
     @SerializedName("decklink")
     private String decklink;
 
-    public void setCard_id(int card_id) {
-        this.card_id = card_id;
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
     }
     
-    public int getCard_id() {
-        return card_id;
+    public int getCardId() {
+        return cardId;
     }
     
     public void setKey(String key) {
@@ -68,12 +69,12 @@ public class ConstantCard {
         return key;
     }
     
-    public void setCard_key(String card_key) {
-        this.card_key = card_key;
+    public void setCardKey(String cardKey) {
+        this.cardKey = cardKey;
     }
     
-    public String getCard_key() {
-        return card_key;
+    public String getCardKey() {
+        return cardKey;
     }
     
     public void setName(String name) {
@@ -135,14 +136,14 @@ public class ConstantCard {
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("ConstantCard{");
-        s.append("card_id=");
-        s.append(card_id);
+        s.append("cardId=");
+        s.append(cardId);
         s.append(", ");
         s.append("key=");
         s.append(key);
         s.append(", ");
-        s.append("card_key=");
-        s.append(card_key);
+        s.append("cardKey=");
+        s.append(cardKey);
         s.append(", ");
         s.append("name=");
         s.append(name);

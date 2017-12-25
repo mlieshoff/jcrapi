@@ -1,0 +1,15 @@
+{
+  "roles": [
+    null,
+    "Member",
+    "Leader",
+    "Elder",
+    "Co-Leader"
+  ],
+  "types": [
+    null,
+    "Open",
+    "Invite Only",
+    "Closed"
+  ]
+}

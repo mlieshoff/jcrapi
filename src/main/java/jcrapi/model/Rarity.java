@@ -23,231 +23,231 @@ import com.google.gson.annotations.SerializedName;
 public class Rarity {
 
     @SerializedName("balance_multiplier")
-    private int balance_multiplier;
+    private int balanceMultiplier;
 
     @SerializedName("chance_weight")
-    private int chance_weight;
+    private int chanceWeight;
 
     @SerializedName("clone_relative_level")
-    private int clone_relative_level;
+    private int cloneRelativeLevel;
 
     @SerializedName("donate_capacity")
-    private int donate_capacity;
+    private int donateCapacity;
 
     @SerializedName("donate_reward")
-    private int donate_reward;
+    private int donateReward;
 
     @SerializedName("donate_xp")
-    private int donate_xp;
+    private int donateXp;
 
     @SerializedName("gold_conversion_value")
-    private int gold_conversion_value;
+    private int goldConversionValue;
 
     @SerializedName("level_count")
-    private int level_count;
+    private int levelCount;
 
     @SerializedName("mirror_relative_level")
-    private int mirror_relative_level;
+    private int mirrorRelativeLevel;
 
     @SerializedName("power_level_multiplier")
-    private java.util.List<Integer> power_level_multiplier;
+    private java.util.List<Integer> powerLevelMultiplier;
 
     @SerializedName("refund_gems")
-    private int refund_gems;
+    private int refundGems;
 
     @SerializedName("relative_level")
-    private int relative_level;
+    private int relativeLevel;
 
     @SerializedName("sort_capacity")
-    private int sort_capacity;
+    private int sortCapacity;
 
     @SerializedName("upgrade_cost")
-    private java.util.List<Integer> upgrade_cost;
+    private java.util.List<Integer> upgradeCost;
 
     @SerializedName("upgrade_exp")
-    private java.util.List<Integer> upgrade_exp;
+    private java.util.List<Integer> upgradeExp;
 
     @SerializedName("upgrade_material_cost")
-    private java.util.List<Integer> upgrade_material_cost;
+    private java.util.List<Integer> upgradeMaterialCost;
 
-    public void setBalance_multiplier(int balance_multiplier) {
-        this.balance_multiplier = balance_multiplier;
+    public void setBalanceMultiplier(int balanceMultiplier) {
+        this.balanceMultiplier = balanceMultiplier;
     }
     
-    public int getBalance_multiplier() {
-        return balance_multiplier;
+    public int getBalanceMultiplier() {
+        return balanceMultiplier;
     }
     
-    public void setChance_weight(int chance_weight) {
-        this.chance_weight = chance_weight;
+    public void setChanceWeight(int chanceWeight) {
+        this.chanceWeight = chanceWeight;
     }
     
-    public int getChance_weight() {
-        return chance_weight;
+    public int getChanceWeight() {
+        return chanceWeight;
     }
     
-    public void setClone_relative_level(int clone_relative_level) {
-        this.clone_relative_level = clone_relative_level;
+    public void setCloneRelativeLevel(int cloneRelativeLevel) {
+        this.cloneRelativeLevel = cloneRelativeLevel;
     }
     
-    public int getClone_relative_level() {
-        return clone_relative_level;
+    public int getCloneRelativeLevel() {
+        return cloneRelativeLevel;
     }
     
-    public void setDonate_capacity(int donate_capacity) {
-        this.donate_capacity = donate_capacity;
+    public void setDonateCapacity(int donateCapacity) {
+        this.donateCapacity = donateCapacity;
     }
     
-    public int getDonate_capacity() {
-        return donate_capacity;
+    public int getDonateCapacity() {
+        return donateCapacity;
     }
     
-    public void setDonate_reward(int donate_reward) {
-        this.donate_reward = donate_reward;
+    public void setDonateReward(int donateReward) {
+        this.donateReward = donateReward;
     }
     
-    public int getDonate_reward() {
-        return donate_reward;
+    public int getDonateReward() {
+        return donateReward;
     }
     
-    public void setDonate_xp(int donate_xp) {
-        this.donate_xp = donate_xp;
+    public void setDonateXp(int donateXp) {
+        this.donateXp = donateXp;
     }
     
-    public int getDonate_xp() {
-        return donate_xp;
+    public int getDonateXp() {
+        return donateXp;
     }
     
-    public void setGold_conversion_value(int gold_conversion_value) {
-        this.gold_conversion_value = gold_conversion_value;
+    public void setGoldConversionValue(int goldConversionValue) {
+        this.goldConversionValue = goldConversionValue;
     }
     
-    public int getGold_conversion_value() {
-        return gold_conversion_value;
+    public int getGoldConversionValue() {
+        return goldConversionValue;
     }
     
-    public void setLevel_count(int level_count) {
-        this.level_count = level_count;
+    public void setLevelCount(int levelCount) {
+        this.levelCount = levelCount;
     }
     
-    public int getLevel_count() {
-        return level_count;
+    public int getLevelCount() {
+        return levelCount;
     }
     
-    public void setMirror_relative_level(int mirror_relative_level) {
-        this.mirror_relative_level = mirror_relative_level;
+    public void setMirrorRelativeLevel(int mirrorRelativeLevel) {
+        this.mirrorRelativeLevel = mirrorRelativeLevel;
     }
     
-    public int getMirror_relative_level() {
-        return mirror_relative_level;
+    public int getMirrorRelativeLevel() {
+        return mirrorRelativeLevel;
     }
     
-    public void setPower_level_multiplier(java.util.List<Integer> power_level_multiplier) {
-        this.power_level_multiplier = power_level_multiplier;
+    public void setPowerLevelMultiplier(java.util.List<Integer> powerLevelMultiplier) {
+        this.powerLevelMultiplier = powerLevelMultiplier;
     }
     
-    public java.util.List<Integer> getPower_level_multiplier() {
-        return power_level_multiplier;
+    public java.util.List<Integer> getPowerLevelMultiplier() {
+        return powerLevelMultiplier;
     }
     
-    public void setRefund_gems(int refund_gems) {
-        this.refund_gems = refund_gems;
+    public void setRefundGems(int refundGems) {
+        this.refundGems = refundGems;
     }
     
-    public int getRefund_gems() {
-        return refund_gems;
+    public int getRefundGems() {
+        return refundGems;
     }
     
-    public void setRelative_level(int relative_level) {
-        this.relative_level = relative_level;
+    public void setRelativeLevel(int relativeLevel) {
+        this.relativeLevel = relativeLevel;
     }
     
-    public int getRelative_level() {
-        return relative_level;
+    public int getRelativeLevel() {
+        return relativeLevel;
     }
     
-    public void setSort_capacity(int sort_capacity) {
-        this.sort_capacity = sort_capacity;
+    public void setSortCapacity(int sortCapacity) {
+        this.sortCapacity = sortCapacity;
     }
     
-    public int getSort_capacity() {
-        return sort_capacity;
+    public int getSortCapacity() {
+        return sortCapacity;
     }
     
-    public void setUpgrade_cost(java.util.List<Integer> upgrade_cost) {
-        this.upgrade_cost = upgrade_cost;
+    public void setUpgradeCost(java.util.List<Integer> upgradeCost) {
+        this.upgradeCost = upgradeCost;
     }
     
-    public java.util.List<Integer> getUpgrade_cost() {
-        return upgrade_cost;
+    public java.util.List<Integer> getUpgradeCost() {
+        return upgradeCost;
     }
     
-    public void setUpgrade_exp(java.util.List<Integer> upgrade_exp) {
-        this.upgrade_exp = upgrade_exp;
+    public void setUpgradeExp(java.util.List<Integer> upgradeExp) {
+        this.upgradeExp = upgradeExp;
     }
     
-    public java.util.List<Integer> getUpgrade_exp() {
-        return upgrade_exp;
+    public java.util.List<Integer> getUpgradeExp() {
+        return upgradeExp;
     }
     
-    public void setUpgrade_material_cost(java.util.List<Integer> upgrade_material_cost) {
-        this.upgrade_material_cost = upgrade_material_cost;
+    public void setUpgradeMaterialCost(java.util.List<Integer> upgradeMaterialCost) {
+        this.upgradeMaterialCost = upgradeMaterialCost;
     }
     
-    public java.util.List<Integer> getUpgrade_material_cost() {
-        return upgrade_material_cost;
+    public java.util.List<Integer> getUpgradeMaterialCost() {
+        return upgradeMaterialCost;
     }
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("Rarity{");
-        s.append("balance_multiplier=");
-        s.append(balance_multiplier);
+        s.append("balanceMultiplier=");
+        s.append(balanceMultiplier);
         s.append(", ");
-        s.append("chance_weight=");
-        s.append(chance_weight);
+        s.append("chanceWeight=");
+        s.append(chanceWeight);
         s.append(", ");
-        s.append("clone_relative_level=");
-        s.append(clone_relative_level);
+        s.append("cloneRelativeLevel=");
+        s.append(cloneRelativeLevel);
         s.append(", ");
-        s.append("donate_capacity=");
-        s.append(donate_capacity);
+        s.append("donateCapacity=");
+        s.append(donateCapacity);
         s.append(", ");
-        s.append("donate_reward=");
-        s.append(donate_reward);
+        s.append("donateReward=");
+        s.append(donateReward);
         s.append(", ");
-        s.append("donate_xp=");
-        s.append(donate_xp);
+        s.append("donateXp=");
+        s.append(donateXp);
         s.append(", ");
-        s.append("gold_conversion_value=");
-        s.append(gold_conversion_value);
+        s.append("goldConversionValue=");
+        s.append(goldConversionValue);
         s.append(", ");
-        s.append("level_count=");
-        s.append(level_count);
+        s.append("levelCount=");
+        s.append(levelCount);
         s.append(", ");
-        s.append("mirror_relative_level=");
-        s.append(mirror_relative_level);
+        s.append("mirrorRelativeLevel=");
+        s.append(mirrorRelativeLevel);
         s.append(", ");
-        s.append("power_level_multiplier=");
-        s.append(power_level_multiplier);
+        s.append("powerLevelMultiplier=");
+        s.append(powerLevelMultiplier);
         s.append(", ");
-        s.append("refund_gems=");
-        s.append(refund_gems);
+        s.append("refundGems=");
+        s.append(refundGems);
         s.append(", ");
-        s.append("relative_level=");
-        s.append(relative_level);
+        s.append("relativeLevel=");
+        s.append(relativeLevel);
         s.append(", ");
-        s.append("sort_capacity=");
-        s.append(sort_capacity);
+        s.append("sortCapacity=");
+        s.append(sortCapacity);
         s.append(", ");
-        s.append("upgrade_cost=");
-        s.append(upgrade_cost);
+        s.append("upgradeCost=");
+        s.append(upgradeCost);
         s.append(", ");
-        s.append("upgrade_exp=");
-        s.append(upgrade_exp);
+        s.append("upgradeExp=");
+        s.append(upgradeExp);
         s.append(", ");
-        s.append("upgrade_material_cost=");
-        s.append(upgrade_material_cost);
+        s.append("upgradeMaterialCost=");
+        s.append(upgradeMaterialCost);
         s.append("}");
         return s.toString();
     }
