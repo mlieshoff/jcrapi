@@ -31,6 +31,7 @@ import jcrapi.model.CountryCode;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
+import jcrapi.model.TopPlayer;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -111,6 +112,12 @@ class Client {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<TopPlayer> getTopPlayers() throws IOException {
+        String json = createCrawler().get(createUrl("top/players"), createAuthHeader(developerKey));
+        Type listType = new TypeToken<ArrayList<TopPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 

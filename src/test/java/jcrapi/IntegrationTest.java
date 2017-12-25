@@ -188,6 +188,20 @@ public class IntegrationTest {
     }
 
     @Test
+    public void shouldGetTopPlayersWithAuth() throws IOException {
+        doGetTopPlayers(URL, AUTH);
+    }
+
+    private void doGetTopPlayers(String url, String auth) {
+        assertTrue(new Api(url, auth).getTopPlayers().size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetTopPlayersBecauseWrongAuth() throws IOException {
+        doGetTopPlayers(URL, "abc");
+    }
+
+    @Test
     public void shouldGetConstantsWithAuth() throws IOException {
         doGetConstants(URL, AUTH);
     }

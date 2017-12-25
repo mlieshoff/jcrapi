@@ -28,6 +28,7 @@ import jcrapi.model.CountryCode;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
+import jcrapi.model.TopPlayer;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -107,6 +108,14 @@ public class Api {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         try {
             return clientFactory.createClient(url, developerKey).getClans(tags);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<TopPlayer> getTopPlayers() {
+        try {
+            return clientFactory.createClient(url, developerKey).getTopPlayers();
         } catch (IOException e) {
             throw new ApiException(e);
         }

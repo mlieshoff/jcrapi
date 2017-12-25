@@ -157,6 +157,12 @@ public class ClientTest {
     }
 
     @Test
+    public void shouldGetTopPlayers() throws IOException {
+        when(crawler.get("lala/top/players", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopPlayers());
+    }
+
+    @Test
     public void shouldGetConstants() throws IOException {
         when(crawler.get("lala/constants", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getConstants());
