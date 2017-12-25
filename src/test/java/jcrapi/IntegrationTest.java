@@ -48,7 +48,7 @@ public class IntegrationTest {
     public static void beforeClass() throws Exception {
         jettyServer = new JettyServer(50000, "/" + CONTEXT);
         jettyServer.addServlet("/" + APP + "/version", new TestVersionServlet());
-        jettyServer.addServlet("/" + APP + "/profile/*", new TestProfileServlet());
+        jettyServer.addServlet("/" + APP + "/player/*", new TestProfileServlet());
         jettyServer.addServlet("/" + APP + "/top/clans/*", new TestTopClansServlet());
         jettyServer.addServlet("/" + APP + "/clan/*", new TestClanServlet());
         jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());

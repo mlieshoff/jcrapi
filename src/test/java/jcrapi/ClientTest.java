@@ -89,7 +89,7 @@ public class ClientTest {
 
     @Test
     public void shouldGetProfile() throws IOException {
-        when(crawler.get("lala/profile/xyz", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/player/xyz", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getProfile("xyz"));
     }
 
@@ -106,7 +106,7 @@ public class ClientTest {
     @Test
     public void shouldGetProfiles() throws IOException {
         List<String> tags = createTags();
-        when(crawler.get("lala/profile/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/player/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(tags));
     }
 

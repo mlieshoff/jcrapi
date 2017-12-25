@@ -77,13 +77,13 @@ class Client {
 
     Profile getProfile(String tag) throws IOException {
         checkString(tag);
-        String json = createCrawler().get(createUrl("profile/" + tag), createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("player/" + tag), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Profile.class);
     }
 
     List<Profile> getProfiles(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("profile/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("player/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
