@@ -119,7 +119,7 @@ public class ClientTest {
 
     @Test
     public void shouldGetTopClans() throws IOException {
-        when(crawler.get("lala/top/clans", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans());
     }
 

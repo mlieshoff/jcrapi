@@ -1,1 +1,3802 @@
-{"clans":[{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":50,"name":"Mega Stars","previousRank":4,"rank":1,"region":{"id":57000113,"isCountry":true,"key":"IN","name":"India"},"tag":"29QLGL28","trophies":45299},{"badge":{"filename":"Sword_01.png","key":"Sword_01","url":"/badge/Sword_01.png"},"memberCount":50,"name":"Munich Warriors","previousRank":8,"rank":2,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"82V9V","trophies":44731},{"badge":{"filename":"Traditional_Star_05.png","key":"Traditional_Star_05","url":"/badge/Traditional_Star_05.png"},"memberCount":50,"name":"Star Alliance","previousRank":6,"rank":3,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"8V00U2RJ","trophies":44671},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":50,"name":"Sandstorm Arb","previousRank":34,"rank":4,"region":{"id":57000204,"isCountry":true,"key":"SA","name":"Saudi Arabia"},"tag":"8PCCV9PQ","trophies":44563},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":50,"name":"Nova I Iran","previousRank":35,"rank":5,"region":{"id":57000115,"isCountry":true,"key":"IR","name":"Iran"},"tag":"","trophies":44428},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":50,"name":"Nova l NA","previousRank":24,"rank":6,"region":{"id":57000249,"isCountry":true,"key":"US","name":"United States"},"tag":"88UGGYG","trophies":44343},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":49,"name":"SENTRY","previousRank":17,"rank":7,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"LQ9YR","trophies":44260},{"badge":{"filename":"A_Char_Pekka_01.png","key":"A_Char_Pekka_01","url":"/badge/A_Char_Pekka_01.png"},"memberCount":50,"name":"薛家军","previousRank":18,"rank":8,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"20QRPR98","trophies":44196},{"badge":{"filename":"Flame_03.png","key":"Flame_03","url":"/badge/Flame_03.png"},"memberCount":43,"name":"Crucible Wrath","previousRank":3,"rank":9,"region":{"id":57000249,"isCountry":true,"key":"US","name":"United States"},"tag":"","trophies":44172},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":49,"name":"Nova I Korea","previousRank":51,"rank":10,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"92LLJ828","trophies":44161},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":48,"name":"Nova FrenchArmy","previousRank":12,"rank":11,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"8VG2C9CJ","trophies":44044},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":45,"name":"Nova l Brazil","previousRank":7,"rank":12,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"JVRPGV8","trophies":43914},{"badge":{"filename":"Crown_01.png","key":"Crown_01","url":"/badge/Crown_01.png"},"memberCount":49,"name":"INDO ROYALE","previousRank":77,"rank":13,"region":{"id":57000114,"isCountry":true,"key":"ID","name":"Indonesia"},"tag":"","trophies":43845},{"badge":{"filename":"Sword_01.png","key":"Sword_01","url":"/badge/Sword_01.png"},"memberCount":48,"name":"ENIGMA","previousRank":27,"rank":14,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"22UYUJ9V","trophies":43819},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":50,"name":"Sandstorm Ru","previousRank":81,"rank":15,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"80U9VQU8","trophies":43790},{"badge":{"filename":"flag_n_04.png","key":"flag_n_04","url":"/badge/flag_n_04.png"},"memberCount":48,"name":"Revolution™","previousRank":30,"rank":16,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"90RJGVGJ","trophies":43778},{"badge":{"filename":"Crown_02.png","key":"Crown_02","url":"/badge/Crown_02.png"},"memberCount":50,"name":"RoyaleConQueso","previousRank":22,"rank":17,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"PQJ2Y","trophies":43776},{"badge":{"filename":"Flame_01.png","key":"Flame_01","url":"/badge/Flame_01.png"},"memberCount":50,"name":"上海 OP 千阳号","previousRank":32,"rank":18,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"2GP0L09","trophies":43772},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":49,"name":"HK@852 l Nova","previousRank":49,"rank":19,"region":{"id":57000110,"isCountry":true,"key":"HK","name":"Hong Kong"},"tag":"8JQQP8UL","trophies":43772},{"badge":{"filename":"Orange_02.png","key":"Orange_02","url":"/badge/Orange_02.png"},"memberCount":48,"name":"Caju Royale","previousRank":41,"rank":20,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"VQ9CGR0","trophies":43746},{"badge":{"filename":"Arrow_02.png","key":"Arrow_02","url":"/badge/Arrow_02.png"},"memberCount":49,"name":"KOREA","previousRank":50,"rank":21,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"","trophies":43717},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":43,"name":"Sandstorm BR","previousRank":10,"rank":22,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8QQGPJP9","trophies":43661},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":47,"name":"Nova l Swiss","previousRank":42,"rank":23,"region":{"id":57000226,"isCountry":true,"key":"CH","name":"Switzerland"},"tag":"8RR89PUY","trophies":43518},{"badge":{"filename":"Moon_01.png","key":"Moon_01","url":"/badge/Moon_01.png"},"memberCount":49,"name":"TÜRKİYE","previousRank":86,"rank":24,"region":{"id":57000239,"isCountry":true,"key":"TR","name":"Turkey"},"tag":"8QLVV00V","trophies":43508},{"badge":{"filename":"A_Char_Hammer_01.png","key":"A_Char_Hammer_01","url":"/badge/A_Char_Hammer_01.png"},"memberCount":50,"name":"Шайтаны","previousRank":87,"rank":25,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"R808","trophies":43465},{"badge":{"filename":"flag_j_03.png","key":"flag_j_03","url":"/badge/flag_j_03.png"},"memberCount":47,"name":"Кузькина Мать","previousRank":20,"rank":26,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"8C88C2","trophies":43461},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":50,"name":"Sandstorm IRQ","previousRank":63,"rank":27,"region":{"id":57000116,"isCountry":true,"key":"IQ","name":"Iraq"},"tag":"8YYRQY8J","trophies":43460},{"badge":{"filename":"Gem_04.png","key":"Gem_04","url":"/badge/Gem_04.png"},"memberCount":49,"name":"ارتش امام زمان","previousRank":103,"rank":28,"region":{"id":57000115,"isCountry":true,"key":"IR","name":"Iran"},"tag":"8RU0JYQ8","trophies":43440},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":45,"name":"GloryMakersNova","previousRank":9,"rank":29,"region":{"id":57000204,"isCountry":true,"key":"SA","name":"Saudi Arabia"},"tag":"8R2C0G9Y","trophies":43426},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":46,"name":"Nova I EG","previousRank":16,"rank":30,"region":{"id":57000006,"isCountry":false,"key":"_INT","name":"International"},"tag":"8YLJ8UL2","trophies":43424},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":44,"name":"Nova l 大唐天子","previousRank":5,"rank":31,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"RVL2PQQ","trophies":43417},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":48,"name":"Sandstorm PL™","previousRank":52,"rank":32,"region":{"id":57000187,"isCountry":true,"key":"PL","name":"Poland"},"tag":"989CPY8C","trophies":43381},{"badge":{"filename":"flag_c_01.png","key":"flag_c_01","url":"/badge/flag_c_01.png"},"memberCount":49,"name":"대한민국•KOREA","previousRank":145,"rank":33,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"8RYP2J","trophies":43374},{"badge":{"filename":"Traditional_Star_04.png","key":"Traditional_Star_04","url":"/badge/Traditional_Star_04.png"},"memberCount":47,"name":"Vietnam Glory","previousRank":68,"rank":34,"region":{"id":57000255,"isCountry":true,"key":"VN","name":"Vietnam"},"tag":"GJGQCGU","trophies":43337},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":49,"name":"Mega Indonesia","previousRank":61,"rank":35,"region":{"id":57000114,"isCountry":true,"key":"ID","name":"Indonesia"},"tag":"8GP8Y28R","trophies":43331},{"badge":{"filename":"Traditional_Star_01.png","key":"Traditional_Star_01","url":"/badge/Traditional_Star_01.png"},"memberCount":50,"name":"Veterans Élite™","previousRank":90,"rank":36,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"8YVV9YUR","trophies":43316},{"badge":{"filename":"Arrow_01.png","key":"Arrow_01","url":"/badge/Arrow_01.png"},"memberCount":46,"name":"༺ᏕᏢᏐᏒᏐᎢ ᎻᎪᎳᏦ༻","previousRank":31,"rank":37,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"LYR90J2","trophies":43314},{"badge":{"filename":"Pine_02.png","key":"Pine_02","url":"/badge/Pine_02.png"},"memberCount":50,"name":"Kings Of IRAN","previousRank":94,"rank":38,"region":{"id":57000115,"isCountry":true,"key":"IR","name":"Iran"},"tag":"YVGRPQ8","trophies":43305},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":50,"name":"Sandstorm BR™","previousRank":121,"rank":39,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8R2LL0YJ","trophies":43300},{"badge":{"filename":"Fugi_03.png","key":"Fugi_03","url":"/badge/Fugi_03.png"},"memberCount":49,"name":"BMG ★ BWinter","previousRank":96,"rank":40,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"88CCC2JL","trophies":43294},{"badge":{"filename":"Twin_Peaks_01.png","key":"Twin_Peaks_01","url":"/badge/Twin_Peaks_01.png"},"memberCount":50,"name":"Made In Egypt ™","previousRank":110,"rank":41,"region":{"id":57000077,"isCountry":true,"key":"EG","name":"Egypt"},"tag":"82PPJUU8","trophies":43293},{"badge":{"filename":"Freeze_01.png","key":"Freeze_01","url":"/badge/Freeze_01.png"},"memberCount":49,"name":"Wi and Fi","previousRank":47,"rank":42,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"YLYJ8","trophies":43260},{"badge":{"filename":"Heart_01.png","key":"Heart_01","url":"/badge/Heart_01.png"},"memberCount":49,"name":"Les Vilains !","previousRank":57,"rank":43,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"80LC8228","trophies":43191},{"badge":{"filename":"Flame_01.png","key":"Flame_01","url":"/badge/Flame_01.png"},"memberCount":48,"name":"Crema Catalana","previousRank":111,"rank":44,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"2JYGCRLL","trophies":43187},{"badge":{"filename":"Skull_01.png","key":"Skull_01","url":"/badge/Skull_01.png"},"memberCount":46,"name":"Brasil eSports","previousRank":36,"rank":45,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8RU0G892","trophies":43175},{"badge":{"filename":"Fan_04.png","key":"Fan_04","url":"/badge/Fan_04.png"},"memberCount":49,"name":"きくすいコーポ","previousRank":43,"rank":46,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"","trophies":43160},{"badge":{"filename":"flag_f_02.png","key":"flag_f_02","url":"/badge/flag_f_02.png"},"memberCount":46,"name":"29.10.1923","previousRank":58,"rank":47,"region":{"id":57000239,"isCountry":true,"key":"TR","name":"Turkey"},"tag":"QLJU8G","trophies":43157},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":49,"name":"Sandstorm TR","previousRank":122,"rank":48,"region":{"id":57000239,"isCountry":true,"key":"TR","name":"Turkey"},"tag":"892PJR80","trophies":43138},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":43,"name":"风暴","previousRank":-64,"rank":49,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"8VRJC2V2","trophies":43124},{"badge":{"filename":"A_Char_Rocket_02.png","key":"A_Char_Rocket_02","url":"/badge/A_Char_Rocket_02.png"},"memberCount":48,"name":"Reddit Alpha","previousRank":25,"rank":50,"region":{"id":57000172,"isCountry":true,"key":"NU","name":"Niue"},"tag":"2CCCP","trophies":43106},{"badge":{"filename":"A_Char_Goblin_01.png","key":"A_Char_Goblin_01","url":"/badge/A_Char_Goblin_01.png"},"memberCount":47,"name":"Assassins Crew™","previousRank":95,"rank":51,"region":{"id":57000055,"isCountry":true,"key":"CL","name":"Chile"},"tag":"8PVYCRJR","trophies":43104},{"badge":{"filename":"Skull_01.png","key":"Skull_01","url":"/badge/Skull_01.png"},"memberCount":48,"name":"LA PERLA NERA","previousRank":59,"rank":52,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"V922YRV","trophies":43092},{"badge":{"filename":"A_Char_Hammer_02.png","key":"A_Char_Hammer_02","url":"/badge/A_Char_Hammer_02.png"},"memberCount":50,"name":"Omega Squadron","previousRank":106,"rank":53,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"2CPU92VC","trophies":43092},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":47,"name":"Sandstorm Italy","previousRank":46,"rank":54,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"8L0QGGQ2","trophies":43080},{"badge":{"filename":"Skull_06.png","key":"Skull_06","url":"/badge/Skull_06.png"},"memberCount":48,"name":"Cgn Warriors","previousRank":80,"rank":55,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"JQRUVYY","trophies":43070},{"badge":{"filename":"flag_d_04.png","key":"flag_d_04","url":"/badge/flag_d_04.png"},"memberCount":50,"name":"Syndikaatti","previousRank":135,"rank":56,"region":{"id":57000086,"isCountry":true,"key":"FI","name":"Finland"},"tag":"2QPGU2GG","trophies":43055},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":49,"name":"Nova ITA","previousRank":99,"rank":57,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"C0QQ22J","trophies":43044},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":48,"name":"Nova l India","previousRank":66,"rank":58,"region":{"id":57000113,"isCountry":true,"key":"IN","name":"India"},"tag":"8GGC990V","trophies":43025},{"badge":{"filename":"Sword_04.png","key":"Sword_04","url":"/badge/Sword_04.png"},"memberCount":46,"name":"Die Tafelrunde","previousRank":85,"rank":59,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"","trophies":43025},{"badge":{"filename":"A_Char_King_02.png","key":"A_Char_King_02","url":"/badge/A_Char_King_02.png"},"memberCount":49,"name":"Emirates","previousRank":98,"rank":60,"region":{"id":57000247,"isCountry":true,"key":"AE","name":"United Arab Emirates"},"tag":"Y92CYC","trophies":43024},{"badge":{"filename":"flag_f_02.png","key":"flag_f_02","url":"/badge/flag_f_02.png"},"memberCount":48,"name":"Husaria Polska","previousRank":108,"rank":61,"region":{"id":57000187,"isCountry":true,"key":"PL","name":"Poland"},"tag":"CCUQ","trophies":43014},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":43,"name":"White Waltz","previousRank":13,"rank":62,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"Q0JJUQG","trophies":43011},{"badge":{"filename":"Bolt_02.png","key":"Bolt_02","url":"/badge/Bolt_02.png"},"memberCount":48,"name":"A&E NATIVE","previousRank":48,"rank":63,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"8Y0VQ8GC","trophies":43007},{"badge":{"filename":"flag_g_01.png","key":"flag_g_01","url":"/badge/flag_g_01.png"},"memberCount":49,"name":"Persian.gulf","previousRank":116,"rank":64,"region":{"id":57000115,"isCountry":true,"key":"IR","name":"Iran"},"tag":"Q8YRPV","trophies":42993},{"badge":{"filename":"Traditional_Star_05.png","key":"Traditional_Star_05","url":"/badge/Traditional_Star_05.png"},"memberCount":50,"name":"Ad Astra","previousRank":89,"rank":65,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"22QP0LQ9","trophies":42993},{"badge":{"filename":"flag_b_01.png","key":"flag_b_01","url":"/badge/flag_b_01.png"},"memberCount":49,"name":"BigDelt∆","previousRank":171,"rank":66,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"9RPQU0","trophies":42977},{"badge":{"filename":"flag_h_04.png","key":"flag_h_04","url":"/badge/flag_h_04.png"},"memberCount":48,"name":"MAD Lions E.C.","previousRank":107,"rank":67,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"2VJYY82P","trophies":42966},{"badge":{"filename":"Fugi_04.png","key":"Fugi_04","url":"/badge/Fugi_04.png"},"memberCount":50,"name":"Resurrection™","previousRank":178,"rank":68,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"8PR98UYV","trophies":42961},{"badge":{"filename":"Arrow_02.png","key":"Arrow_02","url":"/badge/Arrow_02.png"},"memberCount":50,"name":"9DontKnow8","previousRank":244,"rank":69,"region":{"id":57000110,"isCountry":true,"key":"HK","name":"Hong Kong"},"tag":"8Y22C298","trophies":42957},{"badge":{"filename":"Sword_01.png","key":"Sword_01","url":"/badge/Sword_01.png"},"memberCount":48,"name":"Munich Fighters","previousRank":60,"rank":70,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"LVL8GP8","trophies":42950},{"badge":{"filename":"Heart_04.png","key":"Heart_04","url":"/badge/Heart_04.png"},"memberCount":43,"name":"80.90【集中赢】","previousRank":26,"rank":71,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"GJJRJUR","trophies":42950},{"badge":{"filename":"Skull_06.png","key":"Skull_06","url":"/badge/Skull_06.png"},"memberCount":46,"name":"Karmes PDF","previousRank":142,"rank":72,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"8L8C2VJQ","trophies":42945},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":47,"name":"JSG I 廣州","previousRank":84,"rank":73,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"8QCVG8VG","trophies":42942},{"badge":{"filename":"flag_d_04.png","key":"flag_d_04","url":"/badge/flag_d_04.png"},"memberCount":49,"name":"Hellas","previousRank":117,"rank":74,"region":{"id":57000097,"isCountry":true,"key":"GR","name":"Greece"},"tag":"2R0GR8","trophies":42929},{"badge":{"filename":"Traditional_Star_05.png","key":"Traditional_Star_05","url":"/badge/Traditional_Star_05.png"},"memberCount":45,"name":"StarAlliance CL","previousRank":91,"rank":75,"region":{"id":57000055,"isCountry":true,"key":"CL","name":"Chile"},"tag":"8GQ0UYRG","trophies":42927},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":49,"name":"Mega India","previousRank":101,"rank":76,"region":{"id":57000113,"isCountry":true,"key":"IN","name":"India"},"tag":"2QG0LPRY","trophies":42927},{"badge":{"filename":"flag_j_03.png","key":"flag_j_03","url":"/badge/flag_j_03.png"},"memberCount":47,"name":"Emex™","previousRank":54,"rank":77,"region":{"id":57000006,"isCountry":false,"key":"_INT","name":"International"},"tag":"89LU8JPP","trophies":42899},{"badge":{"filename":"Skull_06.png","key":"Skull_06","url":"/badge/Skull_06.png"},"memberCount":50,"name":"kuaizero_com","previousRank":125,"rank":78,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"Y0V2CV","trophies":42893},{"badge":{"filename":"flag_a_03.png","key":"flag_a_03","url":"/badge/flag_a_03.png"},"memberCount":47,"name":"I PEKKA TORI","previousRank":150,"rank":79,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"8YUJU8","trophies":42884},{"badge":{"filename":"Clover_02.png","key":"Clover_02","url":"/badge/Clover_02.png"},"memberCount":50,"name":"朋友•皇族","previousRank":140,"rank":80,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"JJCGC09","trophies":42845},{"badge":{"filename":"flag_j_03.png","key":"flag_j_03","url":"/badge/flag_j_03.png"},"memberCount":49,"name":"ARTIFICIEROSTOP","previousRank":93,"rank":81,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"PGJUU9","trophies":42838},{"badge":{"filename":"A_Char_Hammer_02.png","key":"A_Char_Hammer_02","url":"/badge/A_Char_Hammer_02.png"},"memberCount":49,"name":"Rubinho's Army","previousRank":175,"rank":82,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"PUUL9YY","trophies":42831},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":48,"name":"Nova Turkey","previousRank":33,"rank":83,"region":{"id":57000239,"isCountry":true,"key":"TR","name":"Turkey"},"tag":"CYCJJLG","trophies":42831},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":44,"name":"Nova l Hispania","previousRank":15,"rank":84,"region":{"id":57000153,"isCountry":true,"key":"MX","name":"Mexico"},"tag":"2CQQVQCU","trophies":42828},{"badge":{"filename":"Crown_01.png","key":"Crown_01","url":"/badge/Crown_01.png"},"memberCount":48,"name":"Supremos™","previousRank":102,"rank":85,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"22RRRYJY","trophies":42827},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":49,"name":"Nova I Iran 2","previousRank":154,"rank":86,"region":{"id":57000115,"isCountry":true,"key":"IR","name":"Iran"},"tag":"8Y0LR8GU","trophies":42824},{"badge":{"filename":"Bolt_01.png","key":"Bolt_01","url":"/badge/Bolt_01.png"},"memberCount":49,"name":"High Voltage™","previousRank":186,"rank":87,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"89R2PVG","trophies":42823},{"badge":{"filename":"Crown_01.png","key":"Crown_01","url":"/badge/Crown_01.png"},"memberCount":49,"name":"AuRuM TV","previousRank":163,"rank":88,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"V8PUJ","trophies":42823},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":46,"name":"Sandstorm Fr","previousRank":78,"rank":89,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"89QYUP90","trophies":42823},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":50,"name":"Mega ARGENGLORY","previousRank":403,"rank":90,"region":{"id":57000017,"isCountry":true,"key":"AR","name":"Argentina"},"tag":"8QLUQYJ0","trophies":42814},{"badge":{"filename":"Bolt_03.png","key":"Bolt_03","url":"/badge/Bolt_03.png"},"memberCount":50,"name":"RedBull eSports","previousRank":245,"rank":91,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8PURCJQV","trophies":42812},{"badge":{"filename":"Gem_01.png","key":"Gem_01","url":"/badge/Gem_01.png"},"memberCount":46,"name":"トレジャーハンター","previousRank":76,"rank":92,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"LU0RQP8","trophies":42811},{"badge":{"filename":"Clover_01.png","key":"Clover_01","url":"/badge/Clover_01.png"},"memberCount":44,"name":"잎새","previousRank":65,"rank":93,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"PGPV0GG","trophies":42795},{"badge":{"filename":"Diamond_Star_02.png","key":"Diamond_Star_02","url":"/badge/Diamond_Star_02.png"},"memberCount":50,"name":"Half Baked™","previousRank":70,"rank":94,"region":{"id":57000249,"isCountry":true,"key":"US","name":"United States"},"tag":"8VJQ0U9","trophies":42789},{"badge":{"filename":"Tower_02.png","key":"Tower_02","url":"/badge/Tower_02.png"},"memberCount":49,"name":"Notorious AU","previousRank":375,"rank":95,"region":{"id":57000021,"isCountry":true,"key":"AU","name":"Australia"},"tag":"8GPJVUJ2","trophies":42786},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":50,"name":"RomaniaWarlords","previousRank":138,"rank":96,"region":{"id":57000192,"isCountry":true,"key":"RO","name":"Romania"},"tag":"GG2V89L","trophies":42780},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":48,"name":"عـ ARAB ـرب","previousRank":133,"rank":97,"region":{"id":57000204,"isCountry":true,"key":"SA","name":"Saudi Arabia"},"tag":"8JJ28Q29","trophies":42773},{"badge":{"filename":"Star_Shine_02.png","key":"Star_Shine_02","url":"/badge/Star_Shine_02.png"},"memberCount":48,"name":"ARGENTINA","previousRank":162,"rank":98,"region":{"id":57000017,"isCountry":true,"key":"AR","name":"Argentina"},"tag":"QVYRV8J","trophies":42757},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":47,"name":"Aura.Nefarious","previousRank":165,"rank":99,"region":{"id":57000144,"isCountry":true,"key":"MY","name":"Malaysia"},"tag":"2C9Q0L90","trophies":42749},{"badge":{"filename":"Crown_04.png","key":"Crown_04","url":"/badge/Crown_04.png"},"memberCount":50,"name":"paiN Gaming","previousRank":169,"rank":100,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"","trophies":42746},{"badge":{"filename":"A_Char_MiniPekka_02.png","key":"A_Char_MiniPekka_02","url":"/badge/A_Char_MiniPekka_02.png"},"memberCount":49,"name":"Calalas España","previousRank":174,"rank":101,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"L9VRJ","trophies":42744},{"badge":{"filename":"Clover_01.png","key":"Clover_01","url":"/badge/Clover_01.png"},"memberCount":49,"name":"WhyWorry","previousRank":195,"rank":102,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"2J2V00QP","trophies":42744},{"badge":{"filename":"A_Char_King_01.png","key":"A_Char_King_01","url":"/badge/A_Char_King_01.png"},"memberCount":49,"name":"Ad Finem","previousRank":129,"rank":103,"region":{"id":57000097,"isCountry":true,"key":"GR","name":"Greece"},"tag":"8JJJPUPV","trophies":42742},{"badge":{"filename":"Tower_02.png","key":"Tower_02","url":"/badge/Tower_02.png"},"memberCount":45,"name":"奔腾的小火车","previousRank":92,"rank":104,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"LCPY2QQ","trophies":42739},{"badge":{"filename":"Freeze_01.png","key":"Freeze_01","url":"/badge/Freeze_01.png"},"memberCount":50,"name":"AR eSports","previousRank":258,"rank":105,"region":{"id":57000086,"isCountry":true,"key":"FI","name":"Finland"},"tag":"2RYRCRV9","trophies":42734},{"badge":{"filename":"Skull_05.png","key":"Skull_05","url":"/badge/Skull_05.png"},"memberCount":48,"name":"なんと宝箱はミミックだった！","previousRank":144,"rank":106,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"JCQ9P","trophies":42728},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":48,"name":"Nova l Potenza","previousRank":83,"rank":107,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"2UP8R99Y","trophies":42722},{"badge":{"filename":"Elixir_02.png","key":"Elixir_02","url":"/badge/Elixir_02.png"},"memberCount":50,"name":"1분 1초","previousRank":222,"rank":108,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"JYJLVLU","trophies":42722},{"badge":{"filename":"Freeze_02.png","key":"Freeze_02","url":"/badge/Freeze_02.png"},"memberCount":49,"name":"V.N Champions","previousRank":151,"rank":109,"region":{"id":57000255,"isCountry":true,"key":"VN","name":"Vietnam"},"tag":"22LCR","trophies":42707},{"badge":{"filename":"Crown_02.png","key":"Crown_02","url":"/badge/Crown_02.png"},"memberCount":49,"name":"RoyaleSinQueso","previousRank":173,"rank":110,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"929092","trophies":42694},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":50,"name":"MEGA EMPIRE","previousRank":156,"rank":111,"region":{"id":57000077,"isCountry":true,"key":"EG","name":"Egypt"},"tag":"GYP90PL","trophies":42692},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":43,"name":"Sandstorm Kw","previousRank":123,"rank":112,"region":{"id":57000129,"isCountry":true,"key":"KW","name":"Kuwait"},"tag":"82YYQR98","trophies":42691},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":47,"name":"Nova l UK","previousRank":73,"rank":113,"region":{"id":57000248,"isCountry":true,"key":"GB","name":"United Kingdom"},"tag":"2JVJRYP","trophies":42691},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":50,"name":"Sentry 1.0","previousRank":209,"rank":114,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"9RY2R2","trophies":42677},{"badge":{"filename":"flag_g_01.png","key":"flag_g_01","url":"/badge/flag_g_01.png"},"memberCount":44,"name":"Hello Winner","previousRank":69,"rank":115,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"RGJ0C","trophies":42665},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":49,"name":"Aura.Alliances","previousRank":189,"rank":116,"region":{"id":57000209,"isCountry":true,"key":"SG","name":"Singapore"},"tag":"UYPRY9G","trophies":42661},{"badge":{"filename":"Tower_02.png","key":"Tower_02","url":"/badge/Tower_02.png"},"memberCount":47,"name":"X-Fun","previousRank":75,"rank":117,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"8C089098","trophies":42656},{"badge":{"filename":"flag_k_04.png","key":"flag_k_04","url":"/badge/flag_k_04.png"},"memberCount":50,"name":"D.N.A. ITALY","previousRank":201,"rank":118,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"GG8P9","trophies":42654},{"badge":{"filename":"Star_Shine_02.png","key":"Star_Shine_02","url":"/badge/Star_Shine_02.png"},"memberCount":48,"name":"Italian Legends","previousRank":141,"rank":119,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"882PQC0","trophies":42653},{"badge":{"filename":"Tower_02.png","key":"Tower_02","url":"/badge/Tower_02.png"},"memberCount":49,"name":"台灣之光","previousRank":320,"rank":120,"region":{"id":57000228,"isCountry":true,"key":"TW","name":"Taiwan"},"tag":"LYL09Q","trophies":42653},{"badge":{"filename":"flag_h_01.png","key":"flag_h_01","url":"/badge/flag_h_01.png"},"memberCount":50,"name":"MOSCOW","previousRank":230,"rank":121,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"29QR2Q","trophies":42652},{"badge":{"filename":"A_Char_Hammer_01.png","key":"A_Char_Hammer_01","url":"/badge/A_Char_Hammer_01.png"},"memberCount":49,"name":"Fusion™","previousRank":44,"rank":122,"region":{"id":57000249,"isCountry":true,"key":"US","name":"United States"},"tag":"Y2RGQPJ","trophies":42651},{"badge":{"filename":"A_Char_MiniPekka_02.png","key":"A_Char_MiniPekka_02","url":"/badge/A_Char_MiniPekka_02.png"},"memberCount":46,"name":"あかずきんのいえ","previousRank":177,"rank":123,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"20JJCCG","trophies":42637},{"badge":{"filename":"Clover_02.png","key":"Clover_02","url":"/badge/Clover_02.png"},"memberCount":47,"name":"M.I.T™","previousRank":205,"rank":124,"region":{"id":57000228,"isCountry":true,"key":"TW","name":"Taiwan"},"tag":"U0PL0V","trophies":42636},{"badge":{"filename":"A_Char_Pekka_01.png","key":"A_Char_Pekka_01","url":"/badge/A_Char_Pekka_01.png"},"memberCount":50,"name":"薛家萌新小分队","previousRank":158,"rank":125,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"8RPR2YR","trophies":42629},{"badge":{"filename":"flag_c_03.png","key":"flag_c_03","url":"/badge/flag_c_03.png"},"memberCount":39,"name":"ジェンコ・オリーブ商会","previousRank":14,"rank":126,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"","trophies":42629},{"badge":{"filename":"Flame_01.png","key":"Flame_01","url":"/badge/Flame_01.png"},"memberCount":49,"name":"Re:start","previousRank":261,"rank":127,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"8902VLGY","trophies":42618},{"badge":{"filename":"Bolt_01.png","key":"Bolt_01","url":"/badge/Bolt_01.png"},"memberCount":49,"name":"WoT","previousRank":196,"rank":128,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"29LPY","trophies":42618},{"badge":{"filename":"Flame_03.png","key":"Flame_03","url":"/badge/Flame_03.png"},"memberCount":49,"name":"UNAUFHALTSAM","previousRank":281,"rank":129,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"L0QPV","trophies":42617},{"badge":{"filename":"Cherry_Blossom_06.png","key":"Cherry_Blossom_06","url":"/badge/Cherry_Blossom_06.png"},"memberCount":49,"name":"#2Fresh eSports","previousRank":124,"rank":130,"region":{"id":57000248,"isCountry":true,"key":"GB","name":"United Kingdom"},"tag":"2GVJGLP0","trophies":42614},{"badge":{"filename":"flag_k_04.png","key":"flag_k_04","url":"/badge/flag_k_04.png"},"memberCount":48,"name":"i Paguri","previousRank":225,"rank":131,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"YLUQY0","trophies":42607},{"badge":{"filename":"Orange_01.png","key":"Orange_01","url":"/badge/Orange_01.png"},"memberCount":48,"name":"若水千秋","previousRank":309,"rank":132,"region":{"id":57000003,"isCountry":false,"key":"_AS","name":"Asia"},"tag":"8UP0L9R","trophies":42606},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":49,"name":"Sandstorm BR©®","previousRank":282,"rank":133,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"89LPY0P0","trophies":42601},{"badge":{"filename":"Fan_02.png","key":"Fan_02","url":"/badge/Fan_02.png"},"memberCount":48,"name":"赤尾赤色之尾","previousRank":134,"rank":134,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"R2GUP0","trophies":42600},{"badge":{"filename":"Twin_Peaks_01.png","key":"Twin_Peaks_01","url":"/badge/Twin_Peaks_01.png"},"memberCount":50,"name":"Tactical Tilt","previousRank":211,"rank":135,"region":{"id":57000249,"isCountry":true,"key":"US","name":"United States"},"tag":"2RYG90QL","trophies":42590},{"badge":{"filename":"flag_b_02.png","key":"flag_b_02","url":"/badge/flag_b_02.png"},"memberCount":49,"name":"Hispanos Cream","previousRank":198,"rank":136,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"8PLP0829","trophies":42583},{"badge":{"filename":"Gem_03.png","key":"Gem_03","url":"/badge/Gem_03.png"},"memberCount":47,"name":"ウエスト98cmの会","previousRank":126,"rank":137,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"9GJ89V","trophies":42583},{"badge":{"filename":"flag_a_03.png","key":"flag_a_03","url":"/badge/flag_a_03.png"},"memberCount":49,"name":"CRM eSports","previousRank":45,"rank":138,"region":{"id":57000153,"isCountry":true,"key":"MX","name":"Mexico"},"tag":"2GJLCVJQ","trophies":42581},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":47,"name":"Nova l Aus","previousRank":149,"rank":139,"region":{"id":57000021,"isCountry":true,"key":"AU","name":"Australia"},"tag":"L0RYGQ9","trophies":42570},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":49,"name":"Nova l Furia","previousRank":194,"rank":140,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8JPLJ82L","trophies":42557},{"badge":{"filename":"Orange_02.png","key":"Orange_02","url":"/badge/Orange_02.png"},"memberCount":50,"name":"Caju Braziror","previousRank":297,"rank":141,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8V9R9ULC","trophies":42556},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":47,"name":"Nova I Canada","previousRank":40,"rank":142,"region":{"id":57000047,"isCountry":true,"key":"CA","name":"Canada"},"tag":"8PLYP8V","trophies":42548},{"badge":{"filename":"Moon_01.png","key":"Moon_01","url":"/badge/Moon_01.png"},"memberCount":47,"name":"TURKISH-FARM","previousRank":203,"rank":143,"region":{"id":57000239,"isCountry":true,"key":"TR","name":"Turkey"},"tag":"","trophies":42542},{"badge":{"filename":"Bolt_02.png","key":"Bolt_02","url":"/badge/Bolt_02.png"},"memberCount":48,"name":"UAE LEGENDS","previousRank":118,"rank":144,"region":{"id":57000247,"isCountry":true,"key":"AE","name":"United Arab Emirates"},"tag":"22PGG82Q","trophies":42541},{"badge":{"filename":"A_Char_Hammer_02.png","key":"A_Char_Hammer_02","url":"/badge/A_Char_Hammer_02.png"},"memberCount":45,"name":"場內野豬搖滾區","previousRank":18729,"rank":145,"region":{"id":57000228,"isCountry":true,"key":"TW","name":"Taiwan"},"tag":"2JU290L9","trophies":42540},{"badge":{"filename":"Traditional_Star_05.png","key":"Traditional_Star_05","url":"/badge/Traditional_Star_05.png"},"memberCount":50,"name":"StarAlliance CA","previousRank":114,"rank":146,"region":{"id":57000102,"isCountry":true,"key":"GT","name":"Guatemala"},"tag":"","trophies":42539},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":45,"name":"Nova大唐 l 禁卫军","previousRank":132,"rank":147,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"2LR02ULG","trophies":42538},{"badge":{"filename":"A_Char_Hammer_01.png","key":"A_Char_Hammer_01","url":"/badge/A_Char_Hammer_01.png"},"memberCount":48,"name":"King Golem","previousRank":193,"rank":148,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"RCR089Y","trophies":42532},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":48,"name":"MegaSuperiority","previousRank":445,"rank":149,"region":{"id":57000055,"isCountry":true,"key":"CL","name":"Chile"},"tag":"8G988R8Y","trophies":42515},{"badge":{"filename":"Heart_01.png","key":"Heart_01","url":"/badge/Heart_01.png"},"memberCount":46,"name":"ネタを求める泥酔者たち","previousRank":161,"rank":150,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"8LGQ22UQ","trophies":42515},{"badge":{"filename":"Diamond_Star_04.png","key":"Diamond_Star_04","url":"/badge/Diamond_Star_04.png"},"memberCount":48,"name":"Orion eSports","previousRank":164,"rank":151,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"2CL8RCC0","trophies":42511},{"badge":{"filename":"Star_Shine_02.png","key":"Star_Shine_02","url":"/badge/Star_Shine_02.png"},"memberCount":43,"name":"EVOLUTION","previousRank":82,"rank":152,"region":{"id":57000114,"isCountry":true,"key":"ID","name":"Indonesia"},"tag":"82CRQULY","trophies":42505},{"badge":{"filename":"Fugi_03.png","key":"Fugi_03","url":"/badge/Fugi_03.png"},"memberCount":49,"name":"Boréal ★ MG","previousRank":71,"rank":153,"region":{"id":57000249,"isCountry":true,"key":"US","name":"United States"},"tag":"8Q8R9LQ0","trophies":42504},{"badge":{"filename":"Fugi_03.png","key":"Fugi_03","url":"/badge/Fugi_03.png"},"memberCount":48,"name":"VALIANCE & CO","previousRank":184,"rank":154,"region":{"id":57000006,"isCountry":false,"key":"_INT","name":"International"},"tag":"8C2UU8JU","trophies":42502},{"badge":{"filename":"A_Char_Hammer_01.png","key":"A_Char_Hammer_01","url":"/badge/A_Char_Hammer_01.png"},"memberCount":48,"name":"Hebrew Hammer™","previousRank":88,"rank":155,"region":{"id":57000119,"isCountry":true,"key":"IL","name":"Israel"},"tag":"2JPPJQ","trophies":42490},{"badge":{"filename":"A_Char_Goblin_01.png","key":"A_Char_Goblin_01","url":"/badge/A_Char_Goblin_01.png"},"memberCount":49,"name":"your face","previousRank":172,"rank":156,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"20GG82V","trophies":42489},{"badge":{"filename":"A_Char_Hammer_02.png","key":"A_Char_Hammer_02","url":"/badge/A_Char_Hammer_02.png"},"memberCount":49,"name":"Titans","previousRank":268,"rank":157,"region":{"id":57000192,"isCountry":true,"key":"RO","name":"Romania"},"tag":"P82GRJ8","trophies":42488},{"badge":{"filename":"Skull_06.png","key":"Skull_06","url":"/badge/Skull_06.png"},"memberCount":48,"name":"廃人会","previousRank":204,"rank":158,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"LULGR","trophies":42486},{"badge":{"filename":"Traditional_Star_05.png","key":"Traditional_Star_05","url":"/badge/Traditional_Star_05.png"},"memberCount":50,"name":"Ad Gloriam","previousRank":279,"rank":159,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"28C82PU","trophies":42483},{"badge":{"filename":"Flame_02.png","key":"Flame_02","url":"/badge/Flame_02.png"},"memberCount":49,"name":"21 Legend","previousRank":229,"rank":160,"region":{"id":57000153,"isCountry":true,"key":"MX","name":"Mexico"},"tag":"GGLV2CL","trophies":42480},{"badge":{"filename":"Diamond_Star_01.png","key":"Diamond_Star_01","url":"/badge/Diamond_Star_01.png"},"memberCount":44,"name":"Aura Gaming","previousRank":62,"rank":161,"region":{"id":57000209,"isCountry":true,"key":"SG","name":"Singapore"},"tag":"V9GRG98","trophies":42474},{"badge":{"filename":"Traditional_Star_05.png","key":"Traditional_Star_05","url":"/badge/Traditional_Star_05.png"},"memberCount":50,"name":"Ad Vitam","previousRank":280,"rank":162,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"82UV9LV","trophies":42467},{"badge":{"filename":"Flame_02.png","key":"Flame_02","url":"/badge/Flame_02.png"},"memberCount":47,"name":"Top Clan","previousRank":226,"rank":163,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"2GYLR","trophies":42465},{"badge":{"filename":"Tower_03.png","key":"Tower_03","url":"/badge/Tower_03.png"},"memberCount":50,"name":"HighForce PH","previousRank":411,"rank":164,"region":{"id":57000185,"isCountry":true,"key":"PH","name":"Philippines"},"tag":"UR0R0VP","trophies":42461},{"badge":{"filename":"Clover_02.png","key":"Clover_02","url":"/badge/Clover_02.png"},"memberCount":48,"name":"MANGÚ™","previousRank":29,"rank":165,"region":{"id":57000075,"isCountry":true,"key":"DO","name":"Dominican Republic"},"tag":"88GVV0QL","trophies":42459},{"badge":{"filename":"Skull_05.png","key":"Skull_05","url":"/badge/Skull_05.png"},"memberCount":48,"name":"Dutch Corps","previousRank":214,"rank":166,"region":{"id":57000166,"isCountry":true,"key":"NL","name":"Netherlands"},"tag":"PQUC20","trophies":42450},{"badge":{"filename":"flag_b_03.png","key":"flag_b_03","url":"/badge/flag_b_03.png"},"memberCount":50,"name":"Aussie Royale","previousRank":299,"rank":167,"region":{"id":57000021,"isCountry":true,"key":"AU","name":"Australia"},"tag":"LY9U2C","trophies":42448},{"badge":{"filename":"Flame_03.png","key":"Flame_03","url":"/badge/Flame_03.png"},"memberCount":49,"name":"iran tehran","previousRank":113,"rank":168,"region":{"id":57000115,"isCountry":true,"key":"IR","name":"Iran"},"tag":"80Y0U9","trophies":42447},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":50,"name":"BorciBabeMare","previousRank":283,"rank":169,"region":{"id":57000066,"isCountry":true,"key":"HR","name":"Croatia"},"tag":"UYQYU","trophies":42443},{"badge":{"filename":"Sword_02.png","key":"Sword_02","url":"/badge/Sword_02.png"},"memberCount":49,"name":"Russian Legion","previousRank":276,"rank":170,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"UGU0Q0","trophies":42442},{"badge":{"filename":"Twin_Peaks_01.png","key":"Twin_Peaks_01","url":"/badge/Twin_Peaks_01.png"},"memberCount":46,"name":"Phantoms Push","previousRank":215,"rank":171,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"8QQ8YRUV","trophies":42437},{"badge":{"filename":"flag_c_03.png","key":"flag_c_03","url":"/badge/flag_c_03.png"},"memberCount":49,"name":"無言","previousRank":253,"rank":172,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"29GC89R","trophies":42429},{"badge":{"filename":"A_Char_King_01.png","key":"A_Char_King_01","url":"/badge/A_Char_King_01.png"},"memberCount":50,"name":"winchesters","previousRank":208,"rank":173,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"LGPC2UR","trophies":42428},{"badge":{"filename":"A_Char_Hammer_01.png","key":"A_Char_Hammer_01","url":"/badge/A_Char_Hammer_01.png"},"memberCount":45,"name":"R!OT Company","previousRank":56,"rank":174,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"9VYGR2L","trophies":42424},{"badge":{"filename":"flag_i_01.png","key":"flag_i_01","url":"/badge/flag_i_01.png"},"memberCount":49,"name":"BANGLADESH™ UTD","previousRank":252,"rank":175,"region":{"id":57000026,"isCountry":true,"key":"BD","name":"Bangladesh"},"tag":"80CP8CYL","trophies":42418},{"badge":{"filename":"Crown_02.png","key":"Crown_02","url":"/badge/Crown_02.png"},"memberCount":50,"name":"GUATEMALA","previousRank":130,"rank":176,"region":{"id":57000102,"isCountry":true,"key":"GT","name":"Guatemala"},"tag":"828JJJJY","trophies":42416},{"badge":{"filename":"Arrow_01.png","key":"Arrow_01","url":"/badge/Arrow_01.png"},"memberCount":44,"name":"DK eSports","previousRank":119,"rank":177,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"2GV98VVY","trophies":42405},{"badge":{"filename":"flag_j_02.png","key":"flag_j_02","url":"/badge/flag_j_02.png"},"memberCount":50,"name":"Advendo™","previousRank":246,"rank":178,"region":{"id":57000029,"isCountry":true,"key":"BE","name":"Belgium"},"tag":"2YU29RUG","trophies":42402},{"badge":{"filename":"A_Char_King_03.png","key":"A_Char_King_03","url":"/badge/A_Char_King_03.png"},"memberCount":50,"name":"top team","previousRank":305,"rank":179,"region":{"id":57000216,"isCountry":true,"key":"KR","name":"South Korea"},"tag":"2R20GUV","trophies":42402},{"badge":{"filename":"Arrow_04.png","key":"Arrow_04","url":"/badge/Arrow_04.png"},"memberCount":47,"name":"Epix N Impulse","previousRank":38,"rank":180,"region":{"id":57000047,"isCountry":true,"key":"CA","name":"Canada"},"tag":"8RU0QRRC","trophies":42399},{"badge":{"filename":"Traditional_Star_01.png","key":"Traditional_Star_01","url":"/badge/Traditional_Star_01.png"},"memberCount":47,"name":"яeвorn","previousRank":187,"rank":181,"region":{"id":57000087,"isCountry":true,"key":"FR","name":"France"},"tag":"8LRG8UCQ","trophies":42397},{"badge":{"filename":"Elixir_01.png","key":"Elixir_01","url":"/badge/Elixir_01.png"},"memberCount":48,"name":"Phantom Star","previousRank":339,"rank":182,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"99G0Q9JJ","trophies":42392},{"badge":{"filename":"flag_m_03.png","key":"flag_m_03","url":"/badge/flag_m_03.png"},"memberCount":49,"name":"VantaBlack","previousRank":182,"rank":183,"region":{"id":57000094,"isCountry":true,"key":"DE","name":"Germany"},"tag":"","trophies":42385},{"badge":{"filename":"Traditional_Star_01.png","key":"Traditional_Star_01","url":"/badge/Traditional_Star_01.png"},"memberCount":49,"name":"Alpha™","previousRank":330,"rank":184,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"8JG9QQ0J","trophies":42379},{"badge":{"filename":"Bolt_02.png","key":"Bolt_02","url":"/badge/Bolt_02.png"},"memberCount":48,"name":"Hybrid Titans","previousRank":311,"rank":185,"region":{"id":57000120,"isCountry":true,"key":"IT","name":"Italy"},"tag":"8YJPUJR0","trophies":42374},{"badge":{"filename":"Flame_01.png","key":"Flame_01","url":"/badge/Flame_01.png"},"memberCount":50,"name":"CN.one","previousRank":240,"rank":186,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"LUJQGJ","trophies":42368},{"badge":{"filename":"Cherry_Blossom_04.png","key":"Cherry_Blossom_04","url":"/badge/Cherry_Blossom_04.png"},"memberCount":49,"name":"えみーるJAPAN★★★","previousRank":315,"rank":187,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"8JCQ8CJ","trophies":42368},{"badge":{"filename":"Crown_03.png","key":"Crown_03","url":"/badge/Crown_03.png"},"memberCount":48,"name":"小鸣同学-王者圣域","previousRank":207,"rank":188,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"90RVYU9","trophies":42363},{"badge":{"filename":"Crown_02.png","key":"Crown_02","url":"/badge/Crown_02.png"},"memberCount":50,"name":"Brazil Gaming","previousRank":262,"rank":189,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8PGCC989","trophies":42362},{"badge":{"filename":"Star_Shine_03.png","key":"Star_Shine_03","url":"/badge/Star_Shine_03.png"},"memberCount":48,"name":"Nova l Forza","previousRank":139,"rank":190,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"8RCVQ0G2","trophies":42354},{"badge":{"filename":"Twin_Peaks_02.png","key":"Twin_Peaks_02","url":"/badge/Twin_Peaks_02.png"},"memberCount":49,"name":"娱乐至巅❤️冠绝一时","previousRank":278,"rank":191,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"8Q09RJ00","trophies":42349},{"badge":{"filename":"flag_j_03.png","key":"flag_j_03","url":"/badge/flag_j_03.png"},"memberCount":47,"name":"パリピジョンST","previousRank":166,"rank":192,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"J8PL90P","trophies":42347},{"badge":{"filename":"flag_h_04.png","key":"flag_h_04","url":"/badge/flag_h_04.png"},"memberCount":50,"name":"MTB y YouTube","previousRank":340,"rank":193,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"98RRUYQ","trophies":42344},{"badge":{"filename":"Cherry_Blossom_05.png","key":"Cherry_Blossom_05","url":"/badge/Cherry_Blossom_05.png"},"memberCount":48,"name":"花言葉～Momo～","previousRank":233,"rank":194,"region":{"id":57000122,"isCountry":true,"key":"JP","name":"Japan"},"tag":"29CPJ8Y0","trophies":42335},{"badge":{"filename":"Skull_06.png","key":"Skull_06","url":"/badge/Skull_06.png"},"memberCount":50,"name":"白银帝国","previousRank":310,"rank":195,"region":{"id":57000056,"isCountry":true,"key":"CN","name":"China"},"tag":"G2JR2QR","trophies":42335},{"badge":{"filename":"Crown_01.png","key":"Crown_01","url":"/badge/Crown_01.png"},"memberCount":49,"name":"SUPREMACIA BR","previousRank":381,"rank":196,"region":{"id":57000038,"isCountry":true,"key":"BR","name":"Brazil"},"tag":"28RLRYC","trophies":42333},{"badge":{"filename":"Flame_03.png","key":"Flame_03","url":"/badge/Flame_03.png"},"memberCount":49,"name":"FURIA ROJA","previousRank":316,"rank":197,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"8RQVLCP2","trophies":42329},{"badge":{"filename":"Bolt_03.png","key":"Bolt_03","url":"/badge/Bolt_03.png"},"memberCount":49,"name":"Justice","previousRank":382,"rank":198,"region":{"id":57000193,"isCountry":true,"key":"RU","name":"Russia"},"tag":"QYGLPP","trophies":42315},{"badge":{"filename":"Crown_02.png","key":"Crown_02","url":"/badge/Crown_02.png"},"memberCount":48,"name":"RoyaleConBBQ","previousRank":404,"rank":199,"region":{"id":57000218,"isCountry":true,"key":"ES","name":"Spain"},"tag":"2802GPP9","trophies":42314},{"badge":{"filename":"Star_Shine_02.png","key":"Star_Shine_02","url":"/badge/Star_Shine_02.png"},"memberCount":47,"name":"Pride Elite","previousRank":143,"rank":200,"region":{"id":57000204,"isCountry":true,"key":"SA","name":"Saudi Arabia"},"tag":"89VVG2C8","trophies":42302}],"lastUpdated":1509968881026}
+[
+  {
+    "tag": "LCVUYCR",
+    "name": "Nova eSports",
+    "score": 58840,
+    "memberCount": 50,
+    "rank": 1,
+    "previousRank": 1,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "8VRJC2V2",
+    "name": "风暴",
+    "score": 57871,
+    "memberCount": 49,
+    "rank": 2,
+    "previousRank": 2,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8R8YULRJ",
+    "name": "Sandstorm",
+    "score": 57291,
+    "memberCount": 47,
+    "rank": 3,
+    "previousRank": 3,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "2LRU2J",
+    "name": "Crucible Wrath",
+    "score": 56507,
+    "memberCount": 49,
+    "rank": 4,
+    "previousRank": 4,
+    "badge": {
+      "name": "Flame_03",
+      "category": "01_Symbol",
+      "id": 16000002,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_03.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "RVL2PQQ",
+    "name": "Nova l 大唐天子",
+    "score": 55585,
+    "memberCount": 46,
+    "rank": 5,
+    "previousRank": 5,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8G9VY92",
+    "name": "上海 OP Elite",
+    "score": 55417,
+    "memberCount": 48,
+    "rank": 6,
+    "previousRank": 6,
+    "badge": {
+      "name": "Flame_01",
+      "category": "01_Symbol",
+      "id": 16000000,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_01.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "90R9VPP9",
+    "name": "North Rebellion",
+    "score": 55192,
+    "memberCount": 50,
+    "rank": 7,
+    "previousRank": 8,
+    "badge": {
+      "name": "Freeze_02",
+      "category": "01_Symbol",
+      "id": 16000169,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Freeze_02.png"
+    },
+    "location": {
+      "name": "Canada",
+      "isCountry": true,
+      "code": "CA"
+    }
+  },
+  {
+    "tag": "29QLGL28",
+    "name": "Mega Stars",
+    "score": 54994,
+    "memberCount": 47,
+    "rank": 8,
+    "previousRank": 7,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "India",
+      "isCountry": true,
+      "code": "IN"
+    }
+  },
+  {
+    "tag": "8YGRJ8GG",
+    "name": "Nova I Iran",
+    "score": 54830,
+    "memberCount": 50,
+    "rank": 9,
+    "previousRank": 12,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Iran",
+      "isCountry": true,
+      "code": "IR"
+    }
+  },
+  {
+    "tag": "82YYQR98",
+    "name": "Sandstorm Kw",
+    "score": 54311,
+    "memberCount": 49,
+    "rank": 10,
+    "previousRank": 9,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Kuwait",
+      "isCountry": true,
+      "code": "KW"
+    }
+  },
+  {
+    "tag": "99YPJR9G",
+    "name": "jajas",
+    "score": 54240,
+    "memberCount": 49,
+    "rank": 11,
+    "previousRank": 10,
+    "badge": {
+      "name": "A_Char_King_01",
+      "category": "03_Royale",
+      "id": 16000144,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_King_01.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "8RJQY2P0",
+    "name": "Team Qlash",
+    "score": 53719,
+    "memberCount": 48,
+    "rank": 12,
+    "previousRank": 17,
+    "badge": {
+      "name": "Flame_04",
+      "category": "01_Symbol",
+      "id": 16000003,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_04.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8G9U0PU0",
+    "name": "Sandstorm BR",
+    "score": 53717,
+    "memberCount": 48,
+    "rank": 13,
+    "previousRank": 13,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "8PVYCRJR",
+    "name": "Assassins Crew™",
+    "score": 53547,
+    "memberCount": 50,
+    "rank": 14,
+    "previousRank": 14,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Chile",
+      "isCountry": true,
+      "code": "CL"
+    }
+  },
+  {
+    "tag": "JVRPGV8",
+    "name": "Nova l Brazil",
+    "score": 53482,
+    "memberCount": 44,
+    "rank": 15,
+    "previousRank": 15,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "82V9V",
+    "name": "Munich Warriors",
+    "score": 53337,
+    "memberCount": 49,
+    "rank": 16,
+    "previousRank": 23,
+    "badge": {
+      "name": "Sword_01",
+      "category": "01_Symbol",
+      "id": 16000004,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_01.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "2CPU92VC",
+    "name": "Omega Squadron",
+    "score": 53330,
+    "memberCount": 50,
+    "rank": 17,
+    "previousRank": 21,
+    "badge": {
+      "name": "A_Char_Hammer_02",
+      "category": "03_Royale",
+      "id": 16000165,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Hammer_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "2CQQVQCU",
+    "name": "Nova l Hispania",
+    "score": 53251,
+    "memberCount": 49,
+    "rank": 18,
+    "previousRank": 20,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "90RJGVGJ",
+    "name": "Revolution™",
+    "score": 53047,
+    "memberCount": 48,
+    "rank": 19,
+    "previousRank": 30,
+    "badge": {
+      "name": "flag_n_04",
+      "category": "02_Flag",
+      "id": 16000093,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_n_04.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8YLJ8UL2",
+    "name": "Nova I EG",
+    "score": 53028,
+    "memberCount": 47,
+    "rank": 20,
+    "previousRank": 18,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "8CRU0LPL",
+    "name": "GulfNation™",
+    "score": 53023,
+    "memberCount": 49,
+    "rank": 21,
+    "previousRank": 29,
+    "badge": {
+      "name": "Star_Shine_02",
+      "category": "01_Symbol",
+      "id": 16000043,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_02.png"
+    },
+    "location": {
+      "name": "United Arab Emirates",
+      "isCountry": true,
+      "code": "AE"
+    }
+  },
+  {
+    "tag": "20QRPR98",
+    "name": "薛家军",
+    "score": 52942,
+    "memberCount": 48,
+    "rank": 22,
+    "previousRank": 31,
+    "badge": {
+      "name": "A_Char_Pekka_01",
+      "category": "03_Royale",
+      "id": 16000162,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Pekka_01.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8R2C0G9Y",
+    "name": "GloryMakersNova",
+    "score": 52937,
+    "memberCount": 48,
+    "rank": 23,
+    "previousRank": 16,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Saudi Arabia",
+      "isCountry": true,
+      "code": "SA"
+    }
+  },
+  {
+    "tag": "8LQ2P0RL",
+    "name": "龍溪CR",
+    "score": 52874,
+    "memberCount": 48,
+    "rank": 24,
+    "previousRank": 22,
+    "badge": {
+      "name": "Crown_01",
+      "category": "01_Symbol",
+      "id": 16000012,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_01.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8VG2C9CJ",
+    "name": "Nova FrenchArmy",
+    "score": 52847,
+    "memberCount": 46,
+    "rank": 25,
+    "previousRank": 11,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "88UGGYG",
+    "name": "Nova l NA",
+    "score": 52831,
+    "memberCount": 46,
+    "rank": 26,
+    "previousRank": 45,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "2Q9RGGVV",
+    "name": "Notorious",
+    "score": 52700,
+    "memberCount": 49,
+    "rank": 27,
+    "previousRank": 40,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "9982P8UY",
+    "name": "PACUCO ARRIBA",
+    "score": 52616,
+    "memberCount": 49,
+    "rank": 28,
+    "previousRank": 24,
+    "badge": {
+      "name": "Gem_01",
+      "category": "03_Royale",
+      "id": 16000098,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Gem_01.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "Y2RGQPJ",
+    "name": "Fusion™",
+    "score": 52596,
+    "memberCount": 48,
+    "rank": 29,
+    "previousRank": 25,
+    "badge": {
+      "name": "A_Char_Hammer_01",
+      "category": "03_Royale",
+      "id": 16000164,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Hammer_01.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "8JLVR9VV",
+    "name": "Nova I C.A",
+    "score": 52589,
+    "memberCount": 50,
+    "rank": 30,
+    "previousRank": 37,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Argentina",
+      "isCountry": true,
+      "code": "AR"
+    }
+  },
+  {
+    "tag": "8V00U2RJ",
+    "name": "Star Alliance",
+    "score": 52552,
+    "memberCount": 44,
+    "rank": 31,
+    "previousRank": 27,
+    "badge": {
+      "name": "Traditional_Star_05",
+      "category": "01_Symbol",
+      "id": 16000040,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Traditional_Star_05.png"
+    },
+    "location": {
+      "name": "Uruguay",
+      "isCountry": true,
+      "code": "UY"
+    }
+  },
+  {
+    "tag": "LQ9YR",
+    "name": "SENTRY",
+    "score": 52539,
+    "memberCount": 49,
+    "rank": 32,
+    "previousRank": 34,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "82PPJUU8",
+    "name": "Made In Egypt ™",
+    "score": 52471,
+    "memberCount": 50,
+    "rank": 33,
+    "previousRank": 43,
+    "badge": {
+      "name": "Twin_Peaks_01",
+      "category": "01_Symbol",
+      "id": 16000096,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_01.png"
+    },
+    "location": {
+      "name": "Egypt",
+      "isCountry": true,
+      "code": "EG"
+    }
+  },
+  {
+    "tag": "Q0JJUQG",
+    "name": "White Waltz",
+    "score": 52462,
+    "memberCount": 47,
+    "rank": 34,
+    "previousRank": 38,
+    "badge": {
+      "name": "Heart_04",
+      "category": "01_Symbol",
+      "id": 16000110,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Heart_04.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "2CCCP",
+    "name": "Reddit Alpha",
+    "score": 52401,
+    "memberCount": 48,
+    "rank": 35,
+    "previousRank": 44,
+    "badge": {
+      "name": "A_Char_Rocket_02",
+      "category": "03_Royale",
+      "id": 16000167,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Rocket_02.png"
+    },
+    "location": {
+      "name": "Christmas Island",
+      "isCountry": true,
+      "code": "CX"
+    }
+  },
+  {
+    "tag": "92LLJ828",
+    "name": "Nova I Korea",
+    "score": 52338,
+    "memberCount": 45,
+    "rank": 36,
+    "previousRank": 26,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "22UYUJ9V",
+    "name": "ENIGMA",
+    "score": 52289,
+    "memberCount": 49,
+    "rank": 37,
+    "previousRank": 49,
+    "badge": {
+      "name": "Sword_01",
+      "category": "01_Symbol",
+      "id": 16000004,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_01.png"
+    },
+    "location": {
+      "name": "Russia",
+      "isCountry": true,
+      "code": "RU"
+    }
+  },
+  {
+    "tag": "8QCVG8VG",
+    "name": "JSG I 廣州",
+    "score": 52245,
+    "memberCount": 50,
+    "rank": 38,
+    "previousRank": 42,
+    "badge": {
+      "name": "Cherry_Blossom_02",
+      "category": "01_Symbol",
+      "id": 16000129,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Cherry_Blossom_02.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "JQRUVYY",
+    "name": "Cgn Warriors",
+    "score": 52168,
+    "memberCount": 49,
+    "rank": 39,
+    "previousRank": 41,
+    "badge": {
+      "name": "Skull_06",
+      "category": "01_Symbol",
+      "id": 16000029,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Skull_06.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "VQ9CGR0",
+    "name": "Caju Royale",
+    "score": 52164,
+    "memberCount": 48,
+    "rank": 40,
+    "previousRank": 36,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "8V00VRU0",
+    "name": "100% VIP™",
+    "score": 52156,
+    "memberCount": 45,
+    "rank": 41,
+    "previousRank": 28,
+    "badge": {
+      "name": "Flame_03",
+      "category": "01_Symbol",
+      "id": 16000002,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_03.png"
+    },
+    "location": {
+      "name": "Mexico",
+      "isCountry": true,
+      "code": "MX"
+    }
+  },
+  {
+    "tag": "2CL8RCC0",
+    "name": "Orion eSports",
+    "score": 52150,
+    "memberCount": 49,
+    "rank": 42,
+    "previousRank": 52,
+    "badge": {
+      "name": "Pine_01",
+      "category": "01_Symbol",
+      "id": 16000033,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_01.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "2GP0L09",
+    "name": "上海 OP 千阳号",
+    "score": 52104,
+    "memberCount": 48,
+    "rank": 43,
+    "previousRank": 82,
+    "badge": {
+      "name": "Flame_01",
+      "category": "01_Symbol",
+      "id": 16000000,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_01.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8C88C2",
+    "name": "Кузькина Мать",
+    "score": 52098,
+    "memberCount": 49,
+    "rank": 44,
+    "previousRank": 47,
+    "badge": {
+      "name": "flag_j_03",
+      "category": "02_Flag",
+      "id": 16000077,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_j_03.png"
+    },
+    "location": {
+      "name": "Russia",
+      "isCountry": true,
+      "code": "RU"
+    }
+  },
+  {
+    "tag": "8PCCV9PQ",
+    "name": "Sandstorm Arb",
+    "score": 52049,
+    "memberCount": 45,
+    "rank": 45,
+    "previousRank": 19,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "22QP0LQ9",
+    "name": "Ad Astra",
+    "score": 52019,
+    "memberCount": 49,
+    "rank": 46,
+    "previousRank": 60,
+    "badge": {
+      "name": "Traditional_Star_05",
+      "category": "01_Symbol",
+      "id": 16000040,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Traditional_Star_05.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "80U9VQU8",
+    "name": "Sandstorm Ru",
+    "score": 52001,
+    "memberCount": 48,
+    "rank": 47,
+    "previousRank": 54,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Russia",
+      "isCountry": true,
+      "code": "RU"
+    }
+  },
+  {
+    "tag": "8YYRQY8J",
+    "name": "Sandstorm IRQ",
+    "score": 51985,
+    "memberCount": 50,
+    "rank": 48,
+    "previousRank": 46,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Iraq",
+      "isCountry": true,
+      "code": "IQ"
+    }
+  },
+  {
+    "tag": "92LCY22C",
+    "name": "Sandstorm UAE",
+    "score": 51972,
+    "memberCount": 46,
+    "rank": 49,
+    "previousRank": 33,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "United Arab Emirates",
+      "isCountry": true,
+      "code": "AE"
+    }
+  },
+  {
+    "tag": "8C089098",
+    "name": "X-Fun",
+    "score": 51895,
+    "memberCount": 50,
+    "rank": 50,
+    "previousRank": 66,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8Q8R9LQ0",
+    "name": "Boréal ★ MG",
+    "score": 51792,
+    "memberCount": 46,
+    "rank": 51,
+    "previousRank": 35,
+    "badge": {
+      "name": "Fugi_03",
+      "category": "01_Symbol",
+      "id": 16000122,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Fugi_03.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "GJJRJUR",
+    "name": "80.90【集中赢】",
+    "score": 51771,
+    "memberCount": 49,
+    "rank": 52,
+    "previousRank": 55,
+    "badge": {
+      "name": "Heart_03",
+      "category": "01_Symbol",
+      "id": 16000111,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Heart_03.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8QC8YQJC",
+    "name": "Nova I ARG",
+    "score": 51768,
+    "memberCount": 50,
+    "rank": 53,
+    "previousRank": 50,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Argentina",
+      "isCountry": true,
+      "code": "AR"
+    }
+  },
+  {
+    "tag": "8G0JC0GV",
+    "name": "Sandstorm KR",
+    "score": 51729,
+    "memberCount": 48,
+    "rank": 54,
+    "previousRank": 63,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "8RU0QRRC",
+    "name": "Epix N Impulse",
+    "score": 51685,
+    "memberCount": 48,
+    "rank": 55,
+    "previousRank": 87,
+    "badge": {
+      "name": "Pine_01",
+      "category": "01_Symbol",
+      "id": 16000033,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_01.png"
+    },
+    "location": {
+      "name": "North America",
+      "isCountry": false,
+      "code": "_NA"
+    }
+  },
+  {
+    "tag": "8L0QGGQ2",
+    "name": "Sandstorm Italy",
+    "score": 51659,
+    "memberCount": 49,
+    "rank": 56,
+    "previousRank": 57,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "989CPY8C",
+    "name": "Sandstorm PL™",
+    "score": 51637,
+    "memberCount": 47,
+    "rank": 57,
+    "previousRank": 67,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Poland",
+      "isCountry": true,
+      "code": "PL"
+    }
+  },
+  {
+    "tag": "CV0YVU",
+    "name": "大阪クラン",
+    "score": 51636,
+    "memberCount": 49,
+    "rank": 58,
+    "previousRank": 51,
+    "badge": {
+      "name": "flag_a_03",
+      "category": "02_Flag",
+      "id": 16000050,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_a_03.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "PGPV0GG",
+    "name": "잎새",
+    "score": 51585,
+    "memberCount": 45,
+    "rank": 59,
+    "previousRank": 89,
+    "badge": {
+      "name": "Clover_01",
+      "category": "01_Symbol",
+      "id": 16000170,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Clover_01.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "8L2YPVRR",
+    "name": "SandStorm Dark",
+    "score": 51583,
+    "memberCount": 49,
+    "rank": 60,
+    "previousRank": 61,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Honduras",
+      "isCountry": true,
+      "code": "HN"
+    }
+  },
+  {
+    "tag": "LU0RQP8",
+    "name": "トレジャーハンター",
+    "score": 51567,
+    "memberCount": 49,
+    "rank": 61,
+    "previousRank": 78,
+    "badge": {
+      "name": "Gem_01",
+      "category": "03_Royale",
+      "id": 16000098,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Gem_01.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "99Y09VG2",
+    "name": "Supremos™",
+    "score": 51481,
+    "memberCount": 49,
+    "rank": 62,
+    "previousRank": 76,
+    "badge": {
+      "name": "Crown_01",
+      "category": "01_Symbol",
+      "id": 16000012,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_01.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "9QJQYYYJ",
+    "name": "Gladiators™️",
+    "score": 51450,
+    "memberCount": 46,
+    "rank": 63,
+    "previousRank": 32,
+    "badge": {
+      "name": "Sword_04",
+      "category": "01_Symbol",
+      "id": 16000007,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_04.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "89QYUP90",
+    "name": "Sandstorm Fr",
+    "score": 51439,
+    "memberCount": 47,
+    "rank": 64,
+    "previousRank": 69,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "8L8C2VJQ",
+    "name": "Karmes PDF",
+    "score": 51425,
+    "memberCount": 49,
+    "rank": 65,
+    "previousRank": 102,
+    "badge": {
+      "name": "Skull_06",
+      "category": "01_Symbol",
+      "id": 16000029,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Skull_06.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "PQJ2Y",
+    "name": "RoyaleConQueso",
+    "score": 51417,
+    "memberCount": 47,
+    "rank": 66,
+    "previousRank": 48,
+    "badge": {
+      "name": "Crown_02",
+      "category": "01_Symbol",
+      "id": 16000013,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_02.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "90PCLCUC",
+    "name": "风暴 【Destroy】",
+    "score": 51362,
+    "memberCount": 48,
+    "rank": 67,
+    "previousRank": 77,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8JYJC0UC",
+    "name": "Omega™PEKKATORI",
+    "score": 51335,
+    "memberCount": 47,
+    "rank": 68,
+    "previousRank": 73,
+    "badge": {
+      "name": "Star_Shine_01",
+      "category": "01_Symbol",
+      "id": 16000042,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_01.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8GG8G2RU",
+    "name": "Heralds™",
+    "score": 51331,
+    "memberCount": 48,
+    "rank": 69,
+    "previousRank": 85,
+    "badge": {
+      "name": "A_Char_Hammer_02",
+      "category": "03_Royale",
+      "id": 16000165,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Hammer_02.png"
+    },
+    "location": {
+      "name": "Costa Rica",
+      "isCountry": true,
+      "code": "CR"
+    }
+  },
+  {
+    "tag": "29CPJ8Y0",
+    "name": "花言葉～Momo～",
+    "score": 51289,
+    "memberCount": 50,
+    "rank": 70,
+    "previousRank": 140,
+    "badge": {
+      "name": "Cherry_Blossom_06",
+      "category": "01_Symbol",
+      "id": 16000132,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Cherry_Blossom_06.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "2C9P8PJ2",
+    "name": "ME ELITE",
+    "score": 51274,
+    "memberCount": 49,
+    "rank": 71,
+    "previousRank": 58,
+    "badge": {
+      "name": "Flame_04",
+      "category": "01_Symbol",
+      "id": 16000003,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_04.png"
+    },
+    "location": {
+      "name": "Syria",
+      "isCountry": true,
+      "code": "SY"
+    }
+  },
+  {
+    "tag": "2UP8R99Y",
+    "name": "Nova l Potenza",
+    "score": 51271,
+    "memberCount": 44,
+    "rank": 72,
+    "previousRank": 39,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "8GP8Y28R",
+    "name": "Mega Indonesia",
+    "score": 51268,
+    "memberCount": 48,
+    "rank": 73,
+    "previousRank": 59,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Indonesia",
+      "isCountry": true,
+      "code": "ID"
+    }
+  },
+  {
+    "tag": "2VL990UL",
+    "name": "Sandstorm USA",
+    "score": 51260,
+    "memberCount": 50,
+    "rank": 74,
+    "previousRank": 111,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "8GG8YGP0",
+    "name": "OTK eSports",
+    "score": 51258,
+    "memberCount": 48,
+    "rank": 75,
+    "previousRank": 71,
+    "badge": {
+      "name": "Heart_04",
+      "category": "01_Symbol",
+      "id": 16000110,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Heart_04.png"
+    },
+    "location": {
+      "name": "Guatemala",
+      "isCountry": true,
+      "code": "GT"
+    }
+  },
+  {
+    "tag": "LVL8GP8",
+    "name": "Munich Fighters",
+    "score": 51248,
+    "memberCount": 48,
+    "rank": 76,
+    "previousRank": 72,
+    "badge": {
+      "name": "Sword_01",
+      "category": "01_Symbol",
+      "id": 16000004,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_01.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "YQVJ9L",
+    "name": "Die Tafelrunde",
+    "score": 51223,
+    "memberCount": 48,
+    "rank": 77,
+    "previousRank": 79,
+    "badge": {
+      "name": "Sword_04",
+      "category": "01_Symbol",
+      "id": 16000007,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_04.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "2JU290L9",
+    "name": "場內野豬搖滾區",
+    "score": 51199,
+    "memberCount": 49,
+    "rank": 78,
+    "previousRank": 88,
+    "badge": {
+      "name": "A_Char_Hammer_02",
+      "category": "03_Royale",
+      "id": 16000165,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Hammer_02.png"
+    },
+    "location": {
+      "name": "Taiwan",
+      "isCountry": true,
+      "code": "TW"
+    }
+  },
+  {
+    "tag": "9GJ89V",
+    "name": "ウエスト98cmの会",
+    "score": 51169,
+    "memberCount": 48,
+    "rank": 79,
+    "previousRank": 157,
+    "badge": {
+      "name": "Gem_03",
+      "category": "03_Royale",
+      "id": 16000100,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Gem_03.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "V0GL8C8",
+    "name": "TeamLiquid VE",
+    "score": 51151,
+    "memberCount": 50,
+    "rank": 80,
+    "previousRank": 114,
+    "badge": {
+      "name": "flag_d_04",
+      "category": "02_Flag",
+      "id": 16000063,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_d_04.png"
+    },
+    "location": {
+      "name": "Nicaragua",
+      "isCountry": true,
+      "code": "NI"
+    }
+  },
+  {
+    "tag": "8R2LL0YJ",
+    "name": "Sandstorm BR™",
+    "score": 51151,
+    "memberCount": 49,
+    "rank": 81,
+    "previousRank": 70,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "V0U",
+    "name": "ジェンコ・オリーブ商会",
+    "score": 51132,
+    "memberCount": 44,
+    "rank": 82,
+    "previousRank": 64,
+    "badge": {
+      "name": "flag_c_03",
+      "category": "02_Flag",
+      "id": 16000054,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_c_03.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "UU9L",
+    "name": "きくすいコーポ",
+    "score": 51129,
+    "memberCount": 46,
+    "rank": 83,
+    "previousRank": 65,
+    "badge": {
+      "name": "Fan_04",
+      "category": "01_Symbol",
+      "id": 16000119,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Fan_04.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "88GVV0QL",
+    "name": "MANGÚ™",
+    "score": 51090,
+    "memberCount": 46,
+    "rank": 84,
+    "previousRank": 146,
+    "badge": {
+      "name": "Clover_02",
+      "category": "01_Symbol",
+      "id": 16000171,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Clover_02.png"
+    },
+    "location": {
+      "name": "Dominican Republic",
+      "isCountry": true,
+      "code": "DO"
+    }
+  },
+  {
+    "tag": "2GJLCVJQ",
+    "name": "CRM eSports",
+    "score": 51072,
+    "memberCount": 50,
+    "rank": 85,
+    "previousRank": 74,
+    "badge": {
+      "name": "flag_a_03",
+      "category": "02_Flag",
+      "id": 16000050,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_a_03.png"
+    },
+    "location": {
+      "name": "Mexico",
+      "isCountry": true,
+      "code": "MX"
+    }
+  },
+  {
+    "tag": "80JJP9GG",
+    "name": "Sandstorm JO",
+    "score": 51018,
+    "memberCount": 47,
+    "rank": 86,
+    "previousRank": 129,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Jordan",
+      "isCountry": true,
+      "code": "JO"
+    }
+  },
+  {
+    "tag": "2J8VQPLP",
+    "name": "paiN Gaming",
+    "score": 51006,
+    "memberCount": 48,
+    "rank": 87,
+    "previousRank": 68,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "2GUPURPV",
+    "name": "Nova l Imperio",
+    "score": 50966,
+    "memberCount": 48,
+    "rank": 88,
+    "previousRank": 91,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Mexico",
+      "isCountry": true,
+      "code": "MX"
+    }
+  },
+  {
+    "tag": "8LG02LP2",
+    "name": "Leb Loob™",
+    "score": 50959,
+    "memberCount": 48,
+    "rank": 89,
+    "previousRank": 118,
+    "badge": {
+      "name": "Bamboo_04",
+      "category": "01_Symbol",
+      "id": 16000139,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bamboo_04.png"
+    },
+    "location": {
+      "name": "Lebanon",
+      "isCountry": true,
+      "code": "LB"
+    }
+  },
+  {
+    "tag": "8YVV9YUR",
+    "name": "Veterans Élite™",
+    "score": 50954,
+    "memberCount": 49,
+    "rank": 90,
+    "previousRank": 83,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8QQ8YRUV",
+    "name": "Phantoms Push",
+    "score": 50945,
+    "memberCount": 48,
+    "rank": 91,
+    "previousRank": 147,
+    "badge": {
+      "name": "Twin_Peaks_01",
+      "category": "01_Symbol",
+      "id": 16000096,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_01.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "LYR90J2",
+    "name": "༺ᏕᏢᏐᏒᏐᎢ ᎻᎪᎳᏦ༻",
+    "score": 50945,
+    "memberCount": 44,
+    "rank": 92,
+    "previousRank": 62,
+    "badge": {
+      "name": "Arrow_01",
+      "category": "01_Symbol",
+      "id": 16000016,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Arrow_01.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "8RR89PUY",
+    "name": "Nova l Swiss",
+    "score": 50920,
+    "memberCount": 46,
+    "rank": 93,
+    "previousRank": 105,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Switzerland",
+      "isCountry": true,
+      "code": "CH"
+    }
+  },
+  {
+    "tag": "PP289",
+    "name": "Phonecats",
+    "score": 50895,
+    "memberCount": 49,
+    "rank": 94,
+    "previousRank": 93,
+    "badge": {
+      "name": "Bolt_01",
+      "category": "01_Symbol",
+      "id": 16000008,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bolt_01.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "8GUJ9J8G",
+    "name": "Omega™ITLegends",
+    "score": 50891,
+    "memberCount": 48,
+    "rank": 95,
+    "previousRank": 100,
+    "badge": {
+      "name": "Star_Shine_01",
+      "category": "01_Symbol",
+      "id": 16000042,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_01.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "2LR02ULG",
+    "name": "Nova大唐 l 禁卫军",
+    "score": 50887,
+    "memberCount": 50,
+    "rank": 96,
+    "previousRank": 101,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "8RPPP90P",
+    "name": "COUNTING STARS",
+    "score": 50870,
+    "memberCount": 50,
+    "rank": 97,
+    "previousRank": 103,
+    "badge": {
+      "name": "Traditional_Star_04",
+      "category": "01_Symbol",
+      "id": 16000039,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Traditional_Star_04.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "9PP29CJ2",
+    "name": "Vivo Keyd",
+    "score": 50864,
+    "memberCount": 49,
+    "rank": 98,
+    "previousRank": 131,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "VJYGYL",
+    "name": "Golems Vendetta",
+    "score": 50857,
+    "memberCount": 50,
+    "rank": 99,
+    "previousRank": 198,
+    "badge": {
+      "name": "A_Char_Barbarian_03",
+      "category": "03_Royale",
+      "id": 16000176,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Barbarian_03.png"
+    },
+    "location": {
+      "name": "Colombia",
+      "isCountry": true,
+      "code": "CO"
+    }
+  },
+  {
+    "tag": "8GGC990V",
+    "name": "Nova l India",
+    "score": 50856,
+    "memberCount": 49,
+    "rank": 100,
+    "previousRank": 130,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "India",
+      "isCountry": true,
+      "code": "IN"
+    }
+  },
+  {
+    "tag": "80LC8228",
+    "name": "Les Vilains !",
+    "score": 50843,
+    "memberCount": 46,
+    "rank": 101,
+    "previousRank": 86,
+    "badge": {
+      "name": "Heart_01",
+      "category": "01_Symbol",
+      "id": 16000108,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Heart_01.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "2YVQ2CG0",
+    "name": "LegendaryRivals",
+    "score": 50834,
+    "memberCount": 49,
+    "rank": 102,
+    "previousRank": 97,
+    "badge": {
+      "name": "Arrow_02",
+      "category": "01_Symbol",
+      "id": 16000017,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Arrow_02.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "YLYJ8",
+    "name": "Wi and Fi",
+    "score": 50825,
+    "memberCount": 46,
+    "rank": 103,
+    "previousRank": 110,
+    "badge": {
+      "name": "Freeze_01",
+      "category": "01_Symbol",
+      "id": 16000168,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Freeze_01.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "V8PUJ",
+    "name": "AuRuM TV",
+    "score": 50825,
+    "memberCount": 46,
+    "rank": 104,
+    "previousRank": 81,
+    "badge": {
+      "name": "Crown_01",
+      "category": "01_Symbol",
+      "id": 16000012,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_01.png"
+    },
+    "location": {
+      "name": "Russia",
+      "isCountry": true,
+      "code": "RU"
+    }
+  },
+  {
+    "tag": "GJGQCGU",
+    "name": "Vietnam Glory",
+    "score": 50802,
+    "memberCount": 46,
+    "rank": 105,
+    "previousRank": 119,
+    "badge": {
+      "name": "Traditional_Star_04",
+      "category": "01_Symbol",
+      "id": 16000039,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Traditional_Star_04.png"
+    },
+    "location": {
+      "name": "Vietnam",
+      "isCountry": true,
+      "code": "VN"
+    }
+  },
+  {
+    "tag": "Q8YRPV",
+    "name": "Persian.gulf",
+    "score": 50796,
+    "memberCount": 46,
+    "rank": 106,
+    "previousRank": 96,
+    "badge": {
+      "name": "flag_g_01",
+      "category": "02_Flag",
+      "id": 16000068,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_g_01.png"
+    },
+    "location": {
+      "name": "Iran",
+      "isCountry": true,
+      "code": "IR"
+    }
+  },
+  {
+    "tag": "2GYJL2GQ",
+    "name": "Nova l JPN",
+    "score": 50764,
+    "memberCount": 45,
+    "rank": 107,
+    "previousRank": 92,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "8YLQY0",
+    "name": "The Royales",
+    "score": 50744,
+    "memberCount": 50,
+    "rank": 108,
+    "previousRank": 151,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "2GRG0YR9",
+    "name": "UNITS",
+    "score": 50727,
+    "memberCount": 49,
+    "rank": 109,
+    "previousRank": 135,
+    "badge": {
+      "name": "Bolt_01",
+      "category": "01_Symbol",
+      "id": 16000008,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bolt_01.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "8QLVV00V",
+    "name": "TÜRKİYE",
+    "score": 50703,
+    "memberCount": 47,
+    "rank": 110,
+    "previousRank": 75,
+    "badge": {
+      "name": "Moon_01",
+      "category": "01_Symbol",
+      "id": 16000030,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Moon_01.png"
+    },
+    "location": {
+      "name": "Turkey",
+      "isCountry": true,
+      "code": "TR"
+    }
+  },
+  {
+    "tag": "2JYGCRLL",
+    "name": "Crema Catalana",
+    "score": 50674,
+    "memberCount": 49,
+    "rank": 111,
+    "previousRank": 106,
+    "badge": {
+      "name": "Flame_01",
+      "category": "01_Symbol",
+      "id": 16000000,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_01.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "8G2RU2P2",
+    "name": "Made in TURKEY",
+    "score": 50639,
+    "memberCount": 49,
+    "rank": 112,
+    "previousRank": 109,
+    "badge": {
+      "name": "Moon_01",
+      "category": "01_Symbol",
+      "id": 16000030,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Moon_01.png"
+    },
+    "location": {
+      "name": "Turkey",
+      "isCountry": true,
+      "code": "TR"
+    }
+  },
+  {
+    "tag": "8QY2RU9G",
+    "name": "Sandstorm KSA",
+    "score": 50585,
+    "memberCount": 44,
+    "rank": 113,
+    "previousRank": 115,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Saudi Arabia",
+      "isCountry": true,
+      "code": "SA"
+    }
+  },
+  {
+    "tag": "20R2GJ92",
+    "name": "Nova l PH",
+    "score": 50555,
+    "memberCount": 50,
+    "rank": 114,
+    "previousRank": 120,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Philippines",
+      "isCountry": true,
+      "code": "PH"
+    }
+  },
+  {
+    "tag": "82CRQULY",
+    "name": "EVOLUTION",
+    "score": 50547,
+    "memberCount": 49,
+    "rank": 115,
+    "previousRank": 222,
+    "badge": {
+      "name": "Star_Shine_02",
+      "category": "01_Symbol",
+      "id": 16000043,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_02.png"
+    },
+    "location": {
+      "name": "Indonesia",
+      "isCountry": true,
+      "code": "ID"
+    }
+  },
+  {
+    "tag": "99PJ8VQ0",
+    "name": "Dark Alliance",
+    "score": 50540,
+    "memberCount": 50,
+    "rank": 116,
+    "previousRank": 197,
+    "badge": {
+      "name": "Twin_Peaks_01",
+      "category": "01_Symbol",
+      "id": 16000096,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_01.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "QLJU8G",
+    "name": "29.10.1923",
+    "score": 50531,
+    "memberCount": 45,
+    "rank": 117,
+    "previousRank": 196,
+    "badge": {
+      "name": "flag_f_02",
+      "category": "02_Flag",
+      "id": 16000067,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_f_02.png"
+    },
+    "location": {
+      "name": "Turkey",
+      "isCountry": true,
+      "code": "TR"
+    }
+  },
+  {
+    "tag": "8RU0JYQ8",
+    "name": "ارتش امام زمان",
+    "score": 50502,
+    "memberCount": 50,
+    "rank": 118,
+    "previousRank": 104,
+    "badge": {
+      "name": "Gem_04",
+      "category": "03_Royale",
+      "id": 16000101,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Gem_04.png"
+    },
+    "location": {
+      "name": "Iran",
+      "isCountry": true,
+      "code": "IR"
+    }
+  },
+  {
+    "tag": "8VJQ0U9",
+    "name": "Half Baked™",
+    "score": 50501,
+    "memberCount": 46,
+    "rank": 119,
+    "previousRank": 122,
+    "badge": {
+      "name": "Diamond_Star_02",
+      "category": "01_Symbol",
+      "id": 16000021,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_02.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "89UJ8J2J",
+    "name": "RoyalFlush™",
+    "score": 50497,
+    "memberCount": 48,
+    "rank": 120,
+    "previousRank": 186,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "8PLYP8V",
+    "name": "Nova I Canada",
+    "score": 50494,
+    "memberCount": 43,
+    "rank": 121,
+    "previousRank": 56,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Canada",
+      "isCountry": true,
+      "code": "CA"
+    }
+  },
+  {
+    "tag": "8CRP2C92",
+    "name": "Hashtag Gaming",
+    "score": 50486,
+    "memberCount": 47,
+    "rank": 122,
+    "previousRank": 191,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "2JYY2GR8",
+    "name": "Emporio eSports",
+    "score": 50447,
+    "memberCount": 49,
+    "rank": 123,
+    "previousRank": 145,
+    "badge": {
+      "name": "flag_j_03",
+      "category": "02_Flag",
+      "id": 16000077,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_j_03.png"
+    },
+    "location": {
+      "name": "Mexico",
+      "isCountry": true,
+      "code": "MX"
+    }
+  },
+  {
+    "tag": "8L08JG2V",
+    "name": "Critical Gaming",
+    "score": 50444,
+    "memberCount": 47,
+    "rank": 124,
+    "previousRank": 153,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Chile",
+      "isCountry": true,
+      "code": "CL"
+    }
+  },
+  {
+    "tag": "20JJCCG",
+    "name": "あかずきんのいえ",
+    "score": 50442,
+    "memberCount": 50,
+    "rank": 125,
+    "previousRank": 149,
+    "badge": {
+      "name": "A_Char_MiniPekka_02",
+      "category": "03_Royale",
+      "id": 16000161,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_MiniPekka_02.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "8LLL0R2J",
+    "name": "Revolution™2.0",
+    "score": 50428,
+    "memberCount": 49,
+    "rank": 126,
+    "previousRank": 116,
+    "badge": {
+      "name": "flag_n_04",
+      "category": "02_Flag",
+      "id": 16000093,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_n_04.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8QL99QYC",
+    "name": "Shorys Gaming",
+    "score": 50427,
+    "memberCount": 48,
+    "rank": 127,
+    "previousRank": 160,
+    "badge": {
+      "name": "Clover_02",
+      "category": "01_Symbol",
+      "id": 16000171,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Clover_02.png"
+    },
+    "location": {
+      "name": "Guatemala",
+      "isCountry": true,
+      "code": "GT"
+    }
+  },
+  {
+    "tag": "LGPC2UR",
+    "name": "winchesters",
+    "score": 50420,
+    "memberCount": 48,
+    "rank": 128,
+    "previousRank": 90,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "P9QRRCG",
+    "name": "CLASH CHAMPIONS",
+    "score": 50419,
+    "memberCount": 49,
+    "rank": 129,
+    "previousRank": 113,
+    "badge": {
+      "name": "Sword_04",
+      "category": "01_Symbol",
+      "id": 16000007,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_04.png"
+    },
+    "location": {
+      "name": "North America",
+      "isCountry": false,
+      "code": "_NA"
+    }
+  },
+  {
+    "tag": "8Q09RJ00",
+    "name": "娱乐至巅❤️冠绝一时",
+    "score": 50373,
+    "memberCount": 49,
+    "rank": 130,
+    "previousRank": 166,
+    "badge": {
+      "name": "Cherry_Blossom_01",
+      "category": "01_Symbol",
+      "id": 16000128,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Cherry_Blossom_01.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "V9GRG98",
+    "name": "Aura Gaming",
+    "score": 50372,
+    "memberCount": 45,
+    "rank": 131,
+    "previousRank": 177,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Singapore",
+      "isCountry": true,
+      "code": "SG"
+    }
+  },
+  {
+    "tag": "8RJQU9CU",
+    "name": "Deep swamp",
+    "score": 50369,
+    "memberCount": 38,
+    "rank": 132,
+    "previousRank": 162,
+    "badge": {
+      "name": "Bamboo_04",
+      "category": "01_Symbol",
+      "id": 16000139,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bamboo_04.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "80Y0U9",
+    "name": "iran tehran",
+    "score": 50368,
+    "memberCount": 50,
+    "rank": 133,
+    "previousRank": 107,
+    "badge": {
+      "name": "Flame_03",
+      "category": "01_Symbol",
+      "id": 16000002,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Flame_03.png"
+    },
+    "location": {
+      "name": "Iran",
+      "isCountry": true,
+      "code": "IR"
+    }
+  },
+  {
+    "tag": "2J2V00QP",
+    "name": "WhyWorry",
+    "score": 50353,
+    "memberCount": 48,
+    "rank": 134,
+    "previousRank": 136,
+    "badge": {
+      "name": "Clover_01",
+      "category": "01_Symbol",
+      "id": 16000170,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Clover_01.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "29YY8L89",
+    "name": "娱乐至上",
+    "score": 50351,
+    "memberCount": 41,
+    "rank": 135,
+    "previousRank": 53,
+    "badge": {
+      "name": "Cherry_Blossom_01",
+      "category": "01_Symbol",
+      "id": 16000128,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Cherry_Blossom_01.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "2VQCY29G",
+    "name": "Nova l Nuggets",
+    "score": 50346,
+    "memberCount": 50,
+    "rank": 136,
+    "previousRank": 169,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "2U2GGQJ",
+    "name": "Reddit Bravo",
+    "score": 50343,
+    "memberCount": 49,
+    "rank": 137,
+    "previousRank": 148,
+    "badge": {
+      "name": "A_Char_Rocket_02",
+      "category": "03_Royale",
+      "id": 16000167,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Rocket_02.png"
+    },
+    "location": {
+      "name": "Christmas Island",
+      "isCountry": true,
+      "code": "CX"
+    }
+  },
+  {
+    "tag": "8RCVQ0G2",
+    "name": "Nova l Forza",
+    "score": 50311,
+    "memberCount": 48,
+    "rank": 138,
+    "previousRank": 126,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "C0QQ22J",
+    "name": "Nova ITA",
+    "score": 50289,
+    "memberCount": 47,
+    "rank": 139,
+    "previousRank": 165,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8Y0LR8GU",
+    "name": "Nova I Iran 2",
+    "score": 50285,
+    "memberCount": 50,
+    "rank": 140,
+    "previousRank": 99,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Iran",
+      "isCountry": true,
+      "code": "IR"
+    }
+  },
+  {
+    "tag": "8RU0G892",
+    "name": "Brasil eSports",
+    "score": 50273,
+    "memberCount": 50,
+    "rank": 141,
+    "previousRank": 121,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "929092",
+    "name": "RoyaleSinQueso",
+    "score": 50264,
+    "memberCount": 49,
+    "rank": 142,
+    "previousRank": 125,
+    "badge": {
+      "name": "Crown_02",
+      "category": "01_Symbol",
+      "id": 16000013,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_02.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "20R88P",
+    "name": "INDO ROYALE",
+    "score": 50243,
+    "memberCount": 50,
+    "rank": 143,
+    "previousRank": 207,
+    "badge": {
+      "name": "Crown_01",
+      "category": "01_Symbol",
+      "id": 16000012,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_01.png"
+    },
+    "location": {
+      "name": "Indonesia",
+      "isCountry": true,
+      "code": "ID"
+    }
+  },
+  {
+    "tag": "809JYLUP",
+    "name": "Latine eSports",
+    "score": 50239,
+    "memberCount": 49,
+    "rank": 144,
+    "previousRank": 189,
+    "badge": {
+      "name": "A_Char_Rocket_02",
+      "category": "03_Royale",
+      "id": 16000167,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Rocket_02.png"
+    },
+    "location": {
+      "name": "Bolivia",
+      "isCountry": true,
+      "code": "BO"
+    }
+  },
+  {
+    "tag": "8QRULPPC",
+    "name": "GulfNation™ ITA",
+    "score": 50233,
+    "memberCount": 47,
+    "rank": 145,
+    "previousRank": 138,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "9P80LGGG",
+    "name": "Sandstorm QTR",
+    "score": 50229,
+    "memberCount": 48,
+    "rank": 146,
+    "previousRank": 95,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Qatar",
+      "isCountry": true,
+      "code": "QA"
+    }
+  },
+  {
+    "tag": "GG2V89L",
+    "name": "RomaniaWarlords",
+    "score": 50206,
+    "memberCount": 49,
+    "rank": 147,
+    "previousRank": 132,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Romania",
+      "isCountry": true,
+      "code": "RO"
+    }
+  },
+  {
+    "tag": "82PPURGV",
+    "name": "BrengiTitans",
+    "score": 50197,
+    "memberCount": 50,
+    "rank": 148,
+    "previousRank": 154,
+    "badge": {
+      "name": "Crown_01",
+      "category": "01_Symbol",
+      "id": 16000012,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_01.png"
+    },
+    "location": {
+      "name": "Israel",
+      "isCountry": true,
+      "code": "IL"
+    }
+  },
+  {
+    "tag": "9PCVYL28",
+    "name": "BzK eSport",
+    "score": 50193,
+    "memberCount": 49,
+    "rank": 149,
+    "previousRank": 215,
+    "badge": {
+      "name": "A_Char_Rocket_02",
+      "category": "03_Royale",
+      "id": 16000167,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Rocket_02.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "2YUYU00P",
+    "name": "S.T.A.R.S.",
+    "score": 50179,
+    "memberCount": 49,
+    "rank": 150,
+    "previousRank": 144,
+    "badge": {
+      "name": "Freeze_01",
+      "category": "01_Symbol",
+      "id": 16000168,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Freeze_01.png"
+    },
+    "location": {
+      "name": "Puerto Rico",
+      "isCountry": true,
+      "code": "PR"
+    }
+  },
+  {
+    "tag": "PUUL9YY",
+    "name": "Rubinho's Army",
+    "score": 50146,
+    "memberCount": 47,
+    "rank": 151,
+    "previousRank": 205,
+    "badge": {
+      "name": "A_Char_Hammer_02",
+      "category": "03_Royale",
+      "id": 16000165,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Hammer_02.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "G2JR2QR",
+    "name": "白银帝国",
+    "score": 50138,
+    "memberCount": 50,
+    "rank": 152,
+    "previousRank": 167,
+    "badge": {
+      "name": "Skull_06",
+      "category": "01_Symbol",
+      "id": 16000029,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Skull_06.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "2GVJGLP0",
+    "name": "#2Fresh eSports",
+    "score": 50136,
+    "memberCount": 46,
+    "rank": 153,
+    "previousRank": 141,
+    "badge": {
+      "name": "Cherry_Blossom_05",
+      "category": "01_Symbol",
+      "id": 16000133,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Cherry_Blossom_05.png"
+    },
+    "location": {
+      "name": "United Kingdom",
+      "isCountry": true,
+      "code": "GB"
+    }
+  },
+  {
+    "tag": "8U0CPGQR",
+    "name": "Team Str¥ng™",
+    "score": 50127,
+    "memberCount": 48,
+    "rank": 154,
+    "previousRank": 108,
+    "badge": {
+      "name": "Bolt_04",
+      "category": "01_Symbol",
+      "id": 16000011,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bolt_04.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "CYCJJLG",
+    "name": "Nova Turkey",
+    "score": 50126,
+    "memberCount": 47,
+    "rank": 155,
+    "previousRank": 164,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Turkey",
+      "isCountry": true,
+      "code": "TR"
+    }
+  },
+  {
+    "tag": "8QG2J8JG",
+    "name": "ToBackDown",
+    "score": 50113,
+    "memberCount": 50,
+    "rank": 156,
+    "previousRank": 254,
+    "badge": {
+      "name": "Twin_Peaks_01",
+      "category": "01_Symbol",
+      "id": 16000096,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_01.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "8LRR2UYY",
+    "name": "Nova I Panamá",
+    "score": 50105,
+    "memberCount": 45,
+    "rank": 157,
+    "previousRank": 127,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Panama",
+      "isCountry": true,
+      "code": "PA"
+    }
+  },
+  {
+    "tag": "82LQRL",
+    "name": "FiringRange",
+    "score": 50088,
+    "memberCount": 49,
+    "rank": 158,
+    "previousRank": 124,
+    "badge": {
+      "name": "Pine_01",
+      "category": "01_Symbol",
+      "id": 16000033,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_01.png"
+    },
+    "location": {
+      "name": "Christmas Island",
+      "isCountry": true,
+      "code": "CX"
+    }
+  },
+  {
+    "tag": "98VRJCJV",
+    "name": "Sandstorm OM",
+    "score": 50084,
+    "memberCount": 49,
+    "rank": 159,
+    "previousRank": 184,
+    "badge": {
+      "name": "Twin_Peaks_02",
+      "category": "01_Symbol",
+      "id": 16000097,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Twin_Peaks_02.png"
+    },
+    "location": {
+      "name": "Oman",
+      "isCountry": true,
+      "code": "OM"
+    }
+  },
+  {
+    "tag": "22LCR",
+    "name": "V.N Champions",
+    "score": 50079,
+    "memberCount": 47,
+    "rank": 160,
+    "previousRank": 178,
+    "badge": {
+      "name": "Freeze_02",
+      "category": "01_Symbol",
+      "id": 16000169,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Freeze_02.png"
+    },
+    "location": {
+      "name": "Vietnam",
+      "isCountry": true,
+      "code": "VN"
+    }
+  },
+  {
+    "tag": "28RLRYC",
+    "name": "SUPREMACIA BR",
+    "score": 50065,
+    "memberCount": 48,
+    "rank": 161,
+    "previousRank": 170,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Brazil",
+      "isCountry": true,
+      "code": "BR"
+    }
+  },
+  {
+    "tag": "9RY2R2",
+    "name": "Sentry 1.0",
+    "score": 50032,
+    "memberCount": 49,
+    "rank": 162,
+    "previousRank": 210,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8CCQ2C8U",
+    "name": "MDL #SINCLUB",
+    "score": 50018,
+    "memberCount": 47,
+    "rank": 163,
+    "previousRank": 112,
+    "badge": {
+      "name": "A_Char_DarkPrince_04",
+      "category": "03_Royale",
+      "id": 16000159,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_DarkPrince_04.png"
+    },
+    "location": {
+      "name": "Marshall Islands",
+      "isCountry": true,
+      "code": "MH"
+    }
+  },
+  {
+    "tag": "8JQQP8UL",
+    "name": "HK@852 l Nova",
+    "score": 50018,
+    "memberCount": 46,
+    "rank": 164,
+    "previousRank": 128,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Hong Kong",
+      "isCountry": true,
+      "code": "HK"
+    }
+  },
+  {
+    "tag": "CJ2PPUR",
+    "name": "chaos",
+    "score": 50010,
+    "memberCount": 50,
+    "rank": 165,
+    "previousRank": 231,
+    "badge": {
+      "name": "Orange_01",
+      "category": "01_Symbol",
+      "id": 16000140,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Orange_01.png"
+    },
+    "location": {
+      "name": "Netherlands",
+      "isCountry": true,
+      "code": "NL"
+    }
+  },
+  {
+    "tag": "2QG0LPRY",
+    "name": "Mega India",
+    "score": 50008,
+    "memberCount": 48,
+    "rank": 166,
+    "previousRank": 152,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "India",
+      "isCountry": true,
+      "code": "IN"
+    }
+  },
+  {
+    "tag": "9RPQU0",
+    "name": "BigDelt∆",
+    "score": 49996,
+    "memberCount": 48,
+    "rank": 167,
+    "previousRank": 139,
+    "badge": {
+      "name": "flag_b_01",
+      "category": "02_Flag",
+      "id": 16000051,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_b_01.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "8ULG9JCR",
+    "name": "Killer Clowns™",
+    "score": 49975,
+    "memberCount": 44,
+    "rank": 168,
+    "previousRank": 80,
+    "badge": {
+      "name": "Freeze_02",
+      "category": "01_Symbol",
+      "id": 16000169,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Freeze_02.png"
+    },
+    "location": {
+      "name": "Mexico",
+      "isCountry": true,
+      "code": "MX"
+    }
+  },
+  {
+    "tag": "8P0UQPPU",
+    "name": "Zetko eSports",
+    "score": 49973,
+    "memberCount": 50,
+    "rank": 169,
+    "previousRank": 217,
+    "badge": {
+      "name": "Crown_01",
+      "category": "01_Symbol",
+      "id": 16000012,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Crown_01.png"
+    },
+    "location": {
+      "name": "Czech Republic",
+      "isCountry": true,
+      "code": "CZ"
+    }
+  },
+  {
+    "tag": "8UP0L9R",
+    "name": "若水千秋",
+    "score": 49968,
+    "memberCount": 48,
+    "rank": 170,
+    "previousRank": 195,
+    "badge": {
+      "name": "Orange_01",
+      "category": "01_Symbol",
+      "id": 16000140,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Orange_01.png"
+    },
+    "location": {
+      "name": "Asia",
+      "isCountry": false,
+      "code": "_AS"
+    }
+  },
+  {
+    "tag": "29LPY",
+    "name": "WoT",
+    "score": 49965,
+    "memberCount": 47,
+    "rank": 171,
+    "previousRank": 123,
+    "badge": {
+      "name": "Bolt_01",
+      "category": "01_Symbol",
+      "id": 16000008,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bolt_01.png"
+    },
+    "location": {
+      "name": "France",
+      "isCountry": true,
+      "code": "FR"
+    }
+  },
+  {
+    "tag": "LVUUY0J",
+    "name": "AK Gaming",
+    "score": 49959,
+    "memberCount": 48,
+    "rank": 172,
+    "previousRank": 163,
+    "badge": {
+      "name": "A_Char_Prince_03",
+      "category": "03_Royale",
+      "id": 16000177,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Prince_03.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "2JPPJQ",
+    "name": "Hebrew Hammer™",
+    "score": 49955,
+    "memberCount": 48,
+    "rank": 173,
+    "previousRank": 185,
+    "badge": {
+      "name": "A_Char_Hammer_01",
+      "category": "03_Royale",
+      "id": 16000164,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_Hammer_01.png"
+    },
+    "location": {
+      "name": "Israel",
+      "isCountry": true,
+      "code": "IL"
+    }
+  },
+  {
+    "tag": "8RYP2J",
+    "name": "대한민국•KOREA",
+    "score": 49921,
+    "memberCount": 49,
+    "rank": 174,
+    "previousRank": 161,
+    "badge": {
+      "name": "flag_c_01",
+      "category": "02_Flag",
+      "id": 16000126,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_c_01.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "JJCGC09",
+    "name": "朋友•皇族",
+    "score": 49919,
+    "memberCount": 50,
+    "rank": 175,
+    "previousRank": 159,
+    "badge": {
+      "name": "Clover_02",
+      "category": "01_Symbol",
+      "id": 16000171,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Clover_02.png"
+    },
+    "location": {
+      "name": "China",
+      "isCountry": true,
+      "code": "CN"
+    }
+  },
+  {
+    "tag": "L9VRJ",
+    "name": "Calalas España",
+    "score": 49909,
+    "memberCount": 49,
+    "rank": 176,
+    "previousRank": 194,
+    "badge": {
+      "name": "A_Char_MiniPekka_02",
+      "category": "03_Royale",
+      "id": 16000161,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_MiniPekka_02.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "L0QPV",
+    "name": "UNAUFHALTSAM",
+    "score": 49900,
+    "memberCount": 49,
+    "rank": 177,
+    "previousRank": 155,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "2J2UYJG",
+    "name": "무궁화",
+    "score": 49885,
+    "memberCount": 48,
+    "rank": 178,
+    "previousRank": 134,
+    "badge": {
+      "name": "Cherry_Blossom_06",
+      "category": "01_Symbol",
+      "id": 16000132,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Cherry_Blossom_06.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "9GP09",
+    "name": "シュテルンリッター",
+    "score": 49883,
+    "memberCount": 48,
+    "rank": 179,
+    "previousRank": 237,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "GG8P9",
+    "name": "D.N.A. ITALY",
+    "score": 49875,
+    "memberCount": 49,
+    "rank": 180,
+    "previousRank": 267,
+    "badge": {
+      "name": "Freeze_01",
+      "category": "01_Symbol",
+      "id": 16000168,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Freeze_01.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "YU2RQG9",
+    "name": "PandaScheme",
+    "score": 49859,
+    "memberCount": 50,
+    "rank": 181,
+    "previousRank": 158,
+    "badge": {
+      "name": "Bamboo_04",
+      "category": "01_Symbol",
+      "id": 16000139,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bamboo_04.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "JCQ9P",
+    "name": "なんと宝箱はミミックだった！",
+    "score": 49852,
+    "memberCount": 48,
+    "rank": 182,
+    "previousRank": 310,
+    "badge": {
+      "name": "Skull_05",
+      "category": "01_Symbol",
+      "id": 16000028,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Skull_05.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "YVGRPQ8",
+    "name": "Kings Of IRAN",
+    "score": 49836,
+    "memberCount": 49,
+    "rank": 183,
+    "previousRank": 94,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Iran",
+      "isCountry": true,
+      "code": "IR"
+    }
+  },
+  {
+    "tag": "9LRVLLJQ",
+    "name": "Warning ITA",
+    "score": 49825,
+    "memberCount": 49,
+    "rank": 184,
+    "previousRank": 171,
+    "badge": {
+      "name": "Bolt_02",
+      "category": "01_Symbol",
+      "id": 16000009,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bolt_02.png"
+    },
+    "location": {
+      "name": "Italy",
+      "isCountry": true,
+      "code": "IT"
+    }
+  },
+  {
+    "tag": "8G988R8Y",
+    "name": "MegaSuperiority",
+    "score": 49824,
+    "memberCount": 48,
+    "rank": 185,
+    "previousRank": 200,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "Chile",
+      "isCountry": true,
+      "code": "CL"
+    }
+  },
+  {
+    "tag": "2C9Q0L90",
+    "name": "Aura.Nefarious",
+    "score": 49820,
+    "memberCount": 47,
+    "rank": 186,
+    "previousRank": 133,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Malaysia",
+      "isCountry": true,
+      "code": "MY"
+    }
+  },
+  {
+    "tag": "8GGCGGG2",
+    "name": "Dostlar Mekanı",
+    "score": 49804,
+    "memberCount": 49,
+    "rank": 187,
+    "previousRank": 182,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Turkey",
+      "isCountry": true,
+      "code": "TR"
+    }
+  },
+  {
+    "tag": "PLYVU2G",
+    "name": "Nova l Germany",
+    "score": 49802,
+    "memberCount": 44,
+    "rank": 188,
+    "previousRank": 168,
+    "badge": {
+      "name": "Star_Shine_03",
+      "category": "01_Symbol",
+      "id": 16000044,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Star_Shine_03.png"
+    },
+    "location": {
+      "name": "Germany",
+      "isCountry": true,
+      "code": "DE"
+    }
+  },
+  {
+    "tag": "2VQJY9VV",
+    "name": "ロワキチの集会所",
+    "score": 49801,
+    "memberCount": 50,
+    "rank": 189,
+    "previousRank": 211,
+    "badge": {
+      "name": "A_Char_King_01",
+      "category": "03_Royale",
+      "id": 16000144,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/A_Char_King_01.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "8R20GLCC",
+    "name": "Sandstorm Pro",
+    "score": 49791,
+    "memberCount": 50,
+    "rank": 190,
+    "previousRank": 251,
+    "badge": {
+      "name": "Pine_02",
+      "category": "01_Symbol",
+      "id": 16000034,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Pine_02.png"
+    },
+    "location": {
+      "name": "International",
+      "isCountry": false,
+      "code": "_INT"
+    }
+  },
+  {
+    "tag": "LULGR",
+    "name": "廃人会",
+    "score": 49783,
+    "memberCount": 44,
+    "rank": 191,
+    "previousRank": 208,
+    "badge": {
+      "name": "Heart_01",
+      "category": "01_Symbol",
+      "id": 16000108,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Heart_01.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "UYPRY9G",
+    "name": "Aura.Alliances",
+    "score": 49783,
+    "memberCount": 50,
+    "rank": 192,
+    "previousRank": 203,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "Singapore",
+      "isCountry": true,
+      "code": "SG"
+    }
+  },
+  {
+    "tag": "PQUC20",
+    "name": "Dutch Corps",
+    "score": 49775,
+    "memberCount": 47,
+    "rank": 193,
+    "previousRank": 143,
+    "badge": {
+      "name": "Skull_05",
+      "category": "01_Symbol",
+      "id": 16000028,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Skull_05.png"
+    },
+    "location": {
+      "name": "Netherlands",
+      "isCountry": true,
+      "code": "NL"
+    }
+  },
+  {
+    "tag": "Y0V2CV",
+    "name": "kuaizero_com",
+    "score": 49756,
+    "memberCount": 50,
+    "rank": 194,
+    "previousRank": 192,
+    "badge": {
+      "name": "Skull_06",
+      "category": "01_Symbol",
+      "id": 16000029,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Skull_06.png"
+    },
+    "location": {
+      "name": "Japan",
+      "isCountry": true,
+      "code": "JP"
+    }
+  },
+  {
+    "tag": "8UL9R8VR",
+    "name": "[LGN] huntters",
+    "score": 49739,
+    "memberCount": 49,
+    "rank": 195,
+    "previousRank": 201,
+    "badge": {
+      "name": "flag_d_05",
+      "category": "02_Flag",
+      "id": 16000064,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/flag_d_05.png"
+    },
+    "location": {
+      "name": "Spain",
+      "isCountry": true,
+      "code": "ES"
+    }
+  },
+  {
+    "tag": "22PGG82Q",
+    "name": "UAE LEGENDS",
+    "score": 49720,
+    "memberCount": 47,
+    "rank": 196,
+    "previousRank": 142,
+    "badge": {
+      "name": "Bolt_02",
+      "category": "01_Symbol",
+      "id": 16000009,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Bolt_02.png"
+    },
+    "location": {
+      "name": "United Arab Emirates",
+      "isCountry": true,
+      "code": "AE"
+    }
+  },
+  {
+    "tag": "90V02GQQ",
+    "name": "Mega l Surge",
+    "score": 49719,
+    "memberCount": 47,
+    "rank": 197,
+    "previousRank": 117,
+    "badge": {
+      "name": "Diamond_Star_01",
+      "category": "01_Symbol",
+      "id": 16000020,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Diamond_Star_01.png"
+    },
+    "location": {
+      "name": "United States",
+      "isCountry": true,
+      "code": "US"
+    }
+  },
+  {
+    "tag": "JYJLVLU",
+    "name": "1분 1초",
+    "score": 49702,
+    "memberCount": 50,
+    "rank": 198,
+    "previousRank": 224,
+    "badge": {
+      "name": "Elixir_02",
+      "category": "03_Royale",
+      "id": 16000107,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Elixir_02.png"
+    },
+    "location": {
+      "name": "South Korea",
+      "isCountry": true,
+      "code": "KR"
+    }
+  },
+  {
+    "tag": "8UQPGR2G",
+    "name": "Notorious NP",
+    "score": 49697,
+    "memberCount": 46,
+    "rank": 199,
+    "previousRank": 221,
+    "badge": {
+      "name": "Tower_02",
+      "category": "03_Royale",
+      "id": 16000113,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Tower_02.png"
+    },
+    "location": {
+      "name": "Nepal",
+      "isCountry": true,
+      "code": "NP"
+    }
+  },
+  {
+    "tag": "8G0UV9V8",
+    "name": "Ticos Empire™",
+    "score": 49684,
+    "memberCount": 50,
+    "rank": 200,
+    "previousRank": 220,
+    "badge": {
+      "name": "Sword_01",
+      "category": "01_Symbol",
+      "id": 16000004,
+      "image": "https://cr-api.github.io/cr-api-assets/badges/Sword_01.png"
+    },
+    "location": {
+      "name": "Costa Rica",
+      "isCountry": true,
+      "code": "CR"
+    }
+  }
+]

@@ -16,10 +16,10 @@
  */
 package jcrapi;
 
+import jcrapi.model.Clan;
 import jcrapi.model.Constants;
-import jcrapi.model.DetailedClan;
 import jcrapi.model.Profile;
-import jcrapi.model.TopClans;
+import jcrapi.model.TopClan;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -146,7 +146,7 @@ public class ApiTest {
 
     @Test
     public void shouldGetTopClans() throws Exception {
-        TopClans topClans = new TopClans();
+        List<TopClan> topClans = new ArrayList<>();
         when(client.getTopClans()).thenReturn(topClans);
         assertEquals(topClans, api.getTopClans());
     }
@@ -173,9 +173,9 @@ public class ApiTest {
 
     @Test
     public void shouldGetClan() throws Exception {
-        DetailedClan detailedClan = new DetailedClan();
-        when(client.getClan("abc")).thenReturn(detailedClan);
-        assertEquals(detailedClan, api.getClan("abc"));
+        Clan clan = new Clan();
+        when(client.getClan("abc")).thenReturn(clan);
+        assertEquals(clan, api.getClan("abc"));
     }
 
     @Test
@@ -200,11 +200,11 @@ public class ApiTest {
 
     @Test
     public void shouldGetClans() throws Exception {
-        List<DetailedClan> detailedClans = new ArrayList<>();
+        List<Clan> clans = new ArrayList<>();
         List<String> tags = new ArrayList<>();
         tags.add("abc");
-        when(client.getClans(tags)).thenReturn(detailedClans);
-        assertEquals(detailedClans, api.getClans(tags));
+        when(client.getClans(tags)).thenReturn(clans);
+        assertEquals(clans, api.getClans(tags));
     }
 
     @Test
