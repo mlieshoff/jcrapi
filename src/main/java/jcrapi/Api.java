@@ -17,9 +17,16 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
+import jcrapi.model.Alliance;
+import jcrapi.model.Arena;
+import jcrapi.model.Badges;
+import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
+import jcrapi.model.CountryCode;
 import jcrapi.model.Profile;
+import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import org.apache.commons.collections.CollectionUtils;
 
@@ -108,6 +115,62 @@ public class Api {
     public Constants getConstants() {
         try {
             return clientFactory.createClient(url, developerKey).getConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public Alliance getAllianceConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getAllianceConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<Arena> getArenasConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getArenasConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public Badges getBadgesConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getBadgesConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public ChestCycleList getChestCycleConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getChestCycleConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<CountryCode> getCountryCodesConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getCountryCodesConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<Rarity> getRaritiesConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getRaritiesConstants();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<ConstantCard> getCardsConstants() {
+        try {
+            return clientFactory.createClient(url, developerKey).getCardsConstants();
         } catch (IOException e) {
             throw new ApiException(e);
         }

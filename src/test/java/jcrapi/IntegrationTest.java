@@ -16,9 +16,16 @@
  */
 package jcrapi;
 
+import jcrapi.model.Alliance;
+import jcrapi.model.Arena;
+import jcrapi.model.Badges;
+import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
+import jcrapi.model.CountryCode;
 import jcrapi.model.Profile;
+import jcrapi.model.Rarity;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -53,6 +60,13 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/top/players/*", new TestTopPlayersServlet());
         jettyServer.addServlet("/" + APP + "/clan/*", new TestClanServlet());
         jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/alliance/", new TestAllianceConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/arenas/", new TestArenasConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/badges/", new TestBadgesConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/chestCycle/", new TestChestCycleConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/countryCodes/", new TestCountryCodesConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/rarities/", new TestRaritiesConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/constants/cards/", new TestCardsConstantsServlet());
         jettyServer.start();
     }
 
@@ -186,6 +200,111 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetConstantsBecauseWrongAuth() throws IOException {
         doGetConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetAllianceConstantsWithAuth() throws IOException {
+        doGetAllianceConstants(URL, AUTH);
+    }
+
+    private void doGetAllianceConstants(String url, String auth) {
+        Alliance alliance = new Api(url, auth).getAllianceConstants();
+        assertTrue(alliance.getRoles().size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetAllianceConstantsBecauseWrongAuth() throws IOException {
+        doGetAllianceConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetArenasConstantsWithAuth() throws IOException {
+        doGetArenasConstants(URL, AUTH);
+    }
+
+    private void doGetArenasConstants(String url, String auth) {
+        List<Arena> arenas = new Api(url, auth).getArenasConstants();
+        assertTrue(arenas.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetArenasConstantsBecauseWrongAuth() throws IOException {
+        doGetArenasConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetBadgesConstantsWithAuth() throws IOException {
+        doGetBadgesConstants(URL, AUTH);
+    }
+
+    private void doGetBadgesConstants(String url, String auth) {
+        Badges badges = new Api(url, auth).getBadgesConstants();
+        assertTrue(badges.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetBadgesConstantsBecauseWrongAuth() throws IOException {
+        doGetBadgesConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetChestCycleConstantsWithAuth() throws IOException {
+        doGetChestCycleConstants(URL, AUTH);
+    }
+
+    private void doGetChestCycleConstants(String url, String auth) {
+        ChestCycleList chestCycleList = new Api(url, auth).getChestCycleConstants();
+        assertTrue(chestCycleList.getOrder().size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetChestCycleConstantsBecauseWrongAuth() throws IOException {
+        doGetChestCycleConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetCountryCodesConstantsWithAuth() throws IOException {
+        doGetCountryCodesConstants(URL, AUTH);
+    }
+
+    private void doGetCountryCodesConstants(String url, String auth) {
+        List<CountryCode> countryCodes = new Api(url, auth).getCountryCodesConstants();
+        assertTrue(countryCodes.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetCountryCodesConstantsBecauseWrongAuth() throws IOException {
+        doGetCountryCodesConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetRaritiesConstantsWithAuth() throws IOException {
+        doGetRaritiesConstants(URL, AUTH);
+    }
+
+    private void doGetRaritiesConstants(String url, String auth) {
+        List<Rarity> rarities = new Api(url, auth).getRaritiesConstants();
+        assertTrue(rarities.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetRaritiesConstantsBecauseWrongAuth() throws IOException {
+        doGetRaritiesConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetCardsConstantsWithAuth() throws IOException {
+        doGetCardsConstants(URL, AUTH);
+    }
+
+    private void doGetCardsConstants(String url, String auth) {
+        List<ConstantCard> constantCards = new Api(url, auth).getCardsConstants();
+        assertTrue(constantCards.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetCardsConstantsBecauseWrongAuth() throws IOException {
+        doGetCardsConstants(URL, "abc");
     }
 
 }

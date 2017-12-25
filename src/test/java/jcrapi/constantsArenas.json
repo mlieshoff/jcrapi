@@ -1,0 +1,122 @@
+[
+    {
+      "arena": "Arena 1",
+      "arenaID": 1,
+      "name": "Goblin Stadium",
+      "trophyLimit": 0
+    },
+    {
+      "arena": "Arena 2",
+      "arenaID": 2,
+      "name": "Bone Pit",
+      "trophyLimit": 400
+    },
+    {
+      "arena": "Arena 3",
+      "arenaID": 3,
+      "name": "Barbarian Bowl",
+      "trophyLimit": 800
+    },
+    {
+      "arena": "Arena 4",
+      "arenaID": 4,
+      "name": "P.E.K.K.A's Playhouse",
+      "trophyLimit": 1100
+    },
+    {
+      "arena": "Arena 5",
+      "arenaID": 5,
+      "name": "Spell Valley",
+      "trophyLimit": 1400
+    },
+    {
+      "arena": "Arena 6",
+      "arenaID": 6,
+      "name": "Builder's Workshop",
+      "trophyLimit": 1700
+    },
+    {
+      "arena": "Arena 7",
+      "arenaID": 7,
+      "name": "Royal Arena",
+      "trophyLimit": 2000
+    },
+    {
+      "arena": "Arena 8",
+      "arenaID": 8,
+      "name": "Frozen Peak",
+      "trophyLimit": 2300
+    },
+    {
+      "arena": "Arena 9",
+      "arenaID": 9,
+      "name": "Jungle Arena",
+      "trophyLimit": 2600
+    },
+    {
+      "arena": "Arena 10",
+      "arenaID": 10,
+      "name": "Hog Mountain",
+      "trophyLimit": 3000
+    },
+    {
+      "arena": "Arena 11",
+      "arenaID": 11,
+      "name": "Legendary Arena",
+      "trophyLimit": 3800
+    },
+    {
+      "arena": "League 1",
+      "arenaID": 12,
+      "name": "Challenger I",
+      "trophyLimit": 4000
+    },
+    {
+      "arena": "League 2",
+      "arenaID": 13,
+      "name": "Challenger II",
+      "trophyLimit": 4300
+    },
+    {
+      "arena": "League 3",
+      "arenaID": 14,
+      "name": "Challenger III",
+      "trophyLimit": 4600
+    },
+    {
+      "arena": "League 4",
+      "arenaID": 15,
+      "name": "Master I",
+      "trophyLimit": 4900
+    },
+    {
+      "arena": "League 5",
+      "arenaID": 16,
+      "name": "Master II",
+      "trophyLimit": 5200
+    },
+    {
+      "arena": "League 6",
+      "arenaID": 17,
+      "name": "Master III",
+      "trophyLimit": 5500
+    },
+    {
+      "arena": "League 7",
+      "arenaID": 18,
+      "name": "Champion",
+      "trophyLimit": 5800
+    },
+    {
+      "arena": "League 8",
+      "arenaID": 19,
+      "name": "Grand Champion",
+      "trophyLimit": 6100
+    },
+    {
+      "arena": "League 9",
+      "arenaID": 20,
+      "name": "Ultimate Champion",
+      "trophyLimit": 6400
+    }
+]
