@@ -20,6 +20,7 @@ import jcrapi.model.DetailedClan;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,7 +35,7 @@ public class LiveTest {
 
     @Before
     public void setUp() {
-        api = new Api(URL, "9432a8cf9a2a4839be327bb8f8afcafb8bec1566b0954a93a605b6eb1d860d76");
+        api = new Api(URL, "***");
     }
 
     @Ignore
@@ -42,7 +43,7 @@ public class LiveTest {
         assertEquals("4.0.3", api.getVersion());
     }
 
-    @Ignore
+    @Test
     public void getClan() throws Exception {
         DetailedClan detailedClan = api.getClan("2cccp");
         System.out.println(ReflectionToStringBuilder.reflectionToString(detailedClan));
