@@ -26,6 +26,7 @@ import jcrapi.model.CountryCode;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
+import jcrapi.model.TopPlayer;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -220,6 +221,23 @@ public class ApiTest {
         when(client.getClans(tags)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClans(tags);
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetTopPlayers() throws Exception {
+        List<TopPlayer> topPlayers = new ArrayList<>();
+        when(client.getTopPlayers()).thenReturn(topPlayers);
+        assertEquals(topPlayers, api.getTopClans());
+    }
+
+    @Test
+    public void failGetTopPlayers() throws Exception {
+        when(client.getTopPlayers()).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getTopPlayers();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }
