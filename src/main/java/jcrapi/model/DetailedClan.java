@@ -24,7 +24,7 @@ public class DetailedClan{
 	private String description;
 
 	@SerializedName("type")
-	private int type;
+	private String type;
 
 	@SerializedName("currentRank")
 	private int currentRank;
@@ -90,11 +90,11 @@ public class DetailedClan{
 		return description;
 	}
 
-	public void setType(int type){
+	public void setType(String type){
 		this.type = type;
 	}
 
-	public int getType(){
+	public String getType(){
 		return type;
 	}
 

@@ -35,7 +35,7 @@ public class LiveTest {
 
     @Before
     public void setUp() {
-        api = new Api(URL, "***");
+        api = new Api(URL, "9432a8cf9a2a4839be327bb8f8afcafb8bec1566b0954a93a605b6eb1d860d76");
     }
 
     @Ignore

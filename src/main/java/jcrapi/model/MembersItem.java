@@ -1,7 +1,8 @@
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("com.robohorse.robopojogenerator")
 public class MembersItem{
@@ -13,7 +14,7 @@ public class MembersItem{
 	private int score;
 
 	@SerializedName("role")
-	private int role;
+	private String role;
 
 	@SerializedName("donations")
 	private int donations;
@@ -58,11 +59,11 @@ public class MembersItem{
 		return score;
 	}
 
-	public void setRole(int role){
+	public void setRole(String role){
 		this.role = role;
 	}
 
-	public int getRole(){
+	public String getRole(){
 		return role;
 	}
 
