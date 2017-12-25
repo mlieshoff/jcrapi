@@ -16,6 +16,7 @@
  */
 package jcrapi;
 
+import com.google.common.collect.ImmutableMap;
 import org.apache.http.HttpResponse;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.client.HttpClient;
@@ -28,6 +29,8 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyObject;
@@ -51,12 +54,26 @@ public class CrawlerTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetBecauseNullUrl() throws IOException {
-        new Crawler(httpClientFactory).get(null);
+        new Crawler(httpClientFactory).get(null, createHeaders());
+    }
+
+    private Map<String,String> createHeaders() {
+        return ImmutableMap.<String, String>builder().put("name", "value").build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetBecauseEmptyUrl() throws IOException {
-        new Crawler(httpClientFactory).get("");
+        new Crawler(httpClientFactory).get("", createHeaders());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failGetBecauseNullHeaders() throws IOException {
+        new Crawler(httpClientFactory).get("abc", null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetBecauseEmptyHeaders() throws IOException {
+        new Crawler(httpClientFactory).get("abc", new HashMap<String, String>());
     }
 
     @Test
@@ -66,7 +83,7 @@ public class CrawlerTest {
         HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
         httpResponse.setEntity(new StringEntity(expectedResult));
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
-        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url"));
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders()));
     }
 
     @Test
@@ -78,7 +95,7 @@ public class CrawlerTest {
         httpResponse.setStatusCode(400);
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
         try {
-            new Crawler(httpClientFactory).get("the-url");
+            new Crawler(httpClientFactory).get("the-url", createHeaders());
         } catch (IOException e) {
             assertEquals("crapi: 400", e.getMessage());
         }

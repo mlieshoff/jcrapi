@@ -16,12 +16,10 @@ package jcrapi;
  * limitations under the License.
  */
 
-import com.google.gson.Gson;
+import jcrapi.model.DetailedClan;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
-
-import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,42 +32,20 @@ public class LiveTest {
 
     private Api api;
 
-    private Crawler crawler;
-
     @Before
     public void setUp() {
-        api = new Api(URL);
-        crawler = new CrawlerFactory().createCrawler();
+        api = new Api(URL, "9432a8cf9a2a4839be327bb8f8afcafb8bec1566b0954a93a605b6eb1d860d76");
     }
 
-    @Test
+    @Ignore
     public void version() throws Exception {
-        assertEquals(crawler.get(URL + "version"), api.getVersion());
+        assertEquals("4.0.3", api.getVersion());
     }
 
     @Ignore
-    public void profile() throws Exception {
-        assertEquals(crawler.get(URL + "profile/Y99YRPYG"), new Gson().toJson(api.getProfile("Y99YRPYG")));
-    }
-
-    @Ignore
-    public void multiClans() throws Exception {
-        assertEquals(crawler.get(URL + "clan/2CCCP,2U2GGQJ"), new Gson().toJson(api.getClans(Arrays.asList("2CCCP,2U2GGQJ".split(",")))));
-    }
-
-    @Ignore
-    public void clan() throws Exception {
-        assertEquals(crawler.get(URL + "clan/2CCCP"), new Gson().toJson(api.getClan("2CCCP")));
-    }
-
-    @Ignore
-    public void topClans() throws Exception {
-        assertEquals(crawler.get(URL + "top/clans"), new Gson().toJson(api.getTopClans()));
-    }
-
-    @Ignore
-    public void constants() throws Exception {
-        assertEquals(crawler.get(URL + "constants"), new Gson().toJson(api.getConstants()));
+    public void getClan() throws Exception {
+        DetailedClan detailedClan = api.getClan("2cccp");
+        System.out.println(ReflectionToStringBuilder.reflectionToString(detailedClan));
     }
 
 }

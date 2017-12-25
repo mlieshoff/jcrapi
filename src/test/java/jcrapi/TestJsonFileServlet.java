@@ -17,7 +17,6 @@
 package jcrapi;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,13 +47,8 @@ public class TestJsonFileServlet extends HttpServlet {
     }
 
     public boolean checkAuth(HttpServletRequest req) {
-        String auth = req.getParameter("auth");
-        if (StringUtils.isNotBlank(auth)) {
-            if (!IntegrationTest.AUTH.equals(auth)) {
-                return false;
-            }
-        }
-        return true;
+        String auth = req.getHeader("auth");
+        return IntegrationTest.AUTH.equals(auth);
     }
 
 }

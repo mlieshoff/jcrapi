@@ -17,6 +17,7 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import jcrapi.model.Constants;
@@ -30,6 +31,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Michael Lieshoff
@@ -55,7 +57,11 @@ class Client {
     }
 
     String getVersion() throws IOException {
-        return createCrawler().get(createUrl("version"));
+        return createCrawler().get(createUrl("version"), createAuthHeader(developerKey));
+    }
+
+    private Map<String, String> createAuthHeader(String developerKey) {
+        return ImmutableMap.<String, String>builder().put("auth", developerKey).build();
     }
 
     private Crawler createCrawler() {
@@ -66,46 +72,42 @@ class Client {
         StringBuilder s = new StringBuilder();
         s.append(url);
         s.append(part);
-        if (developerKey != null) {
-            s.append("?auth=");
-            s.append(developerKey);
-        }
         return s.toString();
     }
 
     Profile getProfile(String tag) throws IOException {
         checkString(tag);
-        String json = createCrawler().get(createUrl("profile/" + tag));
+        String json = createCrawler().get(createUrl("profile/" + tag), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Profile.class);
     }
 
     List<Profile> getProfiles(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("profile/" + StringUtils.join(tags, ",")));
+        String json = createCrawler().get(createUrl("profile/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
     TopClans getTopClans() throws IOException {
-        String json = createCrawler().get(createUrl("top/clans"));
+        String json = createCrawler().get(createUrl("top/clans"), createAuthHeader(developerKey));
         return new Gson().fromJson(json, TopClans.class);
     }
 
     DetailedClan getClan(String tag) throws IOException {
         checkString(tag);
-        String json = createCrawler().get(createUrl("clan/" + tag));
+        String json = createCrawler().get(createUrl("clan/" + tag), createAuthHeader(developerKey));
         return new Gson().fromJson(json, DetailedClan.class);
     }
 
     List<DetailedClan> getClans(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")));
+        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<DetailedClan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
     Constants getConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants"));
+        String json = createCrawler().get(createUrl("constants"), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Constants.class);
     }
 
