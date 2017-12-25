@@ -25,12 +25,18 @@ List<Profile> profiles = api.getProfiles("L88P2282,9CQ2U8QJ,8L9L9GL");
 
 ```java
 // get clan
-DetailedClan detailedClan = api.getClan("RP88QQG"));
+Clan clan = api.getClan("RP88QQG"));
+
+// instead of
+// DetailedClan detailedClan = api.getClan("RP88QQG"));
 ```
 
 ```java
 // get list of clans
-List<DetailedClan> detailedClans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
+List<Clan> clans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
+
+// instead of
+// List<DetailedClan> clans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
 ```
 
 ```java
@@ -40,7 +46,10 @@ Constants constants = api.getConstants();
 
 ```java
 // get top clans
-TopClans topClans = api.getTopClans();
+List<TopClan> topClans = api.getTopClans();
+
+// instead of
+// TopClans topClans = api.getTopClans();
 ```
 
 ## How to bind the bintray repository ##

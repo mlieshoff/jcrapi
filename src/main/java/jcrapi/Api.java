@@ -17,10 +17,10 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
+import jcrapi.model.Clan;
 import jcrapi.model.Constants;
-import jcrapi.model.DetailedClan;
 import jcrapi.model.Profile;
-import jcrapi.model.TopClans;
+import jcrapi.model.TopClan;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -79,7 +79,7 @@ public class Api {
         }
     }
 
-    public TopClans getTopClans() {
+    public List<TopClan> getTopClans() {
         try {
             return clientFactory.createClient(url, developerKey).getTopClans();
         } catch (IOException e) {
@@ -87,7 +87,7 @@ public class Api {
         }
     }
 
-    public DetailedClan getClan(String tag) {
+    public Clan getClan(String tag) {
         checkString(tag, "tag");
         try {
             return clientFactory.createClient(url, developerKey).getClan(tag);
@@ -96,7 +96,7 @@ public class Api {
         }
     }
 
-    public List<DetailedClan> getClans(List<String> tags) {
+    public List<Clan> getClans(List<String> tags) {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         try {
             return clientFactory.createClient(url, developerKey).getClans(tags);

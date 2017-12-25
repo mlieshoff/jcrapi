@@ -1,197 +1,199 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package jcrapi.model;
 
+import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
-import javax.annotation.Generated;
-import java.util.List;
+@Generated("org.mili.generator")
+public class Profile {
 
-@Generated("com.robohorse.robopojogenerator")
-public class Profile{
+    @SerializedName("tag")
+    private String tag;
 
-	@SerializedName("globalRank")
-	private Integer globalRank;
+    @SerializedName("name")
+    private String name;
 
-	@SerializedName("arena")
-	private Arena arena;
+    @SerializedName("trophies")
+    private int trophies;
 
-	@SerializedName("experience")
-	private Experience experience;
+    @SerializedName("arena")
+    private Arena arena;
 
-	@SerializedName("currentDeck")
-	private List<CurrentDeckItem> currentDeck;
+    @SerializedName("clan")
+    private ProfileClan clan;
 
-	@SerializedName("previousSeasons")
-	private List<PreviousSeasonsItem> previousSeasons;
+    @SerializedName("games")
+    private Games games;
 
-	@SerializedName("shopOffers")
-	private ShopOffers shopOffers;
+    @SerializedName("chestCycle")
+    private ChestCycle chestCycle;
 
-	@SerializedName("chestCycle")
-	private ChestCycle chestCycle;
+    @SerializedName("leagueStatistics")
+    private LeagueStatistics leagueStatistics;
 
-	@SerializedName("stats")
-	private Stats stats;
+    @SerializedName("currentDeck")
+    private java.util.List<Card> currentDeck;
 
-	@SerializedName("name")
-	private String name;
+    @SerializedName("cards")
+    private java.util.List<Card> cards;
 
-	@SerializedName("clan")
-	private Clan clan;
+    @SerializedName("achievments")
+    private java.util.List<Achievment> achievments;
 
-	@SerializedName("games")
-	private Games games;
+    @SerializedName("battles")
+    private java.util.List<Battle> battles;
 
-	@SerializedName("tag")
-	private String tag;
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+    
+    public String getTag() {
+        return tag;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setTrophies(int trophies) {
+        this.trophies = trophies;
+    }
+    
+    public int getTrophies() {
+        return trophies;
+    }
+    
+    public void setArena(Arena arena) {
+        this.arena = arena;
+    }
+    
+    public Arena getArena() {
+        return arena;
+    }
+    
+    public void setClan(ProfileClan clan) {
+        this.clan = clan;
+    }
+    
+    public ProfileClan getClan() {
+        return clan;
+    }
+    
+    public void setGames(Games games) {
+        this.games = games;
+    }
+    
+    public Games getGames() {
+        return games;
+    }
+    
+    public void setChestCycle(ChestCycle chestCycle) {
+        this.chestCycle = chestCycle;
+    }
+    
+    public ChestCycle getChestCycle() {
+        return chestCycle;
+    }
+    
+    public void setLeagueStatistics(LeagueStatistics leagueStatistics) {
+        this.leagueStatistics = leagueStatistics;
+    }
+    
+    public LeagueStatistics getLeagueStatistics() {
+        return leagueStatistics;
+    }
+    
+    public void setCurrentDeck(java.util.List<Card> currentDeck) {
+        this.currentDeck = currentDeck;
+    }
+    
+    public java.util.List<Card> getCurrentDeck() {
+        return currentDeck;
+    }
+    
+    public void setCards(java.util.List<Card> cards) {
+        this.cards = cards;
+    }
+    
+    public java.util.List<Card> getCards() {
+        return cards;
+    }
+    
+    public void setAchievments(java.util.List<Achievment> achievments) {
+        this.achievments = achievments;
+    }
+    
+    public java.util.List<Achievment> getAchievments() {
+        return achievments;
+    }
+    
+    public void setBattles(java.util.List<Battle> battles) {
+        this.battles = battles;
+    }
+    
+    public java.util.List<Battle> getBattles() {
+        return battles;
+    }
+    
+    public String toString() {
+        java.lang.StringBuilder s = new java.lang.StringBuilder();
+        s.append("Profile{");
+        s.append("tag=");
+        s.append(tag);
+        s.append(", ");
+        s.append("name=");
+        s.append(name);
+        s.append(", ");
+        s.append("trophies=");
+        s.append(trophies);
+        s.append(", ");
+        s.append("arena=");
+        s.append(arena);
+        s.append(", ");
+        s.append("clan=");
+        s.append(clan);
+        s.append(", ");
+        s.append("games=");
+        s.append(games);
+        s.append(", ");
+        s.append("chestCycle=");
+        s.append(chestCycle);
+        s.append(", ");
+        s.append("leagueStatistics=");
+        s.append(leagueStatistics);
+        s.append(", ");
+        s.append("currentDeck=");
+        s.append(currentDeck);
+        s.append(", ");
+        s.append("cards=");
+        s.append(cards);
+        s.append(", ");
+        s.append("achievments=");
+        s.append(achievments);
+        s.append(", ");
+        s.append("battles=");
+        s.append(battles);
+        s.append("}");
+        return s.toString();
+    }
 
-	@SerializedName("legendaryTrophies")
-	private int legendaryTrophies;
-
-	@SerializedName("trophies")
-	private int trophies;
-
-	@SerializedName("nameChanged")
-	private boolean nameChanged;
-
-	public void setGlobalRank(Integer globalRank){
-		this.globalRank = globalRank;
-	}
-
-	public Integer getGlobalRank(){
-		return globalRank;
-	}
-
-	public void setArena(Arena arena){
-		this.arena = arena;
-	}
-
-	public Arena getArena(){
-		return arena;
-	}
-
-	public void setExperience(Experience experience){
-		this.experience = experience;
-	}
-
-	public Experience getExperience(){
-		return experience;
-	}
-
-	public void setCurrentDeck(List<CurrentDeckItem> currentDeck){
-		this.currentDeck = currentDeck;
-	}
-
-	public List<CurrentDeckItem> getCurrentDeck(){
-		return currentDeck;
-	}
-
-	public void setPreviousSeasons(List<PreviousSeasonsItem> previousSeasons){
-		this.previousSeasons = previousSeasons;
-	}
-
-	public List<PreviousSeasonsItem> getPreviousSeasons(){
-		return previousSeasons;
-	}
-
-	public void setShopOffers(ShopOffers shopOffers){
-		this.shopOffers = shopOffers;
-	}
-
-	public ShopOffers getShopOffers(){
-		return shopOffers;
-	}
-
-	public void setChestCycle(ChestCycle chestCycle){
-		this.chestCycle = chestCycle;
-	}
-
-	public ChestCycle getChestCycle(){
-		return chestCycle;
-	}
-
-	public void setStats(Stats stats){
-		this.stats = stats;
-	}
-
-	public Stats getStats(){
-		return stats;
-	}
-
-	public void setName(String name){
-		this.name = name;
-	}
-
-	public String getName(){
-		return name;
-	}
-
-	public void setClan(Clan clan){
-		this.clan = clan;
-	}
-
-	public Clan getClan(){
-		return clan;
-	}
-
-	public void setGames(Games games){
-		this.games = games;
-	}
-
-	public Games getGames(){
-		return games;
-	}
-
-	public void setTag(String tag){
-		this.tag = tag;
-	}
-
-	public String getTag(){
-		return tag;
-	}
-
-	public void setLegendaryTrophies(int legendaryTrophies){
-		this.legendaryTrophies = legendaryTrophies;
-	}
-
-	public int getLegendaryTrophies(){
-		return legendaryTrophies;
-	}
-
-	public void setTrophies(int trophies){
-		this.trophies = trophies;
-	}
-
-	public int getTrophies(){
-		return trophies;
-	}
-
-	public void setNameChanged(boolean nameChanged){
-		this.nameChanged = nameChanged;
-	}
-
-	public boolean isNameChanged(){
-		return nameChanged;
-	}
-
-	@Override
- 	public String toString(){
-		return 
-			"Profile{" + 
-			"globalRank = '" + globalRank + '\'' + 
-			",arena = '" + arena + '\'' + 
-			",experience = '" + experience + '\'' + 
-			",currentDeck = '" + currentDeck + '\'' + 
-			",previousSeasons = '" + previousSeasons + '\'' + 
-			",shopOffers = '" + shopOffers + '\'' + 
-			",chestCycle = '" + chestCycle + '\'' + 
-			",stats = '" + stats + '\'' + 
-			",name = '" + name + '\'' + 
-			",clan = '" + clan + '\'' + 
-			",games = '" + games + '\'' + 
-			",tag = '" + tag + '\'' + 
-			",legendaryTrophies = '" + legendaryTrophies + '\'' + 
-			",trophies = '" + trophies + '\'' + 
-			",nameChanged = '" + nameChanged + '\'' + 
-			"}";
-		}
 }

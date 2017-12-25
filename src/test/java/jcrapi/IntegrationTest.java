@@ -16,8 +16,8 @@
  */
 package jcrapi;
 
+import jcrapi.model.Clan;
 import jcrapi.model.Constants;
-import jcrapi.model.DetailedClan;
 import jcrapi.model.Profile;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -50,6 +50,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/version", new TestVersionServlet());
         jettyServer.addServlet("/" + APP + "/player/*", new TestProfileServlet());
         jettyServer.addServlet("/" + APP + "/top/clans/*", new TestTopClansServlet());
+        jettyServer.addServlet("/" + APP + "/top/players/*", new TestTopPlayersServlet());
         jettyServer.addServlet("/" + APP + "/clan/*", new TestClanServlet());
         jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());
         jettyServer.start();
@@ -77,7 +78,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetProfileWithAuth() throws IOException {
-        doGetProfile(URL, AUTH, "Y99YRPYG");
+        doGetProfile(URL, AUTH, "8L9L9GL");
     }
 
     private void doGetProfile(String url, String auth, String tag) {
@@ -86,7 +87,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetProfileBecauseWrongAuth() throws IOException {
-        doGetProfile(URL, "abc", "Y99YRPYG");
+        doGetProfile(URL, "abc", "8L9L9GL");
     }
 
     private void doGetProfiles(String url, String auth, List<String> tags) {
@@ -123,7 +124,7 @@ public class IntegrationTest {
     }
 
     private void doGetTopClans(String url, String auth) {
-        assertTrue(new Api(url, auth).getTopClans().getLastUpdated() > 0);
+        assertTrue(new Api(url, auth).getTopClans().size() > 0);
     }
 
     @Test(expected = ApiException.class)
@@ -151,12 +152,12 @@ public class IntegrationTest {
     }
 
     private void doGetClans(String url, String auth, List<String> tags) {
-        List<DetailedClan> detailedClans = new Api(url, auth).getClans(tags);
-        assertEquals(tags.size(), detailedClans.size());
+        List<Clan> clans = new Api(url, auth).getClans(tags);
+        assertEquals(tags.size(), clans.size());
         for (int i = 0, n = tags.size(); i < n; i ++) {
-            DetailedClan detailedClan = detailedClans.get(i);
+            Clan clan = clans.get(i);
             String tag = tags.get(i);
-            assertEquals(tag, detailedClan.getTag());
+            assertEquals(tag, clan.getTag());
         }
     }
 

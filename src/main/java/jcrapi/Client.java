@@ -20,10 +20,10 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import jcrapi.model.Clan;
 import jcrapi.model.Constants;
-import jcrapi.model.DetailedClan;
 import jcrapi.model.Profile;
-import jcrapi.model.TopClans;
+import jcrapi.model.TopClan;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -88,21 +88,22 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    TopClans getTopClans() throws IOException {
+    List<TopClan> getTopClans() throws IOException {
         String json = createCrawler().get(createUrl("top/clans"), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, TopClans.class);
+        Type listType = new TypeToken<ArrayList<TopClan>>(){}.getType();
+        return new Gson().fromJson(json, listType);
     }
 
-    DetailedClan getClan(String tag) throws IOException {
+    Clan getClan(String tag) throws IOException {
         checkString(tag);
         String json = createCrawler().get(createUrl("clan/" + tag), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, DetailedClan.class);
+        return new Gson().fromJson(json, Clan.class);
     }
 
-    List<DetailedClan> getClans(List<String> tags) throws IOException {
+    List<Clan> getClans(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
-        Type listType = new TypeToken<ArrayList<DetailedClan>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
