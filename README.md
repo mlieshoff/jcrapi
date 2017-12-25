@@ -4,8 +4,7 @@
 
 ```java
 // connect to api
-Api api = new Api(Endpoints.BASE.getCode());
-Api apiWithAuth = new Api(Endpoints.BASE.getCode(), "my-developer-key");
+Api api = new Api(Endpoints.BASE.getCode(), "my-developer-key");
 ```
 
 ```java
