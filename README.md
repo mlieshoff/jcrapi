@@ -41,6 +41,13 @@ List<Clan> clans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
 ```java
 // constants
 Constants constants = api.getConstants();
+Alliance alliance = getAllianceConstants();
+List<Arena> arenas = getArenasConstants();
+Badges badges = getBadgesConstants();
+ChestCycleList chestCycleList = getChestCycleConstants();
+List<CountryCode> countryCodes = getCountryCodesConstants();
+List<Rarity> rarities = getRaritiesConstants();
+List<ConstantCard> constantCards = getCardsConstants();
 ```
 
 ```java
@@ -49,6 +56,11 @@ List<TopClan> topClans = api.getTopClans();
 
 // instead of
 // TopClans topClans = api.getTopClans();
+```
+
+```java
+// get top players
+List<TopPlayer> topPlayers = api.getTopPlayers();
 ```
 
 ## How to bind the bintray repository ##
