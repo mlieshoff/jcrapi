@@ -25,4 +25,8 @@ public enum Endpoints {
         this.code = code;
     }
 
+    public String getCode() {
+        return code;
+    }
+
 }
