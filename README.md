@@ -61,6 +61,7 @@ List<TopClan> topClans = api.getTopClans();
 ```java
 // get top players
 List<TopPlayer> topPlayers = api.getTopPlayers();
+List<TopPlayer> topPlayersForEu = api.getTopPlayers("_EU");
 ```
 
 ## How to bind the bintray repository ##
