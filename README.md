@@ -41,13 +41,13 @@ List<Clan> clans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
 ```java
 // constants
 Constants constants = api.getConstants();
-Alliance alliance = getAllianceConstants();
-List<Arena> arenas = getArenasConstants();
-Badges badges = getBadgesConstants();
-ChestCycleList chestCycleList = getChestCycleConstants();
-List<CountryCode> countryCodes = getCountryCodesConstants();
-List<Rarity> rarities = getRaritiesConstants();
-List<ConstantCard> constantCards = getCardsConstants();
+Alliance alliance = api.getAllianceConstants();
+List<Arena> arenas = api.getArenasConstants();
+Badges badges = api.getBadgesConstants();
+ChestCycleList chestCycleList = api.getChestCycleConstants();
+List<CountryCode> countryCodes = api.getCountryCodesConstants();
+List<Rarity> rarities = api.getRaritiesConstants();
+List<ConstantCard> constantCards = api.getCardsConstants();
 ```
 
 ```java
