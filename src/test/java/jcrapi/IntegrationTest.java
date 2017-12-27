@@ -134,16 +134,21 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetTopClansWithAuth() throws IOException {
-        doGetTopClans(URL, AUTH);
+        doGetTopClans(URL, AUTH, null);
     }
 
-    private void doGetTopClans(String url, String auth) {
-        assertTrue(new Api(url, auth).getTopClans().size() > 0);
+    private void doGetTopClans(String url, String auth, String locationKey) {
+        assertTrue(new Api(url, auth).getTopClans(locationKey).size() > 0);
     }
 
     @Test(expected = ApiException.class)
     public void failGetTopClansBecauseWrongAuth() throws IOException {
-        doGetTopClans(URL, "abc");
+        doGetTopClans(URL, "abc", null);
+    }
+
+    @Test
+    public void shouldGetTopClansWithLocation() throws IOException {
+        doGetTopClans(URL, AUTH, "EU");
     }
 
     @Test
@@ -203,7 +208,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetTopPlayersWithLocation() throws IOException {
-        doGetTopPlayers(URL, AUTH, "_EU");
+        doGetTopPlayers(URL, AUTH, "EU");
     }
 
     @Test
