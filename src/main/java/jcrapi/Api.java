@@ -114,8 +114,12 @@ public class Api {
     }
 
     public List<TopPlayer> getTopPlayers() {
+        return getTopPlayers(null);
+    }
+
+    public List<TopPlayer> getTopPlayers(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopPlayers();
+            return clientFactory.createClient(url, developerKey).getTopPlayers(locationKey);
         } catch (IOException e) {
             throw new ApiException(e);
         }

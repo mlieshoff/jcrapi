@@ -159,7 +159,13 @@ public class ClientTest {
     @Test
     public void shouldGetTopPlayers() throws IOException {
         when(crawler.get("lala/top/players", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopPlayers());
+        assertNotNull(createClient().getTopPlayers(null));
+    }
+
+    @Test
+    public void shouldGetTopPlayersWithLocation() throws IOException {
+        when(crawler.get("lala/top/players/_EU", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopPlayers("_EU"));
     }
 
     @Test
