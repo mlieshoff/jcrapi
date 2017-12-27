@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
 /**
@@ -229,15 +231,33 @@ public class ApiTest {
     @Test
     public void shouldGetTopPlayers() throws Exception {
         List<TopPlayer> topPlayers = new ArrayList<>();
-        when(client.getTopPlayers()).thenReturn(topPlayers);
-        assertEquals(topPlayers, api.getTopClans());
+        when(client.getTopPlayers(null)).thenReturn(topPlayers);
+        assertSame(topPlayers, api.getTopPlayers());
     }
 
     @Test
     public void failGetTopPlayers() throws Exception {
-        when(client.getTopPlayers()).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopPlayers(null)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getTopPlayers();
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetTopPlayersWithLocation() throws Exception {
+        List<TopPlayer> topPlayers = new ArrayList<>();
+        when(client.getTopPlayers("_EU")).thenReturn(topPlayers);
+        assertEquals(topPlayers, api.getTopPlayers("_EU"));
+    }
+
+    @Test
+    public void failGetTopPlayersWithLocation() throws Exception {
+        when(client.getTopPlayers("_EU")).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getTopPlayers("_EU");
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

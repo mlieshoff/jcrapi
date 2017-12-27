@@ -115,8 +115,12 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    List<TopPlayer> getTopPlayers() throws IOException {
-        String json = createCrawler().get(createUrl("top/players"), createAuthHeader(developerKey));
+    List<TopPlayer> getTopPlayers(String locationKey) throws IOException {
+        String url = createUrl("top/players");
+        if (StringUtils.isNotBlank(locationKey)) {
+            url += "/" + locationKey;
+        }
+        String json = createCrawler().get(url, createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<TopPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }

@@ -189,16 +189,21 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetTopPlayersWithAuth() throws IOException {
-        doGetTopPlayers(URL, AUTH);
+        doGetTopPlayers(URL, AUTH, null);
     }
 
-    private void doGetTopPlayers(String url, String auth) {
-        assertTrue(new Api(url, auth).getTopPlayers().size() > 0);
+    private void doGetTopPlayers(String url, String auth, String locationKey) {
+        assertTrue(new Api(url, auth).getTopPlayers(locationKey).size() > 0);
     }
 
     @Test(expected = ApiException.class)
     public void failGetTopPlayersBecauseWrongAuth() throws IOException {
-        doGetTopPlayers(URL, "abc");
+        doGetTopPlayers(URL, "abc", null);
+    }
+
+    @Test
+    public void shouldGetTopPlayersWithLocation() throws IOException {
+        doGetTopPlayers(URL, AUTH, "_EU");
     }
 
     @Test
