@@ -120,7 +120,13 @@ public class ClientTest {
     @Test
     public void shouldGetTopClans() throws IOException {
         when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopClans());
+        assertNotNull(createClient().getTopClans(null));
+    }
+
+    @Test
+    public void shouldGetTopClansWithLocation() throws IOException {
+        when(crawler.get("lala/top/clans/EU", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopClans("EU"));
     }
 
     @Test(expected = NullPointerException.class)
@@ -164,8 +170,8 @@ public class ClientTest {
 
     @Test
     public void shouldGetTopPlayersWithLocation() throws IOException {
-        when(crawler.get("lala/top/players/_EU", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopPlayers("_EU"));
+        when(crawler.get("lala/top/players/EU", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopPlayers("EU"));
     }
 
     @Test

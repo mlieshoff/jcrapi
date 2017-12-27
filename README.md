@@ -53,6 +53,7 @@ List<ConstantCard> constantCards = api.getCardsConstants();
 ```java
 // get top clans
 List<TopClan> topClans = api.getTopClans();
+List<TopClan> topClansForEu = api.getTopClans("EU");
 
 // instead of
 // TopClans topClans = api.getTopClans();
@@ -61,7 +62,7 @@ List<TopClan> topClans = api.getTopClans();
 ```java
 // get top players
 List<TopPlayer> topPlayers = api.getTopPlayers();
-List<TopPlayer> topPlayersForEu = api.getTopPlayers("_EU");
+List<TopPlayer> topPlayersForEu = api.getTopPlayers("EU");
 ```
 
 ## How to bind the bintray repository ##

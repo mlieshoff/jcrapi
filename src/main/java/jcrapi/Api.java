@@ -88,8 +88,12 @@ public class Api {
     }
 
     public List<TopClan> getTopClans() {
+        return getTopClans(null);
+    }
+
+    public List<TopClan> getTopClans(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopClans();
+            return clientFactory.createClient(url, developerKey).getTopClans(locationKey);
         } catch (IOException e) {
             throw new ApiException(e);
         }

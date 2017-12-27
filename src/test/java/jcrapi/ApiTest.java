@@ -156,15 +156,32 @@ public class ApiTest {
     @Test
     public void shouldGetTopClans() throws Exception {
         List<TopClan> topClans = new ArrayList<>();
-        when(client.getTopClans()).thenReturn(topClans);
-        assertEquals(topClans, api.getTopClans());
+        when(client.getTopClans(null)).thenReturn(topClans);
+        assertSame(topClans, api.getTopClans());
     }
 
     @Test
     public void failGetTopClans() throws Exception {
-        when(client.getTopClans()).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopClans(null)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getTopClans();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetTopClansWithLocation() throws Exception {
+        List<TopClan> topClans = new ArrayList<>();
+        when(client.getTopClans("EU")).thenReturn(topClans);
+        assertSame(topClans, api.getTopClans("EU"));
+    }
+
+    @Test
+    public void failGetTopClansWithLocation() throws Exception {
+        when(client.getTopClans("EU")).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getTopClans("EU");
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -249,15 +266,15 @@ public class ApiTest {
     @Test
     public void shouldGetTopPlayersWithLocation() throws Exception {
         List<TopPlayer> topPlayers = new ArrayList<>();
-        when(client.getTopPlayers("_EU")).thenReturn(topPlayers);
-        assertEquals(topPlayers, api.getTopPlayers("_EU"));
+        when(client.getTopPlayers("EU")).thenReturn(topPlayers);
+        assertEquals(topPlayers, api.getTopPlayers("EU"));
     }
 
     @Test
     public void failGetTopPlayersWithLocation() throws Exception {
-        when(client.getTopPlayers("_EU")).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopPlayers("EU")).thenThrow(new IOException("crapi: 400"));
         try {
-            api.getTopPlayers("_EU");
+            api.getTopPlayers("EU");
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }
