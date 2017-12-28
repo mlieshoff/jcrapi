@@ -23,6 +23,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
+import jcrapi.model.Endpoints;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
@@ -35,9 +36,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 /**
@@ -411,6 +410,23 @@ public class ApiTest {
         when(client.getCardsConstants()).thenThrow(new IOException("crapi: 400"));
         try {
             api.getCardsConstants();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetEndpoints() throws Exception {
+        Endpoints endpoints = new Endpoints();
+        when(client.getEndpoints()).thenReturn(endpoints);
+        assertEquals(endpoints, api.getEndpoints());
+    }
+
+    @Test
+    public void failGetEndpoints() throws Exception {
+        when(client.getEndpoints()).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getEndpoints();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

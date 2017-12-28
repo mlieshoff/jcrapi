@@ -24,6 +24,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
+import jcrapi.model.Endpoints;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import org.junit.AfterClass;
@@ -67,6 +68,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/constants/countryCodes/", new TestCountryCodesConstantsServlet());
         jettyServer.addServlet("/" + APP + "/constants/rarities/", new TestRaritiesConstantsServlet());
         jettyServer.addServlet("/" + APP + "/constants/cards/", new TestCardsConstantsServlet());
+        jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
         jettyServer.start();
     }
 
@@ -329,6 +331,21 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetCardsConstantsBecauseWrongAuth() throws IOException {
         doGetCardsConstants(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetEndpointsWithAuth() throws IOException {
+        doGetEndpoints(URL, AUTH);
+    }
+
+    private void doGetEndpoints(String url, String auth) {
+        Endpoints endpoints = new Api(url, auth).getEndpoints();
+        assertTrue(endpoints.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetEndpointsBecauseWrongAuth() throws IOException {
+        doGetEndpoints(URL, "abc");
     }
 
 }

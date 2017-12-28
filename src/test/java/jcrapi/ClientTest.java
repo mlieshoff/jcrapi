@@ -222,4 +222,10 @@ public class ClientTest {
         assertNotNull(createClient().getCardsConstants());
     }
 
+    @Test
+    public void shouldGetEndpoint() throws IOException {
+        when(crawler.get("lala/endpoints", createHeaders())).thenReturn("[]");
+        assertNotNull(createClient().getEndpoints());
+    }
+
 }
