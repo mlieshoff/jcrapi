@@ -1,0 +1,12 @@
+[
+    "/version",
+    "/players?/:tag",
+    "/clans?/search",
+    "/clans?/:tag",
+    "/tournaments?/:tag",
+    "/top/clans?/:cc?",
+    "/top/players?/:cc?",
+    "/popular/clans?",
+    "/popular/players?",
+    "/endpoints"
+]

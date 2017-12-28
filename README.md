@@ -4,7 +4,7 @@
 
 ```java
 // connect to api
-Api api = new Api(Endpoints.BASE.getCode(), "my-developer-key");
+Api api = new Api("http://api.cr-api.com/", "my-developer-key");
 ```
 
 ```java
@@ -48,6 +48,11 @@ ChestCycleList chestCycleList = api.getChestCycleConstants();
 List<CountryCode> countryCodes = api.getCountryCodesConstants();
 List<Rarity> rarities = api.getRaritiesConstants();
 List<ConstantCard> constantCards = api.getCardsConstants();
+```
+
+```java
+// get endpoints
+Endpoints endpoints = api.getEndpoints();
 ```
 
 ```java
