@@ -228,4 +228,10 @@ public class ClientTest {
         assertNotNull(createClient().getEndpoints());
     }
 
+    @Test
+    public void shouldGetPopularClans() throws IOException {
+        when(crawler.get("lala/popular/clans", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getPopularClans());
+    }
+
 }

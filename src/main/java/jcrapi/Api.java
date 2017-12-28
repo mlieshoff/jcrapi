@@ -26,6 +26,7 @@ import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
+import jcrapi.model.PopularClan;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
@@ -197,6 +198,14 @@ public class Api {
     public Endpoints getEndpoints() {
         try {
             return clientFactory.createClient(url, developerKey).getEndpoints();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<PopularClan> getPopularClans() {
+        try {
+            return clientFactory.createClient(url, developerKey).getPopularClans();
         } catch (IOException e) {
             throw new ApiException(e);
         }

@@ -39,6 +39,21 @@ List<Clan> clans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
 ```
 
 ```java
+// get top clans
+List<TopClan> topClans = api.getTopClans();
+List<TopClan> topClansForEu = api.getTopClans("EU");
+
+// instead of
+// TopClans topClans = api.getTopClans();
+```
+
+```java
+// get top players
+List<TopPlayer> topPlayers = api.getTopPlayers();
+List<TopPlayer> topPlayersForEu = api.getTopPlayers("EU");
+```
+
+```java
 // constants
 Constants constants = api.getConstants();
 Alliance alliance = api.getAllianceConstants();
@@ -56,18 +71,8 @@ Endpoints endpoints = api.getEndpoints();
 ```
 
 ```java
-// get top clans
-List<TopClan> topClans = api.getTopClans();
-List<TopClan> topClansForEu = api.getTopClans("EU");
-
-// instead of
-// TopClans topClans = api.getTopClans();
-```
-
-```java
-// get top players
-List<TopPlayer> topPlayers = api.getTopPlayers();
-List<TopPlayer> topPlayersForEu = api.getTopPlayers("EU");
+// get popular clans
+List<PopularClan> popularClans = api.getPopularClans();
 ```
 
 ## How to bind the bintray repository ##
