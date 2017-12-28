@@ -20,6 +20,7 @@ import jcrapi.model.Alliance;
 import jcrapi.model.Arena;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanSearch;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
@@ -241,6 +242,42 @@ public class ApiTest {
         when(client.getClans(tags)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClans(tags);
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanSearch() throws Exception {
+        List<Clan> clans = new ArrayList<>();
+        when(client.getClanSearch(null)).thenReturn(clans);
+        assertEquals(clans, api.getClanSearch());
+    }
+
+    @Test
+    public void failGetClanSearch() throws Exception {
+        when(client.getClanSearch(null)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getClanSearch();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanSearchWithParams() throws Exception {
+        List<Clan> clans = new ArrayList<>();
+        ClanSearch clanSearch = new ClanSearch();
+        when(client.getClanSearch(clanSearch)).thenReturn(clans);
+        assertEquals(clans, api.getClanSearch(clanSearch));
+    }
+
+    @Test
+    public void failGetClanSearchWithParams() throws Exception {
+        ClanSearch clanSearch = new ClanSearch();
+        when(client.getClanSearch(clanSearch)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getClanSearch(clanSearch);
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

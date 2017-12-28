@@ -17,6 +17,7 @@
 package jcrapi;
 
 import com.google.common.collect.ImmutableMap;
+import jcrapi.model.ClanSearch;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -160,6 +161,23 @@ public class ClientTest {
         List<String> tags = createTags();
         when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getClans(tags));
+    }
+
+    @Test
+    public void shouldGetClanSearch() throws IOException {
+        when(crawler.get("lala/clan/search", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(null));
+    }
+
+    @Test
+    public void shouldGetClanSearchWithParameters() throws IOException {
+        ClanSearch clanSearch = new ClanSearch();
+        clanSearch.setName("abc");
+        clanSearch.setScore(2000);
+        clanSearch.setMinMembers(20);
+        clanSearch.setMaxMembers(50);
+        when(crawler.get("lala/clan/search?name=abc&score=2000&minMembers=20&maxMembers=50", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(clanSearch));
     }
 
     @Test

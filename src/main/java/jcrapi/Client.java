@@ -25,6 +25,7 @@ import jcrapi.model.Arena;
 import jcrapi.model.Badges;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanSearch;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
@@ -48,6 +49,8 @@ import java.util.Map;
  * @author Michael Lieshoff
  */
 class Client {
+
+    private final String PARAM = "%s=%s";
 
     private final String url;
     private final String developerKey;
@@ -120,6 +123,33 @@ class Client {
         String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
+    }
+
+    List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
+        String json = createCrawler().get(appendClanSearch(clanSearch, createUrl("clan/search")), createAuthHeader(developerKey));
+        Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    private String appendClanSearch(ClanSearch clanSearch, String url) {
+        if (clanSearch != null) {
+            List<String> params = new ArrayList<>();
+            addQueryParam(params, "name", clanSearch.getName());
+            addQueryParam(params, "score", clanSearch.getScore());
+            addQueryParam(params, "minMembers", clanSearch.getMinMembers());
+            addQueryParam(params, "maxMembers", clanSearch.getMaxMembers());
+            if (params.size() > 0) {
+                url += "?";
+                url = url + StringUtils.join(params, '&');
+            }
+        }
+        return url;
+    }
+
+    private void addQueryParam(List<String> params, String name, Object value) {
+        if (value != null) {
+            params.add(String.format(PARAM, name, value));
+        }
     }
 
     List<TopPlayer> getTopPlayers(String locationKey) throws IOException {
