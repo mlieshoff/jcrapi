@@ -24,6 +24,7 @@ import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
+import jcrapi.model.PopularClan;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
@@ -427,6 +428,23 @@ public class ApiTest {
         when(client.getEndpoints()).thenThrow(new IOException("crapi: 400"));
         try {
             api.getEndpoints();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetPopularClans() throws Exception {
+        List<PopularClan> popularClans = new ArrayList<>();
+        when(client.getPopularClans()).thenReturn(popularClans);
+        assertSame(popularClans, api.getPopularClans());
+    }
+
+    @Test
+    public void failGetPopularClans() throws Exception {
+        when(client.getPopularClans()).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getPopularClans();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

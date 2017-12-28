@@ -29,6 +29,7 @@ import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
+import jcrapi.model.PopularClan;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
@@ -177,6 +178,12 @@ class Client {
     Endpoints getEndpoints() throws IOException {
         String json = createCrawler().get(createUrl("endpoints"), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Endpoints.class);
+    }
+
+    List<PopularClan> getPopularClans() throws IOException {
+        String json = createCrawler().get(createUrl("popular/clans"), createAuthHeader(developerKey));
+        Type listType = new TypeToken<ArrayList<PopularClan>>(){}.getType();
+        return new Gson().fromJson(json, listType);
     }
 
 }
