@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jcrapi</artifactId>
     <packaging>jar</packaging>
-    <version>vv7.5.2-RC1.1</version>
+    <version>vv7.5.2-RC2</version>
     <groupId>jcrapi</groupId>
     <url>http://maven.apache.org</url>
     <inceptionYear>2017</inceptionYear>
