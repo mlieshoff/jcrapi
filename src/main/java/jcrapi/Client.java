@@ -30,6 +30,7 @@ import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
 import jcrapi.model.PopularClan;
+import jcrapi.model.PopularPlayer;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
@@ -183,6 +184,12 @@ class Client {
     List<PopularClan> getPopularClans() throws IOException {
         String json = createCrawler().get(createUrl("popular/clans"), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<PopularClan>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<PopularPlayer> getPopularPlayers() throws IOException {
+        String json = createCrawler().get(createUrl("popular/players"), createAuthHeader(developerKey));
+        Type listType = new TypeToken<ArrayList<PopularPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
