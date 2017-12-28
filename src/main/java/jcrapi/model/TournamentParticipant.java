@@ -17,15 +17,55 @@
 package jcrapi.model;
 
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class Version {
+public class TournamentParticipant {
 
-    public static final String VERSION = "vv7.5.3";
+    @SerializedName("tag")
+    private String tag;
 
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("score")
+    private int score;
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+    
+    public String getTag() {
+        return tag;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setScore(int score) {
+        this.score = score;
+    }
+    
+    public int getScore() {
+        return score;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Version{");
+        s.append("TournamentParticipant{");
+        s.append("tag=");
+        s.append(tag);
+        s.append(", ");
+        s.append("name=");
+        s.append(name);
+        s.append(", ");
+        s.append("score=");
+        s.append(score);
         s.append("}");
         return s.toString();
     }

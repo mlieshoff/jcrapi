@@ -36,6 +36,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.Tournament;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -160,6 +161,11 @@ class Client {
         String json = createCrawler().get(url, createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<TopPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
+    }
+
+    Tournament getTournaments(String tag) throws IOException {
+        String json = createCrawler().get(createUrl("tournaments/" + tag), createAuthHeader(developerKey));
+        return new Gson().fromJson(json, Tournament.class);
     }
 
     Constants getConstants() throws IOException {

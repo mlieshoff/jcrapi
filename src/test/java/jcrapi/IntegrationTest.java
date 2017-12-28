@@ -72,6 +72,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
         jettyServer.addServlet("/" + APP + "/popular/clans", new TestPopularClansServlet());
         jettyServer.addServlet("/" + APP + "/popular/players", new TestPopularPlayersServlet());
+        jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
         jettyServer.start();
     }
 
@@ -229,6 +230,20 @@ public class IntegrationTest {
     @Test
     public void shouldGetTopPlayersWithLocation() throws IOException {
         doGetTopPlayers(URL, AUTH, "EU");
+    }
+
+    @Test
+    public void shouldGetTournamentsWithAuth() throws IOException {
+        doGetTournaments(URL, AUTH, "20YU0VJ9");
+    }
+
+    private void doGetTournaments(String url, String auth, String tag) {
+        assertEquals("im a baaad guuy r.i.p.papakush", new Api(url, auth).getTournaments(tag).getName());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetTournamentsBecauseWrongAuth() throws IOException {
+        doGetPopularPlayers(URL, "abc");
     }
 
     @Test

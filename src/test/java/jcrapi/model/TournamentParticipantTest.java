@@ -24,23 +24,42 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class VersionTest {
+public class TournamentParticipantTest {
 
-    private Version unitUnderTest;
+    private TournamentParticipant unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new Version();
+        unitUnderTest = new TournamentParticipant();
     }
 
     @Test
-    public void shouldGetVERSION() {
-        assertEquals( "vv7.5.3", unitUnderTest.VERSION);
+    public void shouldGetSetTag() {
+        String expected = "astring";
+        unitUnderTest.setTag(expected);
+        assertEquals(expected, unitUnderTest.getTag());
     }
-    
+
+    @Test
+    public void shouldGetSetName() {
+        String expected = "astring";
+        unitUnderTest.setName(expected);
+        assertEquals(expected, unitUnderTest.getName());
+    }
+
+    @Test
+    public void shouldGetSetScore() {
+        int expected = 815;
+        unitUnderTest.setScore(expected);
+        assertEquals(expected, unitUnderTest.getScore());
+    }
+
     @Test
     public void shouldToString() {
-        String expected = "Version{}";
+        unitUnderTest.setTag("astring");
+        unitUnderTest.setName("astring");
+        unitUnderTest.setScore(815);
+        String expected = "TournamentParticipant{tag=astring, name=astring, score=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
