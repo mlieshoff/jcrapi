@@ -22,6 +22,7 @@ import jcrapi.model.Arena;
 import jcrapi.model.Badges;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanSearch;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
 import jcrapi.model.CountryCode;
@@ -115,6 +116,18 @@ public class Api {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         try {
             return clientFactory.createClient(url, developerKey).getClans(tags);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<Clan> getClanSearch() {
+        return getClanSearch(null);
+    }
+
+    public List<Clan> getClanSearch(ClanSearch clanSearch) {
+        try {
+            return clientFactory.createClient(url, developerKey).getClanSearch(clanSearch);
         } catch (IOException e) {
             throw new ApiException(e);
         }

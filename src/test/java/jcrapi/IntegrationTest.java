@@ -59,6 +59,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/player/*", new TestProfileServlet());
         jettyServer.addServlet("/" + APP + "/top/clans/*", new TestTopClansServlet());
         jettyServer.addServlet("/" + APP + "/top/players/*", new TestTopPlayersServlet());
+        jettyServer.addServlet("/" + APP + "/clan/search/*", new TestClanSearchServlet());
         jettyServer.addServlet("/" + APP + "/clan/*", new TestClanServlet());
         jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());
         jettyServer.addServlet("/" + APP + "/constants/alliance/", new TestAllianceConstantsServlet());
@@ -194,6 +195,21 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetClansBecauseWrongAuth() throws IOException {
         doGetClans(URL, "abc", createClanTags());
+    }
+
+    @Test
+    public void shouldGetClanSearchWithAuth() throws IOException {
+        doGetClanSearch(URL, AUTH);
+    }
+
+    private void doGetClanSearch(String url, String auth) {
+        List<Clan> clans = new Api(url, auth).getClanSearch();
+        assertTrue(clans.size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanSearchBecauseWrongAuth() throws IOException {
+        doGetClanSearch(URL, "abc");
     }
 
     @Test
