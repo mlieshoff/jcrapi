@@ -39,6 +39,19 @@ List<Clan> clans = api.getClans(Arrays.asList("RP88QQG", "2CCCP"));
 ```
 
 ```java
+// clan search
+List<Clan> clans = api.getClanSearch();
+
+// all set values are optional
+ClanSearch clanSearch = new ClanSearch();
+clanSearch.setName("abc");
+clanSearch.setScore(500);
+clanSearch.setMinMembers(10);
+clanSearch.setMaxMembers(25);
+List<Clan> clansWithCriteria = api.getClanSearch(clanSearch);
+```
+
+```java
 // get top clans
 List<TopClan> topClans = api.getTopClans();
 List<TopClan> topClansForEu = api.getTopClans("EU");
