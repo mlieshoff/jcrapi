@@ -75,6 +75,11 @@ Endpoints endpoints = api.getEndpoints();
 List<PopularClan> popularClans = api.getPopularClans();
 ```
 
+```java
+// get popular players
+List<PopularPlayer> popularPlayers = api.getPopularPlayers();
+```
+
 ## How to bind the bintray repository ##
 
 ```xml

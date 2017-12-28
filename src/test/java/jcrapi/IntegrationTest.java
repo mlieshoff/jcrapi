@@ -70,6 +70,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/constants/cards/", new TestCardsConstantsServlet());
         jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
         jettyServer.addServlet("/" + APP + "/popular/clans", new TestPopularClansServlet());
+        jettyServer.addServlet("/" + APP + "/popular/players", new TestPopularPlayersServlet());
         jettyServer.start();
     }
 
@@ -361,6 +362,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetPopularClansBecauseWrongAuth() throws IOException {
         doGetPopularClans(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetPopularPlayersWithAuth() throws IOException {
+        doGetPopularPlayers(URL, AUTH);
+    }
+
+    private void doGetPopularPlayers(String url, String auth) {
+        assertTrue(new Api(url, auth).getPopularPlayers().size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPopularPlayersBecauseWrongAuth() throws IOException {
+        doGetPopularPlayers(URL, "abc");
     }
 
 }
