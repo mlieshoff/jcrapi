@@ -31,6 +31,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.Tournament;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -313,6 +314,34 @@ public class ApiTest {
         when(client.getTopPlayers("EU")).thenThrow(new IOException("crapi: 400"));
         try {
             api.getTopPlayers("EU");
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetTournaments() throws Exception {
+        Tournament tournament = new Tournament();
+        when(client.getTournaments("abc")).thenReturn(tournament);
+        assertSame(tournament, api.getTournaments("abc"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetTournamentsBecauseEmptyTag() throws Exception {
+        api.getTournaments("");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failGetTournamentsBecauseNullTag() throws Exception {
+        api.getTournaments(null);
+    }
+
+    @Test
+    public void failGetTournaments() throws Exception {
+        when(client.getTournaments("abc")).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getTournaments("abc");
+            fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

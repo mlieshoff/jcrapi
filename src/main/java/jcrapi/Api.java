@@ -33,6 +33,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.Tournament;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -140,6 +141,15 @@ public class Api {
     public List<TopPlayer> getTopPlayers(String locationKey) {
         try {
             return clientFactory.createClient(url, developerKey).getTopPlayers(locationKey);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public Tournament getTournaments(String tag) {
+        checkString(tag, "tag");
+        try {
+            return clientFactory.createClient(url, developerKey).getTournaments(tag);
         } catch (IOException e) {
             throw new ApiException(e);
         }

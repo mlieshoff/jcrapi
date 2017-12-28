@@ -193,6 +193,12 @@ public class ClientTest {
     }
 
     @Test
+    public void shouldGetTournaments() throws IOException {
+        when(crawler.get("lala/tournaments/abc", createHeaders())).thenReturn("{}");
+        assertNotNull(createClient().getTournaments("abc"));
+    }
+
+    @Test
     public void shouldGetConstants() throws IOException {
         when(crawler.get("lala/constants", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getConstants());
