@@ -93,6 +93,21 @@ List<PopularClan> popularClans = api.getPopularClans();
 List<PopularPlayer> popularPlayers = api.getPopularPlayers();
 ```
 
+```java
+// get popular tournaments
+List<PopularTournament> popularTournaments = api.getPopularTournaments();
+```
+
+```java
+// get clan battles
+List<Battle> clanBattles = api.getClanBattles("RP88QQG");
+```
+
+```java
+// get clan history
+ClanHistory clanHistory = api.getClanHistory("RP88QQG");
+```
+
 ## How to bind the bintray repository ##
 
 ```xml
