@@ -21,6 +21,7 @@ import jcrapi.model.Arena;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
@@ -565,6 +566,23 @@ public class ApiTest {
         when(client.getClanBattles("abc")).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClanBattles("abc");
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanHistory() throws Exception {
+        ClanHistory clanHistory = new ClanHistory();
+        when(client.getClanHistory("abc")).thenReturn(clanHistory);
+        assertSame(clanHistory, api.getClanHistory("abc"));
+    }
+
+    @Test
+    public void failGetClanHistory() throws Exception {
+        when(client.getClanHistory("abc")).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getClanHistory("abc");
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

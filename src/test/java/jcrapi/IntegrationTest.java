@@ -438,4 +438,18 @@ public class IntegrationTest {
         doGetClanBattles(URL, "abc");
     }
 
+    @Test
+    public void shouldGetClanHistoryWithAuth() throws IOException {
+        doGetClanHistory(URL, AUTH);
+    }
+
+    private void doGetClanHistory(String url, String auth) {
+        assertTrue(new Api(url, auth).getClanBattles("abc").size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanHistoryBecauseWrongAuth() throws IOException {
+        doGetClanHistory(URL, "abc");
+    }
+
 }
