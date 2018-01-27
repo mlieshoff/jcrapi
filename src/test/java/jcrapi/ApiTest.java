@@ -18,6 +18,7 @@ package jcrapi;
 
 import jcrapi.model.Alliance;
 import jcrapi.model.Arena;
+import jcrapi.model.Battle;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanSearch;
@@ -547,6 +548,23 @@ public class ApiTest {
         when(client.getPopularTournaments()).thenThrow(new IOException("crapi: 400"));
         try {
             api.getPopularTournaments();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanBattles() throws Exception {
+        List<Battle> battles = new ArrayList<>();
+        when(client.getClanBattles("abc")).thenReturn(battles);
+        assertSame(battles, api.getClanBattles("abc"));
+    }
+
+    @Test
+    public void failGetClanBattles() throws Exception {
+        when(client.getClanBattles("abc")).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getClanBattles("abc");
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

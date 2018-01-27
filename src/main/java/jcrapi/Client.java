@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import jcrapi.model.Alliance;
 import jcrapi.model.Arena;
 import jcrapi.model.Badges;
+import jcrapi.model.Battle;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanSearch;
@@ -233,6 +234,12 @@ class Client {
     List<PopularTournament> getPopularTournaments() throws IOException {
         String json = createCrawler().get(createUrl("popular/tournaments"), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<PopularTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<Battle> getClanBattles(String tag) throws IOException {
+        String json = createCrawler().get(createUrl("clan/" + tag + "/battles"), createAuthHeader(developerKey));
+        Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
