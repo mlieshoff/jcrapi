@@ -410,4 +410,18 @@ public class IntegrationTest {
         doGetPopularPlayers(URL, "abc");
     }
 
+    @Test
+    public void shouldGetPopularTournamentsWithAuth() throws IOException {
+        doGetPopularTournaments(URL, AUTH);
+    }
+
+    private void doGetPopularTournaments(String url, String auth) {
+        assertTrue(new Api(url, auth).getPopularTournaments().size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPopularTournamentsBecauseWrongAuth() throws IOException {
+        doGetPopularTournaments(URL, "abc");
+    }
+
 }
