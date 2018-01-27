@@ -424,4 +424,18 @@ public class IntegrationTest {
         doGetPopularTournaments(URL, "abc");
     }
 
+    @Test
+    public void shouldGetClanBattlesWithAuth() throws IOException {
+        doGetClanBattles(URL, AUTH);
+    }
+
+    private void doGetClanBattles(String url, String auth) {
+        assertTrue(new Api(url, auth).getClanBattles("abc").size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanBattlesBecauseWrongAuth() throws IOException {
+        doGetClanBattles(URL, "abc");
+    }
+
 }

@@ -20,6 +20,7 @@ import com.google.common.base.Preconditions;
 import jcrapi.model.Alliance;
 import jcrapi.model.Arena;
 import jcrapi.model.Badges;
+import jcrapi.model.Battle;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanSearch;
@@ -247,6 +248,14 @@ public class Api {
     public List<PopularTournament> getPopularTournaments() {
         try {
             return clientFactory.createClient(url, developerKey).getPopularTournaments();
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<Battle> getClanBattles(String tag) {
+        try {
+            return clientFactory.createClient(url, developerKey).getClanBattles(tag);
         } catch (IOException e) {
             throw new ApiException(e);
         }

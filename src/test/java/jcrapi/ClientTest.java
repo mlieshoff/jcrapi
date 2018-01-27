@@ -270,4 +270,10 @@ public class ClientTest {
         assertNotNull(createClient().getPopularTournaments());
     }
 
+    @Test
+    public void shouldGetClanBattles() throws IOException {
+        when(crawler.get("lala/clan/xyz/battles", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanBattles("xyz"));
+    }
+
 }

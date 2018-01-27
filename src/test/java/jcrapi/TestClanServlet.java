@@ -30,7 +30,10 @@ public class TestClanServlet extends TestJsonFileServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String parameter = getRestTagParameter(req);
         String filename = null;
-        if ("2CCCP".equals(parameter)) {
+
+        if ("battles".equals(parameter)) {
+            filename = "src/test/java/jcrapi/clanBattles.json";
+        } else if ("2CCCP".equals(parameter)) {
             filename = "src/test/java/jcrapi/clan.json";
         } else if ("2CCCP,2U2GGQJ".equals(parameter)) {
             filename = "src/test/java/jcrapi/multiClans.json";
