@@ -16,9 +16,8 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
 public class PopularPlayer extends Profile {

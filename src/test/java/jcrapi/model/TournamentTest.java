@@ -126,7 +126,7 @@ public class TournamentTest {
 
     @Test
     public void shouldGetSetMembers() {
-        java.util.List<TournamentParticipant> expected = new java.util.ArrayList<>();
+        java.util.List<TournamentParticipant> expected = new java.util.ArrayList<TournamentParticipant>();
         unitUnderTest.setMembers(expected);
         assertEquals(expected, unitUnderTest.getMembers());
     }
@@ -147,7 +147,7 @@ public class TournamentTest {
         unitUnderTest.setCreateTime(4711L);
         unitUnderTest.setCreator(new TournamentParticipant());
         unitUnderTest.setMembers(new java.util.ArrayList<TournamentParticipant>());
-        String expected = "Tournament{tag=astring, type=astring, status=astring, name=astring, description=astring, capactiy=815, maxCapactiy=815, preparationDuration=815, duration=815, endedTime=astring, startTime=4711, createTime=4711, creator=" + new TournamentParticipant() + ", members=" + new java.util.ArrayList<>() + "}";
+        String expected = "Tournament{tag=astring, type=astring, status=astring, name=astring, description=astring, capactiy=815, maxCapactiy=815, preparationDuration=815, duration=815, endedTime=astring, startTime=4711, createTime=4711, creator=" + new TournamentParticipant() + ", members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

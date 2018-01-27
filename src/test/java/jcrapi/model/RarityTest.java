@@ -98,7 +98,7 @@ public class RarityTest {
 
     @Test
     public void shouldGetSetPowerLevelMultiplier() {
-        java.util.List<Integer> expected = new java.util.ArrayList<>();
+        java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
         unitUnderTest.setPowerLevelMultiplier(expected);
         assertEquals(expected, unitUnderTest.getPowerLevelMultiplier());
     }
@@ -126,21 +126,21 @@ public class RarityTest {
 
     @Test
     public void shouldGetSetUpgradeCost() {
-        java.util.List<Integer> expected = new java.util.ArrayList<>();
+        java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
         unitUnderTest.setUpgradeCost(expected);
         assertEquals(expected, unitUnderTest.getUpgradeCost());
     }
 
     @Test
     public void shouldGetSetUpgradeExp() {
-        java.util.List<Integer> expected = new java.util.ArrayList<>();
+        java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
         unitUnderTest.setUpgradeExp(expected);
         assertEquals(expected, unitUnderTest.getUpgradeExp());
     }
 
     @Test
     public void shouldGetSetUpgradeMaterialCost() {
-        java.util.List<Integer> expected = new java.util.ArrayList<>();
+        java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
         unitUnderTest.setUpgradeMaterialCost(expected);
         assertEquals(expected, unitUnderTest.getUpgradeMaterialCost());
     }
@@ -163,7 +163,7 @@ public class RarityTest {
         unitUnderTest.setUpgradeCost(new java.util.ArrayList<Integer>());
         unitUnderTest.setUpgradeExp(new java.util.ArrayList<Integer>());
         unitUnderTest.setUpgradeMaterialCost(new java.util.ArrayList<Integer>());
-        String expected = "Rarity{balanceMultiplier=815, chanceWeight=815, cloneRelativeLevel=815, donateCapacity=815, donateReward=815, donateXp=815, goldConversionValue=815, levelCount=815, mirrorRelativeLevel=815, powerLevelMultiplier=" + new java.util.ArrayList<>() + ", refundGems=815, relativeLevel=815, sortCapacity=815, upgradeCost=" + new java.util.ArrayList<>() + ", upgradeExp=" + new java.util.ArrayList<>() + ", upgradeMaterialCost=" + new java.util.ArrayList<>() + "}";
+        String expected = "Rarity{balanceMultiplier=815, chanceWeight=815, cloneRelativeLevel=815, donateCapacity=815, donateReward=815, donateXp=815, goldConversionValue=815, levelCount=815, mirrorRelativeLevel=815, powerLevelMultiplier=" + new java.util.ArrayList<Integer>() + ", refundGems=815, relativeLevel=815, sortCapacity=815, upgradeCost=" + new java.util.ArrayList<Integer>() + ", upgradeExp=" + new java.util.ArrayList<Integer>() + ", upgradeMaterialCost=" + new java.util.ArrayList<Integer>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

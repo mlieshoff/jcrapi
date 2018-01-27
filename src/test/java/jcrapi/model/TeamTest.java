@@ -70,7 +70,7 @@ public class TeamTest {
 
     @Test
     public void shouldGetSetDeck() {
-        java.util.List<TeamCard> expected = new java.util.ArrayList<>();
+        java.util.List<TeamCard> expected = new java.util.ArrayList<TeamCard>();
         unitUnderTest.setDeck(expected);
         assertEquals(expected, unitUnderTest.getDeck());
     }
@@ -83,7 +83,7 @@ public class TeamTest {
         unitUnderTest.setStartTrophies(815);
         unitUnderTest.setClan(new TeamClan());
         unitUnderTest.setDeck(new java.util.ArrayList<TeamCard>());
-        String expected = "Team{tag=astring, name=astring, crownsEarned=815, startTrophies=815, clan=" + new TeamClan() + ", deck=" + new java.util.ArrayList<>() + "}";
+        String expected = "Team{tag=astring, name=astring, crownsEarned=815, startTrophies=815, clan=" + new TeamClan() + ", deck=" + new java.util.ArrayList<TeamCard>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

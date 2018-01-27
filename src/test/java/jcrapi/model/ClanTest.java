@@ -112,7 +112,7 @@ public class ClanTest {
 
     @Test
     public void shouldGetSetMembers() {
-        java.util.List<Member> expected = new java.util.ArrayList<>();
+        java.util.List<Member> expected = new java.util.ArrayList<Member>();
         unitUnderTest.setMembers(expected);
         assertEquals(expected, unitUnderTest.getMembers());
     }
@@ -131,7 +131,7 @@ public class ClanTest {
         unitUnderTest.setBadge(new Badge());
         unitUnderTest.setLocation(new Location());
         unitUnderTest.setMembers(new java.util.ArrayList<Member>());
-        String expected = "Clan{tag=astring, name=astring, description=astring, type=astring, score=815, memberCount=815, requiredScore=815, donations=815, clanChest=" + new ClanChest() + ", badge=" + new Badge() + ", location=" + new Location() + ", members=" + new java.util.ArrayList<>() + "}";
+        String expected = "Clan{tag=astring, name=astring, description=astring, type=astring, score=815, memberCount=815, requiredScore=815, donations=815, clanChest=" + new ClanChest() + ", badge=" + new Badge() + ", location=" + new Location() + ", members=" + new java.util.ArrayList<Member>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

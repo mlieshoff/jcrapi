@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
+import javax.annotation.Generated;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -35,14 +35,14 @@ public class AllianceTest {
 
     @Test
     public void shouldGetSetRoles() {
-        java.util.List<String> expected = new java.util.ArrayList<>();
+        java.util.List<String> expected = new java.util.ArrayList<String>();
         unitUnderTest.setRoles(expected);
         assertEquals(expected, unitUnderTest.getRoles());
     }
 
     @Test
     public void shouldGetSetTypes() {
-        java.util.List<String> expected = new java.util.ArrayList<>();
+        java.util.List<String> expected = new java.util.ArrayList<String>();
         unitUnderTest.setTypes(expected);
         assertEquals(expected, unitUnderTest.getTypes());
     }
@@ -51,7 +51,7 @@ public class AllianceTest {
     public void shouldToString() {
         unitUnderTest.setRoles(new java.util.ArrayList<String>());
         unitUnderTest.setTypes(new java.util.ArrayList<String>());
-        String expected = "Alliance{roles=" + new java.util.ArrayList<>() + ", types=" + new java.util.ArrayList<>() + "}";
+        String expected = "Alliance{roles=" + new java.util.ArrayList<String>() + ", types=" + new java.util.ArrayList<String>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -27,6 +27,7 @@ import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularPlayer;
+import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
@@ -529,6 +530,23 @@ public class ApiTest {
         when(client.getPopularPlayers()).thenThrow(new IOException("crapi: 400"));
         try {
             api.getPopularPlayers();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetPopularTournaments() throws Exception {
+        List<PopularTournament> popularTournaments = new ArrayList<>();
+        when(client.getPopularTournaments()).thenReturn(popularTournaments);
+        assertSame(popularTournaments, api.getPopularTournaments());
+    }
+
+    @Test
+    public void failGetPopularTournaments() throws Exception {
+        when(client.getPopularTournaments()).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getPopularTournaments();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

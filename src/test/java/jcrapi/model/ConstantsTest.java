@@ -42,7 +42,7 @@ public class ConstantsTest {
 
     @Test
     public void shouldGetSetArenas() {
-        java.util.List<Arena> expected = new java.util.ArrayList<>();
+        java.util.List<Arena> expected = new java.util.ArrayList<Arena>();
         unitUnderTest.setArenas(expected);
         assertEquals(expected, unitUnderTest.getArenas());
     }
@@ -63,21 +63,21 @@ public class ConstantsTest {
 
     @Test
     public void shouldGetSetCountryCodes() {
-        java.util.List<CountryCode> expected = new java.util.ArrayList<>();
+        java.util.List<CountryCode> expected = new java.util.ArrayList<CountryCode>();
         unitUnderTest.setCountryCodes(expected);
         assertEquals(expected, unitUnderTest.getCountryCodes());
     }
 
     @Test
     public void shouldGetSetRarities() {
-        java.util.List<Rarity> expected = new java.util.ArrayList<>();
+        java.util.List<Rarity> expected = new java.util.ArrayList<Rarity>();
         unitUnderTest.setRarities(expected);
         assertEquals(expected, unitUnderTest.getRarities());
     }
 
     @Test
     public void shouldGetSetCards() {
-        java.util.List<ConstantCard> expected = new java.util.ArrayList<>();
+        java.util.List<ConstantCard> expected = new java.util.ArrayList<ConstantCard>();
         unitUnderTest.setCards(expected);
         assertEquals(expected, unitUnderTest.getCards());
     }
@@ -91,7 +91,7 @@ public class ConstantsTest {
         unitUnderTest.setCountryCodes(new java.util.ArrayList<CountryCode>());
         unitUnderTest.setRarities(new java.util.ArrayList<Rarity>());
         unitUnderTest.setCards(new java.util.ArrayList<ConstantCard>());
-        String expected = "Constants{alliance=" + new Alliance() + ", arenas=" + new java.util.ArrayList<>() + ", badges=" + new Badges() + ", chestCycle=" + new ChestCycleList() + ", countryCodes=" + new java.util.ArrayList<>() + ", rarities=" + new java.util.ArrayList<>() + ", cards=" + new java.util.ArrayList<>() + "}";
+        String expected = "Constants{alliance=" + new Alliance() + ", arenas=" + new java.util.ArrayList<Arena>() + ", badges=" + new Badges() + ", chestCycle=" + new ChestCycleList() + ", countryCodes=" + new java.util.ArrayList<CountryCode>() + ", rarities=" + new java.util.ArrayList<Rarity>() + ", cards=" + new java.util.ArrayList<ConstantCard>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

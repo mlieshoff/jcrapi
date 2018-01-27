@@ -21,7 +21,7 @@ import javax.annotation.Generated;
 @Generated("org.mili.generator")
 public class Version {
 
-    public static final String VERSION = "vv7.5.3";
+    public static final String VERSION = "v8.3.13";
 
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();

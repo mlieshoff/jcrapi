@@ -91,14 +91,14 @@ public class BattleTest {
 
     @Test
     public void shouldGetSetTeam() {
-        java.util.List<Team> expected = new java.util.ArrayList<>();
+        java.util.List<Team> expected = new java.util.ArrayList<Team>();
         unitUnderTest.setTeam(expected);
         assertEquals(expected, unitUnderTest.getTeam());
     }
 
     @Test
     public void shouldGetSetOpponent() {
-        java.util.List<Team> expected = new java.util.ArrayList<>();
+        java.util.List<Team> expected = new java.util.ArrayList<Team>();
         unitUnderTest.setOpponent(expected);
         assertEquals(expected, unitUnderTest.getOpponent());
     }
@@ -123,7 +123,7 @@ public class BattleTest {
         unitUnderTest.setTeam(new java.util.ArrayList<Team>());
         unitUnderTest.setOpponent(new java.util.ArrayList<Team>());
         unitUnderTest.setArena(new Arena());
-        String expected = "Battle{type=astring, mode=" + new BattleMode() + ", utcTime=4711, deckType=astring, teamSize=815, winner=815, teamCrowns=815, opponentCrowns=815, team=" + new java.util.ArrayList<>() + ", opponent=" + new java.util.ArrayList<>() + ", arena=" + new Arena() + "}";
+        String expected = "Battle{type=astring, mode=" + new BattleMode() + ", utcTime=4711, deckType=astring, teamSize=815, winner=815, teamCrowns=815, opponentCrowns=815, team=" + new java.util.ArrayList<Team>() + ", opponent=" + new java.util.ArrayList<Team>() + ", arena=" + new Arena() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
