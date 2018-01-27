@@ -23,6 +23,7 @@ import jcrapi.model.Badges;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
@@ -256,6 +257,14 @@ public class Api {
     public List<Battle> getClanBattles(String tag) {
         try {
             return clientFactory.createClient(url, developerKey).getClanBattles(tag);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public ClanHistory getClanHistory(String tag) {
+        try {
+            return clientFactory.createClient(url, developerKey).getClanHistory(tag);
         } catch (IOException e) {
             throw new ApiException(e);
         }

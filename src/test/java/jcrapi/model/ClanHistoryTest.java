@@ -17,18 +17,28 @@
 package jcrapi.model;
 
 import javax.annotation.Generated;
-import com.google.gson.annotations.SerializedName;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class Version {
+public class ClanHistoryTest {
 
-    public static final String VERSION = "v8.3.13";
+    private ClanHistory unitUnderTest;
 
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Version{");
-        s.append("}");
-        return s.toString();
+    @Before
+    public void setUp() {
+        unitUnderTest = new ClanHistory();
     }
+
+    @Test
+    public void shouldGetSetClanHistoryElements() {
+        java.util.List<ClanHistoryElement> expected = new java.util.ArrayList<ClanHistoryElement>();
+        unitUnderTest.setClanHistoryElements(expected);
+        assertEquals(expected, unitUnderTest.getClanHistoryElements());
+    }
+
 
 }

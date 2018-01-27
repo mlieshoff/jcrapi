@@ -26,6 +26,7 @@ import jcrapi.model.Badges;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.ConstantCard;
 import jcrapi.model.Constants;
@@ -241,6 +242,11 @@ class Client {
         String json = createCrawler().get(createUrl("clan/" + tag + "/battles"), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
+    }
+
+    ClanHistory getClanHistory(String tag) throws IOException {
+        String json = createCrawler().get(createUrl("clan/" + tag + "/history"), createAuthHeader(developerKey));
+        return new Gson().fromJson(json, ClanHistory.class);
     }
 
 }

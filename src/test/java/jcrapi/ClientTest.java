@@ -276,4 +276,10 @@ public class ClientTest {
         assertNotNull(createClient().getClanBattles("xyz"));
     }
 
+    @Test
+    public void shouldGetClanHistory() throws IOException {
+        when(crawler.get("lala/clan/xyz/history", createHeaders())).thenReturn("{}");
+        assertNotNull(createClient().getClanHistory("xyz"));
+    }
+
 }
