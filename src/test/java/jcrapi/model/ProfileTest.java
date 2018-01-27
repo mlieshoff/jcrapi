@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
+import javax.annotation.Generated;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -98,28 +98,28 @@ public class ProfileTest {
 
     @Test
     public void shouldGetSetCurrentDeck() {
-        java.util.List<Card> expected = new java.util.ArrayList<>();
+        java.util.List<Card> expected = new java.util.ArrayList<Card>();
         unitUnderTest.setCurrentDeck(expected);
         assertEquals(expected, unitUnderTest.getCurrentDeck());
     }
 
     @Test
     public void shouldGetSetCards() {
-        java.util.List<Card> expected = new java.util.ArrayList<>();
+        java.util.List<Card> expected = new java.util.ArrayList<Card>();
         unitUnderTest.setCards(expected);
         assertEquals(expected, unitUnderTest.getCards());
     }
 
     @Test
     public void shouldGetSetAchievments() {
-        java.util.List<Achievment> expected = new java.util.ArrayList<>();
+        java.util.List<Achievment> expected = new java.util.ArrayList<Achievment>();
         unitUnderTest.setAchievments(expected);
         assertEquals(expected, unitUnderTest.getAchievments());
     }
 
     @Test
     public void shouldGetSetBattles() {
-        java.util.List<Battle> expected = new java.util.ArrayList<>();
+        java.util.List<Battle> expected = new java.util.ArrayList<Battle>();
         unitUnderTest.setBattles(expected);
         assertEquals(expected, unitUnderTest.getBattles());
     }
@@ -139,7 +139,7 @@ public class ProfileTest {
         unitUnderTest.setCards(new java.util.ArrayList<Card>());
         unitUnderTest.setAchievments(new java.util.ArrayList<Achievment>());
         unitUnderTest.setBattles(new java.util.ArrayList<Battle>());
-        String expected = "Profile{tag=astring, name=astring, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<>() + ", cards=" + new java.util.ArrayList<>() + ", achievments=" + new java.util.ArrayList<>() + ", battles=" + new java.util.ArrayList<>() + "}";
+        String expected = "Profile{tag=astring, name=astring, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", battles=" + new java.util.ArrayList<Battle>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

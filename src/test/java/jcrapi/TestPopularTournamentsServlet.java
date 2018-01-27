@@ -14,24 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jcrapi.model;
+package jcrapi;
 
-import javax.annotation.Generated;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-import org.junit.Before;
-import org.junit.Test;
+/**
+ * @author Michael Lieshoff
+ */
+public class TestPopularTournamentsServlet extends TestJsonFileServlet {
 
-import static org.junit.Assert.assertEquals;
-
-@Generated("org.mili.generator")
-public class EndpointsTest {
-
-    private Endpoints unitUnderTest;
-
-    @Before
-    public void setUp() {
-        unitUnderTest = new Endpoints();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet("src/test/java/jcrapi/popularTournaments.json", req, resp);
     }
-
 
 }

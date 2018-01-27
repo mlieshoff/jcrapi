@@ -35,7 +35,7 @@ public class VersionTest {
 
     @Test
     public void shouldGetVERSION() {
-        assertEquals( "vv7.5.3", unitUnderTest.VERSION);
+        assertEquals( "v8.3.13", unitUnderTest.VERSION);
     }
     
     @Test

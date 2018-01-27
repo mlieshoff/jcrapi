@@ -24,26 +24,26 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class ChestCycleListTest {
+public class PopularTournamentTest {
 
-    private ChestCycleList unitUnderTest;
+    private PopularTournament unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new ChestCycleList();
+        unitUnderTest = new PopularTournament();
     }
 
     @Test
-    public void shouldGetSetOrder() {
-        java.util.List<String> expected = new java.util.ArrayList<String>();
-        unitUnderTest.setOrder(expected);
-        assertEquals(expected, unitUnderTest.getOrder());
+    public void shouldGetSetPopularity() {
+        Popularity expected = new Popularity();
+        unitUnderTest.setPopularity(expected);
+        assertEquals(expected, unitUnderTest.getPopularity());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setOrder(new java.util.ArrayList<String>());
-        String expected = "ChestCycleList{order=" + new java.util.ArrayList<String>() + "}";
+        unitUnderTest.setPopularity(new Popularity());
+        String expected = "PopularTournament{popularity=" + new Popularity() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

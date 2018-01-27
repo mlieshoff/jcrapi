@@ -17,35 +17,29 @@
 package jcrapi.model;
 
 import javax.annotation.Generated;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class ChestCycleListTest {
+public class PopularTournament extends Tournament {
 
-    private ChestCycleList unitUnderTest;
+    @SerializedName("popularity")
+    private Popularity popularity;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ChestCycleList();
+    public void setPopularity(Popularity popularity) {
+        this.popularity = popularity;
     }
-
-    @Test
-    public void shouldGetSetOrder() {
-        java.util.List<String> expected = new java.util.ArrayList<String>();
-        unitUnderTest.setOrder(expected);
-        assertEquals(expected, unitUnderTest.getOrder());
+    
+    public Popularity getPopularity() {
+        return popularity;
     }
-
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setOrder(new java.util.ArrayList<String>());
-        String expected = "ChestCycleList{order=" + new java.util.ArrayList<String>() + "}";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
+    
+    public String toString() {
+        java.lang.StringBuilder s = new java.lang.StringBuilder();
+        s.append("PopularTournament{");
+        s.append("popularity=");
+        s.append(popularity);
+        s.append("}");
+        return s.toString();
     }
 
 }
