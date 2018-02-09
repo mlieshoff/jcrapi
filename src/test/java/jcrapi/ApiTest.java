@@ -35,7 +35,6 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
-import jcrapi.request.ProfileRequest;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -52,13 +51,15 @@ import static org.mockito.Mockito.when;
  */
 public class ApiTest {
 
+    private ClientFactory clientFactory;
+
     private Client client;
 
     private Api api;
 
     @Before
     public void setUp() {
-        ClientFactory clientFactory = Mockito.mock(ClientFactory.class);
+        clientFactory = Mockito.mock(ClientFactory.class);
         client = Mockito.mock(Client.class);
         when(clientFactory.createClient("lala", "abc")).thenReturn(client);
         api = new Api("lala", "abc", clientFactory);
@@ -102,7 +103,7 @@ public class ApiTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetProfileBecauseNullTag() throws Exception {
-        api.getProfile((String) null);
+        api.getProfile(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -122,30 +123,6 @@ public class ApiTest {
         when(client.getProfile("abc")).thenThrow(new IOException("crapi: 400"));
         try {
             api.getProfile("abc");
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetProfileBecauseNullRequest() throws Exception {
-        api.getProfile((ProfileRequest) null);
-    }
-
-    @Test
-    public void shouldGetProfileFromRequest() throws Exception {
-        Profile profile = new Profile();
-        ProfileRequest profileRequest = ProfileRequest.builder().tag("abc").build();
-        when(client.getProfile(profileRequest)).thenReturn(profile);
-        assertEquals(profile, api.getProfile(profileRequest));
-    }
-
-    @Test
-    public void failGetProfileFromRequest() throws Exception {
-        ProfileRequest profileRequest = ProfileRequest.builder().tag("abc").build();
-        when(client.getProfile(profileRequest)).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getProfile(profileRequest);
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

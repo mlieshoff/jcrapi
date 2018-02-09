@@ -40,16 +40,12 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
-import jcrapi.request.ProfileRequest;
-import jcrapi.request.Request;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +54,7 @@ import java.util.Map;
  */
 class Client {
 
-    private static final String PARAM = "%s=%s";
+    private final String PARAM = "%s=%s";
 
     private final String url;
     private final String developerKey;
@@ -91,46 +87,21 @@ class Client {
     }
 
     private String createUrl(String part) {
-        return url + part;
+        StringBuilder s = new StringBuilder();
+        s.append(url);
+        s.append(part);
+        return s.toString();
     }
 
-    @Deprecated
     Profile getProfile(String tag) throws IOException {
         checkString(tag);
         String json = createCrawler().get(createUrl("player/" + tag), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Profile.class);
     }
 
-    Profile getProfile(ProfileRequest profileRequest) throws IOException {
-        Preconditions.checkNotNull(profileRequest, "profileRequest");
-        String url = createUrl("player/" + profileRequest.getTag() + createQuery(profileRequest));
-        String json = createCrawler().get(url, createAuthHeader(developerKey));
-        return new Gson().fromJson(json, Profile.class);
-    }
-
-    private StringBuilder createQuery(Request request) {
-        StringBuilder s = new StringBuilder();
-        Map<String, String> queryParameters = request.getQueryParameters();
-        if (MapUtils.isNotEmpty(queryParameters)) {
-            s.append("?");
-            for (Iterator<Map.Entry<String, String>> iterator = queryParameters.entrySet().iterator();
-                 iterator.hasNext(); ) {
-                Map.Entry<String, String> keyAndValue = iterator.next();
-                s.append(keyAndValue.getKey());
-                s.append("=");
-                s.append(keyAndValue.getValue());
-                if (iterator.hasNext()) {
-                    s.append("&");
-                }
-            }
-        }
-        return s;
-    }
-
     List<Profile> getProfiles(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("player/" + StringUtils.join(tags, ",")),
-                createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("player/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -153,15 +124,13 @@ class Client {
 
     List<Clan> getClans(List<String> tags) throws IOException {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")),
-                createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
     List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
-        String json = createCrawler().get(appendClanSearch(clanSearch, createUrl("clan/search")),
-                createAuthHeader(developerKey));
+        String json = createCrawler().get(appendClanSearch(clanSearch, createUrl("clan/search")), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }

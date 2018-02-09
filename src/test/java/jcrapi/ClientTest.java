@@ -18,7 +18,6 @@ package jcrapi;
 
 import com.google.common.collect.ImmutableMap;
 import jcrapi.model.ClanSearch;
-import jcrapi.request.ProfileRequest;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +25,6 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -82,7 +80,7 @@ public class ClientTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetProfileBecauseNullTag() throws IOException {
-        createClient().getProfile((String) null);
+        createClient().getProfile(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -94,22 +92,6 @@ public class ClientTest {
     public void shouldGetProfile() throws IOException {
         when(crawler.get("lala/player/xyz", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getProfile("xyz"));
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetProfileBecauseNullRequest() throws IOException {
-        createClient().getProfile((ProfileRequest) null);
-    }
-
-    @Test
-    public void shouldGetProfileFromRequest() throws IOException {
-        when(crawler.get("lala/player/xyz?limit=15&includes=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getProfile(ProfileRequest.builder()
-                .limit(15)
-                .includes(Arrays.asList("a", "b"))
-                .excludes(Arrays.asList("x", "y"))
-                .tag("xyz")
-                .build()));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -194,8 +176,7 @@ public class ClientTest {
         clanSearch.setScore(2000);
         clanSearch.setMinMembers(20);
         clanSearch.setMaxMembers(50);
-        when(crawler.get("lala/clan/search?name=abc&score=2000&minMembers=20&maxMembers=50", createHeaders()))
-                .thenReturn("[{}]");
+        when(crawler.get("lala/clan/search?name=abc&score=2000&minMembers=20&maxMembers=50", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(clanSearch));
     }
 

@@ -2,6 +2,9 @@ package jcrapi.request;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -22,12 +25,12 @@ public class ProfileRequestTest {
 
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
-        ProfileRequest.builder().tag(null).build();
+        ProfileRequest.builder().tag(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagIsEmpty() {
-        ProfileRequest.builder().tag("").build();
+        ProfileRequest.builder().tag("");
     }
 
     @Test
@@ -35,9 +38,21 @@ public class ProfileRequestTest {
         assertEquals("abc", ProfileRequest.builder().tag("abc").build().getTag());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void failBecauseLimitIsNegative() {
-        ProfileRequest.builder().limit(-1).build();
+    @Test
+    public void shouldBeWithLimit() {
+        assertEquals(100, ProfileRequest.builder().limit(100).build().getLimit());
+    }
+
+    @Test
+    public void shouldBeWithExcludes() {
+        List<String> expected = Arrays.asList("a", "b");
+        assertEquals(expected, ProfileRequest.builder().excludes(expected).build().getExcludes());
+    }
+
+    @Test
+    public void shouldBeWithIncludes() {
+        List<String> expected = Arrays.asList("a", "b");
+        assertEquals(expected, ProfileRequest.builder().includes(expected).build().getIncludes());
     }
 
 }

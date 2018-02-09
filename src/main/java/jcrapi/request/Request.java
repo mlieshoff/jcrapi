@@ -1,18 +1,14 @@
 package jcrapi.request;
 
-import com.google.common.base.Preconditions;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Michael Lieshoff
  */
-public class Request {
+class Request {
 
     private final List<String> excludes = new ArrayList<>();
     private final List<String> includes = new ArrayList<>();
@@ -20,7 +16,6 @@ public class Request {
     private final int limit;
 
     Request(int limit, List<String> excludes, List<String> includes) {
-        Preconditions.checkArgument(limit >= 0, "limit must be > 0");
         this.limit = limit;
         if (CollectionUtils.isNotEmpty(excludes)) {
             this.excludes.addAll(excludes);
@@ -42,26 +37,12 @@ public class Request {
         return limit;
     }
 
-    public Map<String, String> getQueryParameters() {
-        Map<String, String>  map = new LinkedHashMap<>();
-        if (limit > 0) {
-            map.put("limit", String.valueOf(limit));
-        }
-        if (CollectionUtils.isNotEmpty(includes)) {
-            map.put("includes", StringUtils.join(includes, ','));
-        }
-        if (CollectionUtils.isNotEmpty(excludes)) {
-            map.put("excludes", StringUtils.join(excludes, ','));
-        }
-        return map;
-    }
-
     static abstract class RequestBuilder<R extends Request, B> {
 
-        List<String> excludes;
-        List<String> includes;
+        protected List<String> excludes;
+        protected List<String> includes;
 
-        int limit;
+        protected int limit;
 
         public B limit(int limit) {
             this.limit = limit;
