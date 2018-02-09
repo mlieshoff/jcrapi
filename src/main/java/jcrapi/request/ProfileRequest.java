@@ -13,6 +13,8 @@ public class ProfileRequest extends Request {
 
     private ProfileRequest(String tag, int limit, List<String> excludes, List<String> includes) {
         super(limit, excludes, includes);
+        Preconditions.checkNotNull(tag, "tag");
+        Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
     }
 
@@ -29,8 +31,6 @@ public class ProfileRequest extends Request {
         private String tag;
 
         public ProfileRequestBuilder tag(String tag) {
-            Preconditions.checkNotNull(tag, "tag");
-            Preconditions.checkArgument(tag.length() > 0, "tag");
             this.tag = tag;
             return getThis();
         }
