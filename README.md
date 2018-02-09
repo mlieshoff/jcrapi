@@ -18,6 +18,16 @@ Profile profile = api.getProfile("2PGGCJJL");
 ```
 
 ```java
+// get profile
+Profile profile = api.getProfile(ProfileRequest.builder()
+    .tag("2PGGCJJL")
+    .includes(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .build()
+);
+```
+
+```java
 // get profiles
 List<Profile> profiles = api.getProfiles("L88P2282,9CQ2U8QJ,8L9L9GL");
 ```

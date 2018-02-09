@@ -37,6 +37,7 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.ProfileRequest;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -77,10 +78,20 @@ public class Api {
         }
     }
 
+    @Deprecated
     public Profile getProfile(String tag) {
         checkString(tag, "tag");
         try {
             return clientFactory.createClient(url, developerKey).getProfile(tag);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public Profile getProfile(ProfileRequest profileRequest) {
+        Preconditions.checkNotNull(profileRequest, "profileRequest");
+        try {
+            return clientFactory.createClient(url, developerKey).getProfile(profileRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

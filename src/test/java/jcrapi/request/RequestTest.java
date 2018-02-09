@@ -15,8 +15,8 @@ public class RequestTest {
 
     private static class TestRequest extends Request {
 
-        TestRequest(int limit, List<String> excludes, List<String> includes) {
-            super(limit, excludes, includes);
+        TestRequest(int limit, List<String> excludes, List<String> keys) {
+            super(limit, excludes, keys);
         }
 
         static TestRequestBuilder builder() {
@@ -27,7 +27,7 @@ public class RequestTest {
 
             @Override
             public TestRequest build() {
-                return new TestRequest(limit, excludes, includes);
+                return new TestRequest(limit, excludes, keys);
             }
 
             @Override
@@ -70,11 +70,11 @@ public class RequestTest {
     }
 
     @Test
-    public void shouldBeWithIncludes() {
+    public void shouldBeWithKeys() {
         List<String> expected = Arrays.asList("a", "b");
-        TestRequest testRequest = TestRequest.builder().includes(expected).build();
-        assertEquals(expected, testRequest.getIncludes());
-        assertEquals("a,b", testRequest.getQueryParameters().get("includes"));
+        TestRequest testRequest = TestRequest.builder().keys(expected).build();
+        assertEquals(expected, testRequest.getKeys());
+        assertEquals("a,b", testRequest.getQueryParameters().get("keys"));
     }
 
 }
