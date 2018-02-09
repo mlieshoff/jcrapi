@@ -15,7 +15,7 @@ import java.util.Map;
 public class Request {
 
     private final List<String> excludes = new ArrayList<>();
-    private final List<String> includes = new ArrayList<>();
+    private final List<String> keys = new ArrayList<>();
 
     private final int limit;
 
@@ -25,8 +25,8 @@ public class Request {
         if (CollectionUtils.isNotEmpty(excludes)) {
             this.excludes.addAll(excludes);
         }
-        if (CollectionUtils.isNotEmpty(includes)) {
-            this.includes.addAll(includes);
+        if (CollectionUtils.isNotEmpty(keys)) {
+            this.keys.addAll(keys);
         }
     }
 
@@ -34,8 +34,8 @@ public class Request {
         return excludes;
     }
 
-    public List<String> getIncludes() {
-        return includes;
+    public List<String> getKeys() {
+        return keys;
     }
 
     public int getLimit() {
@@ -47,8 +47,8 @@ public class Request {
         if (limit > 0) {
             map.put("limit", String.valueOf(limit));
         }
-        if (CollectionUtils.isNotEmpty(includes)) {
-            map.put("includes", StringUtils.join(includes, ','));
+        if (CollectionUtils.isNotEmpty(keys)) {
+            map.put("keys", StringUtils.join(keys, ','));
         }
         if (CollectionUtils.isNotEmpty(excludes)) {
             map.put("excludes", StringUtils.join(excludes, ','));
@@ -59,7 +59,7 @@ public class Request {
     static abstract class RequestBuilder<R extends Request, B> {
 
         List<String> excludes;
-        List<String> includes;
+        List<String> keys;
 
         int limit;
 
@@ -73,8 +73,8 @@ public class Request {
             return getThis();
         }
 
-        public B includes(List<String> includes) {
-            this.includes = includes;
+        public B keys(List<String> keys) {
+            this.keys = keys;
             return getThis();
         }
 

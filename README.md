@@ -21,7 +21,7 @@ Profile profile = api.getProfile("2PGGCJJL");
 // get profile
 Profile profile = api.getProfile(ProfileRequest.builder()
     .tag("2PGGCJJL")
-    .includes(Arrays.asList("name", "clan", "tag"))
+    .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .build()
 );
