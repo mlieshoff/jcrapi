@@ -37,7 +37,7 @@ public class ProfileRequest extends Request {
 
         @Override
         public ProfileRequest build() {
-            return new ProfileRequest(tag, limit, excludes, keys);
+            return new ProfileRequest(tag, limit, excludes, includes);
         }
 
         @Override

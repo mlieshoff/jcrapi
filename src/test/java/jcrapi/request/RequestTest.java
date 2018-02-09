@@ -27,7 +27,7 @@ public class RequestTest {
 
             @Override
             public TestRequest build() {
-                return new TestRequest(limit, excludes, keys);
+                return new TestRequest(limit, excludes, includes);
             }
 
             @Override
@@ -70,10 +70,10 @@ public class RequestTest {
     }
 
     @Test
-    public void shouldBeWithKeys() {
+    public void shouldBeWithIncludes() {
         List<String> expected = Arrays.asList("a", "b");
-        TestRequest testRequest = TestRequest.builder().keys(expected).build();
-        assertEquals(expected, testRequest.getKeys());
+        TestRequest testRequest = TestRequest.builder().includes(expected).build();
+        assertEquals(expected, testRequest.getIncludes());
         assertEquals("a,b", testRequest.getQueryParameters().get("includes"));
     }
 

@@ -106,7 +106,7 @@ public class ClientTest {
         when(crawler.get("lala/player/xyz?limit=15&includes=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getProfile(ProfileRequest.builder()
                 .limit(15)
-                .keys(Arrays.asList("a", "b"))
+                .includes(Arrays.asList("a", "b"))
                 .excludes(Arrays.asList("x", "y"))
                 .tag("xyz")
                 .build()));
