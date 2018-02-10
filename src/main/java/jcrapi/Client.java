@@ -40,7 +40,9 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.ClanRequest;
 import jcrapi.request.ProfileRequest;
+import jcrapi.request.ProfilesRequest;
 import jcrapi.request.Request;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
@@ -96,9 +98,7 @@ class Client {
 
     @Deprecated
     Profile getProfile(String tag) throws IOException {
-        checkString(tag);
-        String json = createCrawler().get(createUrl("player/" + tag), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, Profile.class);
+        return getProfile(ProfileRequest.builder().tag(tag).build());
     }
 
     Profile getProfile(ProfileRequest profileRequest) throws IOException {
@@ -127,10 +127,16 @@ class Client {
         return s;
     }
 
+    @Deprecated
     List<Profile> getProfiles(List<String> tags) throws IOException {
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("player/" + StringUtils.join(tags, ",")),
-                createAuthHeader(developerKey));
+        return getProfiles(ProfilesRequest.builder().tags(tags).build());
+    }
+
+    List<Profile> getProfiles(ProfilesRequest profilesRequest) throws IOException {
+        Preconditions.checkNotNull(profilesRequest, "profilesRequest");
+        String url = createUrl("player/" + StringUtils.join(profilesRequest.getTags(), ",")
+                + createQuery(profilesRequest));
+        String json = createCrawler().get(url, createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -145,9 +151,14 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     Clan getClan(String tag) throws IOException {
-        checkString(tag);
-        String json = createCrawler().get(createUrl("clan/" + tag), createAuthHeader(developerKey));
+        return getClan(ClanRequest.builder().tag(tag).build());
+    }
+
+    Clan getClan(ClanRequest clanRequest) throws IOException {
+        Preconditions.checkNotNull(clanRequest);
+        String json = createCrawler().get(createUrl("clan/" + clanRequest.getTag()), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Clan.class);
     }
 

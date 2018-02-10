@@ -19,6 +19,7 @@ package jcrapi;
 import com.google.common.collect.ImmutableMap;
 import jcrapi.model.ClanSearch;
 import jcrapi.request.ProfileRequest;
+import jcrapi.request.ProfilesRequest;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -114,7 +115,7 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetProfilesBecauseNullTag() throws IOException {
-        createClient().getProfiles(null);
+        createClient().getProfiles((List<String>) null);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -136,6 +137,22 @@ public class ClientTest {
         return tags;
     }
 
+    @Test(expected = NullPointerException.class)
+    public void failGetProfilesBecauseNullRequest() throws IOException {
+        createClient().getProfiles((ProfilesRequest) null);
+    }
+
+    @Test
+    public void shouldGetProfilesFromRequest() throws IOException {
+        ProfilesRequest profilesRequest = ProfilesRequest.builder()
+                .limit(15)
+                .keys(Arrays.asList("a", "b"))
+                .excludes(Arrays.asList("x", "y"))
+                .tags(createTags())
+                .build();
+        when(crawler.get("lala/player/xyz,def?limit=15&keys=a,b&excludes=x,y", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getProfiles(profilesRequest));
+    }
     @Test
     public void shouldGetTopClans() throws IOException {
         when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
@@ -150,7 +167,7 @@ public class ClientTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetClanBecauseNullTag() throws IOException {
-        createClient().getClan(null);
+        createClient().getClan((String) null);
     }
 
     @Test(expected = IllegalArgumentException.class)

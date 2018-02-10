@@ -8,31 +8,31 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class ProfileRequestTest {
+public class ClanRequestTest {
 
     @Test
     public void shouldCreateBuilder() {
-        assertNotNull(ProfileRequest.builder());
+        assertNotNull(ClanRequest.builder());
     }
 
     @Test
     public void shouldCreateBuilderWithCorrectClass() {
-        assertEquals(ProfileRequest.ProfileRequestBuilder.class, ProfileRequest.builder().getClass());
+        assertEquals(ClanRequest.ClanRequestBuilder.class, ClanRequest.builder().getClass());
     }
 
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
-        ProfileRequest.builder().tag(null).build();
+        ClanRequest.builder().tag(null).build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagIsEmpty() {
-        ProfileRequest.builder().tag("").build();
+        ClanRequest.builder().tag("").build();
     }
 
     @Test
     public void shouldBeWithTag() {
-        assertEquals("abc", ProfileRequest.builder().tag("abc").build().getTag());
+        assertEquals("abc", ClanRequest.builder().tag("abc").build().getTag());
     }
 
 }

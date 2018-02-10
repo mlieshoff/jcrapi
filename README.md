@@ -14,6 +14,7 @@ String version = api.getVersion();
 
 ```java
 // get profile
+@Deprecated
 Profile profile = api.getProfile("2PGGCJJL");
 ```
 
@@ -21,7 +22,7 @@ Profile profile = api.getProfile("2PGGCJJL");
 // get profile
 Profile profile = api.getProfile(ProfileRequest.builder()
     .tag("2PGGCJJL")
-    .includes(Arrays.asList("name", "clan", "tag"))
+    .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .build()
 );
@@ -29,15 +30,35 @@ Profile profile = api.getProfile(ProfileRequest.builder()
 
 ```java
 // get profiles
+@Deprecated
 List<Profile> profiles = api.getProfiles("L88P2282,9CQ2U8QJ,8L9L9GL");
 ```
 
 ```java
+// get profiles
+List<Profile> profiles = api.getProfiles(ProfilesRequest.builder()
+    .tags(Arrays.asList("L88P2282", "9CQ2U8QJ", "8L9L9GL"))
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .build()
+);
+```
+
+```java
 // get clan
+@Deprecated
 Clan clan = api.getClan("RP88QQG"));
 
 // instead of
 // DetailedClan detailedClan = api.getClan("RP88QQG"));
+```
+```java
+// get clan
+Clan clan = api.getClan(ClanRequestBuilder.builder()
+    .tag("RP88QQG")
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .build());
 ```
 
 ```java

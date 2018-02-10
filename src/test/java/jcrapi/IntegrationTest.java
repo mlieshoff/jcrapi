@@ -27,6 +27,9 @@ import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
 import jcrapi.model.Profile;
 import jcrapi.model.Rarity;
+import jcrapi.request.ClanRequest;
+import jcrapi.request.ProfileRequest;
+import jcrapi.request.ProfilesRequest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -111,6 +114,25 @@ public class IntegrationTest {
         doGetProfile(URL, "abc", "8L9L9GL");
     }
 
+    @Test
+    public void shouldGetProfileWithAuthFromRequest() throws IOException {
+        doGetProfile(URL, AUTH, ProfileRequest.builder().tag("8L9L9GL").build());
+    }
+
+    private void doGetProfile(String url, String auth, ProfileRequest profileRequest) {
+        assertEquals(profileRequest.getTag(), new Api(url, auth).getProfile(profileRequest).getTag());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetProfileBecauseWrongAuthFromRequest() throws IOException {
+        doGetProfile(URL, "abc", ProfileRequest.builder().tag("8L9L9GL").build());
+    }
+
+    @Test
+    public void shouldGetProfilesWithAuth() throws IOException {
+        doGetProfiles(URL, AUTH, createProfileTags());
+    }
+
     private void doGetProfiles(String url, String auth, List<String> tags) {
         List<Profile> profiles = new Api(url, auth).getProfiles(tags);
         assertEquals(tags.size(), profiles.size());
@@ -129,13 +151,28 @@ public class IntegrationTest {
         return tags;
     }
 
+    @Test(expected = ApiException.class)
+    public void failGetProfilesBecauseWrongAuth() throws IOException {
+        doGetProfiles(URL, "abc", createProfileTags());
+    }
+
     @Test
-    public void shouldGetProfilesWithAuth() throws IOException {
-        doGetProfiles(URL, AUTH, createProfileTags());
+    public void shouldGetProfilesWithAuthFromRequest() throws IOException {
+        doGetProfiles(URL, AUTH, ProfilesRequest.builder().tags(createProfileTags()).build());
+    }
+
+    private void doGetProfiles(String url, String auth, ProfilesRequest profilesRequest) {
+        List<Profile> profiles = new Api(url, auth).getProfiles(profilesRequest);
+        assertEquals(profilesRequest.getTags().size(), profiles.size());
+        for (int i = 0, n = profilesRequest.getTags().size(); i < n; i ++) {
+            Profile profile = profiles.get(i);
+            String tag = profilesRequest.getTags().get(i);
+            assertEquals(tag, profile.getTag());
+        }
     }
 
     @Test(expected = ApiException.class)
-    public void failGetProfilesBecauseWrongAuth() throws IOException {
+    public void failGetProfilesBecauseWrongAuthFromRequest() throws IOException {
         doGetProfiles(URL, "abc", createProfileTags());
     }
 
@@ -170,6 +207,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetClanBecauseWrongAuth() throws IOException {
         doGetClan(URL, "abc", "2CCCP");
+    }
+
+    @Test
+    public void shouldGetClanWithAuthFromRequest() throws IOException {
+        doGetClan(URL, AUTH, ClanRequest.builder().tag("2CCCP").build());
+    }
+
+    private void doGetClan(String url, String auth, ClanRequest clanRequest) {
+        assertEquals(clanRequest.getTag(), new Api(url, auth).getClan(clanRequest).getTag());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanBecauseWrongAuthFromRequest() throws IOException {
+        doGetClan(URL, "abc", ClanRequest.builder().tag("2CCCP").build());
     }
 
     @Test

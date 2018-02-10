@@ -37,7 +37,9 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.ClanRequest;
 import jcrapi.request.ProfileRequest;
+import jcrapi.request.ProfilesRequest;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -80,12 +82,7 @@ public class Api {
 
     @Deprecated
     public Profile getProfile(String tag) {
-        checkString(tag, "tag");
-        try {
-            return clientFactory.createClient(url, developerKey).getProfile(tag);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
+        return getProfile(ProfileRequest.builder().tag(tag).build());
     }
 
     public Profile getProfile(ProfileRequest profileRequest) {
@@ -97,10 +94,15 @@ public class Api {
         }
     }
 
+    @Deprecated
     public List<Profile> getProfiles(List<String> tags) {
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
+        return getProfiles(ProfilesRequest.builder().tags(tags).build());
+    }
+
+    public List<Profile> getProfiles(ProfilesRequest profilesRequest) {
+        Preconditions.checkNotNull(profilesRequest, "profilesRequest");
         try {
-            return clientFactory.createClient(url, developerKey).getProfiles(tags);
+            return clientFactory.createClient(url, developerKey).getProfiles(profilesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -118,10 +120,15 @@ public class Api {
         }
     }
 
+    @Deprecated
     public Clan getClan(String tag) {
-        checkString(tag, "tag");
+        return getClan(ClanRequest.builder().tag(tag).build());
+    }
+
+    public Clan getClan(ClanRequest clanRequest) {
+        Preconditions.checkNotNull(clanRequest);
         try {
-            return clientFactory.createClient(url, developerKey).getClan(tag);
+            return clientFactory.createClient(url, developerKey).getClan(clanRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
