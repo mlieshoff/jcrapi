@@ -22,7 +22,7 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.mili.generator")
 public class Version {
 
-    public static final String VERSION = "v8.3.13";
+    public static final String VERSION = "v8.4.53";
 
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
