@@ -37,10 +37,15 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.ClanBattlesRequest;
+import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
+import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
+import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TournamentsRequest;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -156,9 +161,10 @@ public class Api {
     }
 
     public List<Clan> getClanSearch() {
-        return getClanSearch(null);
+        return getClanSearch(ClanSearchRequest.builder().build());
     }
 
+    @Deprecated
     public List<Clan> getClanSearch(ClanSearch clanSearch) {
         try {
             return clientFactory.createClient(url, developerKey).getClanSearch(clanSearch);
@@ -167,22 +173,46 @@ public class Api {
         }
     }
 
-    public List<TopPlayer> getTopPlayers() {
-        return getTopPlayers(null);
-    }
-
-    public List<TopPlayer> getTopPlayers(String locationKey) {
+    public List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopPlayers(locationKey);
+            return clientFactory.createClient(url, developerKey).getClanSearch(clanSearchRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
-    public Tournament getTournaments(String tag) {
-        checkString(tag, "tag");
+    public List<TopPlayer> getTopPlayers() {
+        return getTopPlayers(TopPlayersRequest.builder().build());
+    }
+
+    @Deprecated
+    public List<TopPlayer> getTopPlayers(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTournaments(tag);
+            return clientFactory.createClient(url, developerKey).getTopPlayers(
+                    TopPlayersRequest.builder().locationKey(locationKey).build()
+            );
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) {
+        try {
+            return clientFactory.createClient(url, developerKey).getTopPlayers(topPlayersRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    @Deprecated
+    public Tournament getTournaments(String tag) {
+        return getTournaments(TournamentsRequest.builder().tag(tag).build());
+    }
+
+    public Tournament getTournaments(TournamentsRequest tournamentsRequest) {
+        Preconditions.checkNotNull(tournamentsRequest);
+        try {
+            return clientFactory.createClient(url, developerKey).getTournaments(tournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -284,17 +314,27 @@ public class Api {
         }
     }
 
+    @Deprecated
     public List<Battle> getClanBattles(String tag) {
+        return getClanBattles(ClanBattlesRequest.builder().tag(tag).build());
+    }
+
+    public List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanBattles(tag);
+            return clientFactory.createClient(url, developerKey).getClanBattles(clanBattlesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
+    @Deprecated
     public ClanHistory getClanHistory(String tag) {
+        return getClanHistory(ClanHistoryRequest.builder().tag(tag).build());
+    }
+
+    public ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanHistory(tag);
+            return clientFactory.createClient(url, developerKey).getClanHistory(clanHistoryRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

@@ -40,11 +40,16 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.ClanBattlesRequest;
+import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
+import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.Request;
 import jcrapi.request.TopClansRequest;
+import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TournamentsRequest;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
@@ -179,36 +184,61 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
-        String json = createCrawler().get(appendClanSearch(clanSearch, createUrl("clan/search")),
+        ClanSearchRequest.ClanSearchRequestBuilder builder = ClanSearchRequest.builder();
+        if (clanSearch != null) {
+            builder
+                    .name(clanSearch.getName())
+                    .score(clanSearch.getScore())
+                    .minMembers(clanSearch.getMinMembers())
+                    .maxMembers(clanSearch.getMaxMembers());
+        }
+        String json = createCrawler().get(appendClanSearch(
+                builder.build(),
+                createUrl("clan/search")),
                 createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
-    private String appendClanSearch(ClanSearch clanSearch, String url) throws UnsupportedEncodingException {
-        if (clanSearch != null) {
-            List<String> params = new ArrayList<>();
-            addQueryParam(params, "name", URLEncoder.encode(clanSearch.getName(), "UTF-8"));
-            addQueryParam(params, "score", clanSearch.getScore());
-            addQueryParam(params, "minMembers", clanSearch.getMinMembers());
-            addQueryParam(params, "maxMembers", clanSearch.getMaxMembers());
-            if (params.size() > 0) {
-                url += "?";
-                url = url + StringUtils.join(params, '&');
-            }
+    private String appendClanSearch(ClanSearchRequest clanSearchRequest, String url) throws UnsupportedEncodingException {
+        List<String> params = new ArrayList<>();
+        String name = clanSearchRequest.getName();
+        if (StringUtils.isNotBlank(name)) {
+            addQueryParamIfPresent(params, "name", URLEncoder.encode(name, "UTF-8"));
+        }
+        addQueryParamIfPresent(params, "score", clanSearchRequest.getScore());
+        addQueryParamIfPresent(params, "minMembers", clanSearchRequest.getMinMembers());
+        addQueryParamIfPresent(params, "maxMembers", clanSearchRequest.getMaxMembers());
+        if (params.size() > 0) {
+            url += "?";
+            url = url + StringUtils.join(params, '&');
         }
         return url;
     }
 
-    private void addQueryParam(List<String> params, String name, Object value) {
+    private void addQueryParamIfPresent(List<String> params, String name, Object value) {
         if (value != null) {
             params.add(String.format(PARAM, name, value));
         }
     }
 
+    List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) throws IOException {
+        String json = createCrawler().get(appendClanSearch(clanSearchRequest, createUrl("clan/search")),
+                createAuthHeader(developerKey));
+        Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    @Deprecated
     List<TopPlayer> getTopPlayers(String locationKey) throws IOException {
+        return getTopPlayers(TopPlayersRequest.builder().locationKey(locationKey).build());
+    }
+
+    List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) throws IOException {
         String url = createUrl("top/players");
+        String locationKey = topPlayersRequest.getLocationKey();
         if (StringUtils.isNotBlank(locationKey)) {
             url += "/" + locationKey;
         }
@@ -218,7 +248,11 @@ class Client {
     }
 
     Tournament getTournaments(String tag) throws IOException {
-        String json = createCrawler().get(createUrl("tournaments/" + tag), createAuthHeader(developerKey));
+        return getTournaments(TournamentsRequest.builder().tag(tag).build());
+    }
+
+    Tournament getTournaments(TournamentsRequest tournamentsRequest) throws IOException {
+        String json = createCrawler().get(createUrl("tournaments/" + tournamentsRequest.getTag()), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Tournament.class);
     }
 
@@ -289,14 +323,24 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<Battle> getClanBattles(String tag) throws IOException {
-        String json = createCrawler().get(createUrl("clan/" + tag + "/battles"), createAuthHeader(developerKey));
+        return getClanBattles(ClanBattlesRequest.builder().tag(tag).build());
+    }
+
+    List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) throws IOException {
+        String json = createCrawler().get(createUrl("clan/" + clanBattlesRequest.getTag() + "/battles"), createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     ClanHistory getClanHistory(String tag) throws IOException {
-        String json = createCrawler().get(createUrl("clan/" + tag + "/history"), createAuthHeader(developerKey));
+        return getClanHistory(ClanHistoryRequest.builder().tag(tag).build());
+    }
+
+    ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) throws IOException {
+        String json = createCrawler().get(createUrl("clan/" + clanHistoryRequest.getTag() + "/history"), createAuthHeader(developerKey));
         return new Gson().fromJson(json, ClanHistory.class);
     }
 
