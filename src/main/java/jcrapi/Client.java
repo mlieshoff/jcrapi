@@ -44,7 +44,9 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -135,10 +137,10 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    private String appendClanSearch(ClanSearch clanSearch, String url) {
+    private String appendClanSearch(ClanSearch clanSearch, String url) throws UnsupportedEncodingException {
         if (clanSearch != null) {
             List<String> params = new ArrayList<>();
-            addQueryParam(params, "name", clanSearch.getName());
+            addQueryParam(params, "name", URLEncoder.encode(clanSearch.getName(), "UTF-8"));
             addQueryParam(params, "score", clanSearch.getScore());
             addQueryParam(params, "minMembers", clanSearch.getMinMembers());
             addQueryParam(params, "maxMembers", clanSearch.getMaxMembers());

@@ -181,6 +181,17 @@ public class ClientTest {
     }
 
     @Test
+    public void shouldGetClanSearchWithEncodedParameters() throws IOException {
+        ClanSearch clanSearch = new ClanSearch();
+        clanSearch.setName("reddit+alpha");
+        clanSearch.setScore(2000);
+        clanSearch.setMinMembers(20);
+        clanSearch.setMaxMembers(50);
+        when(crawler.get("lala/clan/search?name=reddit%2Balpha&score=2000&minMembers=20&maxMembers=50", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(clanSearch));
+    }
+
+    @Test
     public void shouldGetTopPlayers() throws IOException {
         when(crawler.get("lala/top/players", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getTopPlayers(null));
