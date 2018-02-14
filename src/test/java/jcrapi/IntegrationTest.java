@@ -30,6 +30,7 @@ import jcrapi.model.Rarity;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
+import jcrapi.request.TopClansRequest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -193,6 +194,25 @@ public class IntegrationTest {
     @Test
     public void shouldGetTopClansWithLocation() throws IOException {
         doGetTopClans(URL, AUTH, "EU");
+    }
+
+    @Test
+    public void shouldGetTopClansWithAuthFromRequest() throws IOException {
+        doGetTopClansFromRequest(URL, AUTH, TopClansRequest.builder().build());
+    }
+
+    private void doGetTopClansFromRequest(String url, String auth, TopClansRequest topClansRequest) {
+        assertTrue(new Api(url, auth).getTopClans(topClansRequest).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetTopClansBecauseWrongAuthFromRequest() throws IOException {
+        doGetTopClansFromRequest(URL, "abc", TopClansRequest.builder().build());
+    }
+
+    @Test
+    public void shouldGetTopClansWithLocationFromRequest() throws IOException {
+        doGetTopClansFromRequest(URL, AUTH, TopClansRequest.builder().locationKey("EU").build());
     }
 
     @Test

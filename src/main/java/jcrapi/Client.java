@@ -44,6 +44,7 @@ import jcrapi.request.ClanRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.Request;
+import jcrapi.request.TopClansRequest;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
@@ -143,8 +144,14 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<TopClan> getTopClans(String locationKey) throws IOException {
+        return getTopClans(TopClansRequest.builder().locationKey(locationKey).build());
+    }
+
+    List<TopClan> getTopClans(TopClansRequest topClansRequest) throws IOException {
         String url = createUrl("top/clans");
+        String locationKey = topClansRequest.getLocationKey();
         if (StringUtils.isNotBlank(locationKey)) {
             url += "/" + locationKey;
         }

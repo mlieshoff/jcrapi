@@ -38,6 +38,8 @@ import jcrapi.model.Tournament;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
+import jcrapi.request.TopClansRequest;
+import org.apache.commons.lang.ObjectUtils;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
@@ -226,7 +228,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetProfilesFrom() throws Exception {
+    public void failGetProfilesFromRequest() throws Exception {
         ProfilesRequest profilesRequest = ProfilesRequest.builder()
                 .tags(Arrays.asList("abc"))
                 .build();
@@ -242,13 +244,23 @@ public class ApiTest {
     @Test
     public void shouldGetTopClans() throws Exception {
         List<TopClan> topClans = new ArrayList<>();
-        when(client.getTopClans(null)).thenReturn(topClans);
+        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenReturn(topClans);
         assertSame(topClans, api.getTopClans());
+    }
+
+    private ArgumentMatcher<TopClansRequest> getTopClansArgumentMatcher(final String locationKey) {
+        return new ArgumentMatcher<TopClansRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof TopClansRequest
+                        && ObjectUtils.equals(((TopClansRequest) o).getLocationKey(), locationKey);
+            }
+        };
     }
 
     @Test
     public void failGetTopClans() throws Exception {
-        when(client.getTopClans(null)).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopClans((String) null)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getTopClans();
         } catch(ApiException e) {
@@ -259,7 +271,7 @@ public class ApiTest {
     @Test
     public void shouldGetTopClansWithLocation() throws Exception {
         List<TopClan> topClans = new ArrayList<>();
-        when(client.getTopClans("EU")).thenReturn(topClans);
+        when(client.getTopClans(argThat(getTopClansArgumentMatcher("EU")))).thenReturn(topClans);
         assertSame(topClans, api.getTopClans("EU"));
     }
 
@@ -268,6 +280,47 @@ public class ApiTest {
         when(client.getTopClans("EU")).thenThrow(new IOException("crapi: 400"));
         try {
             api.getTopClans("EU");
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetTopClansFromRequest() throws Exception {
+        List<TopClan> topClans = new ArrayList<>();
+        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenReturn(topClans);
+        assertSame(topClans, api.getTopClans());
+    }
+
+    @Test
+    public void failGetTopClansFromRequest() throws Exception {
+        TopClansRequest topClansRequest = TopClansRequest.builder().build();
+        when(client.getTopClans(topClansRequest)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getTopClans();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetTopClansWithLocationFromRequest() throws Exception {
+        TopClansRequest topClansRequest = TopClansRequest.builder()
+                .locationKey("EU")
+                .build();
+        List<TopClan> topClans = new ArrayList<>();
+        when(client.getTopClans(topClansRequest)).thenReturn(topClans);
+        assertSame(topClans, api.getTopClans(topClansRequest));
+    }
+
+    @Test
+    public void failGetTopClansWithLocationFromRequest() throws Exception {
+        TopClansRequest topClansRequest = TopClansRequest.builder()
+                .locationKey("EU")
+                .build();
+        when(client.getTopClans(topClansRequest)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getTopClans(topClansRequest);
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }

@@ -40,6 +40,7 @@ import jcrapi.model.Tournament;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
+import jcrapi.request.TopClansRequest;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -109,12 +110,23 @@ public class Api {
     }
 
     public List<TopClan> getTopClans() {
-        return getTopClans(null);
+        return getTopClans(TopClansRequest.builder().build());
     }
 
+    @Deprecated
     public List<TopClan> getTopClans(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopClans(locationKey);
+            return clientFactory.createClient(url, developerKey).getTopClans(
+                    TopClansRequest.builder().locationKey(locationKey).build()
+            );
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<TopClan> getTopClans(TopClansRequest topClansRequest) {
+        try {
+            return clientFactory.createClient(url, developerKey).getTopClans(topClansRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

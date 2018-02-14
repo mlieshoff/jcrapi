@@ -20,6 +20,7 @@ import com.google.common.collect.ImmutableMap;
 import jcrapi.model.ClanSearch;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
+import jcrapi.request.TopClansRequest;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -153,16 +154,29 @@ public class ClientTest {
         when(crawler.get("lala/player/xyz,def?limit=15&keys=a,b&excludes=x,y", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(profilesRequest));
     }
+
     @Test
     public void shouldGetTopClans() throws IOException {
         when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopClans(null));
+        assertNotNull(createClient().getTopClans((String) null));
     }
 
     @Test
     public void shouldGetTopClansWithLocation() throws IOException {
         when(crawler.get("lala/top/clans/EU", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans("EU"));
+    }
+
+    @Test
+    public void shouldGetTopClansFromRequest() throws IOException {
+        when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopClans(TopClansRequest.builder().build()));
+    }
+
+    @Test
+    public void shouldGetTopClansWithLocationFromRequest() throws IOException {
+        when(crawler.get("lala/top/clans/EU", createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopClans(TopClansRequest.builder().locationKey("EU").build()));
     }
 
     @Test(expected = NullPointerException.class)
