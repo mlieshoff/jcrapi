@@ -121,7 +121,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetProfileWithAuthFromRequest() throws IOException {
-        doGetProfile(URL, AUTH, ProfileRequest.builder().tag("8L9L9GL").build());
+        doGetProfile(URL, AUTH, ProfileRequest.builder("8L9L9GL").build());
     }
 
     private void doGetProfile(String url, String auth, ProfileRequest profileRequest) {
@@ -130,7 +130,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetProfileBecauseWrongAuthFromRequest() throws IOException {
-        doGetProfile(URL, "abc", ProfileRequest.builder().tag("8L9L9GL").build());
+        doGetProfile(URL, "abc", ProfileRequest.builder("8L9L9GL").build());
     }
 
     @Test
@@ -163,15 +163,16 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetProfilesWithAuthFromRequest() throws IOException {
-        doGetProfiles(URL, AUTH, ProfilesRequest.builder().tags(createProfileTags()).build());
+        doGetProfiles(URL, AUTH, ProfilesRequest.builder(createProfileTags()).build());
     }
 
     private void doGetProfiles(String url, String auth, ProfilesRequest profilesRequest) {
         List<Profile> profiles = new Api(url, auth).getProfiles(profilesRequest);
         assertEquals(profilesRequest.getTags().size(), profiles.size());
+        List<String> tags = new ArrayList(profilesRequest.getTags());
         for (int i = 0, n = profilesRequest.getTags().size(); i < n; i ++) {
             Profile profile = profiles.get(i);
-            String tag = profilesRequest.getTags().get(i);
+            String tag = tags.get(i);
             assertEquals(tag, profile.getTag());
         }
     }
@@ -235,7 +236,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetClanWithAuthFromRequest() throws IOException {
-        doGetClan(URL, AUTH, ClanRequest.builder().tag("2CCCP").build());
+        doGetClan(URL, AUTH, ClanRequest.builder("2CCCP").build());
     }
 
     private void doGetClan(String url, String auth, ClanRequest clanRequest) {
@@ -244,7 +245,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetClanBecauseWrongAuthFromRequest() throws IOException {
-        doGetClan(URL, "abc", ClanRequest.builder().tag("2CCCP").build());
+        doGetClan(URL, "abc", ClanRequest.builder("2CCCP").build());
     }
 
     @Test
@@ -358,7 +359,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetTournamentsWithAuthFromRequest() throws IOException {
-        doGetTournamentsFromRequest(URL, AUTH, TournamentsRequest.builder().tag("20YU0VJ9").build());
+        doGetTournamentsFromRequest(URL, AUTH, TournamentsRequest.builder("20YU0VJ9").build());
     }
 
     private void doGetTournamentsFromRequest(String url, String auth, TournamentsRequest tournamentsRequest) {
@@ -367,7 +368,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetTournamentsBecauseWrongAuthFromRequest() throws IOException {
-        doGetTournamentsFromRequest(URL, "abc", TournamentsRequest.builder().tag("abc").build());
+        doGetTournamentsFromRequest(URL, "abc", TournamentsRequest.builder("abc").build());
     }
 
     @Test
@@ -563,7 +564,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetClanBattlesWithAuthFromRequest() throws IOException {
-        doGetClanBattlesFromRequest(URL, AUTH, ClanBattlesRequest.builder().tag("abc").build());
+        doGetClanBattlesFromRequest(URL, AUTH, ClanBattlesRequest.builder("abc").build());
     }
 
     private void doGetClanBattlesFromRequest(String url, String auth, ClanBattlesRequest clanBattlesRequest) {
@@ -572,7 +573,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetClanBattlesBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanBattlesFromRequest(URL, "abc", ClanBattlesRequest.builder().tag("abc").build());
+        doGetClanBattlesFromRequest(URL, "abc", ClanBattlesRequest.builder("abc").build());
     }
 
     @Test
@@ -591,7 +592,7 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetClanHistoryWithAuthFromRequest() throws IOException {
-        doGetClanHistoryFromRequest(URL, AUTH, ClanHistoryRequest.builder().tag("abc").build());
+        doGetClanHistoryFromRequest(URL, AUTH, ClanHistoryRequest.builder("abc").build());
     }
 
     private void doGetClanHistoryFromRequest(String url, String auth, ClanHistoryRequest clanHistoryRequest) {
@@ -600,7 +601,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetClanHistoryBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanHistoryFromRequest(URL, "abc", ClanHistoryRequest.builder().tag("abc").build());
+        doGetClanHistoryFromRequest(URL, "abc", ClanHistoryRequest.builder("abc").build());
     }
 
 }

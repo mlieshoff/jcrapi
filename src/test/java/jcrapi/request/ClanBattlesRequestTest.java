@@ -3,36 +3,30 @@ package jcrapi.request;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Michael Lieshoff
  */
 public class ClanBattlesRequestTest {
 
-    @Test
-    public void shouldCreateBuilder() {
-        assertNotNull(ClanBattlesRequest.builder());
-    }
-
-    @Test
-    public void shouldCreateBuilderWithCorrectClass() {
-        assertEquals(ClanBattlesRequest.ClanBattlesRequestBuilder.class, ClanBattlesRequest.builder().getClass());
-    }
-
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
-        ClanBattlesRequest.builder().tag(null).build();
+        ClanBattlesRequest.builder(null).build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagIsEmpty() {
-        ClanBattlesRequest.builder().tag("").build();
+        ClanBattlesRequest.builder("").build();
     }
 
     @Test
     public void shouldBeWithTag() {
-        assertEquals("abc", ClanBattlesRequest.builder().tag("abc").build().getTag());
+        assertEquals("abc", ClanBattlesRequest.builder("abc").build().getTag());
+    }
+
+    @Test
+    public void shouldCreateBuilderWithCorrectClass() {
+        assertEquals(ClanBattlesRequest.ClanBattlesRequestBuilder.class, ClanBattlesRequest.builder("abc").getClass());
     }
 
 }

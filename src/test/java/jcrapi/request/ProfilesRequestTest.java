@@ -7,37 +7,32 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Michael Lieshoff
  */
 public class ProfilesRequestTest {
 
-    @Test
-    public void shouldCreateBuilder() {
-        assertNotNull(ProfilesRequest.builder());
-    }
-
-    @Test
-    public void shouldCreateBuilderWithCorrectClass() {
-        assertEquals(ProfilesRequest.ProfilesRequestBuilder.class, ProfilesRequest.builder().getClass());
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagsAreNull() {
-        ProfilesRequest.builder().tags(null).build();
+        ProfilesRequest.builder(null).build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagsAreEmpty() {
-        ProfilesRequest.builder().tags(Collections.<String>emptyList()).build();
+        ProfilesRequest.builder(Collections.<String>emptyList()).build();
     }
 
     @Test
     public void shouldBeWithTags() {
         List<String> tags = Arrays.asList("abc");
-        assertEquals(tags, ProfilesRequest.builder().tags(tags).build().getTags());
+        assertEquals(tags, ProfilesRequest.builder(tags).build().getTags());
+    }
+
+    @Test
+    public void shouldCreateBuilderWithCorrectClassForListVersion() {
+        List<String> tags = Arrays.asList("abc");
+        assertEquals(ProfilesRequest.ProfilesRequestBuilder.class, ProfilesRequest.builder(tags).getClass());
     }
 
 }

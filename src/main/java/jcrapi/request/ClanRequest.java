@@ -22,17 +22,16 @@ public class ClanRequest extends Request {
         return tag;
     }
 
-    public static ClanRequestBuilder builder() {
-        return new ClanRequestBuilder();
+    public static ClanRequestBuilder builder(String tag) {
+        return new ClanRequestBuilder(tag);
     }
 
     public static class ClanRequestBuilder extends RequestBuilder<ClanRequest, ClanRequestBuilder> {
 
         private String tag;
 
-        public ClanRequestBuilder tag(String tag) {
+        public ClanRequestBuilder(String tag) {
             this.tag = tag;
-            return getThis();
         }
 
         @Override

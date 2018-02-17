@@ -22,17 +22,16 @@ public class ClanHistoryRequest extends Request {
         return tag;
     }
 
-    public static ClanHistoryRequestBuilder builder() {
-        return new ClanHistoryRequestBuilder();
+    public static ClanHistoryRequestBuilder builder(String tag) {
+        return new ClanHistoryRequestBuilder(tag);
     }
 
     public static class ClanHistoryRequestBuilder extends RequestBuilder<ClanHistoryRequest, ClanHistoryRequestBuilder> {
 
         private String tag;
 
-        public ClanHistoryRequestBuilder tag(String tag) {
+        public ClanHistoryRequestBuilder(String tag) {
             this.tag = tag;
-            return getThis();
         }
 
         @Override

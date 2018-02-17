@@ -159,14 +159,14 @@ public class ApiTest {
     @Test
     public void shouldGetProfileFromRequest() throws Exception {
         Profile profile = new Profile();
-        ProfileRequest profileRequest = ProfileRequest.builder().tag("abc").build();
+        ProfileRequest profileRequest = ProfileRequest.builder("abc").build();
         when(client.getProfile(profileRequest)).thenReturn(profile);
         assertEquals(profile, api.getProfile(profileRequest));
     }
 
     @Test
     public void failGetProfileFromRequest() throws Exception {
-        ProfileRequest profileRequest = ProfileRequest.builder().tag("abc").build();
+        ProfileRequest profileRequest = ProfileRequest.builder("abc").build();
         when(client.getProfile(profileRequest)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getProfile(profileRequest);
@@ -225,8 +225,7 @@ public class ApiTest {
     @Test
     public void shouldGetProfilesFromRequest() throws Exception {
         List<Profile> profiles = new ArrayList<>();
-        ProfilesRequest profilesRequest = ProfilesRequest.builder()
-                .tags(Arrays.asList("abc"))
+        ProfilesRequest profilesRequest = ProfilesRequest.builder(Arrays.asList("abc"))
                 .build();
         when(client.getProfiles(profilesRequest)).thenReturn(profiles);
         assertEquals(profiles, api.getProfiles(profilesRequest));
@@ -234,8 +233,7 @@ public class ApiTest {
 
     @Test
     public void failGetProfilesFromRequest() throws Exception {
-        ProfilesRequest profilesRequest = ProfilesRequest.builder()
-                .tags(Arrays.asList("abc"))
+        ProfilesRequest profilesRequest = ProfilesRequest.builder(Arrays.asList("abc"))
                 .build();
         when(client.getProfiles(profilesRequest)).thenThrow(new IOException("crapi: 400"));
         try {
@@ -379,14 +377,14 @@ public class ApiTest {
     @Test
     public void shouldGetClanFromRequest() throws Exception {
         Clan clan = new Clan();
-        ClanRequest clanRequest = ClanRequest.builder().tag("abc").build();
+        ClanRequest clanRequest = ClanRequest.builder("abc").build();
         when(client.getClan(clanRequest)).thenReturn(clan);
         assertEquals(clan, api.getClan(clanRequest));
     }
 
     @Test
     public void failGetClanFromRequest() throws Exception {
-        ClanRequest clanRequest = ClanRequest.builder().tag("abc").build();
+        ClanRequest clanRequest = ClanRequest.builder("abc").build();
         when(client.getClan(clanRequest)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClan(clanRequest);
@@ -645,7 +643,7 @@ public class ApiTest {
     public void failGetTournamentsFromRequest() throws Exception {
         when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
         try {
-            api.getTournaments(TournamentsRequest.builder().tag("abc").build());
+            api.getTournaments(TournamentsRequest.builder("abc").build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
@@ -890,7 +888,7 @@ public class ApiTest {
     public void shouldGetClanBattlesFromRequest() throws Exception {
         List<Battle> battles = new ArrayList<>();
         when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenReturn(battles);
-        assertSame(battles, api.getClanBattles(ClanBattlesRequest.builder().tag("abc").build()));
+        assertSame(battles, api.getClanBattles(ClanBattlesRequest.builder("abc").build()));
     }
 
     private Matcher<ClanBattlesRequest> getClanBattlesRequestArgumentMatcher(final String tag) {
@@ -906,7 +904,7 @@ public class ApiTest {
     public void failGetClanBattlesFromRequest() throws Exception {
         when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
         try {
-            api.getClanBattles(ClanBattlesRequest.builder().tag("abc").build());
+            api.getClanBattles(ClanBattlesRequest.builder("abc").build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
@@ -935,7 +933,7 @@ public class ApiTest {
     public void shouldGetClanHistoryFromRequest() throws Exception {
         ClanHistory clanHistory = new ClanHistory();
         when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenReturn(clanHistory);
-        assertSame(clanHistory, api.getClanHistory(ClanHistoryRequest.builder().tag("abc").build()));
+        assertSame(clanHistory, api.getClanHistory(ClanHistoryRequest.builder("abc").build()));
     }
 
     private Matcher<ClanHistoryRequest> getClanHistoryRequestArgumentMatcher(final String tag) {
@@ -951,7 +949,7 @@ public class ApiTest {
     public void failGetClanHistoryFromRequest() throws Exception {
         when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
         try {
-            api.getClanHistory(ClanHistoryRequest.builder().tag("abc").build());
+            api.getClanHistory(ClanHistoryRequest.builder("abc").build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

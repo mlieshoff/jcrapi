@@ -54,7 +54,7 @@ public class CrawlerTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetBecauseNullUrl() throws IOException {
-        new Crawler(httpClientFactory).get(null, createHeaders());
+        new Crawler(httpClientFactory).get(null, createHeaders(), null);
     }
 
     private Map<String,String> createHeaders() {
@@ -63,17 +63,17 @@ public class CrawlerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetBecauseEmptyUrl() throws IOException {
-        new Crawler(httpClientFactory).get("", createHeaders());
+        new Crawler(httpClientFactory).get("", createHeaders(), null);
     }
 
     @Test(expected = NullPointerException.class)
     public void failGetBecauseNullHeaders() throws IOException {
-        new Crawler(httpClientFactory).get("abc", null);
+        new Crawler(httpClientFactory).get("abc", null, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetBecauseEmptyHeaders() throws IOException {
-        new Crawler(httpClientFactory).get("abc", new HashMap<String, String>());
+        new Crawler(httpClientFactory).get("abc", new HashMap<String, String>(), null);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class CrawlerTest {
         HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
         httpResponse.setEntity(new StringEntity(expectedResult));
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
-        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders()));
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(), null));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class CrawlerTest {
         httpResponse.setStatusCode(400);
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
         try {
-            new Crawler(httpClientFactory).get("the-url", createHeaders());
+            new Crawler(httpClientFactory).get("the-url", createHeaders(), null);
         } catch (IOException e) {
             assertEquals("crapi: 400", e.getMessage());
         }

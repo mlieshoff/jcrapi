@@ -17,6 +17,8 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
@@ -25,6 +27,9 @@ import org.apache.http.client.methods.HttpGet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -39,10 +44,15 @@ class Crawler {
     }
 
     String get(String url, Map<String, String> headers) throws IOException {
+        return get(url, headers, null);
+    }
+
+    String get(String url, Map<String, String> headers, Map<String, String> parameters) throws IOException {
         Preconditions.checkNotNull(url);
         Preconditions.checkArgument(url.length() > 0);
         Preconditions.checkNotNull(headers);
         Preconditions.checkArgument(headers.size() > 0);
+        url = appendToUrl(url, parameters);
         HttpClient client = httpClientFactory.create();
         HttpGet request = createRequest(url, headers);
         HttpResponse response = client.execute(request);
@@ -57,6 +67,27 @@ class Crawler {
             s.append(line);
         }
         return s.toString();
+    }
+
+    private String appendToUrl(String url, Map<String, String> parameters) throws UnsupportedEncodingException {
+        if (MapUtils.isNotEmpty(parameters)) {
+            StringBuilder s = new StringBuilder();
+            s.append("?");
+            for (Iterator<Map.Entry<String, String>> iterator = parameters.entrySet().iterator(); iterator.hasNext(); ) {
+                Map.Entry<String, String> entry = iterator.next();
+                String name = entry.getKey();
+                String value = entry.getKey();
+                s.append(name);
+                s.append("=");
+                if (StringUtils.isNotBlank(value)) {
+                    s.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+                }
+                if (iterator.hasNext()) {
+                    s.append("&");
+                }
+            }
+        }
+        return null;
     }
 
     private HttpGet createRequest(String url, Map<String, String> headers) {

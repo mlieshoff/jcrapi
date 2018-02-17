@@ -88,7 +88,7 @@ public class Api {
 
     @Deprecated
     public Profile getProfile(String tag) {
-        return getProfile(ProfileRequest.builder().tag(tag).build());
+        return getProfile(ProfileRequest.builder(tag).build());
     }
 
     public Profile getProfile(ProfileRequest profileRequest) {
@@ -102,7 +102,7 @@ public class Api {
 
     @Deprecated
     public List<Profile> getProfiles(List<String> tags) {
-        return getProfiles(ProfilesRequest.builder().tags(tags).build());
+        return getProfiles(ProfilesRequest.builder(tags).build());
     }
 
     public List<Profile> getProfiles(ProfilesRequest profilesRequest) {
@@ -139,7 +139,7 @@ public class Api {
 
     @Deprecated
     public Clan getClan(String tag) {
-        return getClan(ClanRequest.builder().tag(tag).build());
+        return getClan(ClanRequest.builder(tag).build());
     }
 
     public Clan getClan(ClanRequest clanRequest) {
@@ -206,7 +206,7 @@ public class Api {
 
     @Deprecated
     public Tournament getTournaments(String tag) {
-        return getTournaments(TournamentsRequest.builder().tag(tag).build());
+        return getTournaments(TournamentsRequest.builder(tag).build());
     }
 
     public Tournament getTournaments(TournamentsRequest tournamentsRequest) {
@@ -316,7 +316,7 @@ public class Api {
 
     @Deprecated
     public List<Battle> getClanBattles(String tag) {
-        return getClanBattles(ClanBattlesRequest.builder().tag(tag).build());
+        return getClanBattles(ClanBattlesRequest.builder(tag).build());
     }
 
     public List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) {
@@ -329,7 +329,7 @@ public class Api {
 
     @Deprecated
     public ClanHistory getClanHistory(String tag) {
-        return getClanHistory(ClanHistoryRequest.builder().tag(tag).build());
+        return getClanHistory(ClanHistoryRequest.builder(tag).build());
     }
 
     public ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) {

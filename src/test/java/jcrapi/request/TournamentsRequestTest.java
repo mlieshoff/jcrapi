@@ -10,29 +10,24 @@ import static org.junit.Assert.assertNotNull;
  */
 public class TournamentsRequestTest {
 
-    @Test
-    public void shouldCreateBuilder() {
-        assertNotNull(TournamentsRequest.builder());
-    }
-
-    @Test
-    public void shouldCreateBuilderWithCorrectClass() {
-        assertEquals(TournamentsRequest.TournamentsRequestBuilder.class, TournamentsRequest.builder().getClass());
-    }
-
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
-        TournamentsRequest.builder().tag(null).build();
+        TournamentsRequest.builder(null).build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagIsEmpty() {
-        TournamentsRequest.builder().tag("").build();
+        TournamentsRequest.builder("").build();
     }
 
     @Test
     public void shouldBeWithTag() {
-        assertEquals("abc", TournamentsRequest.builder().tag("abc").build().getTag());
+        assertEquals("abc", TournamentsRequest.builder("abc").build().getTag());
+    }
+
+    @Test
+    public void shouldCreateBuilderWithCorrectClass() {
+        assertEquals(TournamentsRequest.TournamentsRequestBuilder.class, TournamentsRequest.builder("abc").getClass());
     }
 
 }

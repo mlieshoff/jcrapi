@@ -55,9 +55,7 @@ import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -67,8 +65,6 @@ import java.util.Map;
  * @author Michael Lieshoff
  */
 class Client {
-
-    private static final String PARAM = "%s=%s";
 
     private final String url;
     private final String developerKey;
@@ -106,7 +102,7 @@ class Client {
 
     @Deprecated
     Profile getProfile(String tag) throws IOException {
-        return getProfile(ProfileRequest.builder().tag(tag).build());
+        return getProfile(ProfileRequest.builder(tag).build());
     }
 
     Profile getProfile(ProfileRequest profileRequest) throws IOException {
@@ -137,7 +133,7 @@ class Client {
 
     @Deprecated
     List<Profile> getProfiles(List<String> tags) throws IOException {
-        return getProfiles(ProfilesRequest.builder().tags(tags).build());
+        return getProfiles(ProfilesRequest.builder(tags).build());
     }
 
     List<Profile> getProfiles(ProfilesRequest profilesRequest) throws IOException {
@@ -167,7 +163,7 @@ class Client {
 
     @Deprecated
     Clan getClan(String tag) throws IOException {
-        return getClan(ClanRequest.builder().tag(tag).build());
+        return getClan(ClanRequest.builder(tag).build());
     }
 
     Clan getClan(ClanRequest clanRequest) throws IOException {
@@ -194,39 +190,20 @@ class Client {
                     .minMembers(clanSearch.getMinMembers())
                     .maxMembers(clanSearch.getMaxMembers());
         }
-        String json = createCrawler().get(appendClanSearch(
-                builder.build(),
-                createUrl("clan/search")),
-                createAuthHeader(developerKey));
-        Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
-        return new Gson().fromJson(json, listType);
-    }
-
-    private String appendClanSearch(ClanSearchRequest clanSearchRequest, String url) throws UnsupportedEncodingException {
-        List<String> params = new ArrayList<>();
-        String name = clanSearchRequest.getName();
-        if (StringUtils.isNotBlank(name)) {
-            addQueryParamIfPresent(params, "name", URLEncoder.encode(name, "UTF-8"));
-        }
-        addQueryParamIfPresent(params, "score", clanSearchRequest.getScore());
-        addQueryParamIfPresent(params, "minMembers", clanSearchRequest.getMinMembers());
-        addQueryParamIfPresent(params, "maxMembers", clanSearchRequest.getMaxMembers());
-        if (params.size() > 0) {
-            url += "?";
-            url = url + StringUtils.join(params, '&');
-        }
-        return url;
-    }
-
-    private void addQueryParamIfPresent(List<String> params, String name, Object value) {
-        if (value != null) {
-            params.add(String.format(PARAM, name, value));
-        }
+        return getClanSearch(builder.build());
     }
 
     List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) throws IOException {
-        String json = createCrawler().get(appendClanSearch(clanSearchRequest, createUrl("clan/search")),
-                createAuthHeader(developerKey));
+        String json = createCrawler().get(
+                createUrl("clan/search"),
+                createAuthHeader(developerKey),
+                ImmutableMap.<String, String>builder()
+                        .put("name", clanSearchRequest.getName())
+                        .put("score", clanSearchRequest.getScore() != null ? String.valueOf(clanSearchRequest.getScore()) : null)
+                        .put("minMembers", clanSearchRequest.getMinMembers() != null ? String.valueOf(clanSearchRequest.getMinMembers()) : null)
+                        .put("maxMembers", clanSearchRequest.getMaxMembers() != null ? String.valueOf(clanSearchRequest.getMaxMembers()) : null)
+                        .build()
+        );
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -248,7 +225,7 @@ class Client {
     }
 
     Tournament getTournaments(String tag) throws IOException {
-        return getTournaments(TournamentsRequest.builder().tag(tag).build());
+        return getTournaments(TournamentsRequest.builder(tag).build());
     }
 
     Tournament getTournaments(TournamentsRequest tournamentsRequest) throws IOException {
@@ -325,7 +302,7 @@ class Client {
 
     @Deprecated
     List<Battle> getClanBattles(String tag) throws IOException {
-        return getClanBattles(ClanBattlesRequest.builder().tag(tag).build());
+        return getClanBattles(ClanBattlesRequest.builder(tag).build());
     }
 
     List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) throws IOException {
@@ -336,7 +313,7 @@ class Client {
 
     @Deprecated
     ClanHistory getClanHistory(String tag) throws IOException {
-        return getClanHistory(ClanHistoryRequest.builder().tag(tag).build());
+        return getClanHistory(ClanHistoryRequest.builder(tag).build());
     }
 
     ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) throws IOException {

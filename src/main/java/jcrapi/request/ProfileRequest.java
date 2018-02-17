@@ -22,17 +22,16 @@ public class ProfileRequest extends Request {
         return tag;
     }
 
-    public static ProfileRequestBuilder builder() {
-        return new ProfileRequestBuilder();
+    public static ProfileRequestBuilder builder(String tag) {
+        return new ProfileRequestBuilder(tag);
     }
 
     public static class ProfileRequestBuilder extends RequestBuilder<ProfileRequest, ProfileRequestBuilder> {
 
         private String tag;
 
-        public ProfileRequestBuilder tag(String tag) {
+        public ProfileRequestBuilder(String tag) {
             this.tag = tag;
-            return getThis();
         }
 
         @Override

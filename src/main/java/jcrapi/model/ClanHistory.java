@@ -17,21 +17,9 @@
 package jcrapi.model;
 
 import javax.annotation.Generated;
-import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class ClanHistory extends java.util.LinkedHashMap<String, String> {
+public class ClanHistory extends java.util.LinkedHashMap<String, ClanHistoryElement> {
 
-    @SerializedName("clanHistoryElements")
-    private java.util.List<ClanHistoryElement> clanHistoryElements;
-
-    public void setClanHistoryElements(java.util.List<ClanHistoryElement> clanHistoryElements) {
-        this.clanHistoryElements = clanHistoryElements;
-    }
-    
-    public java.util.List<ClanHistoryElement> getClanHistoryElements() {
-        return clanHistoryElements;
-    }
-    
 
 }

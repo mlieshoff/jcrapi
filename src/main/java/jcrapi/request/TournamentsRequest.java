@@ -22,17 +22,16 @@ public class TournamentsRequest extends Request {
         return tag;
     }
 
-    public static TournamentsRequestBuilder builder() {
-        return new TournamentsRequestBuilder();
+    public static TournamentsRequestBuilder builder(String tag) {
+        return new TournamentsRequestBuilder(tag);
     }
 
     public static class TournamentsRequestBuilder extends RequestBuilder<TournamentsRequest, TournamentsRequestBuilder> {
 
         private String tag;
 
-        public TournamentsRequestBuilder tag(String tag) {
+        public TournamentsRequestBuilder(String tag) {
             this.tag = tag;
-            return getThis();
         }
 
         @Override
