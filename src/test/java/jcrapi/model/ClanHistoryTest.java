@@ -16,12 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanHistoryTest {
@@ -31,13 +28,6 @@ public class ClanHistoryTest {
     @Before
     public void setUp() {
         unitUnderTest = new ClanHistory();
-    }
-
-    @Test
-    public void shouldGetSetClanHistoryElements() {
-        java.util.List<ClanHistoryElement> expected = new java.util.ArrayList<ClanHistoryElement>();
-        unitUnderTest.setClanHistoryElements(expected);
-        assertEquals(expected, unitUnderTest.getClanHistoryElements());
     }
 
 

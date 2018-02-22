@@ -37,6 +37,15 @@ import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.ClanBattlesRequest;
+import jcrapi.request.ClanHistoryRequest;
+import jcrapi.request.ClanRequest;
+import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ProfileRequest;
+import jcrapi.request.ProfilesRequest;
+import jcrapi.request.TopClansRequest;
+import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TournamentsRequest;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
@@ -77,40 +86,66 @@ public class Api {
         }
     }
 
+    @Deprecated
     public Profile getProfile(String tag) {
-        checkString(tag, "tag");
+        return getProfile(ProfileRequest.builder(tag).build());
+    }
+
+    public Profile getProfile(ProfileRequest profileRequest) {
+        Preconditions.checkNotNull(profileRequest, "profileRequest");
         try {
-            return clientFactory.createClient(url, developerKey).getProfile(tag);
+            return clientFactory.createClient(url, developerKey).getProfile(profileRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
+    @Deprecated
     public List<Profile> getProfiles(List<String> tags) {
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
+        return getProfiles(ProfilesRequest.builder(tags).build());
+    }
+
+    public List<Profile> getProfiles(ProfilesRequest profilesRequest) {
+        Preconditions.checkNotNull(profilesRequest, "profilesRequest");
         try {
-            return clientFactory.createClient(url, developerKey).getProfiles(tags);
+            return clientFactory.createClient(url, developerKey).getProfiles(profilesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
     public List<TopClan> getTopClans() {
-        return getTopClans(null);
+        return getTopClans(TopClansRequest.builder().build());
     }
 
+    @Deprecated
     public List<TopClan> getTopClans(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopClans(locationKey);
+            return clientFactory.createClient(url, developerKey).getTopClans(
+                    TopClansRequest.builder().locationKey(locationKey).build()
+            );
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
-    public Clan getClan(String tag) {
-        checkString(tag, "tag");
+    public List<TopClan> getTopClans(TopClansRequest topClansRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClan(tag);
+            return clientFactory.createClient(url, developerKey).getTopClans(topClansRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    @Deprecated
+    public Clan getClan(String tag) {
+        return getClan(ClanRequest.builder(tag).build());
+    }
+
+    public Clan getClan(ClanRequest clanRequest) {
+        Preconditions.checkNotNull(clanRequest);
+        try {
+            return clientFactory.createClient(url, developerKey).getClan(clanRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -126,9 +161,10 @@ public class Api {
     }
 
     public List<Clan> getClanSearch() {
-        return getClanSearch(null);
+        return getClanSearch(ClanSearchRequest.builder().build());
     }
 
+    @Deprecated
     public List<Clan> getClanSearch(ClanSearch clanSearch) {
         try {
             return clientFactory.createClient(url, developerKey).getClanSearch(clanSearch);
@@ -137,22 +173,46 @@ public class Api {
         }
     }
 
-    public List<TopPlayer> getTopPlayers() {
-        return getTopPlayers(null);
-    }
-
-    public List<TopPlayer> getTopPlayers(String locationKey) {
+    public List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopPlayers(locationKey);
+            return clientFactory.createClient(url, developerKey).getClanSearch(clanSearchRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
-    public Tournament getTournaments(String tag) {
-        checkString(tag, "tag");
+    public List<TopPlayer> getTopPlayers() {
+        return getTopPlayers(TopPlayersRequest.builder().build());
+    }
+
+    @Deprecated
+    public List<TopPlayer> getTopPlayers(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTournaments(tag);
+            return clientFactory.createClient(url, developerKey).getTopPlayers(
+                    TopPlayersRequest.builder().locationKey(locationKey).build()
+            );
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) {
+        try {
+            return clientFactory.createClient(url, developerKey).getTopPlayers(topPlayersRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    @Deprecated
+    public Tournament getTournaments(String tag) {
+        return getTournaments(TournamentsRequest.builder(tag).build());
+    }
+
+    public Tournament getTournaments(TournamentsRequest tournamentsRequest) {
+        Preconditions.checkNotNull(tournamentsRequest);
+        try {
+            return clientFactory.createClient(url, developerKey).getTournaments(tournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -254,17 +314,27 @@ public class Api {
         }
     }
 
+    @Deprecated
     public List<Battle> getClanBattles(String tag) {
+        return getClanBattles(ClanBattlesRequest.builder(tag).build());
+    }
+
+    public List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanBattles(tag);
+            return clientFactory.createClient(url, developerKey).getClanBattles(clanBattlesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
+    @Deprecated
     public ClanHistory getClanHistory(String tag) {
+        return getClanHistory(ClanHistoryRequest.builder(tag).build());
+    }
+
+    public ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanHistory(tag);
+            return clientFactory.createClient(url, developerKey).getClanHistory(clanHistoryRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
