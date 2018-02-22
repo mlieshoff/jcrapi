@@ -214,7 +214,7 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanSearch() throws IOException {
-        when(crawler.get("lala/clan/search", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/search", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch((ClanSearch) null));
     }
 
@@ -225,8 +225,12 @@ public class ClientTest {
         clanSearch.setScore(2000);
         clanSearch.setMinMembers(20);
         clanSearch.setMaxMembers(50);
-        when(crawler.get("lala/clan/search?name=abc&score=2000&minMembers=20&maxMembers=50", createHeaders()))
-                .thenReturn("[{}]");
+        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder()
+                .put("name", "abc")
+                .put("score", "2000")
+                .put("minMembers", "20")
+                .put("maxMembers", "50")
+                .build())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(clanSearch));
     }
 
@@ -237,13 +241,18 @@ public class ClientTest {
         clanSearch.setScore(2000);
         clanSearch.setMinMembers(20);
         clanSearch.setMaxMembers(50);
-        when(crawler.get("lala/clan/search?name=reddit%2Balpha&score=2000&minMembers=20&maxMembers=50", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder()
+                .put("name", "reddit+alpha")
+                .put("score", "2000")
+                .put("minMembers", "20")
+                .put("maxMembers", "50")
+                .build())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(clanSearch));
     }
 
     @Test
     public void shouldGetClanSearchFromRequest() throws IOException {
-        when(crawler.get("lala/clan/search", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/search", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(ClanSearchRequest.builder().build()));
     }
 
@@ -255,7 +264,7 @@ public class ClientTest {
                 .minMembers(20)
                 .maxMembers(50)
                 .build();
-        when(crawler.get("lala/clan/search?name=abc&score=2000&minMembers=20&maxMembers=50", createHeaders()))
+        when(crawler.get("lala/clan/search", createHeaders(), clanSearchRequest.getQueryParameters()))
                 .thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(clanSearchRequest));
     }
@@ -268,7 +277,7 @@ public class ClientTest {
                 .minMembers(20)
                 .maxMembers(50)
                 .build();
-        when(crawler.get("lala/clan/search?name=reddit%2Balpha&score=2000&minMembers=20&maxMembers=50", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/search", createHeaders(), clanSearchRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(clanSearchRequest));
     }
 

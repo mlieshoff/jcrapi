@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
-public class Request {
+public abstract class Request {
 
     private final List<String> excludes = new ArrayList<>();
     private final List<String> keys = new ArrayList<>();

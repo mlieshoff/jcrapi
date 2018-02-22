@@ -8,7 +8,12 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequestTest {
+public class ClanSearchRequestTest extends RequestTestBase<ClanSearchRequest, ClanSearchRequest.ClanSearchRequestBuilder> {
+
+    @Override
+    ClanSearchRequest.ClanSearchRequestBuilder getBuilder() {
+        return ClanSearchRequest.builder();
+    }
 
     @Test
     public void shouldCreateBuilder() {
@@ -39,5 +44,4 @@ public class ClanSearchRequestTest {
     public void shouldBeWithMaxMembers() {
         assertEquals(50, ClanSearchRequest.builder().maxMembers(50).build().getMaxMembers().intValue());
     }
-
 }

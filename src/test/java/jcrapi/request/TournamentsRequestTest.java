@@ -3,12 +3,16 @@ package jcrapi.request;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Michael Lieshoff
  */
-public class TournamentsRequestTest {
+public class TournamentsRequestTest extends RequestTestBase<TournamentsRequest, TournamentsRequest.TournamentsRequestBuilder> {
+
+    @Override
+    TournamentsRequest.TournamentsRequestBuilder getBuilder() {
+        return TournamentsRequest.builder("abc");
+    }
 
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
@@ -28,6 +32,11 @@ public class TournamentsRequestTest {
     @Test
     public void shouldCreateBuilderWithCorrectClass() {
         assertEquals(TournamentsRequest.TournamentsRequestBuilder.class, TournamentsRequest.builder("abc").getClass());
+    }
+
+    @Test
+    public void shouldBeWithLimit() {
+        assertEquals(100, TournamentsRequest.builder("abc").limit(100).build().getLimit());
     }
 
 }

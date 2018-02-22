@@ -8,7 +8,12 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class TopClansRequestTest {
+public class TopClansRequestTest extends RequestTestBase<TopClansRequest, TopClansRequest.TopClansRequestBuilder> {
+
+    @Override
+    TopClansRequest.TopClansRequestBuilder getBuilder() {
+        return TopClansRequest.builder();
+    }
 
     @Test
     public void shouldCreateBuilder() {
@@ -24,5 +29,4 @@ public class TopClansRequestTest {
     public void shouldBeWithLocationKey() {
         assertEquals("abc", TopClansRequest.builder().locationKey("abc").build().getLocationKey());
     }
-
 }

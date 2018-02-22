@@ -7,7 +7,12 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ClanRequestTest {
+public class ClanRequestTest extends RequestTestBase<ClanRequest, ClanRequest.ClanRequestBuilder> {
+
+    @Override
+    ClanRequest.ClanRequestBuilder getBuilder() {
+        return ClanRequest.builder("abc");
+    }
 
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
@@ -27,6 +32,11 @@ public class ClanRequestTest {
     @Test
     public void shouldCreateBuilderWithCorrectClass() {
         assertEquals(ClanRequest.ClanRequestBuilder.class, ClanRequest.builder("abc").getClass());
+    }
+
+    @Test
+    public void shouldBeWithLimit() {
+        assertEquals(100, ClanRequest.builder("abc").limit(100).build().getLimit());
     }
 
 }

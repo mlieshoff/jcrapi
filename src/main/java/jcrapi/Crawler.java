@@ -86,8 +86,9 @@ class Crawler {
                     s.append("&");
                 }
             }
+            url = url + s;
         }
-        return null;
+        return url;
     }
 
     private HttpGet createRequest(String url, Map<String, String> headers) {

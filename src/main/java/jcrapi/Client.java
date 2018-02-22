@@ -197,12 +197,7 @@ class Client {
         String json = createCrawler().get(
                 createUrl("clan/search"),
                 createAuthHeader(developerKey),
-                ImmutableMap.<String, String>builder()
-                        .put("name", clanSearchRequest.getName())
-                        .put("score", clanSearchRequest.getScore() != null ? String.valueOf(clanSearchRequest.getScore()) : null)
-                        .put("minMembers", clanSearchRequest.getMinMembers() != null ? String.valueOf(clanSearchRequest.getMinMembers()) : null)
-                        .put("maxMembers", clanSearchRequest.getMaxMembers() != null ? String.valueOf(clanSearchRequest.getMaxMembers()) : null)
-                        .build()
+                clanSearchRequest.getQueryParameters()
         );
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);

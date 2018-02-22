@@ -26,6 +26,7 @@ import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.message.BasicStatusLine;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.when;
 
 /**
@@ -99,6 +101,25 @@ public class CrawlerTest {
         } catch (IOException e) {
             assertEquals("crapi: 400", e.getMessage());
         }
+    }
+
+    @Test
+    public void shouldEncoding() throws IOException {
+        String expectedResult = "break-out-prison";
+        when(httpClientFactory.create()).thenReturn(httpClient);
+        HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
+        httpResponse.setEntity(new StringEntity(expectedResult));
+        when(httpClient.execute(argThat(new ArgumentMatcher<HttpUriRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                if (o instanceof HttpUriRequest) {
+                    HttpUriRequest httpUriRequest = (HttpUriRequest) o;
+                    return httpUriRequest.getURI().getRawQuery().equals("param=a%2Bb");
+                }
+                return false;
+            }
+        }))).thenReturn(httpResponse);
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(), ImmutableMap.<String, String>builder().put("param", "a+b").build()));
     }
 
 }

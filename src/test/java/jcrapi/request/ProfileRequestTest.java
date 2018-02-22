@@ -7,7 +7,12 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ProfileRequestTest {
+public class ProfileRequestTest extends RequestTestBase<ProfileRequest, ProfileRequest.ProfileRequestBuilder> {
+
+    @Override
+    ProfileRequest.ProfileRequestBuilder getBuilder() {
+        return ProfileRequest.builder("abc");
+    }
 
     @Test(expected = NullPointerException.class)
     public void failIfTagIsNull() {
@@ -28,5 +33,4 @@ public class ProfileRequestTest {
     public void shouldCreateBuilderWithCorrectClass() {
         assertEquals(ProfileRequest.ProfileRequestBuilder.class, ProfileRequest.builder("abc").getClass());
     }
-
 }

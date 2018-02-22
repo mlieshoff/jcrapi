@@ -1,6 +1,9 @@
 package jcrapi.request;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Michael Lieshoff
@@ -36,6 +39,24 @@ public class ClanSearchRequest extends Request {
 
     public Integer getMaxMembers() {
         return maxMembers;
+    }
+
+    @Override
+    public Map<String, String> getQueryParameters() {
+        Map<String, String> parameters = super.getQueryParameters();
+        if (StringUtils.isNotBlank(name)) {
+            parameters.put("name", name);
+        }
+        if (score != null) {
+            parameters.put("score", score.toString());
+        }
+        if (minMembers != null) {
+            parameters.put("minMembers", minMembers.toString());
+        }
+        if (maxMembers != null) {
+            parameters.put("maxMembers", maxMembers.toString());
+        }
+        return parameters;
     }
 
     public static ClanSearchRequestBuilder builder() {

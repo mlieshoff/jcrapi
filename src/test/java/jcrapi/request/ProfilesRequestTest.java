@@ -11,7 +11,12 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ProfilesRequestTest {
+public class ProfilesRequestTest extends RequestTestBase<ProfilesRequest, ProfilesRequest.ProfilesRequestBuilder> {
+
+    @Override
+    ProfilesRequest.ProfilesRequestBuilder getBuilder() {
+        return ProfilesRequest.builder(Arrays.asList("abc"));
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void failIfTagsAreNull() {
@@ -34,5 +39,4 @@ public class ProfilesRequestTest {
         List<String> tags = Arrays.asList("abc");
         assertEquals(ProfilesRequest.ProfilesRequestBuilder.class, ProfilesRequest.builder(tags).getClass());
     }
-
 }
