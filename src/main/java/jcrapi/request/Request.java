@@ -46,6 +46,7 @@ public abstract class Request {
         Map<String, String>  map = new LinkedHashMap<>();
         if (limit > 0) {
             map.put("limit", String.valueOf(limit));
+            map.put("max", String.valueOf(limit));
         }
         if (CollectionUtils.isNotEmpty(keys)) {
             map.put("keys", StringUtils.join(keys, ','));

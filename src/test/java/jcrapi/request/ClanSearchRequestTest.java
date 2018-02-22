@@ -44,4 +44,5 @@ public class ClanSearchRequestTest extends RequestTestBase<ClanSearchRequest, Cl
     public void shouldBeWithMaxMembers() {
         assertEquals(50, ClanSearchRequest.builder().maxMembers(50).build().getMaxMembers().intValue());
     }
+
 }
