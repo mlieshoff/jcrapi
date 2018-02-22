@@ -19,7 +19,9 @@ package jcrapi;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import jcrapi.model.Battle;
 import jcrapi.model.Clan;
+import jcrapi.model.ClanHistory;
 import jcrapi.model.Constants;
 import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
@@ -78,6 +80,15 @@ public class ModelAnalyzer {
         json = FileUtils.readFileToString(new File("src/test/java/jcrapi/constants.json"));
         Constants constants = gson.fromJson(json, Constants.class);
         System.out.println(constants.toString());
+
+        json = FileUtils.readFileToString(new File("src/test/java/jcrapi/clanBattles.json"));
+        listType = new TypeToken<ArrayList<Battle>>(){}.getType();
+        List<Battle> battles = new Gson().fromJson(json, listType);
+        System.out.println(battles.toString());
+
+        json = FileUtils.readFileToString(new File("src/test/java/jcrapi/clanHistory.json"));
+        ClanHistory clanHistory = gson.fromJson(json, ClanHistory.class);
+        System.out.println(clanHistory.toString());
 
     }
 

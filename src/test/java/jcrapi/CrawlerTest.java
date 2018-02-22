@@ -26,6 +26,7 @@ import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.message.BasicStatusLine;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.when;
 
 /**
@@ -54,7 +56,7 @@ public class CrawlerTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetBecauseNullUrl() throws IOException {
-        new Crawler(httpClientFactory).get(null, createHeaders());
+        new Crawler(httpClientFactory).get(null, createHeaders(), null);
     }
 
     private Map<String,String> createHeaders() {
@@ -63,17 +65,17 @@ public class CrawlerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetBecauseEmptyUrl() throws IOException {
-        new Crawler(httpClientFactory).get("", createHeaders());
+        new Crawler(httpClientFactory).get("", createHeaders(), null);
     }
 
     @Test(expected = NullPointerException.class)
     public void failGetBecauseNullHeaders() throws IOException {
-        new Crawler(httpClientFactory).get("abc", null);
+        new Crawler(httpClientFactory).get("abc", null, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetBecauseEmptyHeaders() throws IOException {
-        new Crawler(httpClientFactory).get("abc", new HashMap<String, String>());
+        new Crawler(httpClientFactory).get("abc", new HashMap<String, String>(), null);
     }
 
     @Test
@@ -83,7 +85,7 @@ public class CrawlerTest {
         HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
         httpResponse.setEntity(new StringEntity(expectedResult));
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
-        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders()));
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(), null));
     }
 
     @Test
@@ -95,10 +97,29 @@ public class CrawlerTest {
         httpResponse.setStatusCode(400);
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
         try {
-            new Crawler(httpClientFactory).get("the-url", createHeaders());
+            new Crawler(httpClientFactory).get("the-url", createHeaders(), null);
         } catch (IOException e) {
             assertEquals("crapi: 400", e.getMessage());
         }
+    }
+
+    @Test
+    public void shouldEncoding() throws IOException {
+        String expectedResult = "break-out-prison";
+        when(httpClientFactory.create()).thenReturn(httpClient);
+        HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
+        httpResponse.setEntity(new StringEntity(expectedResult));
+        when(httpClient.execute(argThat(new ArgumentMatcher<HttpUriRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                if (o instanceof HttpUriRequest) {
+                    HttpUriRequest httpUriRequest = (HttpUriRequest) o;
+                    return httpUriRequest.getURI().getRawQuery().equals("param=a%2Bb");
+                }
+                return false;
+            }
+        }))).thenReturn(httpResponse);
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(), ImmutableMap.<String, String>builder().put("param", "a+b").build()));
     }
 
 }
