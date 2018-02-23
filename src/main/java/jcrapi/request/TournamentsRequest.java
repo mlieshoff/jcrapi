@@ -28,7 +28,7 @@ public class TournamentsRequest extends Request {
 
     public static class TournamentsRequestBuilder extends RequestBuilder<TournamentsRequest, TournamentsRequestBuilder> {
 
-        private String tag;
+        private final String tag;
 
         public TournamentsRequestBuilder(String tag) {
             this.tag = tag;

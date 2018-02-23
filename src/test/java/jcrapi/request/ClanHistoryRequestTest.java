@@ -34,9 +34,4 @@ public class ClanHistoryRequestTest extends RequestTestBase<ClanHistoryRequest, 
         assertEquals(ClanHistoryRequest.ClanHistoryRequestBuilder.class, ClanHistoryRequest.builder("abc").getClass());
     }
 
-    @Test
-    public void shouldBeWithLimit() {
-        assertEquals(100, ClanHistoryRequest.builder("abc").limit(100).build().getLimit());
-    }
-
 }
