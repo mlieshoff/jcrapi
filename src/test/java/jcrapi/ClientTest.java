@@ -107,9 +107,8 @@ public class ClientTest {
 
     @Test
     public void shouldGetProfileFromRequest() throws IOException {
-        when(crawler.get("lala/player/xyz?limit=15&max=15&keys=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/player/xyz?keys=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getProfile(ProfileRequest.builder("xyz")
-                .limit(15)
                 .keys(Arrays.asList("a", "b"))
                 .excludes(Arrays.asList("x", "y"))
                 .build()));
@@ -151,7 +150,7 @@ public class ClientTest {
                 .keys(Arrays.asList("a", "b"))
                 .excludes(Arrays.asList("x", "y"))
                 .build();
-        when(crawler.get("lala/player/xyz,def?limit=15&max=15&keys=a,b&excludes=x,y", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/player/xyz,def?keys=a,b&excludes=x,y&limit=15&max=15", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(profilesRequest));
     }
 
