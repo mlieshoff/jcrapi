@@ -38,11 +38,13 @@ Clan clan = api.getClan(ClanRequestBuilder.builder("RP88QQG")
     .build());
 ```
 
+```java
 // get list of clans
 List<Clan> clans = api.getClans(ClanRequestBuilder.builder(Arrays.asList("RP88QQG", "2CCCP"))
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .build());
+```
 
 ```java
 // clan search
@@ -57,21 +59,21 @@ List<Clan> clans = api.getClanSearch(ClanSearchRequest.builder()
 ```java
 // get tournaments
 Tournament tournament = api.getTournaments(TournamentRequest.builder()
-    tag("XYZHHG")
+    .tag("XYZHHG")
     .build());
 ```
 
 ```java
 // get top clans
 List<TopClan> topClansForEu = api.getTopClans(TopClanRequest.builder()
-    locationKey("EU")
+    .locationKey("EU")
     .build());
 ```
 
 ```java
 // get top players
 List<TopPlayer> topPlayersForEu = api.getTopPlayers(TopPlayerRequest.builder()
-    locationKey("EU")
+    .locationKey("EU")
     .build());
 ```
 
