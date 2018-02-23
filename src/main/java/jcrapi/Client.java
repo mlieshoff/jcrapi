@@ -36,20 +36,20 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClansRequest;
+import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularPlayersRequest;
+import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
-import jcrapi.request.Request;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
 import jcrapi.request.TournamentsRequest;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -99,28 +99,9 @@ class Client {
 
     Profile getProfile(ProfileRequest profileRequest) throws IOException {
         Preconditions.checkNotNull(profileRequest, "profileRequest");
-        String url = createUrl("player/" + profileRequest.getTag() + createQuery(profileRequest));
-        String json = createCrawler().get(url, createAuthHeader(developerKey));
+        String url = createUrl("player/" + profileRequest.getTag());
+        String json = createCrawler().get(url, createAuthHeader(developerKey), profileRequest.getQueryParameters());
         return new Gson().fromJson(json, Profile.class);
-    }
-
-    private StringBuilder createQuery(Request request) {
-        StringBuilder s = new StringBuilder();
-        Map<String, String> queryParameters = request.getQueryParameters();
-        if (MapUtils.isNotEmpty(queryParameters)) {
-            s.append("?");
-            for (Iterator<Map.Entry<String, String>> iterator = queryParameters.entrySet().iterator();
-                 iterator.hasNext(); ) {
-                Map.Entry<String, String> keyAndValue = iterator.next();
-                s.append(keyAndValue.getKey());
-                s.append("=");
-                s.append(keyAndValue.getValue());
-                if (iterator.hasNext()) {
-                    s.append("&");
-                }
-            }
-        }
-        return s;
     }
 
     @Deprecated
@@ -130,9 +111,8 @@ class Client {
 
     List<Profile> getProfiles(ProfilesRequest profilesRequest) throws IOException {
         Preconditions.checkNotNull(profilesRequest, "profilesRequest");
-        String url = createUrl("player/" + StringUtils.join(profilesRequest.getTags(), ",")
-                + createQuery(profilesRequest));
-        String json = createCrawler().get(url, createAuthHeader(developerKey));
+        String url = createUrl("player/" + StringUtils.join(profilesRequest.getTags(), ","));
+        String json = createCrawler().get(url, createAuthHeader(developerKey), profilesRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -148,7 +128,7 @@ class Client {
         if (StringUtils.isNotBlank(locationKey)) {
             url += "/" + locationKey;
         }
-        String json = createCrawler().get(url, createAuthHeader(developerKey));
+        String json = createCrawler().get(url, createAuthHeader(developerKey), topClansRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<TopClan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -160,13 +140,19 @@ class Client {
 
     Clan getClan(ClanRequest clanRequest) throws IOException {
         Preconditions.checkNotNull(clanRequest);
-        String json = createCrawler().get(createUrl("clan/" + clanRequest.getTag()), createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("clan/" + clanRequest.getTag()), createAuthHeader(developerKey),
+                clanRequest.getQueryParameters());
         return new Gson().fromJson(json, Clan.class);
     }
 
+    @Deprecated
     List<Clan> getClans(List<String> tags) throws IOException {
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(tags, ",")),
+        return getClans(ClansRequest.builder(tags).build());
+    }
+
+    List<Clan> getClans(ClansRequest clansRequest) throws IOException {
+        Preconditions.checkNotNull(clansRequest);
+        String json = createCrawler().get(createUrl("clan/" + StringUtils.join(clansRequest.getTags(), ",")),
                 createAuthHeader(developerKey));
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
@@ -176,19 +162,17 @@ class Client {
     List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
         Preconditions.checkNotNull(clanSearch);
         ClanSearchRequest.ClanSearchRequestBuilder builder = ClanSearchRequest.builder();
-        if (clanSearch != null) {
-            if (StringUtils.isNotBlank(clanSearch.getName())) {
-                builder.name(clanSearch.getName());
-            }
-            if (clanSearch.getScore() != null) {
-                builder.score(clanSearch.getScore());
-            }
-            if (clanSearch.getMinMembers() != null) {
-                builder.minMembers(clanSearch.getMinMembers());
-            }
-            if (clanSearch.getMaxMembers() != null) {
-                builder.maxMembers(clanSearch.getMaxMembers());
-            }
+        if (StringUtils.isNotBlank(clanSearch.getName())) {
+            builder.name(clanSearch.getName());
+        }
+        if (clanSearch.getScore() != null) {
+            builder.score(clanSearch.getScore());
+        }
+        if (clanSearch.getMinMembers() != null) {
+            builder.minMembers(clanSearch.getMinMembers());
+        }
+        if (clanSearch.getMaxMembers() != null) {
+            builder.maxMembers(clanSearch.getMaxMembers());
         }
         return getClanSearch(builder.build());
     }
@@ -214,7 +198,7 @@ class Client {
         if (StringUtils.isNotBlank(locationKey)) {
             url += "/" + locationKey;
         }
-        String json = createCrawler().get(url, createAuthHeader(developerKey));
+        String json = createCrawler().get(url, createAuthHeader(developerKey), topPlayersRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<TopPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -224,7 +208,8 @@ class Client {
     }
 
     Tournament getTournaments(TournamentsRequest tournamentsRequest) throws IOException {
-        String json = createCrawler().get(createUrl("tournaments/" + tournamentsRequest.getTag()), createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("tournaments/" + tournamentsRequest.getTag()),
+                createAuthHeader(developerKey), tournamentsRequest.getQueryParameters());
         return new Gson().fromJson(json, Tournament.class);
     }
 
@@ -233,20 +218,38 @@ class Client {
         return new Gson().fromJson(json, Endpoints.class);
     }
 
+    @Deprecated
     List<PopularClan> getPopularClans() throws IOException {
-        String json = createCrawler().get(createUrl("popular/clans"), createAuthHeader(developerKey));
+        return getPopularClans(PopularClansRequest.builder().build());
+    }
+
+    List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) throws IOException {
+        String json = createCrawler().get(createUrl("popular/clans"), createAuthHeader(developerKey),
+                popularClansRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<PopularClan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<PopularPlayer> getPopularPlayers() throws IOException {
-        String json = createCrawler().get(createUrl("popular/players"), createAuthHeader(developerKey));
+        return getPopularPlayers(PopularPlayersRequest.builder().build());
+    }
+
+    List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) throws IOException {
+        String json = createCrawler().get(createUrl("popular/players"), createAuthHeader(developerKey),
+                popularPlayersRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<PopularPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<PopularTournament> getPopularTournaments() throws IOException {
-        String json = createCrawler().get(createUrl("popular/tournaments"), createAuthHeader(developerKey));
+        return getPopularTournaments(PopularTournamentsRequest.builder().build());
+    }
+
+    List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest) throws IOException {
+        String json = createCrawler().get(createUrl("popular/tournaments"), createAuthHeader(developerKey),
+                popularTournamentsRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<PopularTournament>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -257,7 +260,8 @@ class Client {
     }
 
     List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) throws IOException {
-        String json = createCrawler().get(createUrl("clan/" + clanBattlesRequest.getTag() + "/battles"), createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("clan/" + clanBattlesRequest.getTag() + "/battles"),
+                createAuthHeader(developerKey), clanBattlesRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
@@ -268,7 +272,8 @@ class Client {
     }
 
     ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) throws IOException {
-        String json = createCrawler().get(createUrl("clan/" + clanHistoryRequest.getTag() + "/history"), createAuthHeader(developerKey));
+        String json = createCrawler().get(createUrl("clan/" + clanHistoryRequest.getTag() + "/history"),
+                createAuthHeader(developerKey), clanHistoryRequest.getQueryParameters());
         return new Gson().fromJson(json, ClanHistory.class);
     }
 

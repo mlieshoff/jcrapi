@@ -9,7 +9,9 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequest extends LocationedRequest {
+public class ClanSearchRequest extends LimitedRequest {
+
+    private final String locationId;
 
     private final String name;
 
@@ -17,14 +19,15 @@ public class ClanSearchRequest extends LocationedRequest {
     private final Integer minMembers;
     private final Integer maxMembers;
 
-    private ClanSearchRequest(String name, Integer score, Integer minMembers, Integer maxMembers, String locationKey,
-                             int limit, List<String> excludes, List<String> keys) {
-        super(locationKey, limit, excludes, keys);
+    private ClanSearchRequest(String locationId, String name, Integer score, Integer minMembers, Integer maxMembers,
+                              int limit, List<String> excludes, List<String> keys) {
+        super(limit, excludes, keys);
         Preconditions.checkArgument(
                 !(StringUtils.isBlank(name)
                         && score == null
                         && minMembers == null
                         && maxMembers == null), "set at least one search criteria!");
+        this.locationId = locationId;
         this.name = name;
         this.score = score;
         this.minMembers = minMembers;
@@ -47,9 +50,16 @@ public class ClanSearchRequest extends LocationedRequest {
         return maxMembers;
     }
 
+    public String getLocationId() {
+        return locationId;
+    }
+
     @Override
     public Map<String, String> getQueryParameters() {
         Map<String, String> parameters = super.getQueryParameters();
+        if (StringUtils.isNotBlank(locationId)) {
+            parameters.put("locationId", locationId);
+        }
         if (StringUtils.isNotBlank(name)) {
             parameters.put("name", name);
         }
@@ -69,13 +79,19 @@ public class ClanSearchRequest extends LocationedRequest {
         return new ClanSearchRequestBuilder();
     }
 
-    public static class ClanSearchRequestBuilder extends LocationedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
+    public static class ClanSearchRequestBuilder extends LimitedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
 
+        private String locationId;
         private String name;
 
         private Integer score;
         private Integer minMembers;
         private Integer maxMembers;
+
+        public ClanSearchRequestBuilder locationId(String locationId) {
+            this.locationId = locationId;
+            return getThis();
+        }
 
         public ClanSearchRequestBuilder name(String name) {
             this.name = name;
@@ -99,7 +115,7 @@ public class ClanSearchRequest extends LocationedRequest {
 
         @Override
         public ClanSearchRequest build() {
-            return new ClanSearchRequest(name, score, minMembers, maxMembers, locationKey, limit, excludes, keys);
+            return new ClanSearchRequest(locationId, name, score, minMembers, maxMembers, limit, excludes, keys);
         }
 
         @Override

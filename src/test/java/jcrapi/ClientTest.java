@@ -19,7 +19,12 @@ package jcrapi;
 import com.google.common.collect.ImmutableMap;
 import jcrapi.model.ClanSearch;
 import jcrapi.request.ClanBattlesRequest;
+import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClansRequest;
+import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularPlayersRequest;
+import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
@@ -96,7 +101,7 @@ public class ClientTest {
 
     @Test
     public void shouldGetProfile() throws IOException {
-        when(crawler.get("lala/player/xyz", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/player/xyz", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
         assertNotNull(createClient().getProfile("xyz"));
     }
 
@@ -107,11 +112,13 @@ public class ClientTest {
 
     @Test
     public void shouldGetProfileFromRequest() throws IOException {
-        when(crawler.get("lala/player/xyz?keys=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getProfile(ProfileRequest.builder("xyz")
-                .keys(Arrays.asList("a", "b"))
-                .excludes(Arrays.asList("x", "y"))
-                .build()));
+        ProfileRequest profileRequest = ProfileRequest.builder("xyz")
+                        .keys(Arrays.asList("a", "b"))
+                        .excludes(Arrays.asList("x", "y"))
+                        .build();
+        when(crawler.get("lala/player/xyz", createHeaders(),
+                profileRequest.getQueryParameters())).thenReturn("{}");
+        assertNotNull(createClient().getProfile(profileRequest));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -127,7 +134,8 @@ public class ClientTest {
     @Test
     public void shouldGetProfiles() throws IOException {
         List<String> tags = createTags();
-        when(crawler.get("lala/player/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/player/" + StringUtils.join(tags, ','), createHeaders(),
+                Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(tags));
     }
 
@@ -150,32 +158,33 @@ public class ClientTest {
                 .keys(Arrays.asList("a", "b"))
                 .excludes(Arrays.asList("x", "y"))
                 .build();
-        when(crawler.get("lala/player/xyz,def?keys=a,b&excludes=x,y&limit=15&max=15", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/player/xyz,def", createHeaders(), profilesRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(profilesRequest));
     }
 
     @Test
     public void shouldGetTopClans() throws IOException {
-        when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/top/clans", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans((String) null));
     }
 
     @Test
     public void shouldGetTopClansWithLocation() throws IOException {
-        when(crawler.get("lala/top/clans/EU", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/top/clans/EU", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans("EU"));
     }
 
     @Test
     public void shouldGetTopClansFromRequest() throws IOException {
-        when(crawler.get("lala/top/clans", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/top/clans", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans(TopClansRequest.builder().build()));
     }
 
     @Test
     public void shouldGetTopClansWithLocationFromRequest() throws IOException {
-        when(crawler.get("lala/top/clans/EU", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopClans(TopClansRequest.builder().locationKey("EU").build()));
+        TopClansRequest topClansRequest = TopClansRequest.builder().locationKey("EU").build();
+        when(crawler.get("lala/top/clans/EU", createHeaders(), topClansRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getTopClans(topClansRequest));
     }
 
     @Test(expected = NullPointerException.class)
@@ -190,13 +199,13 @@ public class ClientTest {
 
     @Test
     public void shouldGetClan() throws IOException {
-        when(crawler.get("lala/clan/xyz", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/clan/xyz", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
         assertNotNull(createClient().getClan("xyz"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failGetClansBecauseNullTag() throws IOException {
-        createClient().getClans(null);
+        createClient().getClans((List<String>) null);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -209,6 +218,23 @@ public class ClientTest {
         List<String> tags = createTags();
         when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getClans(tags));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failGetClansBecauseNullRequest() throws IOException {
+        createClient().getClans((ClansRequest) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failGetClansBecauseEmptyTagFromRequest() throws IOException {
+        createClient().getClans(ClansRequest.builder(Collections.EMPTY_LIST).build());
+    }
+
+    @Test
+    public void shouldGetClansFromRequest() throws IOException {
+        List<String> tags = createTags();
+        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
+        assertNotNull(createClient().getClans(ClansRequest.builder(tags).build()));
     }
 
     @Test
@@ -289,19 +315,19 @@ public class ClientTest {
 
     @Test
     public void shouldGetTopPlayers() throws IOException {
-        when(crawler.get("lala/top/players", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/top/players", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getTopPlayers((String) null));
     }
 
     @Test
     public void shouldGetTopPlayersWithLocation() throws IOException {
-        when(crawler.get("lala/top/players/EU", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/top/players/EU", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getTopPlayers("EU"));
     }
 
     @Test
     public void shouldGetTournaments() throws IOException {
-        when(crawler.get("lala/tournaments/abc", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/tournaments/abc", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
         assertNotNull(createClient().getTournaments("abc"));
     }
 
@@ -313,38 +339,67 @@ public class ClientTest {
 
     @Test
     public void shouldGetPopularClans() throws IOException {
-        when(crawler.get("lala/popular/clans", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/popular/clans", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getPopularClans());
     }
 
     @Test
+    public void shouldGetPopularClansFromRequest() throws IOException {
+        PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
+        when(crawler.get("lala/popular/clans", createHeaders(), popularClansRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getPopularClans(popularClansRequest));
+    }
+
+    @Test
     public void shouldGetPopularPlayers() throws IOException {
-        when(crawler.get("lala/popular/players", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/popular/players", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getPopularPlayers());
     }
 
     @Test
+    public void shouldGetPopularPlayersFromRequest() throws IOException {
+        PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
+        when(crawler.get("lala/popular/players", createHeaders(), popularPlayersRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getPopularPlayers(popularPlayersRequest));
+    }
+
+    @Test
     public void shouldGetPopularTournaments() throws IOException {
-        when(crawler.get("lala/popular/tournaments", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/popular/tournaments", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getPopularTournaments());
     }
 
     @Test
+    public void shouldGetPopularTournamentsFromRequest() throws IOException {
+        PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
+        when(crawler.get("lala/popular/tournaments", createHeaders(), popularTournamentsRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getPopularTournaments(popularTournamentsRequest));
+    }
+
+    @Test
     public void shouldGetClanBattles() throws IOException {
-        when(crawler.get("lala/clan/xyz/battles", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/xyz/battles", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getClanBattles("xyz"));
     }
 
     @Test
     public void shouldGetClanBattlesFromRequest() throws IOException {
-        when(crawler.get("lala/clan/xyz/battles", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanBattles(ClanBattlesRequest.builder("xyz").build()));
+        ClanBattlesRequest clanBattlesRequest = ClanBattlesRequest.builder("xyz").build();
+        when(crawler.get("lala/clan/xyz/battles", createHeaders(), clanBattlesRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanBattles(clanBattlesRequest));
     }
 
     @Test
     public void shouldGetClanHistory() throws IOException {
-        when(crawler.get("lala/clan/xyz/history", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/clan/xyz/history", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
         assertNotNull(createClient().getClanHistory("xyz"));
+    }
+
+    @Test
+    public void shouldGetClanHistoryFromRequest() throws IOException {
+        ClanHistoryRequest clanHistoryRequest = ClanHistoryRequest.builder("xyz").build();
+        when(crawler.get("lala/clan/xyz/history", createHeaders(), clanHistoryRequest.getQueryParameters())).thenReturn("{}");
+        assertNotNull(createClient().getClanHistory(clanHistoryRequest));
     }
 
 }

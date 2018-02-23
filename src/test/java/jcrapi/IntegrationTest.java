@@ -24,6 +24,9 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularPlayersRequest;
+import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
@@ -342,7 +345,7 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetTournamentsBecauseWrongAuth() throws IOException {
-        doGetPopularPlayers(URL, "abc");
+        doGetTournaments(URL, "abc", "20YU0VJ9");
     }
 
     @Test
@@ -389,6 +392,20 @@ public class IntegrationTest {
     }
 
     @Test
+    public void shouldGetPopularClansWithAuthFromRequest() throws IOException {
+        doGetPopularClansFromRequest(URL, AUTH);
+    }
+
+    private void doGetPopularClansFromRequest(String url, String auth) {
+        assertTrue(new Api(url, auth).getPopularClans(PopularClansRequest.builder().build()).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPopularClansBecauseWrongAuthFromRequest() throws IOException {
+        doGetPopularClansFromRequest(URL, "abc");
+    }
+
+    @Test
     public void shouldGetPopularPlayersWithAuth() throws IOException {
         doGetPopularPlayers(URL, AUTH);
     }
@@ -403,6 +420,20 @@ public class IntegrationTest {
     }
 
     @Test
+    public void shouldGetPopularPlayersWithAuthFromRequest() throws IOException {
+        doGetPopularPlayersFromRequest(URL, AUTH);
+    }
+
+    private void doGetPopularPlayersFromRequest(String url, String auth) {
+        assertTrue(new Api(url, auth).getPopularPlayers(PopularPlayersRequest.builder().build()).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPopularPlayersBecauseWrongAuthFromRequest() throws IOException {
+        doGetPopularPlayersFromRequest(URL, "abc");
+    }
+
+    @Test
     public void shouldGetPopularTournamentsWithAuth() throws IOException {
         doGetPopularTournaments(URL, AUTH);
     }
@@ -414,6 +445,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetPopularTournamentsBecauseWrongAuth() throws IOException {
         doGetPopularTournaments(URL, "abc");
+    }
+
+    @Test
+    public void shouldGetPopularTournamentsWithAuthFromRequest() throws IOException {
+        doGetPopularTournamentsFromRequest(URL, AUTH);
+    }
+
+    private void doGetPopularTournamentsFromRequest(String url, String auth) {
+        assertTrue(new Api(url, auth).getPopularTournaments(PopularTournamentsRequest.builder().build()).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPopularTournamentsBecauseWrongAuthFromRequest() throws IOException {
+        doGetPopularTournamentsFromRequest(URL, "abc");
     }
 
     @Test

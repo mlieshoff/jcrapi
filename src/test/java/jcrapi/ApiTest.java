@@ -32,6 +32,9 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularPlayersRequest;
+import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
@@ -657,13 +660,22 @@ public class ApiTest {
     @Test
     public void shouldGetPopularClans() throws Exception {
         List<PopularClan> popularClans = new ArrayList<>();
-        when(client.getPopularClans()).thenReturn(popularClans);
+        when(client.getPopularClans(argThat(getPopularClansRequestMatcher()))).thenReturn(popularClans);
         assertSame(popularClans, api.getPopularClans());
+    }
+
+    private Matcher<PopularClansRequest> getPopularClansRequestMatcher() {
+        return new ArgumentMatcher<PopularClansRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof PopularClansRequest;
+            }
+        };
     }
 
     @Test
     public void failGetPopularClans() throws Exception {
-        when(client.getPopularClans()).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularClans(argThat(getPopularClansRequestMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getPopularClans();
             fail();
@@ -673,15 +685,44 @@ public class ApiTest {
     }
 
     @Test
+    public void shouldGetPopularClansFromRequest() throws Exception {
+        PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
+        List<PopularClan> popularClans = new ArrayList<>();
+        when(client.getPopularClans(popularClansRequest)).thenReturn(popularClans);
+        assertSame(popularClans, api.getPopularClans(popularClansRequest));
+    }
+
+    @Test
+    public void failGetPopularClansFromRequest() throws Exception {
+        PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
+        when(client.getPopularClans(popularClansRequest)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getPopularClans(popularClansRequest);
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
     public void shouldGetPopularPlayers() throws Exception {
         List<PopularPlayer> popularPlayers = new ArrayList<>();
-        when(client.getPopularPlayers()).thenReturn(popularPlayers);
+        when(client.getPopularPlayers(argThat(getPopularPlayersRequestMatcher()))).thenReturn(popularPlayers);
         assertSame(popularPlayers, api.getPopularPlayers());
+    }
+
+    private Matcher<PopularPlayersRequest> getPopularPlayersRequestMatcher() {
+        return new ArgumentMatcher<PopularPlayersRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof PopularPlayersRequest;
+            }
+        };
     }
 
     @Test
     public void failGetPopularPlayers() throws Exception {
-        when(client.getPopularPlayers()).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularPlayers(argThat(getPopularPlayersRequestMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getPopularPlayers();
             fail();
@@ -691,17 +732,66 @@ public class ApiTest {
     }
 
     @Test
+    public void shouldGetPopularPlayersFromRequest() throws Exception {
+        PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
+        List<PopularPlayer> popularPlayers = new ArrayList<>();
+        when(client.getPopularPlayers(popularPlayersRequest)).thenReturn(popularPlayers);
+        assertSame(popularPlayers, api.getPopularPlayers(popularPlayersRequest));
+    }
+
+    @Test
+    public void failGetPopularPlayersFromRequest() throws Exception {
+        PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
+        when(client.getPopularPlayers(popularPlayersRequest)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getPopularPlayers(popularPlayersRequest);
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
     public void shouldGetPopularTournaments() throws Exception {
         List<PopularTournament> popularTournaments = new ArrayList<>();
-        when(client.getPopularTournaments()).thenReturn(popularTournaments);
+        when(client.getPopularTournaments(argThat(getPopularTournamentsRequestMatcher()))).thenReturn(popularTournaments);
         assertSame(popularTournaments, api.getPopularTournaments());
+    }
+
+    private Matcher<PopularTournamentsRequest> getPopularTournamentsRequestMatcher() {
+        return new ArgumentMatcher<PopularTournamentsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof PopularTournamentsRequest;
+            }
+        };
     }
 
     @Test
     public void failGetPopularTournaments() throws Exception {
-        when(client.getPopularTournaments()).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularTournaments(argThat(getPopularTournamentsRequestMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getPopularTournaments();
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetPopularTournamentsFromRequest() throws Exception {
+        PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
+        List<PopularTournament> popularTournaments = new ArrayList<>();
+        when(client.getPopularTournaments(popularTournamentsRequest)).thenReturn(popularTournaments);
+        assertSame(popularTournaments, api.getPopularTournaments(popularTournamentsRequest));
+    }
+
+    @Test
+    public void failGetPopularTournamentsFromRequest() throws Exception {
+        PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
+        when(client.getPopularTournaments(popularTournamentsRequest)).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getPopularTournaments(popularTournamentsRequest);
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
