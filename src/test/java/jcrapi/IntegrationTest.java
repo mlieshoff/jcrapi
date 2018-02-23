@@ -17,11 +17,13 @@
 package jcrapi;
 
 import jcrapi.model.Clan;
+import jcrapi.model.ClanSearch;
 import jcrapi.model.Endpoints;
 import jcrapi.model.Profile;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
+import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
@@ -265,7 +267,9 @@ public class IntegrationTest {
     }
 
     private void doGetClanSearch(String url, String auth) {
-        List<Clan> clans = new Api(url, auth).getClanSearch();
+        ClanSearch clanSearch = new ClanSearch();
+        clanSearch.setScore(50);
+        List<Clan> clans = new Api(url, auth).getClanSearch(clanSearch);
         assertTrue(clans.size() > 0);
     }
 
@@ -280,7 +284,7 @@ public class IntegrationTest {
     }
 
     private void doGetClanSearchFromRequest(String url, String auth) {
-        List<Clan> clans = new Api(url, auth).getClanSearch();
+        List<Clan> clans = new Api(url, auth).getClanSearch(ClanSearchRequest.builder().score(50).build());
         assertTrue(clans.size() > 0);
     }
 

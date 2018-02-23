@@ -29,7 +29,7 @@ public class ProfilesRequest extends Request {
 
     public static class ProfilesRequestBuilder extends RequestBuilder<ProfilesRequest, ProfilesRequestBuilder> {
 
-        private Collection<String> tags;
+        private final Collection<String> tags;
 
         public ProfilesRequestBuilder(Collection<String> tags) {
             this.tags = tags;
