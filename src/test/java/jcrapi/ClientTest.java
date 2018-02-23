@@ -300,54 +300,6 @@ public class ClientTest {
     }
 
     @Test
-    public void shouldGetConstants() throws IOException {
-        when(crawler.get("lala/constants", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getConstants());
-    }
-
-    @Test
-    public void shouldGetAllianceConstants() throws IOException {
-        when(crawler.get("lala/constants/alliance/", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getAllianceConstants());
-    }
-
-    @Test
-    public void shouldGetArenasConstants() throws IOException {
-        when(crawler.get("lala/constants/arenas/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getArenasConstants());
-    }
-
-    @Test
-    public void shouldGetBadgesConstants() throws IOException {
-        when(crawler.get("lala/constants/badges/", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getBadgesConstants());
-    }
-
-    @Test
-    public void shouldGetChestCycleConstants() throws IOException {
-        when(crawler.get("lala/constants/chestCycle/", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getChestCycleConstants());
-    }
-
-    @Test
-    public void shouldGetCountryCodesConstants() throws IOException {
-        when(crawler.get("lala/constants/countryCodes/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getCountryCodesConstants());
-    }
-
-    @Test
-    public void shouldGetRaritiesConstants() throws IOException {
-        when(crawler.get("lala/constants/rarities/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getRaritiesConstants());
-    }
-
-    @Test
-    public void shouldGetCardConstants() throws IOException {
-        when(crawler.get("lala/constants/cards/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getCardsConstants());
-    }
-
-    @Test
     public void shouldGetEndpoint() throws IOException {
         when(crawler.get("lala/endpoints", createHeaders())).thenReturn("[]");
         assertNotNull(createClient().getEndpoints());
