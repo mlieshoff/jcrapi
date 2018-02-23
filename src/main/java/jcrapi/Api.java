@@ -152,10 +152,6 @@ public class Api {
         }
     }
 
-    public List<Clan> getClanSearch() {
-        return getClanSearch(ClanSearchRequest.builder().build());
-    }
-
     @Deprecated
     public List<Clan> getClanSearch(ClanSearch clanSearch) {
         try {

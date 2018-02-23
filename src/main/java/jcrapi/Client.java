@@ -174,13 +174,21 @@ class Client {
 
     @Deprecated
     List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
+        Preconditions.checkNotNull(clanSearch);
         ClanSearchRequest.ClanSearchRequestBuilder builder = ClanSearchRequest.builder();
         if (clanSearch != null) {
-            builder
-                    .name(clanSearch.getName())
-                    .score(clanSearch.getScore())
-                    .minMembers(clanSearch.getMinMembers())
-                    .maxMembers(clanSearch.getMaxMembers());
+            if (StringUtils.isNotBlank(clanSearch.getName())) {
+                builder.name(clanSearch.getName());
+            }
+            if (clanSearch.getScore() != null) {
+                builder.score(clanSearch.getScore());
+            }
+            if (clanSearch.getMinMembers() != null) {
+                builder.minMembers(clanSearch.getMinMembers());
+            }
+            if (clanSearch.getMaxMembers() != null) {
+                builder.maxMembers(clanSearch.getMaxMembers());
+            }
         }
         return getClanSearch(builder.build());
     }

@@ -420,34 +420,22 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetClanSearch() throws Exception {
-        List<Clan> clans = new ArrayList<>();
-        when(client.getClanSearch((ClanSearch) null)).thenReturn(clans);
-        assertEquals(clans, api.getClanSearch());
-    }
-
-    @Test
-    public void failGetClanSearch() throws Exception {
-        when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getClanSearch();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
     public void shouldGetClanSearchWithParams() throws Exception {
         List<Clan> clans = new ArrayList<>();
-        ClanSearch clanSearch = new ClanSearch();
+        ClanSearch clanSearch = createClanSearch();
         when(client.getClanSearch(clanSearch)).thenReturn(clans);
         assertEquals(clans, api.getClanSearch(clanSearch));
     }
 
+    private ClanSearch createClanSearch() {
+        ClanSearch clanSearch = new ClanSearch();
+        clanSearch.setScore(50);
+        return clanSearch;
+    }
+
     @Test
     public void failGetClanSearchWithParams() throws Exception {
-        ClanSearch clanSearch = new ClanSearch();
+        ClanSearch clanSearch = createClanSearch();
         when(client.getClanSearch(clanSearch)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClanSearch(clanSearch);
@@ -460,15 +448,20 @@ public class ApiTest {
     @Test
     public void shouldGetClanSearchFromRequest() throws Exception {
         List<Clan> clans = new ArrayList<>();
-        when(client.getClanSearch(ClanSearchRequest.builder().build())).thenReturn(clans);
-        assertEquals(clans, api.getClanSearch());
+        ClanSearchRequest clanSearchRequest = createClanSearchRequest();
+        when(client.getClanSearch(clanSearchRequest)).thenReturn(clans);
+        assertEquals(clans, api.getClanSearch(clanSearchRequest));
+    }
+
+    private ClanSearchRequest createClanSearchRequest() {
+        return ClanSearchRequest.builder().score(50).build();
     }
 
     @Test
     public void failGetClanSearchFromRequest() throws Exception {
         when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
-            api.getClanSearch();
+            api.getClanSearch(createClanSearchRequest());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
@@ -488,14 +481,14 @@ public class ApiTest {
     public void shouldGetClanSearchWithParamsFromRequest() throws Exception {
         List<Clan> clans = new ArrayList<>();
         when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenReturn(clans);
-        assertEquals(clans, api.getClanSearch(ClanSearchRequest.builder().build()));
+        assertEquals(clans, api.getClanSearch(createClanSearchRequest()));
     }
 
     @Test
     public void failGetClanSearchWithParamsFromRequest() throws Exception {
         when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
-            api.getClanSearch(ClanSearchRequest.builder().build());
+            api.getClanSearch(createClanSearchRequest());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
