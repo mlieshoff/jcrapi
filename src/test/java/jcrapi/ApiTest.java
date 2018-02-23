@@ -16,22 +16,15 @@
  */
 package jcrapi;
 
-import jcrapi.model.Alliance;
-import jcrapi.model.Arena;
 import jcrapi.model.Battle;
-import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
-import jcrapi.model.ConstantCard;
-import jcrapi.model.Constants;
-import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
-import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
@@ -644,150 +637,6 @@ public class ApiTest {
         when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getTournaments(TournamentsRequest.builder("abc").build());
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetConstants() throws Exception {
-        Constants constants = new Constants();
-        when(client.getConstants()).thenReturn(constants);
-        assertEquals(constants, api.getConstants());
-    }
-
-    @Test
-    public void failGetConstants() throws Exception {
-        when(client.getConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetAllianceConstants() throws Exception {
-        Alliance alliance = new Alliance();
-        when(client.getAllianceConstants()).thenReturn(alliance);
-        assertEquals(alliance, api.getAllianceConstants());
-    }
-
-    @Test
-    public void failGetAllianceConstants() throws Exception {
-        when(client.getAllianceConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getAllianceConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetArenasConstants() throws Exception {
-        List<Arena> arenas = new ArrayList<>();
-        when(client.getArenasConstants()).thenReturn(arenas);
-        assertEquals(arenas, api.getArenasConstants());
-    }
-
-    @Test
-    public void failGetArenasConstants() throws Exception {
-        when(client.getArenasConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getArenasConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetBadgesConstants() throws Exception {
-        List<Arena> arenas = new ArrayList<>();
-        when(client.getArenasConstants()).thenReturn(arenas);
-        assertEquals(arenas, api.getArenasConstants());
-    }
-
-    @Test
-    public void failGetBadgesConstants() throws Exception {
-        when(client.getBadgesConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getBadgesConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetChestCycleConstants() throws Exception {
-        ChestCycleList chestCycleList = new ChestCycleList();
-        when(client.getChestCycleConstants()).thenReturn(chestCycleList);
-        assertEquals(chestCycleList, api.getChestCycleConstants());
-    }
-
-    @Test
-    public void failGetChestCycleConstants() throws Exception {
-        when(client.getChestCycleConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getChestCycleConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetCountryCodesConstants() throws Exception {
-        List<CountryCode> countryCodes = new ArrayList<>();
-        when(client.getCountryCodesConstants()).thenReturn(countryCodes);
-        assertEquals(countryCodes, api.getCountryCodesConstants());
-    }
-
-    @Test
-    public void failGetCountryCodesConstants() throws Exception {
-        when(client.getCountryCodesConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getCountryCodesConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetRaritiesConstants() throws Exception {
-        List<Rarity> rarities = new ArrayList<>();
-        when(client.getRaritiesConstants()).thenReturn(rarities);
-        assertEquals(rarities, api.getRaritiesConstants());
-    }
-
-    @Test
-    public void failGetRaritiesConstants() throws Exception {
-        when(client.getRaritiesConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getRaritiesConstants();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetCardsConstants() throws Exception {
-        List<ConstantCard> constantCards = new ArrayList<>();
-        when(client.getCardsConstants()).thenReturn(constantCards);
-        assertEquals(constantCards, api.getCardsConstants());
-    }
-
-    @Test
-    public void failGetCardsConstants() throws Exception {
-        when(client.getCardsConstants()).thenThrow(new IOException("crapi: 400"));
-        try {
-            api.getCardsConstants();
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
