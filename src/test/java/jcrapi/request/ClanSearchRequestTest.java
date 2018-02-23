@@ -12,7 +12,7 @@ public class ClanSearchRequestTest extends RequestTestBase<ClanSearchRequest, Cl
 
     @Override
     ClanSearchRequest.ClanSearchRequestBuilder getBuilder() {
-        return ClanSearchRequest.builder();
+        return ClanSearchRequest.builder().score(50);
     }
 
     @Test
@@ -43,6 +43,11 @@ public class ClanSearchRequestTest extends RequestTestBase<ClanSearchRequest, Cl
     @Test
     public void shouldBeWithMaxMembers() {
         assertEquals(50, ClanSearchRequest.builder().maxMembers(50).build().getMaxMembers().intValue());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void failWhenNotAtLeastWithOneSearchCriteria() {
+        ClanSearchRequest.builder().build();
     }
 
 }
