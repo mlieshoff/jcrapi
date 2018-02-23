@@ -33,6 +33,9 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularPlayersRequest;
+import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
@@ -214,25 +217,40 @@ public class Api {
         }
     }
 
+    @Deprecated
     public List<PopularClan> getPopularClans() {
+        return getPopularClans(PopularClansRequest.builder().build());
+    }
+
+    public List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getPopularClans();
+            return clientFactory.createClient(url, developerKey).getPopularClans(popularClansRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
+    @Deprecated
     public List<PopularPlayer> getPopularPlayers() {
+        return getPopularPlayers(PopularPlayersRequest.builder().build());
+    }
+
+    public List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getPopularPlayers();
+            return clientFactory.createClient(url, developerKey).getPopularPlayers(popularPlayersRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
+    @Deprecated
     public List<PopularTournament> getPopularTournaments() {
+        return getPopularTournaments(PopularTournamentsRequest.builder().build());
+    }
+
+    public List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getPopularTournaments();
+            return clientFactory.createClient(url, developerKey).getPopularTournaments(popularTournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

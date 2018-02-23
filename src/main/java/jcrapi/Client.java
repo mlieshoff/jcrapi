@@ -37,6 +37,9 @@ import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularPlayersRequest;
+import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
@@ -215,20 +218,38 @@ class Client {
         return new Gson().fromJson(json, Endpoints.class);
     }
 
+    @Deprecated
     List<PopularClan> getPopularClans() throws IOException {
-        String json = createCrawler().get(createUrl("popular/clans"), createAuthHeader(developerKey));
+        return getPopularClans(PopularClansRequest.builder().build());
+    }
+
+    List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) throws IOException {
+        String json = createCrawler().get(createUrl("popular/clans"), createAuthHeader(developerKey),
+                popularClansRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<PopularClan>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<PopularPlayer> getPopularPlayers() throws IOException {
-        String json = createCrawler().get(createUrl("popular/players"), createAuthHeader(developerKey));
+        return getPopularPlayers(PopularPlayersRequest.builder().build());
+    }
+
+    List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) throws IOException {
+        String json = createCrawler().get(createUrl("popular/players"), createAuthHeader(developerKey),
+                popularPlayersRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<PopularPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
+    @Deprecated
     List<PopularTournament> getPopularTournaments() throws IOException {
-        String json = createCrawler().get(createUrl("popular/tournaments"), createAuthHeader(developerKey));
+        return getPopularTournaments(PopularTournamentsRequest.builder().build());
+    }
+
+    List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest) throws IOException {
+        String json = createCrawler().get(createUrl("popular/tournaments"), createAuthHeader(developerKey),
+                popularTournamentsRequest.getQueryParameters());
         Type listType = new TypeToken<ArrayList<PopularTournament>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }

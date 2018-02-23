@@ -97,17 +97,29 @@ Endpoints endpoints = api.getEndpoints();
 
 ```java
 // get popular clans
-List<PopularClan> popularClans = api.getPopularClans();
+List<PopularClan> popularClans = api.getPopularClans(PopularClans.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .limit(10)
+    .build());
 ```
 
 ```java
 // get popular players
-List<PopularPlayer> popularPlayers = api.getPopularPlayers();
+List<PopularPlayer> popularPlayers = api.getPopularPlayers(PopularPlayers.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .limit(10)
+    .build());
 ```
 
 ```java
 // get popular tournaments
-List<PopularTournament> popularTournaments = api.getPopularTournaments();
+List<PopularTournament> popularTournaments = api.getPopularTournaments(PopularTournaments.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .limit(10)
+    .build());
 ```
 
 ```java
