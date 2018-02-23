@@ -11,8 +11,8 @@ public class ClanRequest extends Request {
 
     private final String tag;
 
-    private ClanRequest(String tag, List<String> excludes, List<String> includes) {
-        super(excludes, includes);
+    private ClanRequest(String tag, int limit, List<String> excludes, List<String> includes) {
+        super(limit, excludes, includes);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
@@ -36,7 +36,7 @@ public class ClanRequest extends Request {
 
         @Override
         public ClanRequest build() {
-            return new ClanRequest(tag, excludes, keys);
+            return new ClanRequest(tag, limit, excludes, keys);
         }
 
         @Override

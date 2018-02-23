@@ -14,6 +14,18 @@ public abstract class RequestTestBase<A extends Request, B extends Request.Reque
 
     abstract B getBuilder();
     
+    @Test(expected = IllegalArgumentException.class)
+    public void failBecauseLimitIsNegative() {
+        getBuilder().limit(-1).build();
+    }
+
+    @Test
+    public void shouldBeWithLimit() {
+        A request = getBuilder().limit(100).build();
+        assertEquals(100, request.getLimit());
+        assertEquals("100", request.getQueryParameters().get("limit"));
+    }
+
     @Test
     public void shouldBeWithExcludes() {
         List<String> expected = Arrays.asList("a", "b");

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Michael Lieshoff
  */
-public class ClanBattlesRequest extends LimitedRequest {
+public class ClanBattlesRequest extends Request {
 
     private final String tag;
 
@@ -26,7 +26,7 @@ public class ClanBattlesRequest extends LimitedRequest {
         return new ClanBattlesRequestBuilder(tag);
     }
 
-    public static class ClanBattlesRequestBuilder extends LimitedRequestBuilder<ClanBattlesRequest, ClanBattlesRequestBuilder> {
+    public static class ClanBattlesRequestBuilder extends RequestBuilder<ClanBattlesRequest, ClanBattlesRequestBuilder> {
 
         private final String tag;
 

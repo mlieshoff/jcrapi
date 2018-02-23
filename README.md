@@ -26,7 +26,6 @@ Profile profile = api.getProfile(ProfileRequest.builder("2PGGCJJL")
 List<Profile> profiles = api.getProfiles(ProfilesRequest.builder(Arrays.asList("L88P2282", "9CQ2U8QJ", "8L9L9GL"))
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
-    .limit(10)
     .build()
 );
 ```
@@ -44,7 +43,6 @@ Clan clan = api.getClan(ClanRequestBuilder.builder("RP88QQG")
 List<Clan> clans = api.getClans(ClanRequestBuilder.builder(Arrays.asList("RP88QQG", "2CCCP"))
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
-    .limit(10)
     .build());
 ```
 
@@ -55,9 +53,6 @@ List<Clan> clans = api.getClanSearch(ClanSearchRequest.builder()
     .setScore(500)
     .setMinMembers(10)
     .setMaxMembers(25)
-    .keys(Arrays.asList("name", "clan", "tag"))
-    .excludes(Arrays.asList("battles"))
-    .limit(10)
     .build());
 ```
 
@@ -65,8 +60,6 @@ List<Clan> clans = api.getClanSearch(ClanSearchRequest.builder()
 // get tournaments
 Tournament tournament = api.getTournaments(TournamentRequest.builder()
     .tag("XYZHHG")
-    .keys(Arrays.asList("name", "clan", "tag"))
-    .excludes(Arrays.asList("battles"))
     .build());
 ```
 
@@ -74,9 +67,6 @@ Tournament tournament = api.getTournaments(TournamentRequest.builder()
 // get top clans
 List<TopClan> topClansForEu = api.getTopClans(TopClanRequest.builder()
     .locationKey("EU")
-    .keys(Arrays.asList("name", "clan", "tag"))
-    .excludes(Arrays.asList("battles"))
-    .limit(10)
     .build());
 ```
 
@@ -84,9 +74,6 @@ List<TopClan> topClansForEu = api.getTopClans(TopClanRequest.builder()
 // get top players
 List<TopPlayer> topPlayersForEu = api.getTopPlayers(TopPlayerRequest.builder()
     .locationKey("EU")
-    .keys(Arrays.asList("name", "clan", "tag"))
-    .excludes(Arrays.asList("battles"))
-    .limit(10)
     .build());
 ```
 
@@ -113,18 +100,12 @@ List<PopularTournament> popularTournaments = api.getPopularTournaments();
 ```java
 // get clan battles
 List<Battle> clanBattles = api.getClanBattles(ClanBattleRequest.builder("RP88QQG")
-    .keys(Arrays.asList("name", "clan", "tag"))
-    .excludes(Arrays.asList("cards"))
-    .limit(10)
     .build());
 ```
 
 ```java
 // get clan history
 ClanHistory clanHistory = api.getClanHistory(ClanHistoryRequest.builder("RP88QQG")
-    .keys(Arrays.asList("name", "clan", "tag"))
-    .excludes(Arrays.asList("cards"))
-    .limit(10)
     .build());
 ```
 

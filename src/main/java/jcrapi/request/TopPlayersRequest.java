@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author Michael Lieshoff
  */
-public class TopPlayersRequest extends LimitedRequest {
+public class TopPlayersRequest extends Request {
 
     private final String locationKey;
 
@@ -22,7 +22,7 @@ public class TopPlayersRequest extends LimitedRequest {
         return new TopPlayersRequestBuilder();
     }
 
-    public static class TopPlayersRequestBuilder extends LimitedRequestBuilder<TopPlayersRequest, TopPlayersRequestBuilder> {
+    public static class TopPlayersRequestBuilder extends RequestBuilder<TopPlayersRequest, TopPlayersRequestBuilder> {
 
         private String locationKey;
 
