@@ -11,8 +11,8 @@ public class ProfileRequest extends Request {
 
     private final String tag;
 
-    private ProfileRequest(String tag, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private ProfileRequest(String tag, List<String> excludes, List<String> includes) {
+        super(excludes, includes);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
@@ -28,7 +28,7 @@ public class ProfileRequest extends Request {
 
     public static class ProfileRequestBuilder extends RequestBuilder<ProfileRequest, ProfileRequestBuilder> {
 
-        private String tag;
+        private final String tag;
 
         public ProfileRequestBuilder(String tag) {
             this.tag = tag;
@@ -36,7 +36,7 @@ public class ProfileRequest extends Request {
 
         @Override
         public ProfileRequest build() {
-            return new ProfileRequest(tag, limit, excludes, keys);
+            return new ProfileRequest(tag, excludes, keys);
         }
 
         @Override

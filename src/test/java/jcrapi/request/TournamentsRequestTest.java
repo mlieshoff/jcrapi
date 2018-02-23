@@ -34,9 +34,4 @@ public class TournamentsRequestTest extends RequestTestBase<TournamentsRequest, 
         assertEquals(TournamentsRequest.TournamentsRequestBuilder.class, TournamentsRequest.builder("abc").getClass());
     }
 
-    @Test
-    public void shouldBeWithLimit() {
-        assertEquals(100, TournamentsRequest.builder("abc").limit(100).build().getLimit());
-    }
-
 }

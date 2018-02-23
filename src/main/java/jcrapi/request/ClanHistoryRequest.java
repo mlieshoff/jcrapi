@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Michael Lieshoff
  */
-public class ClanHistoryRequest extends Request {
+public class ClanHistoryRequest extends LimitedRequest {
 
     private final String tag;
 
@@ -26,9 +26,9 @@ public class ClanHistoryRequest extends Request {
         return new ClanHistoryRequestBuilder(tag);
     }
 
-    public static class ClanHistoryRequestBuilder extends RequestBuilder<ClanHistoryRequest, ClanHistoryRequestBuilder> {
+    public static class ClanHistoryRequestBuilder extends LimitedRequestBuilder<ClanHistoryRequest, ClanHistoryRequestBuilder> {
 
-        private String tag;
+        private final String tag;
 
         public ClanHistoryRequestBuilder(String tag) {
             this.tag = tag;

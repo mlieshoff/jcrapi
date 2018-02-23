@@ -107,9 +107,8 @@ public class ClientTest {
 
     @Test
     public void shouldGetProfileFromRequest() throws IOException {
-        when(crawler.get("lala/player/xyz?limit=15&max=15&keys=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
+        when(crawler.get("lala/player/xyz?keys=a,b&excludes=x,y", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getProfile(ProfileRequest.builder("xyz")
-                .limit(15)
                 .keys(Arrays.asList("a", "b"))
                 .excludes(Arrays.asList("x", "y"))
                 .build()));
@@ -151,7 +150,7 @@ public class ClientTest {
                 .keys(Arrays.asList("a", "b"))
                 .excludes(Arrays.asList("x", "y"))
                 .build();
-        when(crawler.get("lala/player/xyz,def?limit=15&max=15&keys=a,b&excludes=x,y", createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/player/xyz,def?keys=a,b&excludes=x,y&limit=15&max=15", createHeaders())).thenReturn("[{}]");
         assertNotNull(createClient().getProfiles(profilesRequest));
     }
 
@@ -214,8 +213,15 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanSearch() throws IOException {
-        when(crawler.get("lala/clan/search", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch((ClanSearch) null));
+        ClanSearch clanSearch = new ClanSearch();
+        clanSearch.setScore(50);
+        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder().put("score", "50").build())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(clanSearch));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failGetClanSearchWithoutCriteria() throws IOException {
+        createClient().getClanSearch((ClanSearch) null);
     }
 
     @Test
@@ -252,8 +258,8 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanSearchFromRequest() throws IOException {
-        when(crawler.get("lala/clan/search", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch(ClanSearchRequest.builder().build()));
+        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder().put("score", "50").build())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(ClanSearchRequest.builder().score(50).build()));
     }
 
     @Test
@@ -297,54 +303,6 @@ public class ClientTest {
     public void shouldGetTournaments() throws IOException {
         when(crawler.get("lala/tournaments/abc", createHeaders())).thenReturn("{}");
         assertNotNull(createClient().getTournaments("abc"));
-    }
-
-    @Test
-    public void shouldGetConstants() throws IOException {
-        when(crawler.get("lala/constants", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getConstants());
-    }
-
-    @Test
-    public void shouldGetAllianceConstants() throws IOException {
-        when(crawler.get("lala/constants/alliance/", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getAllianceConstants());
-    }
-
-    @Test
-    public void shouldGetArenasConstants() throws IOException {
-        when(crawler.get("lala/constants/arenas/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getArenasConstants());
-    }
-
-    @Test
-    public void shouldGetBadgesConstants() throws IOException {
-        when(crawler.get("lala/constants/badges/", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getBadgesConstants());
-    }
-
-    @Test
-    public void shouldGetChestCycleConstants() throws IOException {
-        when(crawler.get("lala/constants/chestCycle/", createHeaders())).thenReturn("{}");
-        assertNotNull(createClient().getChestCycleConstants());
-    }
-
-    @Test
-    public void shouldGetCountryCodesConstants() throws IOException {
-        when(crawler.get("lala/constants/countryCodes/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getCountryCodesConstants());
-    }
-
-    @Test
-    public void shouldGetRaritiesConstants() throws IOException {
-        when(crawler.get("lala/constants/rarities/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getRaritiesConstants());
-    }
-
-    @Test
-    public void shouldGetCardConstants() throws IOException {
-        when(crawler.get("lala/constants/cards/", createHeaders())).thenReturn("[{}]");
-        assertNotNull(createClient().getCardsConstants());
     }
 
     @Test

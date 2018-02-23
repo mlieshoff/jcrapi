@@ -1,5 +1,6 @@
 package jcrapi.request;
 
+import com.google.common.base.Preconditions;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequest extends Request {
+public class ClanSearchRequest extends LimitedRequest {
 
     private final String name;
 
@@ -19,6 +20,11 @@ public class ClanSearchRequest extends Request {
     public ClanSearchRequest(String name, Integer score, Integer minMembers, Integer maxMembers, int limit, List<String> excludes,
                              List<String> keys) {
         super(limit, excludes, keys);
+        Preconditions.checkArgument(
+                !(StringUtils.isBlank(name)
+                        && score == null
+                        && minMembers == null
+                        && maxMembers == null), "set at least one search criteria!");
         this.name = name;
         this.score = score;
         this.minMembers = minMembers;
@@ -63,7 +69,7 @@ public class ClanSearchRequest extends Request {
         return new ClanSearchRequestBuilder();
     }
 
-    public static class ClanSearchRequestBuilder extends RequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
+    public static class ClanSearchRequestBuilder extends LimitedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
 
         private String name;
 

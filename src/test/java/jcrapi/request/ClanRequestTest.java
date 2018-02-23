@@ -34,9 +34,4 @@ public class ClanRequestTest extends RequestTestBase<ClanRequest, ClanRequest.Cl
         assertEquals(ClanRequest.ClanRequestBuilder.class, ClanRequest.builder("abc").getClass());
     }
 
-    @Test
-    public void shouldBeWithLimit() {
-        assertEquals(100, ClanRequest.builder("abc").limit(100).build().getLimit());
-    }
-
 }

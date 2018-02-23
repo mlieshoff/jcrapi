@@ -20,23 +20,15 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import jcrapi.model.Alliance;
-import jcrapi.model.Arena;
-import jcrapi.model.Badges;
 import jcrapi.model.Battle;
-import jcrapi.model.ChestCycleList;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
-import jcrapi.model.ConstantCard;
-import jcrapi.model.Constants;
-import jcrapi.model.CountryCode;
 import jcrapi.model.Endpoints;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
-import jcrapi.model.Rarity;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
@@ -182,13 +174,21 @@ class Client {
 
     @Deprecated
     List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
+        Preconditions.checkNotNull(clanSearch);
         ClanSearchRequest.ClanSearchRequestBuilder builder = ClanSearchRequest.builder();
         if (clanSearch != null) {
-            builder
-                    .name(clanSearch.getName())
-                    .score(clanSearch.getScore())
-                    .minMembers(clanSearch.getMinMembers())
-                    .maxMembers(clanSearch.getMaxMembers());
+            if (StringUtils.isNotBlank(clanSearch.getName())) {
+                builder.name(clanSearch.getName());
+            }
+            if (clanSearch.getScore() != null) {
+                builder.score(clanSearch.getScore());
+            }
+            if (clanSearch.getMinMembers() != null) {
+                builder.minMembers(clanSearch.getMinMembers());
+            }
+            if (clanSearch.getMaxMembers() != null) {
+                builder.maxMembers(clanSearch.getMaxMembers());
+            }
         }
         return getClanSearch(builder.build());
     }
@@ -226,50 +226,6 @@ class Client {
     Tournament getTournaments(TournamentsRequest tournamentsRequest) throws IOException {
         String json = createCrawler().get(createUrl("tournaments/" + tournamentsRequest.getTag()), createAuthHeader(developerKey));
         return new Gson().fromJson(json, Tournament.class);
-    }
-
-    Constants getConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants"), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, Constants.class);
-    }
-
-    Alliance getAllianceConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/alliance/"), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, Alliance.class);
-    }
-
-    List<Arena> getArenasConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/arenas/"), createAuthHeader(developerKey));
-        Type listType = new TypeToken<ArrayList<Arena>>(){}.getType();
-        return new Gson().fromJson(json, listType);
-    }
-
-    Badges getBadgesConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/badges/"), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, Badges.class);
-    }
-
-    ChestCycleList getChestCycleConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/chestCycle/"), createAuthHeader(developerKey));
-        return new Gson().fromJson(json, ChestCycleList.class);
-    }
-
-    List<CountryCode> getCountryCodesConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/countryCodes/"), createAuthHeader(developerKey));
-        Type listType = new TypeToken<ArrayList<CountryCode>>(){}.getType();
-        return new Gson().fromJson(json, listType);
-    }
-
-    List<Rarity> getRaritiesConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/rarities/"), createAuthHeader(developerKey));
-        Type listType = new TypeToken<ArrayList<Rarity>>(){}.getType();
-        return new Gson().fromJson(json, listType);
-    }
-
-    List<ConstantCard> getCardsConstants() throws IOException {
-        String json = createCrawler().get(createUrl("constants/cards/"), createAuthHeader(developerKey));
-        Type listType = new TypeToken<ArrayList<ConstantCard>>(){}.getType();
-        return new Gson().fromJson(json, listType);
     }
 
     Endpoints getEndpoints() throws IOException {

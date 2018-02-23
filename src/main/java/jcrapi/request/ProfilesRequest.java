@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Michael Lieshoff
  */
-public class ProfilesRequest extends Request {
+public class ProfilesRequest extends LimitedRequest {
 
     private final Collection<String> tags;
 
@@ -27,9 +27,9 @@ public class ProfilesRequest extends Request {
         return new ProfilesRequestBuilder(tags);
     }
 
-    public static class ProfilesRequestBuilder extends RequestBuilder<ProfilesRequest, ProfilesRequestBuilder> {
+    public static class ProfilesRequestBuilder extends LimitedRequestBuilder<ProfilesRequest, ProfilesRequestBuilder> {
 
-        private Collection<String> tags;
+        private final Collection<String> tags;
 
         public ProfilesRequestBuilder(Collection<String> tags) {
             this.tags = tags;

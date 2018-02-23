@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ClanHistoryRequestTest extends RequestTestBase<ClanHistoryRequest, ClanHistoryRequest.ClanHistoryRequestBuilder> {
+public class ClanHistoryRequestTest extends LimitedRequestTestBase<ClanHistoryRequest, ClanHistoryRequest.ClanHistoryRequestBuilder> {
 
     @Override
     ClanHistoryRequest.ClanHistoryRequestBuilder getBuilder() {
@@ -32,11 +32,6 @@ public class ClanHistoryRequestTest extends RequestTestBase<ClanHistoryRequest, 
     @Test
     public void shouldCreateBuilderWithCorrectClass() {
         assertEquals(ClanHistoryRequest.ClanHistoryRequestBuilder.class, ClanHistoryRequest.builder("abc").getClass());
-    }
-
-    @Test
-    public void shouldBeWithLimit() {
-        assertEquals(100, ClanHistoryRequest.builder("abc").limit(100).build().getLimit());
     }
 
 }
