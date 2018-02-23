@@ -16,9 +16,21 @@ public abstract class LimitedRequestTestBase<A extends LimitedRequest, B extends
 
     @Test
     public void shouldBeWithLimit() {
-        A request = getBuilder().limit(100).build();
-        assertEquals(100, request.getLimit());
-        assertEquals("100", request.getQueryParameters().get("limit"));
+        assertEquals(100, getLimitedRequest().getLimit());
+    }
+
+    private A getLimitedRequest() {
+        return getBuilder().limit(100).build();
+    }
+
+    @Test
+    public void shouldQueryWithLimit() {
+        assertEquals("100", getLimitedRequest().getQueryParameters().get("limit"));
+    }
+
+    @Test
+    public void shouldQueryWithMax() {
+        assertEquals("100", getLimitedRequest().getQueryParameters().get("max"));
     }
 
 }
