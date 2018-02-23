@@ -78,18 +78,6 @@ List<TopPlayer> topPlayersForEu = api.getTopPlayers(TopPlayerRequest.builder()
 ```
 
 ```java
-// constants
-Constants constants = api.getConstants();
-Alliance alliance = api.getAllianceConstants();
-List<Arena> arenas = api.getArenasConstants();
-Badges badges = api.getBadgesConstants();
-ChestCycleList chestCycleList = api.getChestCycleConstants();
-List<CountryCode> countryCodes = api.getCountryCodesConstants();
-List<Rarity> rarities = api.getRaritiesConstants();
-List<ConstantCard> constantCards = api.getCardsConstants();
-```
-
-```java
 // get endpoints
 Endpoints endpoints = api.getEndpoints();
 ```
