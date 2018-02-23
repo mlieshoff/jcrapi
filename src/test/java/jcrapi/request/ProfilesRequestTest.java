@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ProfilesRequestTest extends RequestTestBase<ProfilesRequest, ProfilesRequest.ProfilesRequestBuilder> {
+public class ProfilesRequestTest extends LimitedRequestTestBase<ProfilesRequest, ProfilesRequest.ProfilesRequestBuilder> {
 
     @Override
     ProfilesRequest.ProfilesRequestBuilder getBuilder() {
