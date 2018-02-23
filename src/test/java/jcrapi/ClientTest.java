@@ -214,8 +214,15 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanSearch() throws IOException {
-        when(crawler.get("lala/clan/search", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch((ClanSearch) null));
+        ClanSearch clanSearch = new ClanSearch();
+        clanSearch.setScore(50);
+        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder().put("score", "50").build())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(clanSearch));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failGetClanSearchWithoutCriteria() throws IOException {
+        createClient().getClanSearch((ClanSearch) null);
     }
 
     @Test
@@ -252,8 +259,8 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanSearchFromRequest() throws IOException {
-        when(crawler.get("lala/clan/search", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch(ClanSearchRequest.builder().build()));
+        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder().put("score", "50").build())).thenReturn("[{}]");
+        assertNotNull(createClient().getClanSearch(ClanSearchRequest.builder().score(50).build()));
     }
 
     @Test

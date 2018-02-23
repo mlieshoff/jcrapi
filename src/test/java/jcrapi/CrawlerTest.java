@@ -85,7 +85,7 @@ public class CrawlerTest {
         HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
         httpResponse.setEntity(new StringEntity(expectedResult));
         when(httpClient.execute((HttpUriRequest) anyObject())).thenReturn(httpResponse);
-        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(), null));
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders()));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class CrawlerTest {
     }
 
     @Test
-    public void shouldEncoding() throws IOException {
+    public void shouldEncodeParameters() throws IOException {
         String expectedResult = "break-out-prison";
         when(httpClientFactory.create()).thenReturn(httpClient);
         HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
@@ -114,12 +114,13 @@ public class CrawlerTest {
             public boolean matches(Object o) {
                 if (o instanceof HttpUriRequest) {
                     HttpUriRequest httpUriRequest = (HttpUriRequest) o;
-                    return httpUriRequest.getURI().getRawQuery().equals("param=a%2Bb");
+                    return httpUriRequest.getURI().getRawQuery().equals("param=a%2Bb&key=abc");
                 }
                 return false;
             }
         }))).thenReturn(httpResponse);
-        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(), ImmutableMap.<String, String>builder().put("param", "a+b").build()));
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(),
+                ImmutableMap.<String, String>builder().put("param", "a+b").put("key", "abc").build()));
     }
 
 }

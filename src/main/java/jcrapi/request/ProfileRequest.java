@@ -28,7 +28,7 @@ public class ProfileRequest extends Request {
 
     public static class ProfileRequestBuilder extends RequestBuilder<ProfileRequest, ProfileRequestBuilder> {
 
-        private String tag;
+        private final String tag;
 
         public ProfileRequestBuilder(String tag) {
             this.tag = tag;

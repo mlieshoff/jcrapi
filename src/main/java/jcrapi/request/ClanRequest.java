@@ -28,7 +28,7 @@ public class ClanRequest extends Request {
 
     public static class ClanRequestBuilder extends RequestBuilder<ClanRequest, ClanRequestBuilder> {
 
-        private String tag;
+        private final String tag;
 
         public ClanRequestBuilder(String tag) {
             this.tag = tag;
