@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequestTest extends RequestTestBase<ClanSearchRequest, ClanSearchRequest.ClanSearchRequestBuilder> {
+public class ClanSearchRequestTest extends LocationedRequestTestBase<ClanSearchRequest, ClanSearchRequest.ClanSearchRequestBuilder> {
 
     @Override
     ClanSearchRequest.ClanSearchRequestBuilder getBuilder() {
