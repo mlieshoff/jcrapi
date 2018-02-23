@@ -19,13 +19,8 @@ public abstract class LocationedRequestTestBase<A extends LocationedRequest, B e
     }
 
     @Test
-    public void shouldQueryWithLocationKey() {
-        assertEquals("EU", getLocationedRequest().getQueryParameters().get("locationKey"));
-    }
-
-    @Test
-    public void shouldQueryWithLocationId() {
-        assertEquals("EU", getLocationedRequest().getQueryParameters().get("locationId"));
+    public void shouldGetLocationKey() {
+        assertEquals("EU", getLocationedRequest().getLocationKey());
     }
 
 }

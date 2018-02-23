@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequestTest extends LocationedRequestTestBase<ClanSearchRequest, ClanSearchRequest.ClanSearchRequestBuilder> {
+public class ClanSearchRequestTest extends LimitedRequestTestBase<ClanSearchRequest, ClanSearchRequest.ClanSearchRequestBuilder> {
 
     @Override
     ClanSearchRequest.ClanSearchRequestBuilder getBuilder() {
@@ -31,8 +31,28 @@ public class ClanSearchRequestTest extends LocationedRequestTestBase<ClanSearchR
     }
 
     @Test
+    public void shouldQueryWithName() {
+        assertEquals("abc", ClanSearchRequest.builder().name("abc").build().getQueryParameters().get("name"));
+    }
+
+    @Test
+    public void shouldBeWithLocationId() {
+        assertEquals("EU", ClanSearchRequest.builder().locationId("EU").name("abc").build().getLocationId());
+    }
+
+    @Test
+    public void shouldQueryWithLocationId() {
+        assertEquals("EU", ClanSearchRequest.builder().locationId("EU").name("abc").build().getQueryParameters().get("locationId"));
+    }
+
+    @Test
     public void shouldBeWithScore() {
         assertEquals(42, ClanSearchRequest.builder().score(42).build().getScore().intValue());
+    }
+
+    @Test
+    public void shouldQueryWithScore() {
+        assertEquals("42", ClanSearchRequest.builder().score(42).build().getQueryParameters().get("score"));
     }
 
     @Test
@@ -41,8 +61,18 @@ public class ClanSearchRequestTest extends LocationedRequestTestBase<ClanSearchR
     }
 
     @Test
+    public void shouldQueryWithMinMembers() {
+        assertEquals("20", ClanSearchRequest.builder().minMembers(20).build().getQueryParameters().get("minMembers"));
+    }
+
+    @Test
     public void shouldBeWithMaxMembers() {
         assertEquals(50, ClanSearchRequest.builder().maxMembers(50).build().getMaxMembers().intValue());
+    }
+
+    @Test
+    public void shouldQueryWithMaxMembers() {
+        assertEquals("50", ClanSearchRequest.builder().maxMembers(50).build().getQueryParameters().get("maxMembers"));
     }
 
     @Test(expected = IllegalArgumentException.class)
