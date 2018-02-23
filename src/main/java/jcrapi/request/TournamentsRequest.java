@@ -11,8 +11,8 @@ public class TournamentsRequest extends Request {
 
     private final String tag;
 
-    private TournamentsRequest(String tag, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private TournamentsRequest(String tag, List<String> excludes, List<String> includes) {
+        super(excludes, includes);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
@@ -36,7 +36,7 @@ public class TournamentsRequest extends Request {
 
         @Override
         public TournamentsRequest build() {
-            return new TournamentsRequest(tag, limit, excludes, keys);
+            return new TournamentsRequest(tag, excludes, keys);
         }
 
         @Override

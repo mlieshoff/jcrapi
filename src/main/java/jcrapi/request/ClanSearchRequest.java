@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequest extends Request {
+public class ClanSearchRequest extends LimitedRequest {
 
     private final String name;
 
@@ -69,7 +69,7 @@ public class ClanSearchRequest extends Request {
         return new ClanSearchRequestBuilder();
     }
 
-    public static class ClanSearchRequestBuilder extends RequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
+    public static class ClanSearchRequestBuilder extends LimitedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
 
         private String name;
 
