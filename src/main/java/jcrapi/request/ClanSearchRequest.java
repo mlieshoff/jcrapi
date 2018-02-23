@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequest extends LimitedRequest {
+public class ClanSearchRequest extends LocationedRequest {
 
     private final String name;
 
@@ -17,9 +17,9 @@ public class ClanSearchRequest extends LimitedRequest {
     private final Integer minMembers;
     private final Integer maxMembers;
 
-    public ClanSearchRequest(String name, Integer score, Integer minMembers, Integer maxMembers, int limit, List<String> excludes,
-                             List<String> keys) {
-        super(limit, excludes, keys);
+    private ClanSearchRequest(String name, Integer score, Integer minMembers, Integer maxMembers, String locationKey,
+                             int limit, List<String> excludes, List<String> keys) {
+        super(locationKey, limit, excludes, keys);
         Preconditions.checkArgument(
                 !(StringUtils.isBlank(name)
                         && score == null
@@ -69,7 +69,7 @@ public class ClanSearchRequest extends LimitedRequest {
         return new ClanSearchRequestBuilder();
     }
 
-    public static class ClanSearchRequestBuilder extends LimitedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
+    public static class ClanSearchRequestBuilder extends LocationedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
 
         private String name;
 
@@ -99,7 +99,7 @@ public class ClanSearchRequest extends LimitedRequest {
 
         @Override
         public ClanSearchRequest build() {
-            return new ClanSearchRequest(name, score, minMembers, maxMembers, limit, excludes, keys);
+            return new ClanSearchRequest(name, score, minMembers, maxMembers, locationKey, limit, excludes, keys);
         }
 
         @Override

@@ -5,31 +5,17 @@ import java.util.List;
 /**
  * @author Michael Lieshoff
  */
-public class TopClansRequest extends LimitedRequest {
-
-    private final String locationKey;
+public class TopClansRequest extends LocationedRequest {
 
     private TopClansRequest(String locationKey, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
-        this.locationKey = locationKey;
-    }
-
-    public String getLocationKey() {
-        return locationKey;
+        super(locationKey, limit, excludes, includes);
     }
 
     public static TopClansRequestBuilder builder() {
         return new TopClansRequestBuilder();
     }
 
-    public static class TopClansRequestBuilder extends LimitedRequestBuilder<TopClansRequest, TopClansRequestBuilder> {
-
-        private String locationKey;
-
-        public TopClansRequestBuilder locationKey(String locationKey) {
-            this.locationKey = locationKey;
-            return getThis();
-        }
+    public static class TopClansRequestBuilder extends LocationedRequestBuilder<TopClansRequest, TopClansRequestBuilder> {
 
         @Override
         public TopClansRequest build() {
