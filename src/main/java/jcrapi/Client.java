@@ -98,7 +98,7 @@ class Client {
             headerKey = HttpHeaders.AUTHORIZATION;
             headerValue = "Bearer " + developerKey;
         }
-        return ImmutableMap.<String, String>builder().put(headerKey, developerKey).build();
+        return ImmutableMap.<String, String>builder().put(headerKey, headerValue).build();
     }
 
     private Crawler createCrawler() {

@@ -50,10 +50,12 @@ public class TestJsonFileServlet extends HttpServlet {
 
     public boolean checkAuth(HttpServletRequest req) {
         String auth = req.getHeader("auth");
-        if (StringUtils.isBlank(auth)) {
+        if (StringUtils.isNotBlank(auth)) {
+            return IntegrationTest.AUTH.equals(auth);
+        } else {
             auth = req.getHeader(HttpHeaders.AUTHORIZATION);
+            return ("Bearer " + IntegrationTest.AUTH).equals(auth);
         }
-        return IntegrationTest.AUTH.equals(auth);
     }
 
 }
