@@ -24,6 +24,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
@@ -70,6 +71,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
         jettyServer.addServlet("/" + APP + "/popular/clans", new TestPopularClansServlet());
         jettyServer.addServlet("/" + APP + "/popular/players", new TestPopularPlayersServlet());
+        jettyServer.addServlet("/" + APP + "/tournaments/known", new TestKnownTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/open", new TestOpenTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
         jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
@@ -545,6 +547,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetOpenTournamentsBecauseWrongAuthFromRequest() throws IOException {
         doGetOpenTournamentsFromRequest(URL, "abc", OpenTournamentsRequest.builder().build());
+    }
+
+    @Test
+    public void shouldGetKnownTournamentsWithAuthFromRequest() throws IOException {
+        doGetKnownTournamentsFromRequest(URL, AUTH, KnownTournamentsRequest.builder().build());
+    }
+
+    private void doGetKnownTournamentsFromRequest(String url, String auth, KnownTournamentsRequest KnownTournamentsRequest) {
+        assertTrue(new Api(url, auth).getKnownTournaments(KnownTournamentsRequest).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetKnownTournamentsBecauseWrongAuthFromRequest() throws IOException {
+        doGetKnownTournamentsFromRequest(URL, "abc", KnownTournamentsRequest.builder().build());
     }
 
 }

@@ -22,6 +22,8 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -405,6 +407,20 @@ public class ClientTest {
         ClanHistoryRequest clanHistoryRequest = ClanHistoryRequest.builder("xyz").build();
         when(crawler.get("lala/clan/xyz/history", createHeaders(), clanHistoryRequest.getQueryParameters())).thenReturn("{}");
         assertNotNull(createClient().getClanHistory(clanHistoryRequest));
+    }
+
+    @Test
+    public void shouldGetOpenTournaments() throws IOException {
+        OpenTournamentsRequest openTournamentsRequest = OpenTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/open", createHeaders(), openTournamentsRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getOpenTournaments(openTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetKnownTournaments() throws IOException {
+        KnownTournamentsRequest knownTournamentsRequest = KnownTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/known", createHeaders(), knownTournamentsRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getKnownTournaments(knownTournamentsRequest));
     }
 
 }

@@ -152,6 +152,15 @@ List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsReq
     .build());
 ```
 
+```java
+// get known tournaments
+List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournamentsRequest.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .limit(10)
+    .build());
+```
+
 ## How to bind the bintray repository ##
 
 ```xml
