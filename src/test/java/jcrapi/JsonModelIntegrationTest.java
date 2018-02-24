@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import jcrapi.model.Battle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
+import jcrapi.model.OpenTournament;
 import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
@@ -97,6 +98,11 @@ public class JsonModelIntegrationTest {
     @Test
     public void shouldResolveClanHistory() throws Exception {
         assertType("clanHistory.json", ClanHistory.class);
+    }
+
+    @Test
+    public void shouldResolveOpenTournaments() throws Exception {
+        assertListType("openTournaments.json", OpenTournament.class);
     }
 
 }

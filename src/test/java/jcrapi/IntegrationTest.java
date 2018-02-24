@@ -24,6 +24,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -69,6 +70,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
         jettyServer.addServlet("/" + APP + "/popular/clans", new TestPopularClansServlet());
         jettyServer.addServlet("/" + APP + "/popular/players", new TestPopularPlayersServlet());
+        jettyServer.addServlet("/" + APP + "/tournaments/open", new TestOpenTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
         jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
         jettyServer.start();
@@ -529,6 +531,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetClanHistoryBecauseWrongAuthFromRequest() throws IOException {
         doGetClanHistoryFromRequest(URL, "abc", ClanHistoryRequest.builder("abc").build());
+    }
+
+    @Test
+    public void shouldGetOpenTournamentsWithAuthFromRequest() throws IOException {
+        doGetOpenTournamentsFromRequest(URL, AUTH, OpenTournamentsRequest.builder().build());
+    }
+
+    private void doGetOpenTournamentsFromRequest(String url, String auth, OpenTournamentsRequest openTournamentsRequest) {
+        assertTrue(new Api(url, auth).getOpenTournaments(openTournamentsRequest).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetOpenTournamentsBecauseWrongAuthFromRequest() throws IOException {
+        doGetOpenTournamentsFromRequest(URL, "abc", OpenTournamentsRequest.builder().build());
     }
 
 }
