@@ -6,7 +6,8 @@
 
 ```java
 // connect to api
-Api api = new Api("http://api.cr-api.com/", "my-developer-key");
+Api api = new Api("http://api.cr-api.com/", "my-developer-key"); // standard auth mode
+Api api = new Api("http://api.cr-api.com/", "my-developer-key", AuthMode.BEARER);
 ```
 
 ```java
