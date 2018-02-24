@@ -16,11 +16,12 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
+import javax.annotation.Generated;
+
 @Generated("org.mili.generator")
-public class Tournament {
+public class OpenTournament {
 
     @SerializedName("tag")
     private String tag;
@@ -34,11 +35,11 @@ public class Tournament {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("description")
-    private String description;
-
     @SerializedName("capacity")
     private int capacity;
+
+    @SerializedName("playerCount")
+    private int playerCount;
 
     @SerializedName("maxCapacity")
     private int maxCapacity;
@@ -49,20 +50,14 @@ public class Tournament {
     @SerializedName("duration")
     private int duration;
 
-    @SerializedName("endedTime")
-    private String endedTime;
-
-    @SerializedName("startTime")
-    private long startTime;
-
     @SerializedName("createTime")
     private long createTime;
 
-    @SerializedName("creator")
-    private TournamentParticipant creator;
+    @SerializedName("startTime")
+    private String startTime;
 
-    @SerializedName("members")
-    private java.util.List<TournamentParticipant> members;
+    @SerializedName("endTime")
+    private String endTime;
 
     public void setTag(String tag) {
         this.tag = tag;
@@ -96,20 +91,20 @@ public class Tournament {
         return name;
     }
     
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
     
     public int getCapacity() {
         return capacity;
+    }
+    
+    public void setPlayerCount(int playerCount) {
+        this.playerCount = playerCount;
+    }
+    
+    public int getPlayerCount() {
+        return playerCount;
     }
     
     public void setMaxCapacity(int maxCapacity) {
@@ -136,22 +131,6 @@ public class Tournament {
         return duration;
     }
     
-    public void setEndedTime(String endedTime) {
-        this.endedTime = endedTime;
-    }
-    
-    public String getEndedTime() {
-        return endedTime;
-    }
-    
-    public void setStartTime(long startTime) {
-        this.startTime = startTime;
-    }
-    
-    public long getStartTime() {
-        return startTime;
-    }
-    
     public void setCreateTime(long createTime) {
         this.createTime = createTime;
     }
@@ -160,25 +139,25 @@ public class Tournament {
         return createTime;
     }
     
-    public void setCreator(TournamentParticipant creator) {
-        this.creator = creator;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
     
-    public TournamentParticipant getCreator() {
-        return creator;
+    public String getStartTime() {
+        return startTime;
     }
     
-    public void setMembers(java.util.List<TournamentParticipant> members) {
-        this.members = members;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
     
-    public java.util.List<TournamentParticipant> getMembers() {
-        return members;
+    public String getEndTime() {
+        return endTime;
     }
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Tournament{");
+        s.append("OpenTournament{");
         s.append("tag=");
         s.append(tag);
         s.append(", ");
@@ -191,11 +170,11 @@ public class Tournament {
         s.append("name=");
         s.append(name);
         s.append(", ");
-        s.append("description=");
-        s.append(description);
-        s.append(", ");
         s.append("capacity=");
         s.append(capacity);
+        s.append(", ");
+        s.append("playerCount=");
+        s.append(playerCount);
         s.append(", ");
         s.append("maxCapacity=");
         s.append(maxCapacity);
@@ -206,20 +185,14 @@ public class Tournament {
         s.append("duration=");
         s.append(duration);
         s.append(", ");
-        s.append("endedTime=");
-        s.append(endedTime);
+        s.append("createTime=");
+        s.append(createTime);
         s.append(", ");
         s.append("startTime=");
         s.append(startTime);
         s.append(", ");
-        s.append("createTime=");
-        s.append(createTime);
-        s.append(", ");
-        s.append("creator=");
-        s.append(creator);
-        s.append(", ");
-        s.append("members=");
-        s.append(members);
+        s.append("endTime=");
+        s.append(endTime);
         s.append("}");
         return s.toString();
     }

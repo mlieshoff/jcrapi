@@ -24,13 +24,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class TournamentTest {
+public class OpenTournamentTest {
 
-    private Tournament unitUnderTest;
+    private OpenTournament unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new Tournament();
+        unitUnderTest = new OpenTournament();
     }
 
     @Test
@@ -62,17 +62,17 @@ public class TournamentTest {
     }
 
     @Test
-    public void shouldGetSetDescription() {
-        String expected = "astring";
-        unitUnderTest.setDescription(expected);
-        assertEquals(expected, unitUnderTest.getDescription());
-    }
-
-    @Test
     public void shouldGetSetCapacity() {
         int expected = 815;
         unitUnderTest.setCapacity(expected);
         assertEquals(expected, unitUnderTest.getCapacity());
+    }
+
+    @Test
+    public void shouldGetSetPlayerCount() {
+        int expected = 815;
+        unitUnderTest.setPlayerCount(expected);
+        assertEquals(expected, unitUnderTest.getPlayerCount());
     }
 
     @Test
@@ -97,20 +97,6 @@ public class TournamentTest {
     }
 
     @Test
-    public void shouldGetSetEndedTime() {
-        String expected = "astring";
-        unitUnderTest.setEndedTime(expected);
-        assertEquals(expected, unitUnderTest.getEndedTime());
-    }
-
-    @Test
-    public void shouldGetSetStartTime() {
-        long expected = 4711L;
-        unitUnderTest.setStartTime(expected);
-        assertEquals(expected, unitUnderTest.getStartTime());
-    }
-
-    @Test
     public void shouldGetSetCreateTime() {
         long expected = 4711L;
         unitUnderTest.setCreateTime(expected);
@@ -118,17 +104,17 @@ public class TournamentTest {
     }
 
     @Test
-    public void shouldGetSetCreator() {
-        TournamentParticipant expected = new TournamentParticipant();
-        unitUnderTest.setCreator(expected);
-        assertEquals(expected, unitUnderTest.getCreator());
+    public void shouldGetSetStartTime() {
+        String expected = "astring";
+        unitUnderTest.setStartTime(expected);
+        assertEquals(expected, unitUnderTest.getStartTime());
     }
 
     @Test
-    public void shouldGetSetMembers() {
-        java.util.List<TournamentParticipant> expected = new java.util.ArrayList<TournamentParticipant>();
-        unitUnderTest.setMembers(expected);
-        assertEquals(expected, unitUnderTest.getMembers());
+    public void shouldGetSetEndTime() {
+        String expected = "astring";
+        unitUnderTest.setEndTime(expected);
+        assertEquals(expected, unitUnderTest.getEndTime());
     }
 
     @Test
@@ -137,17 +123,15 @@ public class TournamentTest {
         unitUnderTest.setType("astring");
         unitUnderTest.setStatus("astring");
         unitUnderTest.setName("astring");
-        unitUnderTest.setDescription("astring");
         unitUnderTest.setCapacity(815);
+        unitUnderTest.setPlayerCount(815);
         unitUnderTest.setMaxCapacity(815);
         unitUnderTest.setPreparationDuration(815);
         unitUnderTest.setDuration(815);
-        unitUnderTest.setEndedTime("astring");
-        unitUnderTest.setStartTime(4711L);
         unitUnderTest.setCreateTime(4711L);
-        unitUnderTest.setCreator(new TournamentParticipant());
-        unitUnderTest.setMembers(new java.util.ArrayList<TournamentParticipant>());
-        String expected = "Tournament{tag=astring, type=astring, status=astring, name=astring, description=astring, capacity=815, maxCapacity=815, preparationDuration=815, duration=815, endedTime=astring, startTime=4711, createTime=4711, creator=" + new TournamentParticipant() + ", members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
+        unitUnderTest.setStartTime("astring");
+        unitUnderTest.setEndTime("astring");
+        String expected = "OpenTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, maxCapacity=815, preparationDuration=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

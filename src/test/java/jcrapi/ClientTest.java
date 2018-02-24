@@ -82,7 +82,7 @@ public class ClientTest {
 
     @Test
     public void shouldGetVersion() throws IOException {
-        when(crawler.get("lala/version", createHeaders())).thenReturn("1.0");
+        when(crawler.get("lala/version", createHeaders(), null)).thenReturn("1.0");
         assertEquals("1.0", createClient().getVersion());
     }
 
@@ -221,7 +221,7 @@ public class ClientTest {
     @Test
     public void shouldGetClans() throws IOException {
         List<String> tags = createTags();
-        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getClans(tags));
     }
 
@@ -238,7 +238,7 @@ public class ClientTest {
     @Test
     public void shouldGetClansFromRequest() throws IOException {
         List<String> tags = createTags();
-        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders())).thenReturn("[{}]");
+        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getClans(ClansRequest.builder(tags).build()));
     }
 
@@ -338,7 +338,7 @@ public class ClientTest {
 
     @Test
     public void shouldGetEndpoint() throws IOException {
-        when(crawler.get("lala/endpoints", createHeaders())).thenReturn("[]");
+        when(crawler.get("lala/endpoints", createHeaders(), null)).thenReturn("[]");
         assertNotNull(createClient().getEndpoints());
     }
 

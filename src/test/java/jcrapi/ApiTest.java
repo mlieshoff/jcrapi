@@ -21,6 +21,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.Endpoints;
+import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
@@ -32,6 +33,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -882,6 +884,33 @@ public class ApiTest {
         when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClanHistory(ClanHistoryRequest.builder("abc").build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetOpenTournamentsFromRequest() throws Exception {
+        List<OpenTournament> openTournaments = new ArrayList<>();
+        when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenReturn(openTournaments);
+        assertSame(openTournaments, api.getOpenTournaments(OpenTournamentsRequest.builder().build()));
+    }
+
+    private Matcher<OpenTournamentsRequest> getOpenTournamentsRequestArgumentMatcher() {
+        return new ArgumentMatcher<OpenTournamentsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof OpenTournamentsRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetOpenTournamentsFromRequest() throws Exception {
+        when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getOpenTournaments(OpenTournamentsRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
