@@ -62,17 +62,22 @@ public class ClientTest {
 
     @Test(expected = NullPointerException.class)
     public void failCreateBecauseNullUrl() {
-        new Client(null, "abc", crawlerFactory);
+        new Client(null, "abc", AuthMode.NORMAL, crawlerFactory);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void failCreateBecauseEmptyUrl() {
-        new Client("", "abc", crawlerFactory);
+        new Client("", "abc", AuthMode.NORMAL, crawlerFactory);
     }
 
     @Test(expected = NullPointerException.class)
     public void failCreateBecauseNullCrawlerFactory() {
-        new Client("abc", "abc", null);
+        new Client("abc", "abc", AuthMode.NORMAL, null);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failCreateBecauseNullAuthMode() {
+        new Client("abc", "abc", null, crawlerFactory);
     }
 
     @Test
@@ -86,7 +91,7 @@ public class ClientTest {
     }
 
     private Client createClient() {
-        return new Client("lala/", "abc", crawlerFactory);
+        return new Client("lala/", "abc", AuthMode.NORMAL, crawlerFactory);
     }
 
     @Test(expected = NullPointerException.class)

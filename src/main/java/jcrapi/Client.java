@@ -46,6 +46,7 @@ import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
 import jcrapi.request.TournamentsRequest;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.HttpHeaders;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -60,15 +61,18 @@ class Client {
 
     private final String url;
     private final String developerKey;
+    private final AuthMode authMode;
 
     private final CrawlerFactory crawlerFactory;
 
-    Client(String url, String developerKey, CrawlerFactory crawlerFactory) {
+    Client(String url, String developerKey, AuthMode authMode, CrawlerFactory crawlerFactory) {
         checkString(url);
         Preconditions.checkNotNull(crawlerFactory);
+        Preconditions.checkNotNull(authMode);
         this.url = url;
         this.developerKey = developerKey;
         this.crawlerFactory = crawlerFactory;
+        this.authMode = authMode;
     }
 
     private void checkString(String url) {
@@ -81,7 +85,13 @@ class Client {
     }
 
     private Map<String, String> createAuthHeader(String developerKey) {
-        return ImmutableMap.<String, String>builder().put("auth", developerKey).build();
+        String headerKey = "auth";
+        String headerValue = developerKey;
+        if (authMode == AuthMode.BEARER) {
+            headerKey = HttpHeaders.AUTHORIZATION;
+            headerValue = "Bearer " + developerKey;
+        }
+        return ImmutableMap.<String, String>builder().put(headerKey, developerKey).build();
     }
 
     private Crawler createCrawler() {

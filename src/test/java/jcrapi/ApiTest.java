@@ -69,8 +69,8 @@ public class ApiTest {
     public void setUp() {
         ClientFactory clientFactory = Mockito.mock(ClientFactory.class);
         client = Mockito.mock(Client.class);
-        when(clientFactory.createClient("lala", "abc")).thenReturn(client);
-        api = new Api("lala", "abc", clientFactory);
+        when(clientFactory.createClient("lala", "abc", AuthMode.NORMAL)).thenReturn(client);
+        api = new Api("lala", "abc", clientFactory, AuthMode.NORMAL);
     }
 
     @Test(expected = NullPointerException.class)

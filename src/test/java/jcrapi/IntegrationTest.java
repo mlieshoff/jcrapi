@@ -123,6 +123,20 @@ public class IntegrationTest {
     }
 
     @Test
+    public void shouldGetProfileWithAuthFromRequestWithBearer() throws IOException {
+        doGetProfileWithBearer(URL, AUTH, ProfileRequest.builder("8L9L9GL").build());
+    }
+
+    private void doGetProfileWithBearer(String url, String auth, ProfileRequest profileRequest) {
+        assertEquals(profileRequest.getTag(), new Api(url, auth, AuthMode.BEARER).getProfile(profileRequest).getTag());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetProfileBecauseWrongAuthFromRequestWithBearer() throws IOException {
+        doGetProfileWithBearer(URL, "abc", ProfileRequest.builder("8L9L9GL").build());
+    }
+
+    @Test
     public void shouldGetProfilesWithAuth() throws IOException {
         doGetProfiles(URL, AUTH, createProfileTags());
     }

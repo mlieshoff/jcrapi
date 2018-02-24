@@ -55,17 +55,23 @@ public class Api {
 
     private final String url;
     private final String developerKey;
+    private AuthMode authMode;
 
     public Api(String url, String developerKey) {
-        this(url, developerKey, new ClientFactory());
+        this(url, developerKey, new ClientFactory(), AuthMode.NORMAL);
     }
 
-    Api(String url, String developerKey, ClientFactory clientFactory) {
+    public Api(String url, String developerKey, AuthMode authMode) {
+        this(url, developerKey, new ClientFactory(), authMode);
+    }
+
+    Api(String url, String developerKey, ClientFactory clientFactory, AuthMode authMode) {
         checkString(url, "url");
         checkString(developerKey, "developerKey");
         this.url = url;
         this.developerKey = developerKey;
         this.clientFactory = clientFactory;
+        this.authMode = authMode;
     }
 
     private void checkString(String s, String key) {
@@ -75,10 +81,14 @@ public class Api {
 
     public String getVersion() {
         try {
-            return clientFactory.createClient(url, developerKey).getVersion();
+            return createClient().getVersion();
         } catch (IOException e) {
             throw new ApiException(e);
         }
+    }
+
+    private Client createClient() {
+        return clientFactory.createClient(url, developerKey, authMode);
     }
 
     @Deprecated
@@ -89,7 +99,7 @@ public class Api {
     public Profile getProfile(ProfileRequest profileRequest) {
         Preconditions.checkNotNull(profileRequest, "profileRequest");
         try {
-            return clientFactory.createClient(url, developerKey).getProfile(profileRequest);
+            return createClient().getProfile(profileRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -103,7 +113,7 @@ public class Api {
     public List<Profile> getProfiles(ProfilesRequest profilesRequest) {
         Preconditions.checkNotNull(profilesRequest, "profilesRequest");
         try {
-            return clientFactory.createClient(url, developerKey).getProfiles(profilesRequest);
+            return createClient().getProfiles(profilesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -116,8 +126,7 @@ public class Api {
     @Deprecated
     public List<TopClan> getTopClans(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopClans(
-                    TopClansRequest.builder().locationKey(locationKey).build()
+            return createClient().getTopClans(TopClansRequest.builder().locationKey(locationKey).build()
             );
         } catch (IOException e) {
             throw new ApiException(e);
@@ -126,7 +135,7 @@ public class Api {
 
     public List<TopClan> getTopClans(TopClansRequest topClansRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopClans(topClansRequest);
+            return createClient().getTopClans(topClansRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -140,7 +149,7 @@ public class Api {
     public Clan getClan(ClanRequest clanRequest) {
         Preconditions.checkNotNull(clanRequest);
         try {
-            return clientFactory.createClient(url, developerKey).getClan(clanRequest);
+            return createClient().getClan(clanRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -149,7 +158,7 @@ public class Api {
     public List<Clan> getClans(List<String> tags) {
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         try {
-            return clientFactory.createClient(url, developerKey).getClans(tags);
+            return createClient().getClans(tags);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -158,7 +167,7 @@ public class Api {
     @Deprecated
     public List<Clan> getClanSearch(ClanSearch clanSearch) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanSearch(clanSearch);
+            return createClient().getClanSearch(clanSearch);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -166,7 +175,7 @@ public class Api {
 
     public List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanSearch(clanSearchRequest);
+            return createClient().getClanSearch(clanSearchRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -179,9 +188,7 @@ public class Api {
     @Deprecated
     public List<TopPlayer> getTopPlayers(String locationKey) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopPlayers(
-                    TopPlayersRequest.builder().locationKey(locationKey).build()
-            );
+            return createClient().getTopPlayers(TopPlayersRequest.builder().locationKey(locationKey).build());
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -189,7 +196,7 @@ public class Api {
 
     public List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getTopPlayers(topPlayersRequest);
+            return createClient().getTopPlayers(topPlayersRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -203,7 +210,7 @@ public class Api {
     public Tournament getTournaments(TournamentsRequest tournamentsRequest) {
         Preconditions.checkNotNull(tournamentsRequest);
         try {
-            return clientFactory.createClient(url, developerKey).getTournaments(tournamentsRequest);
+            return createClient().getTournaments(tournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -211,7 +218,7 @@ public class Api {
 
     public Endpoints getEndpoints() {
         try {
-            return clientFactory.createClient(url, developerKey).getEndpoints();
+            return createClient().getEndpoints();
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -224,7 +231,7 @@ public class Api {
 
     public List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getPopularClans(popularClansRequest);
+            return createClient().getPopularClans(popularClansRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -237,7 +244,7 @@ public class Api {
 
     public List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getPopularPlayers(popularPlayersRequest);
+            return createClient().getPopularPlayers(popularPlayersRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -250,7 +257,7 @@ public class Api {
 
     public List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getPopularTournaments(popularTournamentsRequest);
+            return createClient().getPopularTournaments(popularTournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -263,7 +270,7 @@ public class Api {
 
     public List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanBattles(clanBattlesRequest);
+            return createClient().getClanBattles(clanBattlesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -276,13 +283,10 @@ public class Api {
 
     public ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) {
         try {
-            return clientFactory.createClient(url, developerKey).getClanHistory(clanHistoryRequest);
+            return createClient().getClanHistory(clanHistoryRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
 }
-
-
-
