@@ -21,6 +21,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.Endpoints;
+import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularPlayer;
@@ -33,6 +34,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
@@ -911,6 +913,33 @@ public class ApiTest {
         when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getOpenTournaments(OpenTournamentsRequest.builder().build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetKnownTournamentsFromRequest() throws Exception {
+        List<KnownTournament> KnownTournaments = new ArrayList<>();
+        when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenReturn(KnownTournaments);
+        assertSame(KnownTournaments, api.getKnownTournaments(KnownTournamentsRequest.builder().build()));
+    }
+
+    private Matcher<KnownTournamentsRequest> getKnownTournamentsRequestArgumentMatcher() {
+        return new ArgumentMatcher<KnownTournamentsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof KnownTournamentsRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetKnownTournamentsFromRequest() throws Exception {
+        when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getKnownTournaments(KnownTournamentsRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

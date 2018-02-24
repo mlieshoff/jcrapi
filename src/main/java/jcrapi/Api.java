@@ -22,6 +22,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.Endpoints;
+import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularPlayer;
@@ -34,6 +35,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
@@ -294,6 +296,14 @@ public class Api {
     public List<OpenTournament> getOpenTournaments(OpenTournamentsRequest openTournamentsRequest) {
         try {
             return createClient().getOpenTournaments(openTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<KnownTournament> getKnownTournaments(KnownTournamentsRequest KnownTournamentsRequest) {
+        try {
+            return createClient().getKnownTournaments(KnownTournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
