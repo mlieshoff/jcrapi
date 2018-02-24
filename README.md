@@ -143,6 +143,15 @@ ClanHistory clanHistory = api.getClanHistory(ClanHistoryRequest.builder("RP88QQG
     .build());
 ```
 
+```java
+// get open tournaments
+List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsRequest.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .limit(10)
+    .build());
+```
+
 ## How to bind the bintray repository ##
 
 ```xml
