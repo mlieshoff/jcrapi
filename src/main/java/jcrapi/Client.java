@@ -41,6 +41,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
+import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -291,6 +292,13 @@ class Client {
     List<KnownTournament> getKnownTournaments(KnownTournamentsRequest knownTournamentsRequest) throws IOException {
         String json = get(createUrl("tournaments/known"), knownTournamentsRequest);
         Type listType = new TypeToken<ArrayList<KnownTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<Battle> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) throws IOException {
+        String json = get(createUrl("player/" + StringUtils.join(playerBattlesRequest.getTags(), ",")
+                + "/battles"), playerBattlesRequest);
+        Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 

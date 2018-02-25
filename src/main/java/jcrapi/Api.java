@@ -37,6 +37,7 @@ import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
+import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -301,9 +302,17 @@ public class Api {
         }
     }
 
-    public List<KnownTournament> getKnownTournaments(KnownTournamentsRequest KnownTournamentsRequest) {
+    public List<KnownTournament> getKnownTournaments(KnownTournamentsRequest knownTournamentsRequest) {
         try {
-            return createClient().getKnownTournaments(KnownTournamentsRequest);
+            return createClient().getKnownTournaments(knownTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<Battle> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) {
+        try {
+            return createClient().getPlayerBattles(playerBattlesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

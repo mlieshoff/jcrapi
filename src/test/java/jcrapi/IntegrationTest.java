@@ -26,6 +26,7 @@ import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
+import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -554,13 +555,27 @@ public class IntegrationTest {
         doGetKnownTournamentsFromRequest(URL, AUTH, KnownTournamentsRequest.builder().build());
     }
 
-    private void doGetKnownTournamentsFromRequest(String url, String auth, KnownTournamentsRequest KnownTournamentsRequest) {
-        assertTrue(new Api(url, auth).getKnownTournaments(KnownTournamentsRequest).size() > 0);
+    private void doGetKnownTournamentsFromRequest(String url, String auth, KnownTournamentsRequest knownTournamentsRequest) {
+        assertTrue(new Api(url, auth).getKnownTournaments(knownTournamentsRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
     public void failGetKnownTournamentsBecauseWrongAuthFromRequest() throws IOException {
         doGetKnownTournamentsFromRequest(URL, "abc", KnownTournamentsRequest.builder().build());
+    }
+
+    @Test
+    public void shouldGetPlayerBattlesWithAuthFromRequest() throws IOException {
+        doGetPlayerBattlesFromRequest(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags()).build());
+    }
+
+    private void doGetPlayerBattlesFromRequest(String url, String auth, PlayerBattlesRequest playerBattlesRequest) {
+        assertTrue(new Api(url, auth).getPlayerBattles(playerBattlesRequest).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPlayerBattlesBecauseWrongAuthFromRequest() throws IOException {
+        doGetPlayerBattlesFromRequest(URL, "abc", PlayerBattlesRequest.builder(createProfileTags()).build());
     }
 
 }
