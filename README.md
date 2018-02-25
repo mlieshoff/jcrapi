@@ -170,6 +170,15 @@ List<Battle> battles = api.getPlayerBattles(PlayerBattlesRequest.builder(Arrays.
     .build());
 ```
 
+```java
+// get player chests
+ChestCycle chestCycle = api.getPlayerChests(PlayerChestsRequest.builder(Arrays.asList("L88P2282", "9CQ2U8QJ", "8L9L9GL"))
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .limit(10)
+    .build());
+```
+
 ## How to bind the bintray repository ##
 
 ```xml

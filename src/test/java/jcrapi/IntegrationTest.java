@@ -27,6 +27,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
+import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -44,6 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -576,6 +578,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetPlayerBattlesBecauseWrongAuthFromRequest() throws IOException {
         doGetPlayerBattlesFromRequest(URL, "abc", PlayerBattlesRequest.builder(createProfileTags()).build());
+    }
+
+    @Test
+    public void shouldGetPlayerChestsWithAuthFromRequest() throws IOException {
+        doGetPlayerChestsFromRequest(URL, AUTH, PlayerChestsRequest.builder(createProfileTags()).build());
+    }
+
+    private void doGetPlayerChestsFromRequest(String url, String auth, PlayerChestsRequest playerChestsRequest) {
+        assertNotNull(new Api(url, auth).getPlayerChests(playerChestsRequest));
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPlayerChestsBecauseWrongAuthFromRequest() throws IOException {
+        doGetPlayerChestsFromRequest(URL, "abc", PlayerChestsRequest.builder(createProfileTags()).build());
     }
 
 }
