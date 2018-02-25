@@ -24,6 +24,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -606,6 +607,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetPopularDecksBecauseWrongAuthFromRequest() throws IOException {
         doGetPopularDecksFromRequest(URL, "abc", PopularDecksRequest.builder().build());
+    }
+
+    @Test
+    public void shouldGetClanTrackingWithAuthFromRequest() throws IOException {
+        doGetClanTrackingFromRequest(URL, AUTH, ClanTrackingRequest.builder("abc").build());
+    }
+
+    private void doGetClanTrackingFromRequest(String url, String auth, ClanTrackingRequest clanTrackingRequest) {
+        assertNotNull(new Api(url, auth).getClanTracking(clanTrackingRequest));
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanTrackingBecauseWrongAuthFromRequest() throws IOException {
+        doGetClanTrackingFromRequest(URL, "abc", ClanTrackingRequest.builder("abc").build());
     }
 
 }

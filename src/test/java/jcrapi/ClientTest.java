@@ -21,6 +21,7 @@ import jcrapi.model.ClanSearch;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -450,6 +451,14 @@ public class ClientTest {
         when(crawler.get("lala/popular/decks", createHeaders(), popularDecksRequest.getQueryParameters()))
                 .thenReturn("[{}]");
         assertNotNull(createClient().getPopularDecks(popularDecksRequest));
+    }
+
+    @Test
+    public void shouldGetClanTracking() throws IOException {
+        ClanTrackingRequest clanTrackingRequest = ClanTrackingRequest.builder("abc").build();
+        when(crawler.get("lala/clan/abc/tracking", createHeaders(), clanTrackingRequest.getQueryParameters()))
+                .thenReturn("{}");
+        assertNotNull(createClient().getClanTracking(clanTrackingRequest));
     }
 
 }

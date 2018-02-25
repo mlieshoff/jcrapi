@@ -22,6 +22,7 @@ import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
+import jcrapi.model.ClanTracking;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -37,6 +38,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -333,6 +335,14 @@ public class Api {
     public List<PopularDeck> getPopularDecks(PopularDecksRequest popularDecksRequest) {
         try {
             return createClient().getPopularDecks(popularDecksRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public ClanTracking getClanTracking(ClanTrackingRequest clanTrackingRequest) {
+        try {
+            return createClient().getClanTracking(clanTrackingRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
