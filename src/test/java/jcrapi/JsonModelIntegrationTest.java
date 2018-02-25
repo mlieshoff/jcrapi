@@ -105,4 +105,9 @@ public class JsonModelIntegrationTest {
         assertListType("openTournaments.json", OpenTournament.class);
     }
 
+    @Test
+    public void shouldResolvePlayerBattles() throws Exception {
+        assertListType("playerBattles.json", Battle.class);
+    }
+
 }
