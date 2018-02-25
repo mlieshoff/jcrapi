@@ -20,6 +20,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import jcrapi.model.AuthStats;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
@@ -37,6 +38,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
@@ -323,6 +325,11 @@ class Client {
     ClanTracking getClanTracking(ClanTrackingRequest clanTrackingRequest) throws IOException {
         String json = get(createUrl("clan/" + clanTrackingRequest.getTag() + "/tracking"), clanTrackingRequest);
         return new Gson().fromJson(json, ClanTracking.class);
+    }
+
+    AuthStats getAuthStats(AuthStatsRequest authStatsRequest) throws IOException {
+        String json = get(createUrl("auth/stats"), authStatsRequest);
+        return new Gson().fromJson(json, AuthStats.class);
     }
 
 }

@@ -18,6 +18,7 @@ package jcrapi;
 
 import com.google.common.collect.ImmutableMap;
 import jcrapi.model.ClanSearch;
+import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanSearchRequest;
@@ -459,6 +460,14 @@ public class ClientTest {
         when(crawler.get("lala/clan/abc/tracking", createHeaders(), clanTrackingRequest.getQueryParameters()))
                 .thenReturn("{}");
         assertNotNull(createClient().getClanTracking(clanTrackingRequest));
+    }
+
+    @Test
+    public void shouldGetAuthStats() throws IOException {
+        AuthStatsRequest authStatsRequest = AuthStatsRequest.builder().build();
+        when(crawler.get("lala/auth/stats", createHeaders(), authStatsRequest.getQueryParameters()))
+                .thenReturn("{}");
+        assertNotNull(createClient().getAuthStats(authStatsRequest));
     }
 
 }

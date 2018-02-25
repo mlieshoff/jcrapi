@@ -196,6 +196,14 @@ ClanTracking clanTracking = api.getClanTracking(ClanTrackingRequest.builder()
     .build());
 ```
 
+```java
+// get auth stats
+AuthStats authStats = api.getAuthStats(AuthStatsRequest.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .build());
+```
+
 ## How to bind the bintray repository ##
 
 ```xml

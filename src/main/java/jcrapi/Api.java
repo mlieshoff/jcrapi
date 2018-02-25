@@ -17,6 +17,7 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
+import jcrapi.model.AuthStats;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
@@ -34,6 +35,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
@@ -343,6 +345,14 @@ public class Api {
     public ClanTracking getClanTracking(ClanTrackingRequest clanTrackingRequest) {
         try {
             return createClient().getClanTracking(clanTrackingRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public AuthStats getAuthStats(AuthStatsRequest authStatsRequest) {
+        try {
+            return createClient().getAuthStats(authStatsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

@@ -16,6 +16,7 @@
  */
 package jcrapi;
 
+import jcrapi.model.AuthStats;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
@@ -33,6 +34,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
+import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
@@ -1065,6 +1067,34 @@ public class ApiTest {
                 new IOException("crapi: 400"));
         try {
             api.getClanTracking(ClanTrackingRequest.builder("abc").build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetAuthStatsFromRequest() throws Exception {
+        AuthStats authStats = new AuthStats();
+        when(client.getAuthStats(argThat(getAuthStatsRequestArgumentMatcher()))).thenReturn(authStats);
+        assertSame(authStats, api.getAuthStats(AuthStatsRequest.builder().build()));
+    }
+
+    private Matcher<AuthStatsRequest> getAuthStatsRequestArgumentMatcher() {
+        return new ArgumentMatcher<AuthStatsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof AuthStatsRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetAuthStatsFromRequest() throws Exception {
+        when(client.getAuthStats(argThat(getAuthStatsRequestArgumentMatcher()))).thenThrow(
+                new IOException("crapi: 400"));
+        try {
+            api.getAuthStats(AuthStatsRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
