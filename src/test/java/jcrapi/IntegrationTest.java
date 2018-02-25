@@ -79,6 +79,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/tournaments/open", new TestOpenTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
         jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
+        jettyServer.addServlet("/" + APP + "/auth/stats", new TestAuthStatsServlet());
         jettyServer.start();
     }
 
