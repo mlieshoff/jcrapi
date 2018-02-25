@@ -27,6 +27,7 @@ import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularDecksRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
@@ -441,6 +442,14 @@ public class ClientTest {
         when(crawler.get("lala/player/" + StringUtils.join(tags, ',') + "/chests", createHeaders(),
                 playerChestsRequest.getQueryParameters())).thenReturn("{}");
         assertNotNull(createClient().getPlayerChests(playerChestsRequest));
+    }
+
+    @Test
+    public void shouldGetPopularDecks() throws IOException {
+        PopularDecksRequest popularDecksRequest = PopularDecksRequest.builder().build();
+        when(crawler.get("lala/popular/decks", createHeaders(), popularDecksRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getPopularDecks(popularDecksRequest));
     }
 
 }

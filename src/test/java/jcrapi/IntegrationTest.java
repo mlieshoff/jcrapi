@@ -29,6 +29,7 @@ import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularDecksRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
@@ -44,9 +45,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * @author Michael Lieshoff
@@ -73,6 +72,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/clan/*", new TestClanServlet());
         jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
         jettyServer.addServlet("/" + APP + "/popular/clans", new TestPopularClansServlet());
+        jettyServer.addServlet("/" + APP + "/popular/decks", new TestPopularDecksServlet());
         jettyServer.addServlet("/" + APP + "/popular/players", new TestPopularPlayersServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/known", new TestKnownTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/open", new TestOpenTournamentsServlet());
@@ -592,6 +592,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetPlayerChestsBecauseWrongAuthFromRequest() throws IOException {
         doGetPlayerChestsFromRequest(URL, "abc", PlayerChestsRequest.builder(createProfileTags()).build());
+    }
+
+    @Test
+    public void shouldGetPopularDecksWithAuthFromRequest() throws IOException {
+        doGetPopularDecksFromRequest(URL, AUTH, PopularDecksRequest.builder().build());
+    }
+
+    private void doGetPopularDecksFromRequest(String url, String auth, PopularDecksRequest popularDecksRequest) {
+        assertNotNull(new Api(url, auth).getPopularDecks(popularDecksRequest));
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetPopularDecksBecauseWrongAuthFromRequest() throws IOException {
+        doGetPopularDecksFromRequest(URL, "abc", PopularDecksRequest.builder().build());
     }
 
 }

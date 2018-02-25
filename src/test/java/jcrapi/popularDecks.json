@@ -1,0 +1,20 @@
+[
+    {
+        "cards":[
+            {
+                "arena": 6,
+                "description": "Slow but durable, only attacks buildings. When destroyed, explosively splits into two Golemites and deals area damage!",
+                "elixir": 8,
+                "icon": "https://api-assets.clashroyale.com/cards/300/npdmCnET7jmVjJvjJQkFnNSNnDxYHDBigbvIAloFMds.png",
+                "id": 26000009,
+                "key": "golem",
+                "maxLevel": 8,
+                "name": "Golem",
+                "rarity": "Epic",
+                "type": "Troop"
+            }
+        ],
+        "decklink":"https://link.clashroyale.com/deck/en?deck=26000009;26000015;26000016;26000027;26000039;27000007;28000008;28000012",
+        "popularity": 12
+    }
+]

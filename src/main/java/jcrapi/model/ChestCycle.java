@@ -22,8 +22,8 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.mili.generator")
 public class ChestCycle {
 
-    @SerializedName("upcomming")
-    private java.util.List<String> upcomming;
+    @SerializedName("upcoming")
+    private java.util.List<String> upcoming;
 
     @SerializedName("superMagical")
     private int superMagical;
@@ -40,12 +40,12 @@ public class ChestCycle {
     @SerializedName("giant")
     private int giant;
 
-    public void setUpcomming(java.util.List<String> upcomming) {
-        this.upcomming = upcomming;
+    public void setUpcoming(java.util.List<String> upcoming) {
+        this.upcoming = upcoming;
     }
     
-    public java.util.List<String> getUpcomming() {
-        return upcomming;
+    public java.util.List<String> getUpcoming() {
+        return upcoming;
     }
     
     public void setSuperMagical(int superMagical) {
@@ -91,8 +91,8 @@ public class ChestCycle {
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("ChestCycle{");
-        s.append("upcomming=");
-        s.append(upcomming);
+        s.append("upcoming=");
+        s.append(upcoming);
         s.append(", ");
         s.append("superMagical=");
         s.append(superMagical);
