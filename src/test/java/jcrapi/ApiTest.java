@@ -21,6 +21,7 @@ import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
+import jcrapi.model.ClanTracking;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -36,6 +37,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -1035,6 +1037,34 @@ public class ApiTest {
                 new IOException("crapi: 400"));
         try {
             api.getPopularDecks(PopularDecksRequest.builder().build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanTrackingFromRequest() throws Exception {
+        ClanTracking clanTracking = new ClanTracking();
+        when(client.getClanTracking(argThat(getClanTrackingRequestArgumentMatcher()))).thenReturn(clanTracking);
+        assertSame(clanTracking, api.getClanTracking(ClanTrackingRequest.builder("abc").build()));
+    }
+
+    private Matcher<ClanTrackingRequest> getClanTrackingRequestArgumentMatcher() {
+        return new ArgumentMatcher<ClanTrackingRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof ClanTrackingRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetClanTrackingFromRequest() throws Exception {
+        when(client.getClanTracking(argThat(getClanTrackingRequestArgumentMatcher()))).thenThrow(
+                new IOException("crapi: 400"));
+        try {
+            api.getClanTracking(ClanTrackingRequest.builder("abc").build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

@@ -25,6 +25,7 @@ import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
+import jcrapi.model.ClanTracking;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -40,6 +41,7 @@ import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
+import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -316,6 +318,11 @@ class Client {
         String json = get(createUrl("popular/decks"), popularDecksRequest);
         Type listType = new TypeToken<ArrayList<PopularDeck>>(){}.getType();
         return new Gson().fromJson(json, listType);
+    }
+
+    ClanTracking getClanTracking(ClanTrackingRequest clanTrackingRequest) throws IOException {
+        String json = get(createUrl("clan/" + clanTrackingRequest.getTag() + "/tracking"), clanTrackingRequest);
+        return new Gson().fromJson(json, ClanTracking.class);
     }
 
 }

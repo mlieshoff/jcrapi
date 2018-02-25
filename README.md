@@ -188,6 +188,14 @@ List<PopularDeck> popularDecks = api.getPopularDecks(PopularDecksRequest.builder
     .build());
 ```
 
+```java
+// get clan tracking
+ClanTracking clanTracking = api.getClanTracking(ClanTrackingRequest.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .build());
+```
+
 ## How to bind the bintray repository ##
 
 ```xml
