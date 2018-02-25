@@ -21,6 +21,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import jcrapi.model.Battle;
+import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
@@ -42,6 +43,7 @@ import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
+import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -300,6 +302,12 @@ class Client {
                 + "/battles"), playerBattlesRequest);
         Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
+    }
+
+    ChestCycle getPlayerChests(PlayerChestsRequest playerChestsRequest) throws IOException {
+        String json = get(createUrl("player/" + StringUtils.join(playerChestsRequest.getTags(), ",")
+                + "/chests"), playerChestsRequest);
+        return new Gson().fromJson(json, ChestCycle.class);
     }
 
 }

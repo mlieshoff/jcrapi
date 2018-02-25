@@ -18,6 +18,7 @@ package jcrapi;
 
 import com.google.common.base.Preconditions;
 import jcrapi.model.Battle;
+import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
@@ -38,6 +39,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
+import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -313,6 +315,14 @@ public class Api {
     public List<Battle> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) {
         try {
             return createClient().getPlayerBattles(playerBattlesRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public ChestCycle getPlayerChests(PlayerChestsRequest playerChestsRequest) {
+        try {
+            return createClient().getPlayerChests(playerChestsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

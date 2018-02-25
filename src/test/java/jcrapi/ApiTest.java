@@ -17,6 +17,7 @@
 package jcrapi;
 
 import jcrapi.model.Battle;
+import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
@@ -36,6 +37,8 @@ import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
+import jcrapi.request.PlayerBattlesRequest;
+import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -189,16 +192,20 @@ public class ApiTest {
     @Test
     public void shouldGetProfiles() throws Exception {
         List<Profile> profiles = new ArrayList<>();
-        List<String> tags = new ArrayList<>();
-        tags.add("abc");
+        List<String> tags = createTags();
         when(client.getProfiles(tags)).thenReturn(profiles);
         assertEquals(profiles, api.getProfiles(tags));
     }
 
-    @Test
-    public void failGetProfiles() throws Exception {
+    private List<String> createTags() {
         List<String> tags = new ArrayList<>();
         tags.add("abc");
+        return tags;
+    }
+
+    @Test
+    public void failGetProfiles() throws Exception {
+        List<String> tags = createTags();
         when(client.getProfiles(argThat(getProfilesArgumentMatcher(tags)))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getProfiles(tags);
@@ -407,16 +414,14 @@ public class ApiTest {
     @Test
     public void shouldGetClans() throws Exception {
         List<Clan> clans = new ArrayList<>();
-        List<String> tags = new ArrayList<>();
-        tags.add("abc");
+        List<String> tags = createTags();
         when(client.getClans(tags)).thenReturn(clans);
         assertEquals(clans, api.getClans(tags));
     }
 
     @Test
     public void failGetClans() throws Exception {
-        List<String> tags = new ArrayList<>();
-        tags.add("abc");
+        List<String> tags = createTags();
         when(client.getClans(tags)).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClans(tags);
@@ -940,6 +945,66 @@ public class ApiTest {
         when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getKnownTournaments(KnownTournamentsRequest.builder().build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetPlayerBattlesFromRequest() throws Exception {
+        List<String> tags = createTags();
+        List<Battle> playerBattles = new ArrayList<>();
+        when(client.getPlayerBattles(argThat(getPlayerBattlesRequestArgumentMatcher(tags)))).thenReturn(playerBattles);
+        assertSame(playerBattles, api.getPlayerBattles(PlayerBattlesRequest.builder(tags).build()));
+    }
+
+    private Matcher<PlayerBattlesRequest> getPlayerBattlesRequestArgumentMatcher(final List<String> tags) {
+        return new ArgumentMatcher<PlayerBattlesRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof PlayerBattlesRequest && ((PlayerBattlesRequest) o).getTags().equals(tags);
+            }
+        };
+    }
+
+    @Test
+    public void failGetPlayerBattlesFromRequest() throws Exception {
+        List<String> tags = createTags();
+        when(client.getPlayerBattles(argThat(getPlayerBattlesRequestArgumentMatcher(tags)))).thenThrow(
+                new IOException("crapi: 400"));
+        try {
+            api.getPlayerBattles(PlayerBattlesRequest.builder(tags).build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetPlayerChestsFromRequest() throws Exception {
+        List<String> tags = createTags();
+        ChestCycle chestCycle = new ChestCycle();
+        when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenReturn(chestCycle);
+        assertSame(chestCycle, api.getPlayerChests(PlayerChestsRequest.builder(tags).build()));
+    }
+
+    private Matcher<PlayerChestsRequest> getPlayerChestsRequestArgumentMatcher(final List<String> tags) {
+        return new ArgumentMatcher<PlayerChestsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof PlayerChestsRequest && ((PlayerChestsRequest) o).getTags().equals(tags);
+            }
+        };
+    }
+
+    @Test
+    public void failGetPlayerChestsFromRequest() throws Exception {
+        List<String> tags = createTags();
+        when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenThrow(
+                new IOException("crapi: 400"));
+        try {
+            api.getPlayerChests(PlayerChestsRequest.builder(tags).build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

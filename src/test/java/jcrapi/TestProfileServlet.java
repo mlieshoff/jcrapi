@@ -32,6 +32,8 @@ public class TestProfileServlet extends TestJsonFileServlet {
         String filename = null;
         if ("battles".equals(parameter)) {
             filename = "src/test/java/jcrapi/playerBattles.json";
+        } else if ("chests".equals(parameter)) {
+            filename = "src/test/java/jcrapi/playerChests.json";
         } else if ("8L9L9GL".equals(parameter)) {
             filename = "src/test/java/jcrapi/profile.json";
         } else if ("L88P2282,9CQ2U8QJ,8L9L9GL".equals(parameter)) {

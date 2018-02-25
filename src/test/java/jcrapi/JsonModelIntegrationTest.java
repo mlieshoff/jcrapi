@@ -20,6 +20,7 @@ package jcrapi;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import jcrapi.model.Battle;
+import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.OpenTournament;
@@ -108,6 +109,11 @@ public class JsonModelIntegrationTest {
     @Test
     public void shouldResolvePlayerBattles() throws Exception {
         assertListType("playerBattles.json", Battle.class);
+    }
+
+    @Test
+    public void shouldResolvePlayerChests() throws Exception {
+        assertType("playerChests.json", ChestCycle.class);
     }
 
 }
