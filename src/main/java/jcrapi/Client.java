@@ -29,6 +29,7 @@ import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
+import jcrapi.model.PopularDeck;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
@@ -45,6 +46,7 @@ import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularDecksRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
@@ -308,6 +310,12 @@ class Client {
         String json = get(createUrl("player/" + StringUtils.join(playerChestsRequest.getTags(), ",")
                 + "/chests"), playerChestsRequest);
         return new Gson().fromJson(json, ChestCycle.class);
+    }
+
+    List<PopularDeck> getPopularDecks(PopularDecksRequest popularDecksRequest) throws IOException {
+        String json = get(createUrl("popular/decks"), popularDecksRequest);
+        Type listType = new TypeToken<ArrayList<PopularDeck>>(){}.getType();
+        return new Gson().fromJson(json, listType);
     }
 
 }

@@ -24,6 +24,7 @@ import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.OpenTournament;
+import jcrapi.model.PopularDeck;
 import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
@@ -114,6 +115,11 @@ public class JsonModelIntegrationTest {
     @Test
     public void shouldResolvePlayerChests() throws Exception {
         assertType("playerChests.json", ChestCycle.class);
+    }
+
+    @Test
+    public void shouldResolvePopularDecks() throws Exception {
+        assertListType("popularDecks.json", PopularDeck.class);
     }
 
 }

@@ -25,6 +25,7 @@ import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
+import jcrapi.model.PopularDeck;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
@@ -40,6 +41,7 @@ import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularDecksRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
@@ -1005,6 +1007,34 @@ public class ApiTest {
                 new IOException("crapi: 400"));
         try {
             api.getPlayerChests(PlayerChestsRequest.builder(tags).build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetPopularDecksFromRequest() throws Exception {
+        List<PopularDeck> popularDecks = new ArrayList<>();
+        when(client.getPopularDecks(argThat(getPopularDecksRequestArgumentMatcher()))).thenReturn(popularDecks);
+        assertSame(popularDecks, api.getPopularDecks(PopularDecksRequest.builder().build()));
+    }
+
+    private Matcher<PopularDecksRequest> getPopularDecksRequestArgumentMatcher() {
+        return new ArgumentMatcher<PopularDecksRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof PopularDecksRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetPopularDecksFromRequest() throws Exception {
+        when(client.getPopularDecks(argThat(getPopularDecksRequestArgumentMatcher()))).thenThrow(
+                new IOException("crapi: 400"));
+        try {
+            api.getPopularDecks(PopularDecksRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

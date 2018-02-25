@@ -26,6 +26,7 @@ import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
+import jcrapi.model.PopularDeck;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
@@ -41,6 +42,7 @@ import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
 import jcrapi.request.PopularClansRequest;
+import jcrapi.request.PopularDecksRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
@@ -323,6 +325,14 @@ public class Api {
     public ChestCycle getPlayerChests(PlayerChestsRequest playerChestsRequest) {
         try {
             return createClient().getPlayerChests(playerChestsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<PopularDeck> getPopularDecks(PopularDecksRequest popularDecksRequest) {
+        try {
+            return createClient().getPopularDecks(popularDecksRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

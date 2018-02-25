@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class Battle {
@@ -25,8 +26,14 @@ public class Battle {
     @SerializedName("type")
     private String type;
 
+    @SerializedName("challengeType")
+    private String challengeType;
+
     @SerializedName("mode")
     private BattleMode mode;
+
+    @SerializedName("winCountBefore")
+    private int winCountBefore;
 
     @SerializedName("utcTime")
     private long utcTime;
@@ -63,12 +70,28 @@ public class Battle {
         return type;
     }
     
+    public void setChallengeType(String challengeType) {
+        this.challengeType = challengeType;
+    }
+    
+    public String getChallengeType() {
+        return challengeType;
+    }
+    
     public void setMode(BattleMode mode) {
         this.mode = mode;
     }
     
     public BattleMode getMode() {
         return mode;
+    }
+    
+    public void setWinCountBefore(int winCountBefore) {
+        this.winCountBefore = winCountBefore;
+    }
+    
+    public int getWinCountBefore() {
+        return winCountBefore;
     }
     
     public void setUtcTime(long utcTime) {
@@ -149,8 +172,14 @@ public class Battle {
         s.append("type=");
         s.append(type);
         s.append(", ");
+        s.append("challengeType=");
+        s.append(challengeType);
+        s.append(", ");
         s.append("mode=");
         s.append(mode);
+        s.append(", ");
+        s.append("winCountBefore=");
+        s.append(winCountBefore);
         s.append(", ");
         s.append("utcTime=");
         s.append(utcTime);

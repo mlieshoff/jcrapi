@@ -41,10 +41,24 @@ public class BattleTest {
     }
 
     @Test
+    public void shouldGetSetChallengeType() {
+        String expected = "astring";
+        unitUnderTest.setChallengeType(expected);
+        assertEquals(expected, unitUnderTest.getChallengeType());
+    }
+
+    @Test
     public void shouldGetSetMode() {
         BattleMode expected = new BattleMode();
         unitUnderTest.setMode(expected);
         assertEquals(expected, unitUnderTest.getMode());
+    }
+
+    @Test
+    public void shouldGetSetWinCountBefore() {
+        int expected = 815;
+        unitUnderTest.setWinCountBefore(expected);
+        assertEquals(expected, unitUnderTest.getWinCountBefore());
     }
 
     @Test
@@ -113,7 +127,9 @@ public class BattleTest {
     @Test
     public void shouldToString() {
         unitUnderTest.setType("astring");
+        unitUnderTest.setChallengeType("astring");
         unitUnderTest.setMode(new BattleMode());
+        unitUnderTest.setWinCountBefore(815);
         unitUnderTest.setUtcTime(4711L);
         unitUnderTest.setDeckType("astring");
         unitUnderTest.setTeamSize(815);
@@ -123,7 +139,7 @@ public class BattleTest {
         unitUnderTest.setTeam(new java.util.ArrayList<Team>());
         unitUnderTest.setOpponent(new java.util.ArrayList<Team>());
         unitUnderTest.setArena(new Arena());
-        String expected = "Battle{type=astring, mode=" + new BattleMode() + ", utcTime=4711, deckType=astring, teamSize=815, winner=815, teamCrowns=815, opponentCrowns=815, team=" + new java.util.ArrayList<Team>() + ", opponent=" + new java.util.ArrayList<Team>() + ", arena=" + new Arena() + "}";
+        String expected = "Battle{type=astring, challengeType=astring, mode=" + new BattleMode() + ", winCountBefore=815, utcTime=4711, deckType=astring, teamSize=815, winner=815, teamCrowns=815, opponentCrowns=815, team=" + new java.util.ArrayList<Team>() + ", opponent=" + new java.util.ArrayList<Team>() + ", arena=" + new Arena() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

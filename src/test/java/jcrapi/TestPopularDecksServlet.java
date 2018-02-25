@@ -14,21 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jcrapi.model;
+package jcrapi;
 
-import javax.annotation.Generated;
-import com.google.gson.annotations.SerializedName;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-@Generated("org.mili.generator")
-public class Version {
+/**
+ * @author Michael Lieshoff
+ */
+public class TestPopularDecksServlet extends TestJsonFileServlet {
 
-    public static final String VERSION = "v10.4.6";
-
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Version{");
-        s.append("}");
-        return s.toString();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet("src/test/java/jcrapi/popularDecks.json", req, resp);
     }
 
 }

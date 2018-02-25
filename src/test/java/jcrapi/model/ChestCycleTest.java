@@ -34,10 +34,10 @@ public class ChestCycleTest {
     }
 
     @Test
-    public void shouldGetSetUpcomming() {
+    public void shouldGetSetUpcoming() {
         java.util.List<String> expected = new java.util.ArrayList<String>();
-        unitUnderTest.setUpcomming(expected);
-        assertEquals(expected, unitUnderTest.getUpcomming());
+        unitUnderTest.setUpcoming(expected);
+        assertEquals(expected, unitUnderTest.getUpcoming());
     }
 
     @Test
@@ -77,13 +77,13 @@ public class ChestCycleTest {
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setUpcomming(new java.util.ArrayList<String>());
+        unitUnderTest.setUpcoming(new java.util.ArrayList<String>());
         unitUnderTest.setSuperMagical(815);
         unitUnderTest.setMagical(815);
         unitUnderTest.setLegendary(815);
         unitUnderTest.setEpic(815);
         unitUnderTest.setGiant(815);
-        String expected = "ChestCycle{upcomming=" + new java.util.ArrayList<String>() + ", superMagical=815, magical=815, legendary=815, epic=815, giant=815}";
+        String expected = "ChestCycle{upcoming=" + new java.util.ArrayList<String>() + ", superMagical=815, magical=815, legendary=815, epic=815, giant=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
