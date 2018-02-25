@@ -24,6 +24,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
+import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PopularClansRequest;
 import jcrapi.request.PopularPlayersRequest;
 import jcrapi.request.PopularTournamentsRequest;
@@ -421,6 +422,15 @@ public class ClientTest {
         KnownTournamentsRequest knownTournamentsRequest = KnownTournamentsRequest.builder().build();
         when(crawler.get("lala/tournaments/known", createHeaders(), knownTournamentsRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getKnownTournaments(knownTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetPlayerBattles() throws IOException {
+        List<String> tags = createTags();
+        PlayerBattlesRequest playerBattlesRequest = PlayerBattlesRequest.builder(tags).build();
+        when(crawler.get("lala/player/" + StringUtils.join(tags, ',') + "/battles", createHeaders(),
+                playerBattlesRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getPlayerBattles(playerBattlesRequest));
     }
 
 }
