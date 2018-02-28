@@ -16,11 +16,12 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
+import javax.annotation.Generated;
+
 @Generated("org.mili.generator")
-public class Achievment {
+public class Achievement {
 
     @SerializedName("name")
     private String name;
@@ -79,7 +80,7 @@ public class Achievment {
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Achievment{");
+        s.append("Achievement{");
         s.append("name=");
         s.append(name);
         s.append(", ");

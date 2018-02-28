@@ -41,6 +41,13 @@ public class TeamTest {
     }
 
     @Test
+    public void shouldGetSetDeckLink() {
+        String expected = "astring";
+        unitUnderTest.setDeckLink(expected);
+        assertEquals(expected, unitUnderTest.getDeckLink());
+    }
+
+    @Test
     public void shouldGetSetName() {
         String expected = "astring";
         unitUnderTest.setName(expected);
@@ -62,6 +69,13 @@ public class TeamTest {
     }
 
     @Test
+    public void shouldGetSetTrophyChange() {
+        int expected = 815;
+        unitUnderTest.setTrophyChange(expected);
+        assertEquals(expected, unitUnderTest.getTrophyChange());
+    }
+
+    @Test
     public void shouldGetSetClan() {
         TeamClan expected = new TeamClan();
         unitUnderTest.setClan(expected);
@@ -78,12 +92,14 @@ public class TeamTest {
     @Test
     public void shouldToString() {
         unitUnderTest.setTag("astring");
+        unitUnderTest.setDeckLink("astring");
         unitUnderTest.setName("astring");
         unitUnderTest.setCrownsEarned(815);
         unitUnderTest.setStartTrophies(815);
+        unitUnderTest.setTrophyChange(815);
         unitUnderTest.setClan(new TeamClan());
         unitUnderTest.setDeck(new java.util.ArrayList<TeamCard>());
-        String expected = "Team{tag=astring, name=astring, crownsEarned=815, startTrophies=815, clan=" + new TeamClan() + ", deck=" + new java.util.ArrayList<TeamCard>() + "}";
+        String expected = "Team{tag=astring, deckLink=astring, name=astring, crownsEarned=815, startTrophies=815, trophyChange=815, clan=" + new TeamClan() + ", deck=" + new java.util.ArrayList<TeamCard>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

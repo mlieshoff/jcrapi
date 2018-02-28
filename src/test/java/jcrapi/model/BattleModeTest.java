@@ -62,6 +62,13 @@ public class BattleModeTest {
     }
 
     @Test
+    public void shouldGetSetOvertimeSeconds() {
+        int expected = 815;
+        unitUnderTest.setOvertimeSeconds(expected);
+        assertEquals(expected, unitUnderTest.getOvertimeSeconds());
+    }
+
+    @Test
     public void shouldGetSetPlayers() {
         String expected = "astring";
         unitUnderTest.setPlayers(expected);
@@ -81,9 +88,10 @@ public class BattleModeTest {
         unitUnderTest.setDeck("astring");
         unitUnderTest.setCardLevels("astring");
         unitUnderTest.setOvertimeSecons(815);
+        unitUnderTest.setOvertimeSeconds(815);
         unitUnderTest.setPlayers("astring");
         unitUnderTest.setSameDeck(false);
-        String expected = "BattleMode{name=astring, deck=astring, cardLevels=astring, overtimeSecons=815, players=astring, sameDeck=false}";
+        String expected = "BattleMode{name=astring, deck=astring, cardLevels=astring, overtimeSecons=815, overtimeSeconds=815, players=astring, sameDeck=false}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

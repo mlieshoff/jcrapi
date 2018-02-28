@@ -25,6 +25,9 @@ public class Team {
     @SerializedName("tag")
     private String tag;
 
+    @SerializedName("deckLink")
+    private String deckLink;
+
     @SerializedName("name")
     private String name;
 
@@ -33,6 +36,9 @@ public class Team {
 
     @SerializedName("startTrophies")
     private int startTrophies;
+
+    @SerializedName("trophyChange")
+    private int trophyChange;
 
     @SerializedName("clan")
     private TeamClan clan;
@@ -46,6 +52,14 @@ public class Team {
     
     public String getTag() {
         return tag;
+    }
+    
+    public void setDeckLink(String deckLink) {
+        this.deckLink = deckLink;
+    }
+    
+    public String getDeckLink() {
+        return deckLink;
     }
     
     public void setName(String name) {
@@ -72,6 +86,14 @@ public class Team {
         return startTrophies;
     }
     
+    public void setTrophyChange(int trophyChange) {
+        this.trophyChange = trophyChange;
+    }
+    
+    public int getTrophyChange() {
+        return trophyChange;
+    }
+    
     public void setClan(TeamClan clan) {
         this.clan = clan;
     }
@@ -94,6 +116,9 @@ public class Team {
         s.append("tag=");
         s.append(tag);
         s.append(", ");
+        s.append("deckLink=");
+        s.append(deckLink);
+        s.append(", ");
         s.append("name=");
         s.append(name);
         s.append(", ");
@@ -102,6 +127,9 @@ public class Team {
         s.append(", ");
         s.append("startTrophies=");
         s.append(startTrophies);
+        s.append(", ");
+        s.append("trophyChange=");
+        s.append(trophyChange);
         s.append(", ");
         s.append("clan=");
         s.append(clan);

@@ -34,6 +34,13 @@ public class FavoriteCardTest {
     }
 
     @Test
+    public void shouldGetSetId() {
+        int expected = 815;
+        unitUnderTest.setId(expected);
+        assertEquals(expected, unitUnderTest.getId());
+    }
+
+    @Test
     public void shouldGetSetName() {
         String expected = "astring";
         unitUnderTest.setName(expected);
@@ -52,6 +59,13 @@ public class FavoriteCardTest {
         IconUrls expected = new IconUrls();
         unitUnderTest.setIconUrls(expected);
         assertEquals(expected, unitUnderTest.getIconUrls());
+    }
+
+    @Test
+    public void shouldGetSetIcon() {
+        String expected = "astring";
+        unitUnderTest.setIcon(expected);
+        assertEquals(expected, unitUnderTest.getIcon());
     }
 
     @Test
@@ -98,16 +112,18 @@ public class FavoriteCardTest {
 
     @Test
     public void shouldToString() {
+        unitUnderTest.setId(815);
         unitUnderTest.setName("astring");
         unitUnderTest.setMaxLevel(815);
         unitUnderTest.setIconUrls(new IconUrls());
+        unitUnderTest.setIcon("astring");
         unitUnderTest.setKey("astring");
         unitUnderTest.setElixir(815);
         unitUnderTest.setType("astring");
         unitUnderTest.setRarity("astring");
         unitUnderTest.setArena(815);
         unitUnderTest.setDescription("astring");
-        String expected = "FavoriteCard{name=astring, maxLevel=815, iconUrls=" + new IconUrls() + ", key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring}";
+        String expected = "FavoriteCard{id=815, name=astring, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

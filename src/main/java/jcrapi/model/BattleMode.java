@@ -31,8 +31,12 @@ public class BattleMode {
     @SerializedName("cardLevels")
     private String cardLevels;
 
+    @Deprecated
     @SerializedName("overtimeSecons")
     private int overtimeSecons;
+
+    @SerializedName("overtimeSeconds")
+    private int overtimeSeconds;
 
     @SerializedName("players")
     private String players;
@@ -64,12 +68,22 @@ public class BattleMode {
         return cardLevels;
     }
     
+    @Deprecated
     public void setOvertimeSecons(int overtimeSecons) {
         this.overtimeSecons = overtimeSecons;
     }
     
+    @Deprecated
     public int getOvertimeSecons() {
         return overtimeSecons;
+    }
+    
+    public void setOvertimeSeconds(int overtimeSeconds) {
+        this.overtimeSeconds = overtimeSeconds;
+    }
+    
+    public int getOvertimeSeconds() {
+        return overtimeSeconds;
     }
     
     public void setPlayers(String players) {
@@ -102,6 +116,9 @@ public class BattleMode {
         s.append(", ");
         s.append("overtimeSecons=");
         s.append(overtimeSecons);
+        s.append(", ");
+        s.append("overtimeSeconds=");
+        s.append(overtimeSeconds);
         s.append(", ");
         s.append("players=");
         s.append(players);

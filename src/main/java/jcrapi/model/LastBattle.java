@@ -20,52 +20,38 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class CurrentSeason {
+public class LastBattle {
 
-    @SerializedName("rank")
-    private int rank;
+    @SerializedName("type")
+    private String type;
 
-    @SerializedName("trophies")
-    private int trophies;
+    @SerializedName("time")
+    private long time;
 
-    @SerializedName("bestTrophies")
-    private int bestTrophies;
-
-    public void setRank(int rank) {
-        this.rank = rank;
+    public void setType(String type) {
+        this.type = type;
     }
     
-    public int getRank() {
-        return rank;
+    public String getType() {
+        return type;
     }
     
-    public void setTrophies(int trophies) {
-        this.trophies = trophies;
+    public void setTime(long time) {
+        this.time = time;
     }
     
-    public int getTrophies() {
-        return trophies;
-    }
-    
-    public void setBestTrophies(int bestTrophies) {
-        this.bestTrophies = bestTrophies;
-    }
-    
-    public int getBestTrophies() {
-        return bestTrophies;
+    public long getTime() {
+        return time;
     }
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("CurrentSeason{");
-        s.append("rank=");
-        s.append(rank);
+        s.append("LastBattle{");
+        s.append("type=");
+        s.append(type);
         s.append(", ");
-        s.append("trophies=");
-        s.append(trophies);
-        s.append(", ");
-        s.append("bestTrophies=");
-        s.append(bestTrophies);
+        s.append("time=");
+        s.append(time);
         s.append("}");
         return s.toString();
     }
