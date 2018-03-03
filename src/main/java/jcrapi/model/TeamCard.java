@@ -57,7 +57,7 @@ public class TeamCard {
     private int arena;
 
     @SerializedName("requiredForUpgrade")
-    private int requiredForUpgrade;
+    private String requiredForUpgrade;
 
     @SerializedName("description")
     private String description;
@@ -152,11 +152,11 @@ public class TeamCard {
         return arena;
     }
     
-    public void setRequiredForUpgrade(int requiredForUpgrade) {
+    public void setRequiredForUpgrade(String requiredForUpgrade) {
         this.requiredForUpgrade = requiredForUpgrade;
     }
     
-    public int getRequiredForUpgrade() {
+    public String getRequiredForUpgrade() {
         return requiredForUpgrade;
     }
     

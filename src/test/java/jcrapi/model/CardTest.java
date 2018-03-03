@@ -119,7 +119,7 @@ public class CardTest {
 
     @Test
     public void shouldGetSetRequiredForUpgrade() {
-        int expected = 815;
+        String expected = "astring";
         unitUnderTest.setRequiredForUpgrade(expected);
         assertEquals(expected, unitUnderTest.getRequiredForUpgrade());
     }
@@ -152,10 +152,10 @@ public class CardTest {
         unitUnderTest.setType("astring");
         unitUnderTest.setRarity("astring");
         unitUnderTest.setArena(815);
-        unitUnderTest.setRequiredForUpgrade(815);
+        unitUnderTest.setRequiredForUpgrade("astring");
         unitUnderTest.setLeftToUpgrade(815);
         unitUnderTest.setDescription("astring");
-        String expected = "Card{id=815, name=astring, level=815, maxLevel=815, count=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=815, leftToUpgrade=815, description=astring}";
+        String expected = "Card{id=815, name=astring, level=815, maxLevel=815, count=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=astring, leftToUpgrade=815, description=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

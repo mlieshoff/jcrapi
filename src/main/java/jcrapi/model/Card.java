@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class Card {
@@ -60,7 +61,7 @@ public class Card {
     private int arena;
 
     @SerializedName("requiredForUpgrade")
-    private int requiredForUpgrade;
+    private String requiredForUpgrade;
 
     @SerializedName("leftToUpgrade")
     private int leftToUpgrade;
@@ -166,11 +167,11 @@ public class Card {
         return arena;
     }
     
-    public void setRequiredForUpgrade(int requiredForUpgrade) {
+    public void setRequiredForUpgrade(String requiredForUpgrade) {
         this.requiredForUpgrade = requiredForUpgrade;
     }
     
-    public int getRequiredForUpgrade() {
+    public String getRequiredForUpgrade() {
         return requiredForUpgrade;
     }
     
