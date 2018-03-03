@@ -34,6 +34,9 @@ public class ClanHistoryElement {
     @SerializedName("score")
     private Integer score;
 
+    @SerializedName("crowns")
+    private int crowns;
+
     public void setDonations(Integer donations) {
         this.donations = donations;
     }
@@ -66,6 +69,14 @@ public class ClanHistoryElement {
         return score;
     }
     
+    public void setCrowns(int crowns) {
+        this.crowns = crowns;
+    }
+    
+    public int getCrowns() {
+        return crowns;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("ClanHistoryElement{");
@@ -80,6 +91,9 @@ public class ClanHistoryElement {
         s.append(", ");
         s.append("score=");
         s.append(score);
+        s.append(", ");
+        s.append("crowns=");
+        s.append(crowns);
         s.append("}");
         return s.toString();
     }

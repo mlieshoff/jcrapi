@@ -61,6 +61,9 @@ public class Battle {
     @SerializedName("arena")
     private Arena arena;
 
+    @SerializedName("tournamentTag")
+    private String tournamentTag;
+
     public void setType(String type) {
         this.type = type;
     }
@@ -165,6 +168,14 @@ public class Battle {
         return arena;
     }
     
+    public void setTournamentTag(String tournamentTag) {
+        this.tournamentTag = tournamentTag;
+    }
+    
+    public String getTournamentTag() {
+        return tournamentTag;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("Battle{");
@@ -206,6 +217,9 @@ public class Battle {
         s.append(", ");
         s.append("arena=");
         s.append(arena);
+        s.append(", ");
+        s.append("tournamentTag=");
+        s.append(tournamentTag);
         s.append("}");
         return s.toString();
     }

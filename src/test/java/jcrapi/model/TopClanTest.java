@@ -90,6 +90,13 @@ public class TopClanTest {
     }
 
     @Test
+    public void shouldGetSetTracking() {
+        Tracking expected = new Tracking();
+        unitUnderTest.setTracking(expected);
+        assertEquals(expected, unitUnderTest.getTracking());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setTag("astring");
         unitUnderTest.setName("astring");
@@ -99,7 +106,8 @@ public class TopClanTest {
         unitUnderTest.setPreviousRank(815);
         unitUnderTest.setBadge(new Badge());
         unitUnderTest.setLocation(new Location());
-        String expected = "TopClan{tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + "}";
+        unitUnderTest.setTracking(new Tracking());
+        String expected = "TopClan{tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + ", tracking=" + new Tracking() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

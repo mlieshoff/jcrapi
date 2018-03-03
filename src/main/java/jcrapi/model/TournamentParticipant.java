@@ -31,6 +31,12 @@ public class TournamentParticipant {
     @SerializedName("score")
     private int score;
 
+    @SerializedName("rank")
+    private int rank;
+
+    @SerializedName("clan")
+    private TournamentClan clan;
+
     public void setTag(String tag) {
         this.tag = tag;
     }
@@ -55,6 +61,22 @@ public class TournamentParticipant {
         return score;
     }
     
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+    
+    public int getRank() {
+        return rank;
+    }
+    
+    public void setClan(TournamentClan clan) {
+        this.clan = clan;
+    }
+    
+    public TournamentClan getClan() {
+        return clan;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("TournamentParticipant{");
@@ -66,6 +88,12 @@ public class TournamentParticipant {
         s.append(", ");
         s.append("score=");
         s.append(score);
+        s.append(", ");
+        s.append("rank=");
+        s.append(rank);
+        s.append(", ");
+        s.append("clan=");
+        s.append(clan);
         s.append("}");
         return s.toString();
     }

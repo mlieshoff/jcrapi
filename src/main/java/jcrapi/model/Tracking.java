@@ -20,52 +20,52 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class AuthStats {
+public class Tracking {
 
-    @SerializedName("id")
-    private long id;
+    @SerializedName("active")
+    private boolean active;
 
-    @SerializedName("lastRequest")
-    private long lastRequest;
+    @SerializedName("available")
+    private boolean available;
 
-    @SerializedName("requestCount")
-    private long requestCount;
+    @SerializedName("snapshotCount")
+    private int snapshotCount;
 
-    public void setId(long id) {
-        this.id = id;
+    public void setActive(boolean active) {
+        this.active = active;
     }
     
-    public long getId() {
-        return id;
+    public boolean getActive() {
+        return active;
     }
     
-    public void setLastRequest(long lastRequest) {
-        this.lastRequest = lastRequest;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
     
-    public long getLastRequest() {
-        return lastRequest;
+    public boolean getAvailable() {
+        return available;
     }
     
-    public void setRequestCount(long requestCount) {
-        this.requestCount = requestCount;
+    public void setSnapshotCount(int snapshotCount) {
+        this.snapshotCount = snapshotCount;
     }
     
-    public long getRequestCount() {
-        return requestCount;
+    public int getSnapshotCount() {
+        return snapshotCount;
     }
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("AuthStats{");
-        s.append("id=");
-        s.append(id);
+        s.append("Tracking{");
+        s.append("active=");
+        s.append(active);
         s.append(", ");
-        s.append("lastRequest=");
-        s.append(lastRequest);
+        s.append("available=");
+        s.append(available);
         s.append(", ");
-        s.append("requestCount=");
-        s.append(requestCount);
+        s.append("snapshotCount=");
+        s.append(snapshotCount);
         s.append("}");
         return s.toString();
     }

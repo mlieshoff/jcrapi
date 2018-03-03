@@ -22,6 +22,9 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.mili.generator")
 public class BattleMode {
 
+    @SerializedName("id")
+    private int id;
+
     @SerializedName("name")
     private String name;
 
@@ -44,6 +47,14 @@ public class BattleMode {
     @SerializedName("sameDeck")
     private boolean sameDeck;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -105,6 +116,9 @@ public class BattleMode {
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("BattleMode{");
+        s.append("id=");
+        s.append(id);
+        s.append(", ");
         s.append("name=");
         s.append(name);
         s.append(", ");

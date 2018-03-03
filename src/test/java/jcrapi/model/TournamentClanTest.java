@@ -24,42 +24,42 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class PopularTournamentTest {
+public class TournamentClanTest {
 
-    private PopularTournament unitUnderTest;
+    private TournamentClan unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new PopularTournament();
+        unitUnderTest = new TournamentClan();
     }
 
     @Test
-    public void shouldGetSetPopularity() {
-        Popularity expected = new Popularity();
-        unitUnderTest.setPopularity(expected);
-        assertEquals(expected, unitUnderTest.getPopularity());
+    public void shouldGetSetTag() {
+        String expected = "astring";
+        unitUnderTest.setTag(expected);
+        assertEquals(expected, unitUnderTest.getTag());
     }
 
     @Test
-    public void shouldGetSetEndTime() {
-        long expected = 4711L;
-        unitUnderTest.setEndTime(expected);
-        assertEquals(expected, unitUnderTest.getEndTime());
+    public void shouldGetSetName() {
+        String expected = "astring";
+        unitUnderTest.setName(expected);
+        assertEquals(expected, unitUnderTest.getName());
     }
 
     @Test
-    public void shouldGetSetPlayerCount() {
+    public void shouldGetSetBadgeId() {
         int expected = 815;
-        unitUnderTest.setPlayerCount(expected);
-        assertEquals(expected, unitUnderTest.getPlayerCount());
+        unitUnderTest.setBadgeId(expected);
+        assertEquals(expected, unitUnderTest.getBadgeId());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setPopularity(new Popularity());
-        unitUnderTest.setEndTime(4711L);
-        unitUnderTest.setPlayerCount(815);
-        String expected = "PopularTournament{popularity=" + new Popularity() + ", endTime=4711, playerCount=815}";
+        unitUnderTest.setTag("astring");
+        unitUnderTest.setName("astring");
+        unitUnderTest.setBadgeId(815);
+        String expected = "TournamentClan{tag=astring, name=astring, badgeId=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

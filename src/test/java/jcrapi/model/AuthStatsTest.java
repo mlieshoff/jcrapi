@@ -34,6 +34,13 @@ public class AuthStatsTest {
     }
 
     @Test
+    public void shouldGetSetId() {
+        long expected = 4711L;
+        unitUnderTest.setId(expected);
+        assertEquals(expected, unitUnderTest.getId());
+    }
+
+    @Test
     public void shouldGetSetLastRequest() {
         long expected = 4711L;
         unitUnderTest.setLastRequest(expected);
@@ -41,9 +48,18 @@ public class AuthStatsTest {
     }
 
     @Test
+    public void shouldGetSetRequestCount() {
+        long expected = 4711L;
+        unitUnderTest.setRequestCount(expected);
+        assertEquals(expected, unitUnderTest.getRequestCount());
+    }
+
+    @Test
     public void shouldToString() {
+        unitUnderTest.setId(4711L);
         unitUnderTest.setLastRequest(4711L);
-        String expected = "AuthStats{lastRequest=4711}";
+        unitUnderTest.setRequestCount(4711L);
+        String expected = "AuthStats{id=4711, lastRequest=4711, requestCount=4711}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

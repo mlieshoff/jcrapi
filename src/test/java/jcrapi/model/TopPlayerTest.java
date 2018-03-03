@@ -83,6 +83,13 @@ public class TopPlayerTest {
     }
 
     @Test
+    public void shouldGetSetClanChestCrowns() {
+        int expected = 815;
+        unitUnderTest.setClanChestCrowns(expected);
+        assertEquals(expected, unitUnderTest.getClanChestCrowns());
+    }
+
+    @Test
     public void shouldGetSetClan() {
         TeamClan expected = new TeamClan();
         unitUnderTest.setClan(expected);
@@ -105,9 +112,10 @@ public class TopPlayerTest {
         unitUnderTest.setExpLevel(815);
         unitUnderTest.setTrophies(815);
         unitUnderTest.setDonationsDelta(815);
+        unitUnderTest.setClanChestCrowns(815);
         unitUnderTest.setClan(new TeamClan());
         unitUnderTest.setArena(new Arena());
-        String expected = "TopPlayer{name=astring, tag=astring, rank=815, previousRank=815, expLevel=815, trophies=815, donationsDelta=815, clan=" + new TeamClan() + ", arena=" + new Arena() + "}";
+        String expected = "TopPlayer{name=astring, tag=astring, rank=815, previousRank=815, expLevel=815, trophies=815, donationsDelta=815, clanChestCrowns=815, clan=" + new TeamClan() + ", arena=" + new Arena() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

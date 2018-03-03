@@ -24,42 +24,42 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class PopularTournamentTest {
+public class TrackingTest {
 
-    private PopularTournament unitUnderTest;
+    private Tracking unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new PopularTournament();
+        unitUnderTest = new Tracking();
     }
 
     @Test
-    public void shouldGetSetPopularity() {
-        Popularity expected = new Popularity();
-        unitUnderTest.setPopularity(expected);
-        assertEquals(expected, unitUnderTest.getPopularity());
+    public void shouldGetSetActive() {
+        boolean expected = false;
+        unitUnderTest.setActive(expected);
+        assertEquals(expected, unitUnderTest.getActive());
     }
 
     @Test
-    public void shouldGetSetEndTime() {
-        long expected = 4711L;
-        unitUnderTest.setEndTime(expected);
-        assertEquals(expected, unitUnderTest.getEndTime());
+    public void shouldGetSetAvailable() {
+        boolean expected = false;
+        unitUnderTest.setAvailable(expected);
+        assertEquals(expected, unitUnderTest.getAvailable());
     }
 
     @Test
-    public void shouldGetSetPlayerCount() {
+    public void shouldGetSetSnapshotCount() {
         int expected = 815;
-        unitUnderTest.setPlayerCount(expected);
-        assertEquals(expected, unitUnderTest.getPlayerCount());
+        unitUnderTest.setSnapshotCount(expected);
+        assertEquals(expected, unitUnderTest.getSnapshotCount());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setPopularity(new Popularity());
-        unitUnderTest.setEndTime(4711L);
-        unitUnderTest.setPlayerCount(815);
-        String expected = "PopularTournament{popularity=" + new Popularity() + ", endTime=4711, playerCount=815}";
+        unitUnderTest.setActive(false);
+        unitUnderTest.setAvailable(false);
+        unitUnderTest.setSnapshotCount(815);
+        String expected = "Tracking{active=false, available=false, snapshotCount=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
