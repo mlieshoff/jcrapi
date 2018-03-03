@@ -19,7 +19,6 @@ package jcrapi;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -49,7 +48,6 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -58,7 +56,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Michael Lieshoff
@@ -363,8 +360,9 @@ public class EndToEnd {
                 } else {
                     if (!jsonElement1.isJsonPrimitive()) {
                         if (isCollection(field) || isArray(field)) {
-                            String typeName = ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName();
-                            compare(jsonElement1, field, WordUtils.capitalize(typeName.replace("jcrapi.model.", "")));
+                            // hot fix for compiling to java 7.
+//                            String typeName = ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName();
+//                            compare(jsonElement1, field, WordUtils.capitalize(typeName.replace("jcrapi.model.", "")));
                         } else if (jsonElement1.isJsonObject()) {
                             compare(jsonElement1, field, field.getType().getSimpleName());
                         }
