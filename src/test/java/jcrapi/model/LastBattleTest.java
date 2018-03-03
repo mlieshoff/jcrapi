@@ -24,50 +24,34 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class ClanChestTest {
+public class LastBattleTest {
 
-    private ClanChest unitUnderTest;
+    private LastBattle unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new ClanChest();
+        unitUnderTest = new LastBattle();
     }
 
     @Test
-    public void shouldGetSetStatus() {
+    public void shouldGetSetType() {
         String expected = "astring";
-        unitUnderTest.setStatus(expected);
-        assertEquals(expected, unitUnderTest.getStatus());
+        unitUnderTest.setType(expected);
+        assertEquals(expected, unitUnderTest.getType());
     }
 
     @Test
-    public void shouldGetSetCrowns() {
-        int expected = 815;
-        unitUnderTest.setCrowns(expected);
-        assertEquals(expected, unitUnderTest.getCrowns());
-    }
-
-    @Test
-    public void shouldGetSetLevel() {
-        int expected = 815;
-        unitUnderTest.setLevel(expected);
-        assertEquals(expected, unitUnderTest.getLevel());
-    }
-
-    @Test
-    public void shouldGetSetMaxLevel() {
-        int expected = 815;
-        unitUnderTest.setMaxLevel(expected);
-        assertEquals(expected, unitUnderTest.getMaxLevel());
+    public void shouldGetSetTime() {
+        long expected = 4711L;
+        unitUnderTest.setTime(expected);
+        assertEquals(expected, unitUnderTest.getTime());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setStatus("astring");
-        unitUnderTest.setCrowns(815);
-        unitUnderTest.setLevel(815);
-        unitUnderTest.setMaxLevel(815);
-        String expected = "ClanChest{status=astring, crowns=815, level=815, maxLevel=815}";
+        unitUnderTest.setType("astring");
+        unitUnderTest.setTime(4711L);
+        String expected = "LastBattle{type=astring, time=4711}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

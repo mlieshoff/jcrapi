@@ -22,6 +22,9 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.mili.generator")
 public class BattleMode {
 
+    @SerializedName("id")
+    private int id;
+
     @SerializedName("name")
     private String name;
 
@@ -31,8 +34,12 @@ public class BattleMode {
     @SerializedName("cardLevels")
     private String cardLevels;
 
+    @Deprecated
     @SerializedName("overtimeSecons")
     private int overtimeSecons;
+
+    @SerializedName("overtimeSeconds")
+    private int overtimeSeconds;
 
     @SerializedName("players")
     private String players;
@@ -40,6 +47,14 @@ public class BattleMode {
     @SerializedName("sameDeck")
     private boolean sameDeck;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -64,12 +79,22 @@ public class BattleMode {
         return cardLevels;
     }
     
+    @Deprecated
     public void setOvertimeSecons(int overtimeSecons) {
         this.overtimeSecons = overtimeSecons;
     }
     
+    @Deprecated
     public int getOvertimeSecons() {
         return overtimeSecons;
+    }
+    
+    public void setOvertimeSeconds(int overtimeSeconds) {
+        this.overtimeSeconds = overtimeSeconds;
+    }
+    
+    public int getOvertimeSeconds() {
+        return overtimeSeconds;
     }
     
     public void setPlayers(String players) {
@@ -91,6 +116,9 @@ public class BattleMode {
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("BattleMode{");
+        s.append("id=");
+        s.append(id);
+        s.append(", ");
         s.append("name=");
         s.append(name);
         s.append(", ");
@@ -102,6 +130,9 @@ public class BattleMode {
         s.append(", ");
         s.append("overtimeSecons=");
         s.append(overtimeSecons);
+        s.append(", ");
+        s.append("overtimeSeconds=");
+        s.append(overtimeSeconds);
         s.append(", ");
         s.append("players=");
         s.append(players);

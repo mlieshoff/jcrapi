@@ -48,6 +48,13 @@ public class ProfileTest {
     }
 
     @Test
+    public void shouldGetSetRank() {
+        int expected = 815;
+        unitUnderTest.setRank(expected);
+        assertEquals(expected, unitUnderTest.getRank());
+    }
+
+    @Test
     public void shouldGetSetTrophies() {
         int expected = 815;
         unitUnderTest.setTrophies(expected);
@@ -118,6 +125,13 @@ public class ProfileTest {
     }
 
     @Test
+    public void shouldGetSetAchievements() {
+        java.util.List<Achievement> expected = new java.util.ArrayList<Achievement>();
+        unitUnderTest.setAchievements(expected);
+        assertEquals(expected, unitUnderTest.getAchievements());
+    }
+
+    @Test
     public void shouldGetSetBattles() {
         java.util.List<Battle> expected = new java.util.ArrayList<Battle>();
         unitUnderTest.setBattles(expected);
@@ -125,9 +139,17 @@ public class ProfileTest {
     }
 
     @Test
+    public void shouldGetSetDeckLink() {
+        String expected = "astring";
+        unitUnderTest.setDeckLink(expected);
+        assertEquals(expected, unitUnderTest.getDeckLink());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setTag("astring");
         unitUnderTest.setName("astring");
+        unitUnderTest.setRank(815);
         unitUnderTest.setTrophies(815);
         unitUnderTest.setArena(new Arena());
         unitUnderTest.setClan(new ProfileClan());
@@ -138,8 +160,10 @@ public class ProfileTest {
         unitUnderTest.setCurrentDeck(new java.util.ArrayList<Card>());
         unitUnderTest.setCards(new java.util.ArrayList<Card>());
         unitUnderTest.setAchievments(new java.util.ArrayList<Achievment>());
+        unitUnderTest.setAchievements(new java.util.ArrayList<Achievement>());
         unitUnderTest.setBattles(new java.util.ArrayList<Battle>());
-        String expected = "Profile{tag=astring, name=astring, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", battles=" + new java.util.ArrayList<Battle>() + "}";
+        unitUnderTest.setDeckLink("astring");
+        String expected = "Profile{tag=astring, name=astring, rank=815, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", achievements=" + new java.util.ArrayList<Achievement>() + ", battles=" + new java.util.ArrayList<Battle>() + ", deckLink=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

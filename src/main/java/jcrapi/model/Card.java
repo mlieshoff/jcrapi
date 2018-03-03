@@ -16,11 +16,15 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class Card {
+
+    @SerializedName("id")
+    private int id;
 
     @SerializedName("name")
     private String name;
@@ -34,8 +38,12 @@ public class Card {
     @SerializedName("count")
     private int count;
 
+    @Deprecated
     @SerializedName("iconUrls")
     private IconUrls iconUrls;
+
+    @SerializedName("icon")
+    private String icon;
 
     @SerializedName("key")
     private String key;
@@ -52,9 +60,23 @@ public class Card {
     @SerializedName("arena")
     private int arena;
 
+    @SerializedName("requiredForUpgrade")
+    private String requiredForUpgrade;
+
+    @SerializedName("leftToUpgrade")
+    private int leftToUpgrade;
+
     @SerializedName("description")
     private String description;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -87,12 +109,22 @@ public class Card {
         return count;
     }
     
+    @Deprecated
     public void setIconUrls(IconUrls iconUrls) {
         this.iconUrls = iconUrls;
     }
     
+    @Deprecated
     public IconUrls getIconUrls() {
         return iconUrls;
+    }
+    
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+    
+    public String getIcon() {
+        return icon;
     }
     
     public void setKey(String key) {
@@ -135,6 +167,22 @@ public class Card {
         return arena;
     }
     
+    public void setRequiredForUpgrade(String requiredForUpgrade) {
+        this.requiredForUpgrade = requiredForUpgrade;
+    }
+    
+    public String getRequiredForUpgrade() {
+        return requiredForUpgrade;
+    }
+    
+    public void setLeftToUpgrade(int leftToUpgrade) {
+        this.leftToUpgrade = leftToUpgrade;
+    }
+    
+    public int getLeftToUpgrade() {
+        return leftToUpgrade;
+    }
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -146,6 +194,9 @@ public class Card {
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("Card{");
+        s.append("id=");
+        s.append(id);
+        s.append(", ");
         s.append("name=");
         s.append(name);
         s.append(", ");
@@ -161,6 +212,9 @@ public class Card {
         s.append("iconUrls=");
         s.append(iconUrls);
         s.append(", ");
+        s.append("icon=");
+        s.append(icon);
+        s.append(", ");
         s.append("key=");
         s.append(key);
         s.append(", ");
@@ -175,6 +229,12 @@ public class Card {
         s.append(", ");
         s.append("arena=");
         s.append(arena);
+        s.append(", ");
+        s.append("requiredForUpgrade=");
+        s.append(requiredForUpgrade);
+        s.append(", ");
+        s.append("leftToUpgrade=");
+        s.append(leftToUpgrade);
         s.append(", ");
         s.append("description=");
         s.append(description);

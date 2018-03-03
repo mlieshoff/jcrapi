@@ -43,6 +43,9 @@ public class TopPlayer {
     @SerializedName("donationsDelta")
     private int donationsDelta;
 
+    @SerializedName("clanChestCrowns")
+    private int clanChestCrowns;
+
     @SerializedName("clan")
     private TeamClan clan;
 
@@ -105,6 +108,14 @@ public class TopPlayer {
         return donationsDelta;
     }
     
+    public void setClanChestCrowns(int clanChestCrowns) {
+        this.clanChestCrowns = clanChestCrowns;
+    }
+    
+    public int getClanChestCrowns() {
+        return clanChestCrowns;
+    }
+    
     public void setClan(TeamClan clan) {
         this.clan = clan;
     }
@@ -144,6 +155,9 @@ public class TopPlayer {
         s.append(", ");
         s.append("donationsDelta=");
         s.append(donationsDelta);
+        s.append(", ");
+        s.append("clanChestCrowns=");
+        s.append(clanChestCrowns);
         s.append(", ");
         s.append("clan=");
         s.append(clan);

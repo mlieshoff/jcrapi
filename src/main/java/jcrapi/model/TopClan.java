@@ -46,6 +46,9 @@ public class TopClan {
     @SerializedName("location")
     private Location location;
 
+    @SerializedName("tracking")
+    private Tracking tracking;
+
     public void setTag(String tag) {
         this.tag = tag;
     }
@@ -110,6 +113,14 @@ public class TopClan {
         return location;
     }
     
+    public void setTracking(Tracking tracking) {
+        this.tracking = tracking;
+    }
+    
+    public Tracking getTracking() {
+        return tracking;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("TopClan{");
@@ -136,6 +147,9 @@ public class TopClan {
         s.append(", ");
         s.append("location=");
         s.append(location);
+        s.append(", ");
+        s.append("tracking=");
+        s.append(tracking);
         s.append("}");
         return s.toString();
     }

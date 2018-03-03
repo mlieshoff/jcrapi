@@ -20,52 +20,52 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class AuthStats {
+public class TournamentClan {
 
-    @SerializedName("id")
-    private long id;
+    @SerializedName("tag")
+    private String tag;
 
-    @SerializedName("lastRequest")
-    private long lastRequest;
+    @SerializedName("name")
+    private String name;
 
-    @SerializedName("requestCount")
-    private long requestCount;
+    @SerializedName("badgeId")
+    private int badgeId;
 
-    public void setId(long id) {
-        this.id = id;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
     
-    public long getId() {
-        return id;
+    public String getTag() {
+        return tag;
     }
     
-    public void setLastRequest(long lastRequest) {
-        this.lastRequest = lastRequest;
+    public void setName(String name) {
+        this.name = name;
     }
     
-    public long getLastRequest() {
-        return lastRequest;
+    public String getName() {
+        return name;
     }
     
-    public void setRequestCount(long requestCount) {
-        this.requestCount = requestCount;
+    public void setBadgeId(int badgeId) {
+        this.badgeId = badgeId;
     }
     
-    public long getRequestCount() {
-        return requestCount;
+    public int getBadgeId() {
+        return badgeId;
     }
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("AuthStats{");
-        s.append("id=");
-        s.append(id);
+        s.append("TournamentClan{");
+        s.append("tag=");
+        s.append(tag);
         s.append(", ");
-        s.append("lastRequest=");
-        s.append(lastRequest);
+        s.append("name=");
+        s.append(name);
         s.append(", ");
-        s.append("requestCount=");
-        s.append(requestCount);
+        s.append("badgeId=");
+        s.append(badgeId);
         s.append("}");
         return s.toString();
     }

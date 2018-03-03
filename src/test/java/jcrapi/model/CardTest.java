@@ -34,6 +34,13 @@ public class CardTest {
     }
 
     @Test
+    public void shouldGetSetId() {
+        int expected = 815;
+        unitUnderTest.setId(expected);
+        assertEquals(expected, unitUnderTest.getId());
+    }
+
+    @Test
     public void shouldGetSetName() {
         String expected = "astring";
         unitUnderTest.setName(expected);
@@ -66,6 +73,13 @@ public class CardTest {
         IconUrls expected = new IconUrls();
         unitUnderTest.setIconUrls(expected);
         assertEquals(expected, unitUnderTest.getIconUrls());
+    }
+
+    @Test
+    public void shouldGetSetIcon() {
+        String expected = "astring";
+        unitUnderTest.setIcon(expected);
+        assertEquals(expected, unitUnderTest.getIcon());
     }
 
     @Test
@@ -104,6 +118,20 @@ public class CardTest {
     }
 
     @Test
+    public void shouldGetSetRequiredForUpgrade() {
+        String expected = "astring";
+        unitUnderTest.setRequiredForUpgrade(expected);
+        assertEquals(expected, unitUnderTest.getRequiredForUpgrade());
+    }
+
+    @Test
+    public void shouldGetSetLeftToUpgrade() {
+        int expected = 815;
+        unitUnderTest.setLeftToUpgrade(expected);
+        assertEquals(expected, unitUnderTest.getLeftToUpgrade());
+    }
+
+    @Test
     public void shouldGetSetDescription() {
         String expected = "astring";
         unitUnderTest.setDescription(expected);
@@ -112,18 +140,22 @@ public class CardTest {
 
     @Test
     public void shouldToString() {
+        unitUnderTest.setId(815);
         unitUnderTest.setName("astring");
         unitUnderTest.setLevel(815);
         unitUnderTest.setMaxLevel(815);
         unitUnderTest.setCount(815);
         unitUnderTest.setIconUrls(new IconUrls());
+        unitUnderTest.setIcon("astring");
         unitUnderTest.setKey("astring");
         unitUnderTest.setElixir(815);
         unitUnderTest.setType("astring");
         unitUnderTest.setRarity("astring");
         unitUnderTest.setArena(815);
+        unitUnderTest.setRequiredForUpgrade("astring");
+        unitUnderTest.setLeftToUpgrade(815);
         unitUnderTest.setDescription("astring");
-        String expected = "Card{name=astring, level=815, maxLevel=815, count=815, iconUrls=" + new IconUrls() + ", key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring}";
+        String expected = "Card{id=815, name=astring, level=815, maxLevel=815, count=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=astring, leftToUpgrade=815, description=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

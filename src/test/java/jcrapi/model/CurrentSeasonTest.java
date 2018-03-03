@@ -48,10 +48,18 @@ public class CurrentSeasonTest {
     }
 
     @Test
+    public void shouldGetSetBestTrophies() {
+        int expected = 815;
+        unitUnderTest.setBestTrophies(expected);
+        assertEquals(expected, unitUnderTest.getBestTrophies());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setRank(815);
         unitUnderTest.setTrophies(815);
-        String expected = "CurrentSeason{rank=815, trophies=815}";
+        unitUnderTest.setBestTrophies(815);
+        String expected = "CurrentSeason{rank=815, trophies=815, bestTrophies=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

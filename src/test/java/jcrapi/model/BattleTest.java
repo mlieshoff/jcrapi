@@ -125,6 +125,13 @@ public class BattleTest {
     }
 
     @Test
+    public void shouldGetSetTournamentTag() {
+        String expected = "astring";
+        unitUnderTest.setTournamentTag(expected);
+        assertEquals(expected, unitUnderTest.getTournamentTag());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setType("astring");
         unitUnderTest.setChallengeType("astring");
@@ -139,7 +146,8 @@ public class BattleTest {
         unitUnderTest.setTeam(new java.util.ArrayList<Team>());
         unitUnderTest.setOpponent(new java.util.ArrayList<Team>());
         unitUnderTest.setArena(new Arena());
-        String expected = "Battle{type=astring, challengeType=astring, mode=" + new BattleMode() + ", winCountBefore=815, utcTime=4711, deckType=astring, teamSize=815, winner=815, teamCrowns=815, opponentCrowns=815, team=" + new java.util.ArrayList<Team>() + ", opponent=" + new java.util.ArrayList<Team>() + ", arena=" + new Arena() + "}";
+        unitUnderTest.setTournamentTag("astring");
+        String expected = "Battle{type=astring, challengeType=astring, mode=" + new BattleMode() + ", winCountBefore=815, utcTime=4711, deckType=astring, teamSize=815, winner=815, teamCrowns=815, opponentCrowns=815, team=" + new java.util.ArrayList<Team>() + ", opponent=" + new java.util.ArrayList<Team>() + ", arena=" + new Arena() + ", tournamentTag=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

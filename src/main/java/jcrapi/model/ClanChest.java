@@ -25,6 +25,15 @@ public class ClanChest {
     @SerializedName("status")
     private String status;
 
+    @SerializedName("crowns")
+    private int crowns;
+
+    @SerializedName("level")
+    private int level;
+
+    @SerializedName("maxLevel")
+    private int maxLevel;
+
     public void setStatus(String status) {
         this.status = status;
     }
@@ -33,11 +42,44 @@ public class ClanChest {
         return status;
     }
     
+    public void setCrowns(int crowns) {
+        this.crowns = crowns;
+    }
+    
+    public int getCrowns() {
+        return crowns;
+    }
+    
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    
+    public int getLevel() {
+        return level;
+    }
+    
+    public void setMaxLevel(int maxLevel) {
+        this.maxLevel = maxLevel;
+    }
+    
+    public int getMaxLevel() {
+        return maxLevel;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("ClanChest{");
         s.append("status=");
         s.append(status);
+        s.append(", ");
+        s.append("crowns=");
+        s.append(crowns);
+        s.append(", ");
+        s.append("level=");
+        s.append(level);
+        s.append(", ");
+        s.append("maxLevel=");
+        s.append(maxLevel);
         s.append("}");
         return s.toString();
     }

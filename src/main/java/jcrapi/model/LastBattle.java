@@ -20,52 +20,38 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
-public class AuthStats {
+public class LastBattle {
 
-    @SerializedName("id")
-    private long id;
+    @SerializedName("type")
+    private String type;
 
-    @SerializedName("lastRequest")
-    private long lastRequest;
+    @SerializedName("time")
+    private long time;
 
-    @SerializedName("requestCount")
-    private long requestCount;
-
-    public void setId(long id) {
-        this.id = id;
+    public void setType(String type) {
+        this.type = type;
     }
     
-    public long getId() {
-        return id;
+    public String getType() {
+        return type;
     }
     
-    public void setLastRequest(long lastRequest) {
-        this.lastRequest = lastRequest;
+    public void setTime(long time) {
+        this.time = time;
     }
     
-    public long getLastRequest() {
-        return lastRequest;
-    }
-    
-    public void setRequestCount(long requestCount) {
-        this.requestCount = requestCount;
-    }
-    
-    public long getRequestCount() {
-        return requestCount;
+    public long getTime() {
+        return time;
     }
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("AuthStats{");
-        s.append("id=");
-        s.append(id);
+        s.append("LastBattle{");
+        s.append("type=");
+        s.append(type);
         s.append(", ");
-        s.append("lastRequest=");
-        s.append(lastRequest);
-        s.append(", ");
-        s.append("requestCount=");
-        s.append(requestCount);
+        s.append("time=");
+        s.append(time);
         s.append("}");
         return s.toString();
     }

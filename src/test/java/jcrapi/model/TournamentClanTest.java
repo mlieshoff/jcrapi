@@ -24,50 +24,42 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class ClanChestTest {
+public class TournamentClanTest {
 
-    private ClanChest unitUnderTest;
+    private TournamentClan unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new ClanChest();
+        unitUnderTest = new TournamentClan();
     }
 
     @Test
-    public void shouldGetSetStatus() {
+    public void shouldGetSetTag() {
         String expected = "astring";
-        unitUnderTest.setStatus(expected);
-        assertEquals(expected, unitUnderTest.getStatus());
+        unitUnderTest.setTag(expected);
+        assertEquals(expected, unitUnderTest.getTag());
     }
 
     @Test
-    public void shouldGetSetCrowns() {
-        int expected = 815;
-        unitUnderTest.setCrowns(expected);
-        assertEquals(expected, unitUnderTest.getCrowns());
+    public void shouldGetSetName() {
+        String expected = "astring";
+        unitUnderTest.setName(expected);
+        assertEquals(expected, unitUnderTest.getName());
     }
 
     @Test
-    public void shouldGetSetLevel() {
+    public void shouldGetSetBadgeId() {
         int expected = 815;
-        unitUnderTest.setLevel(expected);
-        assertEquals(expected, unitUnderTest.getLevel());
-    }
-
-    @Test
-    public void shouldGetSetMaxLevel() {
-        int expected = 815;
-        unitUnderTest.setMaxLevel(expected);
-        assertEquals(expected, unitUnderTest.getMaxLevel());
+        unitUnderTest.setBadgeId(expected);
+        assertEquals(expected, unitUnderTest.getBadgeId());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setStatus("astring");
-        unitUnderTest.setCrowns(815);
-        unitUnderTest.setLevel(815);
-        unitUnderTest.setMaxLevel(815);
-        String expected = "ClanChest{status=astring, crowns=815, level=815, maxLevel=815}";
+        unitUnderTest.setTag("astring");
+        unitUnderTest.setName("astring");
+        unitUnderTest.setBadgeId(815);
+        String expected = "TournamentClan{tag=astring, name=astring, badgeId=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

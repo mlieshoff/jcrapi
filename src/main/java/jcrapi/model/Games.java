@@ -46,6 +46,9 @@ public class Games {
     @SerializedName("drawsPercent")
     private double drawsPercent;
 
+    @SerializedName("lastBattle")
+    private LastBattle lastBattle;
+
     public void setTotal(int total) {
         this.total = total;
     }
@@ -110,6 +113,14 @@ public class Games {
         return drawsPercent;
     }
     
+    public void setLastBattle(LastBattle lastBattle) {
+        this.lastBattle = lastBattle;
+    }
+    
+    public LastBattle getLastBattle() {
+        return lastBattle;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("Games{");
@@ -136,6 +147,9 @@ public class Games {
         s.append(", ");
         s.append("drawsPercent=");
         s.append(drawsPercent);
+        s.append(", ");
+        s.append("lastBattle=");
+        s.append(lastBattle);
         s.append("}");
         return s.toString();
     }

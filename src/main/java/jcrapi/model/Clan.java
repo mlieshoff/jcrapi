@@ -55,6 +55,9 @@ public class Clan {
     @SerializedName("location")
     private Location location;
 
+    @SerializedName("tracking")
+    private Tracking tracking;
+
     @SerializedName("members")
     private java.util.List<Member> members;
 
@@ -146,6 +149,14 @@ public class Clan {
         return location;
     }
     
+    public void setTracking(Tracking tracking) {
+        this.tracking = tracking;
+    }
+    
+    public Tracking getTracking() {
+        return tracking;
+    }
+    
     public void setMembers(java.util.List<Member> members) {
         this.members = members;
     }
@@ -189,6 +200,9 @@ public class Clan {
         s.append(", ");
         s.append("location=");
         s.append(location);
+        s.append(", ");
+        s.append("tracking=");
+        s.append(tracking);
         s.append(", ");
         s.append("members=");
         s.append(members);

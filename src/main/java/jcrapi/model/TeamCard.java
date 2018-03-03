@@ -22,6 +22,9 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.mili.generator")
 public class TeamCard {
 
+    @SerializedName("id")
+    private int id;
+
     @SerializedName("name")
     private String name;
 
@@ -31,8 +34,12 @@ public class TeamCard {
     @SerializedName("maxLevel")
     private int maxLevel;
 
+    @Deprecated
     @SerializedName("iconUrls")
     private IconUrls iconUrls;
+
+    @SerializedName("icon")
+    private String icon;
 
     @SerializedName("key")
     private String key;
@@ -49,9 +56,20 @@ public class TeamCard {
     @SerializedName("arena")
     private int arena;
 
+    @SerializedName("requiredForUpgrade")
+    private String requiredForUpgrade;
+
     @SerializedName("description")
     private String description;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -76,12 +94,22 @@ public class TeamCard {
         return maxLevel;
     }
     
+    @Deprecated
     public void setIconUrls(IconUrls iconUrls) {
         this.iconUrls = iconUrls;
     }
     
+    @Deprecated
     public IconUrls getIconUrls() {
         return iconUrls;
+    }
+    
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+    
+    public String getIcon() {
+        return icon;
     }
     
     public void setKey(String key) {
@@ -124,6 +152,14 @@ public class TeamCard {
         return arena;
     }
     
+    public void setRequiredForUpgrade(String requiredForUpgrade) {
+        this.requiredForUpgrade = requiredForUpgrade;
+    }
+    
+    public String getRequiredForUpgrade() {
+        return requiredForUpgrade;
+    }
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -135,6 +171,9 @@ public class TeamCard {
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("TeamCard{");
+        s.append("id=");
+        s.append(id);
+        s.append(", ");
         s.append("name=");
         s.append(name);
         s.append(", ");
@@ -146,6 +185,9 @@ public class TeamCard {
         s.append(", ");
         s.append("iconUrls=");
         s.append(iconUrls);
+        s.append(", ");
+        s.append("icon=");
+        s.append(icon);
         s.append(", ");
         s.append("key=");
         s.append(key);
@@ -161,6 +203,9 @@ public class TeamCard {
         s.append(", ");
         s.append("arena=");
         s.append(arena);
+        s.append(", ");
+        s.append("requiredForUpgrade=");
+        s.append(requiredForUpgrade);
         s.append(", ");
         s.append("description=");
         s.append(description);

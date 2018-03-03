@@ -90,6 +90,13 @@ public class GamesTest {
     }
 
     @Test
+    public void shouldGetSetLastBattle() {
+        LastBattle expected = new LastBattle();
+        unitUnderTest.setLastBattle(expected);
+        assertEquals(expected, unitUnderTest.getLastBattle());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setTotal(815);
         unitUnderTest.setTournamentGames(815);
@@ -99,7 +106,8 @@ public class GamesTest {
         unitUnderTest.setLossesPercent(1.41);
         unitUnderTest.setDraws(815);
         unitUnderTest.setDrawsPercent(1.41);
-        String expected = "Games{total=815, tournamentGames=815, wins=815, winsPercent=1.41, losses=815, lossesPercent=1.41, draws=815, drawsPercent=1.41}";
+        unitUnderTest.setLastBattle(new LastBattle());
+        String expected = "Games{total=815, tournamentGames=815, wins=815, winsPercent=1.41, losses=815, lossesPercent=1.41, draws=815, drawsPercent=1.41, lastBattle=" + new LastBattle() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

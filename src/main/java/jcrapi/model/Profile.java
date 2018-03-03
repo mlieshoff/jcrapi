@@ -28,6 +28,9 @@ public class Profile {
     @SerializedName("name")
     private String name;
 
+    @SerializedName("rank")
+    private int rank;
+
     @SerializedName("trophies")
     private int trophies;
 
@@ -55,11 +58,18 @@ public class Profile {
     @SerializedName("cards")
     private java.util.List<Card> cards;
 
+    @Deprecated
     @SerializedName("achievments")
     private java.util.List<Achievment> achievments;
 
+    @SerializedName("achievements")
+    private java.util.List<Achievement> achievements;
+
     @SerializedName("battles")
     private java.util.List<Battle> battles;
+
+    @SerializedName("deckLink")
+    private String deckLink;
 
     public void setTag(String tag) {
         this.tag = tag;
@@ -75,6 +85,14 @@ public class Profile {
     
     public String getName() {
         return name;
+    }
+    
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+    
+    public int getRank() {
+        return rank;
     }
     
     public void setTrophies(int trophies) {
@@ -149,12 +167,22 @@ public class Profile {
         return cards;
     }
     
+    @Deprecated
     public void setAchievments(java.util.List<Achievment> achievments) {
         this.achievments = achievments;
     }
     
+    @Deprecated
     public java.util.List<Achievment> getAchievments() {
         return achievments;
+    }
+    
+    public void setAchievements(java.util.List<Achievement> achievements) {
+        this.achievements = achievements;
+    }
+    
+    public java.util.List<Achievement> getAchievements() {
+        return achievements;
     }
     
     public void setBattles(java.util.List<Battle> battles) {
@@ -165,6 +193,14 @@ public class Profile {
         return battles;
     }
     
+    public void setDeckLink(String deckLink) {
+        this.deckLink = deckLink;
+    }
+    
+    public String getDeckLink() {
+        return deckLink;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("Profile{");
@@ -173,6 +209,9 @@ public class Profile {
         s.append(", ");
         s.append("name=");
         s.append(name);
+        s.append(", ");
+        s.append("rank=");
+        s.append(rank);
         s.append(", ");
         s.append("trophies=");
         s.append(trophies);
@@ -204,8 +243,14 @@ public class Profile {
         s.append("achievments=");
         s.append(achievments);
         s.append(", ");
+        s.append("achievements=");
+        s.append(achievements);
+        s.append(", ");
         s.append("battles=");
         s.append(battles);
+        s.append(", ");
+        s.append("deckLink=");
+        s.append(deckLink);
         s.append("}");
         return s.toString();
     }

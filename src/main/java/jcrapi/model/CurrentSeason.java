@@ -28,6 +28,9 @@ public class CurrentSeason {
     @SerializedName("trophies")
     private int trophies;
 
+    @SerializedName("bestTrophies")
+    private int bestTrophies;
+
     public void setRank(int rank) {
         this.rank = rank;
     }
@@ -44,6 +47,14 @@ public class CurrentSeason {
         return trophies;
     }
     
+    public void setBestTrophies(int bestTrophies) {
+        this.bestTrophies = bestTrophies;
+    }
+    
+    public int getBestTrophies() {
+        return bestTrophies;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("CurrentSeason{");
@@ -52,6 +63,9 @@ public class CurrentSeason {
         s.append(", ");
         s.append("trophies=");
         s.append(trophies);
+        s.append(", ");
+        s.append("bestTrophies=");
+        s.append(bestTrophies);
         s.append("}");
         return s.toString();
     }

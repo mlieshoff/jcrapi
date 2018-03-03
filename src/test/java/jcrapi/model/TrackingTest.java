@@ -24,50 +24,42 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class ClanChestTest {
+public class TrackingTest {
 
-    private ClanChest unitUnderTest;
+    private Tracking unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new ClanChest();
+        unitUnderTest = new Tracking();
     }
 
     @Test
-    public void shouldGetSetStatus() {
-        String expected = "astring";
-        unitUnderTest.setStatus(expected);
-        assertEquals(expected, unitUnderTest.getStatus());
+    public void shouldGetSetActive() {
+        boolean expected = false;
+        unitUnderTest.setActive(expected);
+        assertEquals(expected, unitUnderTest.getActive());
     }
 
     @Test
-    public void shouldGetSetCrowns() {
+    public void shouldGetSetAvailable() {
+        boolean expected = false;
+        unitUnderTest.setAvailable(expected);
+        assertEquals(expected, unitUnderTest.getAvailable());
+    }
+
+    @Test
+    public void shouldGetSetSnapshotCount() {
         int expected = 815;
-        unitUnderTest.setCrowns(expected);
-        assertEquals(expected, unitUnderTest.getCrowns());
-    }
-
-    @Test
-    public void shouldGetSetLevel() {
-        int expected = 815;
-        unitUnderTest.setLevel(expected);
-        assertEquals(expected, unitUnderTest.getLevel());
-    }
-
-    @Test
-    public void shouldGetSetMaxLevel() {
-        int expected = 815;
-        unitUnderTest.setMaxLevel(expected);
-        assertEquals(expected, unitUnderTest.getMaxLevel());
+        unitUnderTest.setSnapshotCount(expected);
+        assertEquals(expected, unitUnderTest.getSnapshotCount());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setStatus("astring");
-        unitUnderTest.setCrowns(815);
-        unitUnderTest.setLevel(815);
-        unitUnderTest.setMaxLevel(815);
-        String expected = "ClanChest{status=astring, crowns=815, level=815, maxLevel=815}";
+        unitUnderTest.setActive(false);
+        unitUnderTest.setAvailable(false);
+        unitUnderTest.setSnapshotCount(815);
+        String expected = "Tracking{active=false, available=false, snapshotCount=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

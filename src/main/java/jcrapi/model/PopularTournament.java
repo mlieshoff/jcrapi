@@ -25,6 +25,12 @@ public class PopularTournament extends Tournament {
     @SerializedName("popularity")
     private Popularity popularity;
 
+    @SerializedName("endTime")
+    private long endTime;
+
+    @SerializedName("playerCount")
+    private int playerCount;
+
     public void setPopularity(Popularity popularity) {
         this.popularity = popularity;
     }
@@ -33,11 +39,33 @@ public class PopularTournament extends Tournament {
         return popularity;
     }
     
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
+    
+    public long getEndTime() {
+        return endTime;
+    }
+    
+    public void setPlayerCount(int playerCount) {
+        this.playerCount = playerCount;
+    }
+    
+    public int getPlayerCount() {
+        return playerCount;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("PopularTournament{");
         s.append("popularity=");
         s.append(popularity);
+        s.append(", ");
+        s.append("endTime=");
+        s.append(endTime);
+        s.append(", ");
+        s.append("playerCount=");
+        s.append(playerCount);
         s.append("}");
         return s.toString();
     }

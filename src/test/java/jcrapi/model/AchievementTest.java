@@ -24,50 +24,58 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class ClanChestTest {
+public class AchievementTest {
 
-    private ClanChest unitUnderTest;
+    private Achievement unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new ClanChest();
+        unitUnderTest = new Achievement();
     }
 
     @Test
-    public void shouldGetSetStatus() {
+    public void shouldGetSetName() {
         String expected = "astring";
-        unitUnderTest.setStatus(expected);
-        assertEquals(expected, unitUnderTest.getStatus());
+        unitUnderTest.setName(expected);
+        assertEquals(expected, unitUnderTest.getName());
     }
 
     @Test
-    public void shouldGetSetCrowns() {
+    public void shouldGetSetStars() {
         int expected = 815;
-        unitUnderTest.setCrowns(expected);
-        assertEquals(expected, unitUnderTest.getCrowns());
+        unitUnderTest.setStars(expected);
+        assertEquals(expected, unitUnderTest.getStars());
     }
 
     @Test
-    public void shouldGetSetLevel() {
+    public void shouldGetSetValue() {
         int expected = 815;
-        unitUnderTest.setLevel(expected);
-        assertEquals(expected, unitUnderTest.getLevel());
+        unitUnderTest.setValue(expected);
+        assertEquals(expected, unitUnderTest.getValue());
     }
 
     @Test
-    public void shouldGetSetMaxLevel() {
+    public void shouldGetSetTarget() {
         int expected = 815;
-        unitUnderTest.setMaxLevel(expected);
-        assertEquals(expected, unitUnderTest.getMaxLevel());
+        unitUnderTest.setTarget(expected);
+        assertEquals(expected, unitUnderTest.getTarget());
+    }
+
+    @Test
+    public void shouldGetSetInfo() {
+        String expected = "astring";
+        unitUnderTest.setInfo(expected);
+        assertEquals(expected, unitUnderTest.getInfo());
     }
 
     @Test
     public void shouldToString() {
-        unitUnderTest.setStatus("astring");
-        unitUnderTest.setCrowns(815);
-        unitUnderTest.setLevel(815);
-        unitUnderTest.setMaxLevel(815);
-        String expected = "ClanChest{status=astring, crowns=815, level=815, maxLevel=815}";
+        unitUnderTest.setName("astring");
+        unitUnderTest.setStars(815);
+        unitUnderTest.setValue(815);
+        unitUnderTest.setTarget(815);
+        unitUnderTest.setInfo("astring");
+        String expected = "Achievement{name=astring, stars=815, value=815, target=815, info=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
