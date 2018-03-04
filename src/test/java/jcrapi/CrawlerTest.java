@@ -109,7 +109,13 @@ public class CrawlerTest {
         when(httpClientFactory.create()).thenReturn(httpClient);
         HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
         httpResponse.setEntity(new StringEntity(expectedResult));
-        when(httpClient.execute(argThat(new ArgumentMatcher<HttpUriRequest>() {
+        when(httpClient.execute(argThat(getMatcher()))).thenReturn(httpResponse);
+        assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(),
+                ImmutableMap.<String, String>builder().put("param", "a+b").put("key", "abc").build()));
+    }
+
+    private ArgumentMatcher<HttpUriRequest> getMatcher() {
+        return new ArgumentMatcher<HttpUriRequest>() {
             @Override
             public boolean matches(Object o) {
                 if (o instanceof HttpUriRequest) {
@@ -118,9 +124,23 @@ public class CrawlerTest {
                 }
                 return false;
             }
-        }))).thenReturn(httpResponse);
+        };
+    }
+
+    @Test
+    public void shouldGetLastResponse() throws IOException {
+        String expectedResult = "break-out-prison";
+        when(httpClientFactory.create()).thenReturn(httpClient);
+        HttpResponse httpResponse = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion("http", 100, 1), 200, ""));
+        httpResponse.setEntity(new StringEntity(expectedResult));
+        httpResponse.addHeader("hello", "world");
+        when(httpClient.execute(argThat(getMatcher()))).thenReturn(httpResponse);
+        Response response = new Response();
+        response.setRaw(expectedResult);
+        response.getResponseHeaders().put("hello", "world");
         assertEquals(expectedResult, new Crawler(httpClientFactory).get("the-url", createHeaders(),
                 ImmutableMap.<String, String>builder().put("param", "a+b").put("key", "abc").build()));
+        assertEquals(response, new Crawler(httpClientFactory).getLastResponse());
     }
 
 }

@@ -137,6 +137,7 @@ List<Battle> clanBattles = api.getClanBattles(ClanBattleRequest.builder("RP88QQG
 ```java
 // get clan history
 ClanHistory clanHistory = api.getClanHistory(ClanHistoryRequest.builder("RP88QQG")
+    .days(1)
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
@@ -202,6 +203,17 @@ AuthStats authStats = api.getAuthStats(AuthStatsRequest.builder()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .build());
+```
+
+```java
+// get thread safe last response object from last request 
+Response response = api.getLastResponse();
+
+String raw = response.getRaw();
+Map<String, String> responseHeaders = response.getResponseHeaders();
+int rateLimit = response.getRateLimit();
+int rateRemaining = response.getRateRemaining();
+
 ```
 
 ## How to bind the bintray repository ##

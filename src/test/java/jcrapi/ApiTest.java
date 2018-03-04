@@ -1101,4 +1101,11 @@ public class ApiTest {
         }
     }
 
+    @Test
+    public void shouldgetLastResponse() throws Exception {
+        Response response = new Response();
+        when(client.getLastResponse()).thenReturn(response);
+        assertEquals(response, api.getLastResponse());
+    }
+
 }

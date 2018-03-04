@@ -470,4 +470,11 @@ public class ClientTest {
         assertNotNull(createClient().getAuthStats(authStatsRequest));
     }
 
+    @Test
+    public void shouldGetLastResponse() throws IOException {
+        Response response = new Response();
+        when(crawler.getLastResponse()).thenReturn(response);
+        assertEquals(response, createClient().getLastResponse());
+    }
+
 }

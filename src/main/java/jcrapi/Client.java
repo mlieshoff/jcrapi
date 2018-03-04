@@ -332,4 +332,8 @@ class Client {
         return new Gson().fromJson(json, AuthStats.class);
     }
 
+    Response getLastResponse() {
+        return createCrawler().getLastResponse();
+    }
+
 }

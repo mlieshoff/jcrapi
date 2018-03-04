@@ -18,7 +18,9 @@ package jcrapi;
 
 import com.google.common.base.Preconditions;
 import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
@@ -37,6 +39,13 @@ import java.util.Map;
  */
 class Crawler {
 
+    private static final ThreadLocal<Response> RESPONSE = new ThreadLocal<Response>(){
+        @Override
+        protected Response initialValue() {
+            return new Response();
+        }
+    };
+
     private final HttpClientFactory httpClientFactory;
 
     Crawler(HttpClientFactory httpClientFactory) {
@@ -48,6 +57,7 @@ class Crawler {
     }
 
     String get(String url, Map<String, String> headers, Map<String, String> parameters) throws IOException {
+        Response apiResponse = RESPONSE.get();
         Preconditions.checkNotNull(url);
         Preconditions.checkArgument(url.length() > 0);
         Preconditions.checkNotNull(headers);
@@ -66,7 +76,22 @@ class Crawler {
         while ((line = rd.readLine()) != null) {
             s.append(line);
         }
-        return s.toString();
+        String result = s.toString();
+        setLastResponse(apiResponse, result, response);
+        return result;
+    }
+
+    private void setLastResponse(Response apiResponse, String result, HttpResponse response) {
+        apiResponse.setRaw(result);
+        if (ArrayUtils.isNotEmpty(response.getAllHeaders())) {
+            for (Header header : response.getAllHeaders()) {
+                apiResponse.getResponseHeaders().put(header.getName(), header.getValue());
+            }
+        }
+    }
+
+    public Response getLastResponse() {
+        return RESPONSE.get();
     }
 
     private String appendToUrl(String url, Map<String, String> parameters) throws UnsupportedEncodingException {
