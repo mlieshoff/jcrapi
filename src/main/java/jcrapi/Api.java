@@ -358,4 +358,8 @@ public class Api {
         }
     }
 
+    public Response getLastResponse() {
+        return createClient().getLastResponse();
+    }
+
 }
