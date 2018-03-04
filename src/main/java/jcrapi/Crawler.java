@@ -19,7 +19,6 @@ package jcrapi;
 import com.google.common.base.Preconditions;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
@@ -57,11 +56,6 @@ class Crawler {
         HttpClient client = httpClientFactory.create();
         HttpGet request = createRequest(url, headers);
         HttpResponse response = client.execute(request);
-
-        for (Header header : response.getAllHeaders()) {
-            System.out.println(header.getName() + ": " + header.getValue());
-        }
-
         StatusLine statusLine = response.getStatusLine();
         if (statusLine.getStatusCode() != 200) {
             throw new IOException("crapi: " + statusLine.getStatusCode());
