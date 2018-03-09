@@ -990,9 +990,9 @@ public class ApiTest {
     @Test
     public void shouldGetPlayerChestsFromRequest() throws Exception {
         List<String> tags = createTags();
-        ChestCycle chestCycle = new ChestCycle();
-        when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenReturn(chestCycle);
-        assertSame(chestCycle, api.getPlayerChests(PlayerChestsRequest.builder(tags).build()));
+        List<ChestCycle> chestCycles = new ArrayList<>();
+        when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenReturn(chestCycles);
+        assertSame(chestCycles, api.getPlayerChests(PlayerChestsRequest.builder(tags).build()));
     }
 
     private Matcher<PlayerChestsRequest> getPlayerChestsRequestArgumentMatcher(final List<String> tags) {

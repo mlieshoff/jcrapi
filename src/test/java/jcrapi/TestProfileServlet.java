@@ -31,23 +31,32 @@ public class TestProfileServlet extends TestJsonFileServlet {
         String parameter = getRestTagParameter(req);
         String filename = null;
         if ("battles".equals(parameter)) {
-            String uri = req.getRequestURI()
-                    .replace("/test/jcrapi/player/", "")
-                    .replace("/battles", "");
-            String[] tags = uri.split(",");
+            String[] tags = getTags(req, "/battles");
             if (tags.length == 1) {
                 filename = "src/test/java/jcrapi/playerBattles.json";
             } else {
                 filename = "src/test/java/jcrapi/multiPlayerBattles.json";
             }
         } else if ("chests".equals(parameter)) {
-            filename = "src/test/java/jcrapi/playerChests.json";
+            String[] tags = getTags(req, "/chests");
+            if (tags.length == 1) {
+                filename = "src/test/java/jcrapi/playerChests.json";
+            } else {
+                filename = "src/test/java/jcrapi/multiPlayerChests.json";
+            }
         } else if ("8L9L9GL".equals(parameter)) {
             filename = "src/test/java/jcrapi/profile.json";
         } else if ("L88P2282,9CQ2U8QJ,8L9L9GL".equals(parameter)) {
             filename = "src/test/java/jcrapi/profiles.json";
         }
         super.doGet(filename, req, resp);
+    }
+
+    private String[] getTags(HttpServletRequest req, String subUri) {
+        String uri = req.getRequestURI()
+                .replace("/test/jcrapi/player/", "")
+                .replace(subUri, "");
+        return uri.split(",");
     }
 
 }

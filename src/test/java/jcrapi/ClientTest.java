@@ -448,10 +448,19 @@ public class ClientTest {
 
     @Test
     public void shouldGetPlayerChests() throws IOException {
-        List<String> tags = createTags();
+        List<String> tags = createTags().subList(0, 1);
         PlayerChestsRequest playerChestsRequest = PlayerChestsRequest.builder(tags).build();
         when(crawler.get("lala/player/" + StringUtils.join(tags, ',') + "/chests", createHeaders(),
                 playerChestsRequest.getQueryParameters())).thenReturn("{}");
+        assertNotNull(createClient().getPlayerChests(playerChestsRequest));
+    }
+
+    @Test
+    public void shouldGetMultiPlayerChests() throws IOException {
+        List<String> tags = createTags();
+        PlayerChestsRequest playerChestsRequest = PlayerChestsRequest.builder(tags).build();
+        when(crawler.get("lala/player/" + StringUtils.join(tags, ',') + "/chests", createHeaders(),
+                playerChestsRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getPlayerChests(playerChestsRequest));
     }
 

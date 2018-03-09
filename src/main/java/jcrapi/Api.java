@@ -326,7 +326,7 @@ public class Api {
         }
     }
 
-    public ChestCycle getPlayerChests(PlayerChestsRequest playerChestsRequest) {
+    public List<ChestCycle> getPlayerChests(PlayerChestsRequest playerChestsRequest) {
         try {
             return createClient().getPlayerChests(playerChestsRequest);
         } catch (IOException e) {

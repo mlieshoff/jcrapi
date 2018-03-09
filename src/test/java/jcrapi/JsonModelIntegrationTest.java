@@ -72,6 +72,19 @@ public class JsonModelIntegrationTest {
         }
     }
 
+    private <T> void assertListOfListType(String filename, Class<T> elementClass) throws IOException {
+        String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
+        Type listType = new TypeToken<List<List<T>>>(){}.getType();
+        List<List<T>> list = new Gson().fromJson(json, listType);
+        assertNotNull(list);
+        for (List<T> innerList : list) {
+            assertNotNull(innerList);
+            for (T t : innerList) {
+                assertNotNull(t);
+            }
+        }
+    }
+
     @Test
     public void shouldResolveTopClans() throws Exception {
         assertListType("topClans.json", TopClan.class);
@@ -109,17 +122,22 @@ public class JsonModelIntegrationTest {
 
     @Test
     public void shouldResolvePlayerBattles() throws Exception {
-        assertListType("playerBattles.json", List.class);
+        assertListType("playerBattles.json", Battle.class);
     }
 
     @Test
     public void shouldResolveMultiPlayerBattles() throws Exception {
-        assertListType("multiPlayerBattles.json", Battle.class);
+        assertListOfListType("multiPlayerBattles.json", Battle.class);
     }
 
     @Test
     public void shouldResolvePlayerChests() throws Exception {
         assertType("playerChests.json", ChestCycle.class);
+    }
+
+    @Test
+    public void shouldResolveMultiPlayerChests() throws Exception {
+        assertListType("multiPlayerChests.json", ChestCycle.class);
     }
 
     @Test
