@@ -37,6 +37,7 @@ import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -75,6 +76,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/popular/clans", new TestPopularClansServlet());
         jettyServer.addServlet("/" + APP + "/popular/decks", new TestPopularDecksServlet());
         jettyServer.addServlet("/" + APP + "/popular/players", new TestPopularPlayersServlet());
+        jettyServer.addServlet("/" + APP + "/tournaments/search", new TestTournamentSearchServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/known", new TestKnownTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/open", new TestOpenTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
@@ -566,6 +568,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetKnownTournamentsBecauseWrongAuthFromRequest() throws IOException {
         doGetKnownTournamentsFromRequest(URL, "abc", KnownTournamentsRequest.builder().build());
+    }
+
+    @Test
+    public void shouldGetTournamentSearchWithAuthFromRequest() throws IOException {
+        doGetTournamentSearchFromRequest(URL, AUTH, TournamentSearchRequest.builder("abc").build());
+    }
+
+    private void doGetTournamentSearchFromRequest(String url, String auth, TournamentSearchRequest tournamentSearchRequest) {
+        assertTrue(new Api(url, auth).getTournamentSearch(tournamentSearchRequest).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetTournamentSearchBecauseWrongAuthFromRequest() throws IOException {
+        doGetTournamentSearchFromRequest(URL, "abc", TournamentSearchRequest.builder("abc").build());
     }
 
     @Test

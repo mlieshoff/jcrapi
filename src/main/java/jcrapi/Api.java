@@ -32,6 +32,7 @@ import jcrapi.model.PopularDeck;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
+import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
@@ -53,6 +54,7 @@ import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 import org.apache.commons.collections.CollectionUtils;
 
@@ -313,6 +315,14 @@ public class Api {
     public List<KnownTournament> getKnownTournaments(KnownTournamentsRequest knownTournamentsRequest) {
         try {
             return createClient().getKnownTournaments(knownTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<SearchedTournament> getTournamentSearch(TournamentSearchRequest tournamentSearchRequest) {
+        try {
+            return createClient().getTournamentSearch(tournamentSearchRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

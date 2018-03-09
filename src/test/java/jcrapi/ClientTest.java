@@ -35,6 +35,7 @@ import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
+import jcrapi.request.TournamentSearchRequest;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -426,6 +427,13 @@ public class ClientTest {
         KnownTournamentsRequest knownTournamentsRequest = KnownTournamentsRequest.builder().build();
         when(crawler.get("lala/tournaments/known", createHeaders(), knownTournamentsRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getKnownTournaments(knownTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetTournamentSearch() throws IOException {
+        TournamentSearchRequest tournamentSearchRequest = TournamentSearchRequest.builder("abc").build();
+        when(crawler.get("lala/tournaments/search", createHeaders(), tournamentSearchRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getTournamentSearch(tournamentSearchRequest));
     }
 
     @Test

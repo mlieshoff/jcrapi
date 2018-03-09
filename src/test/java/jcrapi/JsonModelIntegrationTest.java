@@ -26,6 +26,7 @@ import jcrapi.model.ClanHistory;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularDeck;
 import jcrapi.model.Profile;
+import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import org.apache.commons.io.FileUtils;
@@ -69,19 +70,6 @@ public class JsonModelIntegrationTest {
         assertNotNull(list);
         for (T element : list) {
             assertNotNull(element);
-        }
-    }
-
-    private <T> void assertListOfListType(String filename, Class<T> elementClass) throws IOException {
-        String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
-        Type listType = new TypeToken<List<List<T>>>(){}.getType();
-        List<List<T>> list = new Gson().fromJson(json, listType);
-        assertNotNull(list);
-        for (List<T> innerList : list) {
-            assertNotNull(innerList);
-            for (T t : innerList) {
-                assertNotNull(t);
-            }
         }
     }
 
@@ -130,6 +118,19 @@ public class JsonModelIntegrationTest {
         assertListOfListType("multiPlayerBattles.json", Battle.class);
     }
 
+    private <T> void assertListOfListType(String filename, Class<T> elementClass) throws IOException {
+        String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
+        Type listType = new TypeToken<List<List<T>>>(){}.getType();
+        List<List<T>> list = new Gson().fromJson(json, listType);
+        assertNotNull(list);
+        for (List<T> innerList : list) {
+            assertNotNull(innerList);
+            for (T t : innerList) {
+                assertNotNull(t);
+            }
+        }
+    }
+
     @Test
     public void shouldResolvePlayerChests() throws Exception {
         assertType("playerChests.json", ChestCycle.class);
@@ -143,6 +144,11 @@ public class JsonModelIntegrationTest {
     @Test
     public void shouldResolvePopularDecks() throws Exception {
         assertListType("popularDecks.json", PopularDeck.class);
+    }
+
+    @Test
+    public void shouldResolveTournamentSearch() throws Exception {
+        assertListType("tournamentSearch.json", SearchedTournament.class);
     }
 
 }

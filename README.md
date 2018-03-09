@@ -163,6 +163,16 @@ List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournament
 ```
 
 ```java
+// tournament search
+List<Clan> clans = api.getTournamentSearch(TournamentSearchRequest.builder()
+    .setName("abc")
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .limit(10)
+    .build());
+```
+
+```java
 // get player battles
 List<List<Battle>> battles = api.getPlayerBattles(PlayerBattlesRequest.builder(Arrays.asList("L88P2282", "9CQ2U8QJ", "8L9L9GL"))
     .keys(Arrays.asList("name", "clan", "tag"))
