@@ -318,10 +318,17 @@ class Client {
         }
     }
 
-    ChestCycle getPlayerChests(PlayerChestsRequest playerChestsRequest) throws IOException {
+    List<ChestCycle> getPlayerChests(PlayerChestsRequest playerChestsRequest) throws IOException {
         String json = get(createUrl("player/" + StringUtils.join(playerChestsRequest.getTags(), ",")
                 + "/chests"), playerChestsRequest);
-        return new Gson().fromJson(json, ChestCycle.class);
+        if (playerChestsRequest.getTags().size() == 1) {
+            List<ChestCycle> list = new ArrayList<>();
+            list.add(new Gson().fromJson(json, ChestCycle.class));
+            return list;
+        } else {
+            Type listType = new TypeToken<List<ChestCycle>>(){}.getType();
+            return new Gson().fromJson(json, listType);
+        }
     }
 
     List<PopularDeck> getPopularDecks(PopularDecksRequest popularDecksRequest) throws IOException {

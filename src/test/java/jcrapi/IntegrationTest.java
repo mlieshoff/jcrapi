@@ -596,7 +596,8 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetPlayerChestsWithAuthFromRequest() throws IOException {
-        doGetPlayerChestsFromRequest(URL, AUTH, PlayerChestsRequest.builder(createProfileTags()).build());
+        doGetPlayerChestsFromRequest(URL, AUTH, PlayerChestsRequest.builder(createProfileTags().subList(0, 1))
+                .build());
     }
 
     private void doGetPlayerChestsFromRequest(String url, String auth, PlayerChestsRequest playerChestsRequest) {
@@ -605,6 +606,17 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetPlayerChestsBecauseWrongAuthFromRequest() throws IOException {
+        doGetPlayerChestsFromRequest(URL, "abc", PlayerChestsRequest.builder(createProfileTags().subList(0, 1))
+                .build());
+    }
+
+    @Test
+    public void shouldGetMultiPlayerChestsWithAuthFromRequest() throws IOException {
+        doGetPlayerChestsFromRequest(URL, AUTH, PlayerChestsRequest.builder(createProfileTags()).build());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetMultiPlayerChestsBecauseWrongAuthFromRequest() throws IOException {
         doGetPlayerChestsFromRequest(URL, "abc", PlayerChestsRequest.builder(createProfileTags()).build());
     }
 
