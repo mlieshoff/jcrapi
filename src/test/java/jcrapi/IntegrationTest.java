@@ -570,7 +570,8 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetPlayerBattlesWithAuthFromRequest() throws IOException {
-        doGetPlayerBattlesFromRequest(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags()).build());
+        doGetPlayerBattlesFromRequest(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags().subList(0, 1))
+                .build());
     }
 
     private void doGetPlayerBattlesFromRequest(String url, String auth, PlayerBattlesRequest playerBattlesRequest) {
@@ -579,6 +580,17 @@ public class IntegrationTest {
 
     @Test(expected = ApiException.class)
     public void failGetPlayerBattlesBecauseWrongAuthFromRequest() throws IOException {
+        doGetPlayerBattlesFromRequest(URL, "abc", PlayerBattlesRequest.builder(createProfileTags().subList(0, 1))
+                .build());
+    }
+
+    @Test
+    public void shouldGetMultiPlayerBattlesWithAuthFromRequest() throws IOException {
+        doGetPlayerBattlesFromRequest(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags()).build());
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetMultiPlayerBattlesBecauseWrongAuthFromRequest() throws IOException {
         doGetPlayerBattlesFromRequest(URL, "abc", PlayerBattlesRequest.builder(createProfileTags()).build());
     }
 

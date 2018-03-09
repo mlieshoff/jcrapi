@@ -164,7 +164,7 @@ List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournament
 
 ```java
 // get player battles
-List<Battle> battles = api.getPlayerBattles(PlayerBattlesRequest.builder(Arrays.asList("L88P2282", "9CQ2U8QJ", "8L9L9GL"))
+List<List<Battle>> battles = api.getPlayerBattles(PlayerBattlesRequest.builder(Arrays.asList("L88P2282", "9CQ2U8QJ", "8L9L9GL"))
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
