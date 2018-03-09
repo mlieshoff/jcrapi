@@ -35,6 +35,7 @@ import jcrapi.model.PopularDeck;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
+import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.Tournament;
@@ -58,6 +59,7 @@ import jcrapi.request.ProfilesRequest;
 import jcrapi.request.Request;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpHeaders;
@@ -300,6 +302,12 @@ class Client {
     List<KnownTournament> getKnownTournaments(KnownTournamentsRequest knownTournamentsRequest) throws IOException {
         String json = get(createUrl("tournaments/known"), knownTournamentsRequest);
         Type listType = new TypeToken<ArrayList<KnownTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<SearchedTournament> getTournamentSearch(TournamentSearchRequest tournamentSearchRequest) throws IOException {
+        String json = get(createUrl("tournaments/search"), tournamentSearchRequest);
+        Type listType = new TypeToken<ArrayList<SearchedTournament>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
