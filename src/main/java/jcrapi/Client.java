@@ -303,11 +303,19 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    List<Battle> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) throws IOException {
+    List<List<Battle>> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) throws IOException {
         String json = get(createUrl("player/" + StringUtils.join(playerBattlesRequest.getTags(), ",")
                 + "/battles"), playerBattlesRequest);
-        Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
-        return new Gson().fromJson(json, listType);
+        if (playerBattlesRequest.getTags().size() == 1) {
+            List<List<Battle>> listOfBattles = new ArrayList<>();
+            Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
+            List<Battle> battles = new Gson().fromJson(json, listType);
+            listOfBattles.add(battles);
+            return listOfBattles;
+        } else {
+            Type listType = new TypeToken<List<List<Battle>>>(){}.getType();
+            return new Gson().fromJson(json, listType);
+        }
     }
 
     ChestCycle getPlayerChests(PlayerChestsRequest playerChestsRequest) throws IOException {

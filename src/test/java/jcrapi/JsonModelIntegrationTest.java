@@ -109,7 +109,12 @@ public class JsonModelIntegrationTest {
 
     @Test
     public void shouldResolvePlayerBattles() throws Exception {
-        assertListType("playerBattles.json", Battle.class);
+        assertListType("playerBattles.json", List.class);
+    }
+
+    @Test
+    public void shouldResolveMultiPlayerBattles() throws Exception {
+        assertListType("multiPlayerBattles.json", Battle.class);
     }
 
     @Test

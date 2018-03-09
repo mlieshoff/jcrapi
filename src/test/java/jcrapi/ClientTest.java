@@ -430,10 +430,19 @@ public class ClientTest {
 
     @Test
     public void shouldGetPlayerBattles() throws IOException {
-        List<String> tags = createTags();
+        List<String> tags = createTags().subList(0, 1);
         PlayerBattlesRequest playerBattlesRequest = PlayerBattlesRequest.builder(tags).build();
         when(crawler.get("lala/player/" + StringUtils.join(tags, ',') + "/battles", createHeaders(),
                 playerBattlesRequest.getQueryParameters())).thenReturn("[{}]");
+        assertNotNull(createClient().getPlayerBattles(playerBattlesRequest));
+    }
+
+    @Test
+    public void shouldGetMultiPlayerBattles() throws IOException {
+        List<String> tags = createTags();
+        PlayerBattlesRequest playerBattlesRequest = PlayerBattlesRequest.builder(tags).build();
+        when(crawler.get("lala/player/" + StringUtils.join(tags, ',') + "/battles", createHeaders(),
+                playerBattlesRequest.getQueryParameters())).thenReturn("[[{}]]");
         assertNotNull(createClient().getPlayerBattles(playerBattlesRequest));
     }
 

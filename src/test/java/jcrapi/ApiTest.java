@@ -960,7 +960,7 @@ public class ApiTest {
     @Test
     public void shouldGetPlayerBattlesFromRequest() throws Exception {
         List<String> tags = createTags();
-        List<Battle> playerBattles = new ArrayList<>();
+        List<List<Battle>> playerBattles = new ArrayList<>();
         when(client.getPlayerBattles(argThat(getPlayerBattlesRequestArgumentMatcher(tags)))).thenReturn(playerBattles);
         assertSame(playerBattles, api.getPlayerBattles(PlayerBattlesRequest.builder(tags).build()));
     }
@@ -1102,7 +1102,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldgetLastResponse() throws Exception {
+    public void shouldGetLastResponse() throws Exception {
         Response response = new Response();
         when(client.getLastResponse()).thenReturn(response);
         assertEquals(response, api.getLastResponse());

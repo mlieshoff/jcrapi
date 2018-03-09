@@ -318,7 +318,7 @@ public class Api {
         }
     }
 
-    public List<Battle> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) {
+    public List<List<Battle>> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) {
         try {
             return createClient().getPlayerBattles(playerBattlesRequest);
         } catch (IOException e) {
