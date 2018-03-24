@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class Tournament {
@@ -49,8 +50,12 @@ public class Tournament {
     @SerializedName("duration")
     private int duration;
 
+    @Deprecated
     @SerializedName("endedTime")
     private String endedTime;
+
+    @SerializedName("endTime")
+    private long endTime;
 
     @SerializedName("startTime")
     private long startTime;
@@ -136,12 +141,22 @@ public class Tournament {
         return duration;
     }
     
+    @Deprecated
     public void setEndedTime(String endedTime) {
         this.endedTime = endedTime;
     }
     
+    @Deprecated
     public String getEndedTime() {
         return endedTime;
+    }
+    
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
+    
+    public long getEndTime() {
+        return endTime;
     }
     
     public void setStartTime(long startTime) {
@@ -208,6 +223,9 @@ public class Tournament {
         s.append(", ");
         s.append("endedTime=");
         s.append(endedTime);
+        s.append(", ");
+        s.append("endTime=");
+        s.append(endTime);
         s.append(", ");
         s.append("startTime=");
         s.append(startTime);

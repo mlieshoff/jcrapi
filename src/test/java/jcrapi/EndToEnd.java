@@ -77,7 +77,7 @@ public class EndToEnd {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        new EndToEnd("http://api.cr-api.com", args[0]).start();
+        new EndToEnd("http://api.royaleapi.com", args[0]).start();
     }
 
     private void start() throws IOException, ClassNotFoundException {
@@ -205,7 +205,7 @@ public class EndToEnd {
         test(Arrays.asList(
                 "/clan/2CCCP/battles",
                 "/clan/2U2GGQJ/battles"
-        ), Battle.class, false);
+        ), Battle.class, true);
     }
 
     private void testClanHistory() throws IOException {

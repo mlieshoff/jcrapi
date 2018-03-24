@@ -41,13 +41,6 @@ public class PopularTournamentTest {
     }
 
     @Test
-    public void shouldGetSetEndTime() {
-        long expected = 4711L;
-        unitUnderTest.setEndTime(expected);
-        assertEquals(expected, unitUnderTest.getEndTime());
-    }
-
-    @Test
     public void shouldGetSetPlayerCount() {
         int expected = 815;
         unitUnderTest.setPlayerCount(expected);
@@ -57,9 +50,8 @@ public class PopularTournamentTest {
     @Test
     public void shouldToString() {
         unitUnderTest.setPopularity(new Popularity());
-        unitUnderTest.setEndTime(4711L);
         unitUnderTest.setPlayerCount(815);
-        String expected = "PopularTournament{popularity=" + new Popularity() + ", endTime=4711, playerCount=815}";
+        String expected = "PopularTournament{popularity=" + new Popularity() + ", playerCount=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

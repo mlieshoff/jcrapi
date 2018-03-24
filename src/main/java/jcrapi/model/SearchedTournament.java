@@ -54,7 +54,7 @@ public class SearchedTournament {
     private long startTime;
 
     @SerializedName("endTime")
-    private String endTime;
+    private long endTime;
 
     @SerializedName("playerCount")
     private int playerCount;
@@ -142,11 +142,11 @@ public class SearchedTournament {
         return startTime;
     }
     
-    public void setEndTime(String endTime) {
+    public void setEndTime(long endTime) {
         this.endTime = endTime;
     }
     
-    public String getEndTime() {
+    public long getEndTime() {
         return endTime;
     }
     

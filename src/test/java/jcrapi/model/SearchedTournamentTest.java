@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -105,7 +105,7 @@ public class SearchedTournamentTest {
 
     @Test
     public void shouldGetSetEndTime() {
-        String expected = "astring";
+        long expected = 4711L;
         unitUnderTest.setEndTime(expected);
         assertEquals(expected, unitUnderTest.getEndTime());
     }
@@ -136,10 +136,10 @@ public class SearchedTournamentTest {
         unitUnderTest.setDuration(815);
         unitUnderTest.setCreateTime(4711L);
         unitUnderTest.setStartTime(4711L);
-        unitUnderTest.setEndTime("astring");
+        unitUnderTest.setEndTime(4711L);
         unitUnderTest.setPlayerCount(815);
         unitUnderTest.setMembers(new java.util.ArrayList<TournamentParticipant>());
-        String expected = "SearchedTournament{tag=astring, type=astring, status=astring, name=astring, description=astring, maxCapacity=815, preparationDuration=815, duration=815, createTime=4711, startTime=4711, endTime=astring, playerCount=815, members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
+        String expected = "SearchedTournament{tag=astring, type=astring, status=astring, name=astring, description=astring, maxCapacity=815, preparationDuration=815, duration=815, createTime=4711, startTime=4711, endTime=4711, playerCount=815, members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

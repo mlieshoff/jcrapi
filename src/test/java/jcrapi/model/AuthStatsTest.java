@@ -49,7 +49,7 @@ public class AuthStatsTest {
 
     @Test
     public void shouldGetSetRequestCount() {
-        long expected = 4711L;
+        java.util.Map<String, String> expected = new java.util.LinkedHashMap<String, String>();
         unitUnderTest.setRequestCount(expected);
         assertEquals(expected, unitUnderTest.getRequestCount());
     }
@@ -58,8 +58,8 @@ public class AuthStatsTest {
     public void shouldToString() {
         unitUnderTest.setId(4711L);
         unitUnderTest.setLastRequest(4711L);
-        unitUnderTest.setRequestCount(4711L);
-        String expected = "AuthStats{id=4711, lastRequest=4711, requestCount=4711}";
+        unitUnderTest.setRequestCount(new java.util.LinkedHashMap<String, String>());
+        String expected = "AuthStats{id=4711, lastRequest=4711, requestCount=" + new java.util.LinkedHashMap<String, String>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

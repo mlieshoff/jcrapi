@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class AuthStats {
@@ -29,7 +30,7 @@ public class AuthStats {
     private long lastRequest;
 
     @SerializedName("requestCount")
-    private long requestCount;
+    private java.util.Map<String, String> requestCount;
 
     public void setId(long id) {
         this.id = id;
@@ -47,11 +48,11 @@ public class AuthStats {
         return lastRequest;
     }
     
-    public void setRequestCount(long requestCount) {
+    public void setRequestCount(java.util.Map<String, String> requestCount) {
         this.requestCount = requestCount;
     }
     
-    public long getRequestCount() {
+    public java.util.Map<String, String> getRequestCount() {
         return requestCount;
     }
     

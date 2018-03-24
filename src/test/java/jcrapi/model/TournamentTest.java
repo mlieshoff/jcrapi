@@ -104,6 +104,13 @@ public class TournamentTest {
     }
 
     @Test
+    public void shouldGetSetEndTime() {
+        long expected = 4711L;
+        unitUnderTest.setEndTime(expected);
+        assertEquals(expected, unitUnderTest.getEndTime());
+    }
+
+    @Test
     public void shouldGetSetStartTime() {
         long expected = 4711L;
         unitUnderTest.setStartTime(expected);
@@ -143,11 +150,12 @@ public class TournamentTest {
         unitUnderTest.setPreparationDuration(815);
         unitUnderTest.setDuration(815);
         unitUnderTest.setEndedTime("astring");
+        unitUnderTest.setEndTime(4711L);
         unitUnderTest.setStartTime(4711L);
         unitUnderTest.setCreateTime(4711L);
         unitUnderTest.setCreator(new TournamentParticipant());
         unitUnderTest.setMembers(new java.util.ArrayList<TournamentParticipant>());
-        String expected = "Tournament{tag=astring, type=astring, status=astring, name=astring, description=astring, capacity=815, maxCapacity=815, preparationDuration=815, duration=815, endedTime=astring, startTime=4711, createTime=4711, creator=" + new TournamentParticipant() + ", members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
+        String expected = "Tournament{tag=astring, type=astring, status=astring, name=astring, description=astring, capacity=815, maxCapacity=815, preparationDuration=815, duration=815, endedTime=astring, endTime=4711, startTime=4711, createTime=4711, creator=" + new TournamentParticipant() + ", members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
