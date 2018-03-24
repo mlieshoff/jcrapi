@@ -16,17 +16,15 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class PopularTournament extends Tournament {
 
     @SerializedName("popularity")
     private Popularity popularity;
-
-    @SerializedName("endTime")
-    private long endTime;
 
     @SerializedName("playerCount")
     private int playerCount;
@@ -37,14 +35,6 @@ public class PopularTournament extends Tournament {
     
     public Popularity getPopularity() {
         return popularity;
-    }
-    
-    public void setEndTime(long endTime) {
-        this.endTime = endTime;
-    }
-    
-    public long getEndTime() {
-        return endTime;
     }
     
     public void setPlayerCount(int playerCount) {
@@ -60,9 +50,6 @@ public class PopularTournament extends Tournament {
         s.append("PopularTournament{");
         s.append("popularity=");
         s.append(popularity);
-        s.append(", ");
-        s.append("endTime=");
-        s.append(endTime);
         s.append(", ");
         s.append("playerCount=");
         s.append(playerCount);
