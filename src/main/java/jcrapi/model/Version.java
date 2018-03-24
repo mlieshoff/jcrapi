@@ -17,12 +17,11 @@
 package jcrapi.model;
 
 import javax.annotation.Generated;
-import com.google.gson.annotations.SerializedName;
 
 @Generated("org.mili.generator")
 public class Version {
 
-    public static final String VERSION = "v10.4.6";
+    public static final String VERSION = "v10.6.18";
 
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();

@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -35,7 +35,7 @@ public class VersionTest {
 
     @Test
     public void shouldGetVERSION() {
-        assertEquals( "v10.4.6", unitUnderTest.VERSION);
+        assertEquals( "v10.6.18", unitUnderTest.VERSION);
     }
     
     @Test
