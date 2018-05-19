@@ -101,7 +101,48 @@ class Client {
     }
 
     private String get(String url, Request request) throws IOException {
+        return tryGet(url, request, 1);
+    }
+
+    private String tryGet(String url, Request request, int round) throws IOException {
+        if (round > 10) {
+            throw new IOException("tried " + round + " times to access " + url + " without succeeding!");
+        }
+        try {
+            return getIntern(url, request);
+        } catch (IOException e) {
+            if (rateLimitsReached()) {
+                handleRateLimit();
+                return tryGet(url, request, ++ round);
+            }
+            throw e;
+        }
+    }
+
+    private String getIntern(String url, Request request) throws IOException {
         return createCrawler().get(url, createAuthHeader(developerKey), request == null ? null : request.getQueryParameters());
+    }
+
+    private void handleRateLimit() {
+        Response response = getLastResponse();
+        if (response.getRateReset().isPresent()) {
+            long limitResetAt = response.getRateReset().get();
+            for (long ms = System.currentTimeMillis(); ms < limitResetAt; ms = System.currentTimeMillis()) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    Thread.interrupted();
+                }
+            }
+        }
+    }
+
+    private boolean rateLimitsReached() {
+        Response response = getLastResponse();
+        if (response != null) {
+            return response.getRateRemaining().isPresent() && response.getRateRemaining().get() <= 0;
+        }
+        return false;
     }
 
     private Map<String, String> createAuthHeader(String developerKey) {

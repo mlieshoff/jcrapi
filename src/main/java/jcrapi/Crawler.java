@@ -68,6 +68,7 @@ class Crawler {
         HttpResponse response = client.execute(request);
         StatusLine statusLine = response.getStatusLine();
         if (statusLine.getStatusCode() != 200) {
+            setLastResponse(apiResponse, "ERROR", response);
             throw new IOException("crapi: " + statusLine.getStatusCode());
         }
         BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
@@ -84,8 +85,9 @@ class Crawler {
     private void setLastResponse(Response apiResponse, String result, HttpResponse response) {
         apiResponse.setRaw(result);
         if (ArrayUtils.isNotEmpty(response.getAllHeaders())) {
+            apiResponse.getResponseHeaders().clear();
             for (Header header : response.getAllHeaders()) {
-                apiResponse.getResponseHeaders().put(header.getName(), header.getValue());
+                apiResponse.getResponseHeaders().put(header.getName().toLowerCase(), header.getValue());
             }
         }
     }
