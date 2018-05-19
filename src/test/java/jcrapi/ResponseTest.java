@@ -102,4 +102,17 @@ public class ResponseTest {
         assertFalse(response.getRateLimit().isPresent());
     }
 
+    @Test
+    public void shouldGetRateReset() {
+        Response response = createResponse();
+        response.getResponseHeaders().put(Response.X_RATELIMIT_RESET, "4711");
+        assertEquals(4711, response.getRateReset().get().intValue());
+    }
+
+    @Test
+    public void shouldGetNoRatereset() {
+        Response response = createResponse();
+        assertFalse(response.getRateReset().isPresent());
+    }
+
 }

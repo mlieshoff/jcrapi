@@ -28,8 +28,9 @@ import java.util.Map;
  */
 public class Response {
 
-    public static final String X_RATELIMIT_LIMIT = "X-RateLimit-Limit";
-    public static final String X_RATELIMIT_REMAINING = "X-RateLimit-Remaining";
+    public static final String X_RATELIMIT_LIMIT = "x-ratelimit-limit";
+    public static final String X_RATELIMIT_REMAINING = "x-ratelimit-remaining";
+    public static final String X_RATELIMIT_RESET = "x-ratelimit-reset";
 
     private final Map<String, String> responseHeaders = new HashMap<>();
     
@@ -63,6 +64,18 @@ public class Response {
         return Optional.absent();
     }
 
+    public Optional<Long> getRateReset() {
+        return getLong(X_RATELIMIT_RESET);
+    }
+
+    private Optional<Long> getLong(String headerName) {
+        String value = responseHeaders.get(headerName);
+        if (StringUtils.isNotBlank(value)) {
+            return Optional.of(Long.valueOf(value));
+        }
+        return Optional.absent();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,5 +94,5 @@ public class Response {
         result = 31 * result + (raw != null ? raw.hashCode() : 0);
         return result;
     }
-    
+
 }
