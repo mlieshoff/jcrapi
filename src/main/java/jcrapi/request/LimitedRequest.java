@@ -8,12 +8,12 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
-public abstract class LimitedRequest extends Request {
+public abstract class LimitedRequest extends PaginatedRequest {
 
     private final int limit;
 
-    LimitedRequest(int limit, List<String> excludes, List<String> keys) {
-        super(excludes, keys);
+    LimitedRequest(int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(max, page, excludes, keys);
         Preconditions.checkArgument(limit >= 0, "limit must be > 0");
         this.limit = limit;
     }
@@ -26,12 +26,11 @@ public abstract class LimitedRequest extends Request {
         Map<String, String> map = super.getQueryParameters();
         if (limit > 0) {
             map.put("limit", String.valueOf(limit));
-            map.put("max", String.valueOf(limit));
         }
         return map;
     }
 
-    static abstract class LimitedRequestBuilder<R extends LimitedRequest, B> extends RequestBuilder<R, B> {
+    static abstract class LimitedRequestBuilder<R extends LimitedRequest, B> extends PaginatedRequestBuilder<R, B> {
 
         int limit;
 

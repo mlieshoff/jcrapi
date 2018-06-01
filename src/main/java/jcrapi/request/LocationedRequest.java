@@ -9,8 +9,8 @@ public abstract class LocationedRequest extends LimitedRequest {
 
     private final String locationKey;
 
-    LocationedRequest(String locationKey, int limit, List<String> excludes, List<String> keys) {
-        super(limit, excludes, keys);
+    LocationedRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(limit, max, page, excludes, keys);
         this.locationKey = locationKey;
     }
 

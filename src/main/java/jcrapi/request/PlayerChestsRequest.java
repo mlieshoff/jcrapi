@@ -12,8 +12,8 @@ public class PlayerChestsRequest extends LimitedRequest {
 
     private final List<String> tags;
 
-    private PlayerChestsRequest(List<String> tags, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private PlayerChestsRequest(List<String> tags, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         this.tags = tags;
     }
@@ -36,7 +36,7 @@ public class PlayerChestsRequest extends LimitedRequest {
 
         @Override
         public PlayerChestsRequest build() {
-            return new PlayerChestsRequest(tags, limit, excludes, keys);
+            return new PlayerChestsRequest(tags, limit, max, page, excludes, keys);
         }
 
         @Override

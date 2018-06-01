@@ -12,8 +12,8 @@ public class TournamentSearchRequest extends LimitedRequest {
 
     private final String name;
 
-    private TournamentSearchRequest(String name, int limit, List<String> excludes, List<String> keys) {
-        super(limit, excludes, keys);
+    private TournamentSearchRequest(String name, int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(limit, max, page, excludes, keys);
         Preconditions.checkNotNull(name, "name");
         Preconditions.checkArgument(name.length() > 0, "name");
         this.name = name;
@@ -44,7 +44,7 @@ public class TournamentSearchRequest extends LimitedRequest {
 
         @Override
         public TournamentSearchRequest build() {
-            return new TournamentSearchRequest(name, limit, excludes, keys);
+            return new TournamentSearchRequest(name, limit, max, page, excludes, keys);
         }
 
         @Override

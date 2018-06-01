@@ -11,8 +11,8 @@ public class ClanBattlesRequest extends LimitedRequest {
 
     private final String tag;
 
-    private ClanBattlesRequest(String tag, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private ClanBattlesRequest(String tag, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
@@ -36,7 +36,7 @@ public class ClanBattlesRequest extends LimitedRequest {
 
         @Override
         public ClanBattlesRequest build() {
-            return new ClanBattlesRequest(tag, limit, excludes, keys);
+            return new ClanBattlesRequest(tag, limit, max, page, excludes, keys);
         }
 
         @Override

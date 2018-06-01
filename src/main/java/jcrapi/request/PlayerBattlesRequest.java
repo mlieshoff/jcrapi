@@ -12,8 +12,8 @@ public class PlayerBattlesRequest extends LimitedRequest {
 
     private final List<String> tags;
 
-    private PlayerBattlesRequest(List<String> tags, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private PlayerBattlesRequest(List<String> tags, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         this.tags = tags;
     }
@@ -36,7 +36,7 @@ public class PlayerBattlesRequest extends LimitedRequest {
 
         @Override
         public PlayerBattlesRequest build() {
-            return new PlayerBattlesRequest(tags, limit, excludes, keys);
+            return new PlayerBattlesRequest(tags, limit, max, page, excludes, keys);
         }
 
         @Override

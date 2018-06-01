@@ -7,8 +7,8 @@ import java.util.List;
  */
 public class TopPlayersRequest extends LocationedRequest {
 
-    private TopPlayersRequest(String locationKey, int limit, List<String> excludes, List<String> includes) {
-        super(locationKey, limit, excludes, includes);
+    private TopPlayersRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(locationKey, limit, max, page, excludes, includes);
     }
 
     public static TopPlayersRequestBuilder builder() {
@@ -19,7 +19,7 @@ public class TopPlayersRequest extends LocationedRequest {
 
         @Override
         public TopPlayersRequest build() {
-            return new TopPlayersRequest(locationKey, limit, excludes, keys);
+            return new TopPlayersRequest(locationKey, limit, max, page, excludes, keys);
         }
 
         @Override

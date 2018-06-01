@@ -7,8 +7,8 @@ import java.util.List;
  */
 public class KnownTournamentsRequest extends LimitedRequest {
 
-    private KnownTournamentsRequest(int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private KnownTournamentsRequest(int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
     }
 
     public static KnownTournamentsRequestBuilder builder() {
@@ -19,7 +19,7 @@ public class KnownTournamentsRequest extends LimitedRequest {
 
         @Override
         public KnownTournamentsRequest build() {
-            return new KnownTournamentsRequest(limit, excludes, keys);
+            return new KnownTournamentsRequest(limit, max, page, excludes, keys);
         }
 
         @Override

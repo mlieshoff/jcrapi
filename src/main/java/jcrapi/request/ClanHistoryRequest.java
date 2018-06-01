@@ -14,8 +14,8 @@ public class ClanHistoryRequest extends LimitedRequest {
 
     private final Integer days;
 
-    private ClanHistoryRequest(String tag, Integer days, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private ClanHistoryRequest(String tag, Integer days, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         if (days != null) {
@@ -63,7 +63,7 @@ public class ClanHistoryRequest extends LimitedRequest {
 
         @Override
         public ClanHistoryRequest build() {
-            return new ClanHistoryRequest(tag, days, limit, excludes, keys);
+            return new ClanHistoryRequest(tag, days, limit, max, page, excludes, keys);
         }
 
         @Override

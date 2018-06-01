@@ -7,8 +7,8 @@ import java.util.List;
  */
 public class TopClansRequest extends LocationedRequest {
 
-    private TopClansRequest(String locationKey, int limit, List<String> excludes, List<String> includes) {
-        super(locationKey, limit, excludes, includes);
+    private TopClansRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(locationKey, limit, max, page, excludes, includes);
     }
 
     public static TopClansRequestBuilder builder() {
@@ -19,7 +19,7 @@ public class TopClansRequest extends LocationedRequest {
 
         @Override
         public TopClansRequest build() {
-            return new TopClansRequest(locationKey, limit, excludes, keys);
+            return new TopClansRequest(locationKey, limit, max, page, excludes, keys);
         }
 
         @Override
