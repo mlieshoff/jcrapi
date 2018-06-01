@@ -177,6 +177,15 @@ List<ClanWarLog> clanWarLogs = api.getClanWarLog(ClanWarLogRequest.builder("RP88
 ```
 
 ```java
+// get clan war
+ClanWar clanWar = api.getClanWarLog(ClanWarRequest.builder("RP88QQG")
+    .tag("RP88QQG");
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .build());
+```
+
+```java
 // get open tournaments
 List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsRequest.builder()
     .keys(Arrays.asList("name", "clan", "tag"))

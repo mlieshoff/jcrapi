@@ -24,6 +24,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
+import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
@@ -44,6 +45,7 @@ import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
+import jcrapi.request.ClanWarRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -365,6 +367,14 @@ public class Api {
     public List<ClanWarLog> getClanWarLog(ClanWarLogRequest clanWarLogRequest) {
         try {
             return createClient().getClanWarLog(clanWarLogRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public ClanWar getClanWar(ClanWarRequest clanWarRequest) {
+        try {
+            return createClient().getClanWar(clanWarRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

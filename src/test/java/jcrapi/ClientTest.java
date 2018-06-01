@@ -24,6 +24,7 @@ import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
+import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -495,6 +496,14 @@ public class ClientTest {
         when(crawler.get("lala/clan/abc/warlog", createHeaders(), clanWarLogRequest.getQueryParameters()))
                 .thenReturn("[{}]");
         assertNotNull(createClient().getClanWarLog(clanWarLogRequest));
+    }
+
+    @Test
+    public void shouldGetClanWar() throws IOException {
+        ClanWarRequest clanWarRequest = ClanWarRequest.builder("abc").build();
+        when(crawler.get("lala/clan/abc/war", createHeaders(), clanWarRequest.getQueryParameters()))
+                .thenReturn("{}");
+        assertNotNull(createClient().getClanWar(clanWarRequest));
     }
 
     @Test
