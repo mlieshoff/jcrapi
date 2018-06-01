@@ -27,6 +27,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
+import jcrapi.model.ClanWarLog;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -45,6 +46,7 @@ import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
+import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -389,6 +391,12 @@ class Client {
     ClanTracking getClanTracking(ClanTrackingRequest clanTrackingRequest) throws IOException {
         String json = get(createUrl("clan/" + clanTrackingRequest.getTag() + "/tracking"), clanTrackingRequest);
         return new Gson().fromJson(json, ClanTracking.class);
+    }
+
+    List<ClanWarLog> getClanWarLog(ClanWarLogRequest clanWarLogRequest) throws IOException {
+        String json = get(createUrl("clan/" + clanWarLogRequest.getTag() + "/warlog"), clanWarLogRequest);
+        Type listType = new TypeToken<List<ClanWarLog>>(){}.getType();
+        return new Gson().fromJson(json, listType);
     }
 
     AuthStats getAuthStats(AuthStatsRequest authStatsRequest) throws IOException {
