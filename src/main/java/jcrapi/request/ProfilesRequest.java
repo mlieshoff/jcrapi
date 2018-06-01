@@ -13,8 +13,8 @@ public class ProfilesRequest extends LimitedRequest {
 
     private final Collection<String> tags;
 
-    private ProfilesRequest(Collection<String> tags, int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private ProfilesRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags), "tags");
         this.tags = tags;
     }
@@ -37,7 +37,7 @@ public class ProfilesRequest extends LimitedRequest {
 
         @Override
         public ProfilesRequest build() {
-            return new ProfilesRequest(tags, limit, excludes, keys);
+            return new ProfilesRequest(tags, limit, max, page, excludes, keys);
         }
 
         @Override

@@ -30,6 +30,8 @@ List<Profile> profiles = api.getProfiles(ProfilesRequest.builder(Arrays.asList("
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build()
 );
 ```
@@ -48,6 +50,8 @@ List<Clan> clans = api.getClans(ClanRequestBuilder.builder(Arrays.asList("RP88QQ
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -61,6 +65,8 @@ List<Clan> clans = api.getClanSearch(ClanSearchRequest.builder()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -80,6 +86,8 @@ List<TopClan> topClansForEu = api.getTopClans(TopClanRequest.builder()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -90,6 +98,8 @@ List<TopPlayer> topPlayersForEu = api.getTopPlayers(TopPlayerRequest.builder()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -104,6 +114,8 @@ List<PopularClan> popularClans = api.getPopularClans(PopularClans.builder()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -113,6 +125,8 @@ List<PopularPlayer> popularPlayers = api.getPopularPlayers(PopularPlayers.builde
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -122,6 +136,8 @@ List<PopularTournament> popularTournaments = api.getPopularTournaments(PopularTo
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -131,6 +147,8 @@ List<Battle> clanBattles = api.getClanBattles(ClanBattleRequest.builder("RP88QQG
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -141,6 +159,8 @@ ClanHistory clanHistory = api.getClanHistory(ClanHistoryRequest.builder("RP88QQG
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -150,6 +170,8 @@ List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsReq
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -159,6 +181,8 @@ List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournament
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -169,6 +193,8 @@ List<Clan> clans = api.getTournamentSearch(TournamentSearchRequest.builder()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("battles"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -178,6 +204,8 @@ List<List<Battle>> battles = api.getPlayerBattles(PlayerBattlesRequest.builder(A
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -187,6 +215,8 @@ List<ChestCycle> chestCycles = api.getPlayerChests(PlayerChestsRequest.builder(A
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 
@@ -196,6 +226,8 @@ List<PopularDeck> popularDecks = api.getPopularDecks(PopularDecksRequest.builder
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
+    .max(5)
+    .page(2)
     .build());
 ```
 

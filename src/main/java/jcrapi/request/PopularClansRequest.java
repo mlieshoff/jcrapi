@@ -7,8 +7,8 @@ import java.util.List;
  */
 public class PopularClansRequest extends LimitedRequest {
 
-    private PopularClansRequest(int limit, List<String> excludes, List<String> includes) {
-        super(limit, excludes, includes);
+    private PopularClansRequest(int limit, int max, int page, List<String> excludes, List<String> includes) {
+        super(limit, max, page, excludes, includes);
     }
 
     public static PopularClansRequestBuilder builder() {
@@ -19,7 +19,7 @@ public class PopularClansRequest extends LimitedRequest {
 
         @Override
         public PopularClansRequest build() {
-            return new PopularClansRequest(limit, excludes, keys);
+            return new PopularClansRequest(limit, max, page, excludes, keys);
         }
 
         @Override

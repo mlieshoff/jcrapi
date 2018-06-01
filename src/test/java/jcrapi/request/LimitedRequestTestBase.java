@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public abstract class LimitedRequestTestBase<A extends LimitedRequest, B extends LimitedRequest.LimitedRequestBuilder<A, B>> extends RequestTestBase<A, B> {
+public abstract class LimitedRequestTestBase<A extends LimitedRequest, B extends LimitedRequest.LimitedRequestBuilder<A, B>> extends PaginatedRequestTestBase<A, B> {
 
     @Test(expected = IllegalArgumentException.class)
     public void failBecauseLimitIsNegative() {
@@ -26,11 +26,6 @@ public abstract class LimitedRequestTestBase<A extends LimitedRequest, B extends
     @Test
     public void shouldQueryWithLimit() {
         assertEquals("100", getLimitedRequest().getQueryParameters().get("limit"));
-    }
-
-    @Test
-    public void shouldQueryWithMax() {
-        assertEquals("100", getLimitedRequest().getQueryParameters().get("max"));
     }
 
 }

@@ -20,8 +20,8 @@ public class ClanSearchRequest extends LimitedRequest {
     private final Integer maxMembers;
 
     private ClanSearchRequest(String locationId, String name, Integer score, Integer minMembers, Integer maxMembers,
-                              int limit, List<String> excludes, List<String> keys) {
-        super(limit, excludes, keys);
+                              int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(limit, max, page, excludes, keys);
         Preconditions.checkArgument(
                 !(StringUtils.isBlank(name)
                         && score == null
@@ -115,7 +115,7 @@ public class ClanSearchRequest extends LimitedRequest {
 
         @Override
         public ClanSearchRequest build() {
-            return new ClanSearchRequest(locationId, name, score, minMembers, maxMembers, limit, excludes, keys);
+            return new ClanSearchRequest(locationId, name, score, minMembers, maxMembers, limit, max, page, excludes, keys);
         }
 
         @Override
