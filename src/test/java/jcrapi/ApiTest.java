@@ -23,6 +23,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
+import jcrapi.model.ClanWarLog;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -41,6 +42,7 @@ import jcrapi.request.ClanHistoryRequest;
 import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
+import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -1096,6 +1098,34 @@ public class ApiTest {
                 new IOException("crapi: 400"));
         try {
             api.getClanTracking(ClanTrackingRequest.builder("abc").build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanWarLogFromRequest() throws Exception {
+        List<ClanWarLog> clanWarLogs = new ArrayList<>();
+        when(client.getClanWarLog(argThat(getClanWarLogRequestArgumentMatcher()))).thenReturn(clanWarLogs);
+        assertSame(clanWarLogs, api.getClanWarLog(ClanWarLogRequest.builder("abc").build()));
+    }
+
+    private Matcher<ClanWarLogRequest> getClanWarLogRequestArgumentMatcher() {
+        return new ArgumentMatcher<ClanWarLogRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof ClanWarLogRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetClanWarLogFromRequest() throws Exception {
+        when(client.getClanWarLog(argThat(getClanWarLogRequestArgumentMatcher()))).thenThrow(
+                new IOException("crapi: 400"));
+        try {
+            api.getClanWarLog(ClanWarLogRequest.builder("abc").build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

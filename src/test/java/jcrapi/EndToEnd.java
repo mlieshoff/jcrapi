@@ -29,6 +29,7 @@ import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanTracking;
+import jcrapi.model.ClanWarLog;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -95,6 +96,7 @@ public class EndToEnd {
         testClanBattles();
         testClanHistory();
         testClanTracking();
+        testClanWarLog();
         testOpenTournaments();
         testKnownTournaments();
 //        testTournaments();
@@ -220,6 +222,13 @@ public class EndToEnd {
                 "/clan/2CCCP/tracking",
                 "/clan/2U2GGQJ/tracking"
         ), ClanTracking.class, false);
+    }
+
+    private void testClanWarLog() throws IOException {
+        test(Arrays.asList(
+                "/clan/2CCCP/warlog",
+                "/clan/2U2GGQJ/warlog"
+        ), ClanWarLog.class, true);
     }
 
     private void testOpenTournaments() throws IOException {
