@@ -26,6 +26,7 @@ import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
+import jcrapi.request.ClanWarRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -677,6 +678,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetClanWarLogBecauseWrongAuthFromRequest() throws IOException {
         doGetClanWarLogFromRequest(URL, "abc", ClanWarLogRequest.builder("abc").build());
+    }
+
+    @Test
+    public void shouldGetClanWarWithAuthFromRequest() throws IOException {
+        doGetClanWarFromRequest(URL, AUTH, ClanWarRequest.builder("abc").build());
+    }
+
+    private void doGetClanWarFromRequest(String url, String auth, ClanWarRequest clanWarRequest) {
+        assertNotNull(new Api(url, auth).getClanWar(clanWarRequest));
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanWarBecauseWrongAuthFromRequest() throws IOException {
+        doGetClanWarFromRequest(URL, "abc", ClanWarRequest.builder("abc").build());
     }
 
 }
