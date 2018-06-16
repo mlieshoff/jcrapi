@@ -18,31 +18,8 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-
 @Generated("org.mili.generator")
-public class VersionTest {
+public class ClanWeeklyHistory extends java.util.LinkedHashMap<String, ClanWeeklyHistoryElement> {
 
-    private Version unitUnderTest;
-
-    @Before
-    public void setUp() {
-        unitUnderTest = new Version();
-    }
-
-    @Test
-    public void shouldGetVERSION() {
-        assertEquals( "v12.0.160", unitUnderTest.VERSION);
-    }
-    
-    @Test
-    public void shouldToString() {
-        String expected = "Version{}";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
 
 }

@@ -24,25 +24,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class VersionTest {
+public class ClanWeeklyHistoryTest {
 
-    private Version unitUnderTest;
+    private ClanWeeklyHistory unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new Version();
+        unitUnderTest = new ClanWeeklyHistory();
     }
 
-    @Test
-    public void shouldGetVERSION() {
-        assertEquals( "v12.0.160", unitUnderTest.VERSION);
-    }
-    
-    @Test
-    public void shouldToString() {
-        String expected = "Version{}";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
 
 }

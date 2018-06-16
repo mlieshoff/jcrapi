@@ -29,6 +29,7 @@ import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
+import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -49,6 +50,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
+import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -336,6 +338,11 @@ class Client {
     ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) throws IOException {
         String json = get(createUrl("clan/" + clanHistoryRequest.getTag() + "/history"), clanHistoryRequest);
         return new Gson().fromJson(json, ClanHistory.class);
+    }
+
+    ClanWeeklyHistory getClanWeeklyHistory(ClanWeeklyHistoryRequest clanWeeklyHistoryRequest) throws IOException {
+        String json = get(createUrl("clan/" + clanWeeklyHistoryRequest.getTag() + "/history/weekly"), clanWeeklyHistoryRequest);
+        return new Gson().fromJson(json, ClanWeeklyHistory.class);
     }
 
     List<OpenTournament> getOpenTournaments(OpenTournamentsRequest openTournamentsRequest) throws IOException {

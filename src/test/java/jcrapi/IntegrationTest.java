@@ -27,6 +27,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
+import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -542,6 +543,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetClanHistoryBecauseWrongAuthFromRequest() throws IOException {
         doGetClanHistoryFromRequest(URL, "abc", ClanHistoryRequest.builder("abc").build());
+    }
+
+    @Test
+    public void shouldGetClanWeeklyHistoryWithAuthFromRequest() throws IOException {
+        doGetClanWeeklyHistoryFromRequest(URL, AUTH, ClanWeeklyHistoryRequest.builder("abc").build());
+    }
+
+    private void doGetClanWeeklyHistoryFromRequest(String url, String auth, ClanWeeklyHistoryRequest clanWeeklyHistoryRequest) {
+        assertTrue(new Api(url, auth).getClanWeeklyHistory(clanWeeklyHistoryRequest).size() > 0);
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetClanWeeklyHistoryBecauseWrongAuthFromRequest() throws IOException {
+        doGetClanWeeklyHistoryFromRequest(URL, "abc", ClanWeeklyHistoryRequest.builder("abc").build());
     }
 
     @Test

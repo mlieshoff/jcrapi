@@ -25,6 +25,7 @@ import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
+import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -45,6 +46,7 @@ import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
+import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
@@ -903,6 +905,33 @@ public class ApiTest {
         when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
         try {
             api.getClanHistory(ClanHistoryRequest.builder("abc").build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetClanWeeklyHistory() throws Exception {
+        ClanWeeklyHistory clanWeeklyHistory = new ClanWeeklyHistory();
+        when(client.getClanWeeklyHistory(argThat(getClanWeeklyHistoryRequestArgumentMatcher("abc")))).thenReturn(clanWeeklyHistory);
+        assertSame(clanWeeklyHistory, api.getClanWeeklyHistory(ClanWeeklyHistoryRequest.builder("abc").build()));
+    }
+
+    private Matcher<ClanWeeklyHistoryRequest> getClanWeeklyHistoryRequestArgumentMatcher(final String tag) {
+        return new ArgumentMatcher<ClanWeeklyHistoryRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof ClanWeeklyHistoryRequest && ((ClanWeeklyHistoryRequest) o).getTag().equals(tag);
+            }
+        };
+    }
+
+    @Test
+    public void failGetClanWeeklyHistory() throws Exception {
+        when(client.getClanWeeklyHistory(argThat(getClanWeeklyHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        try {
+            api.getClanWeeklyHistory(ClanWeeklyHistoryRequest.builder("abc").build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
