@@ -97,6 +97,13 @@ public class StatsTest {
     }
 
     @Test
+    public void shouldGetSetClanCardsCollected() {
+        int expected = 815;
+        unitUnderTest.setClanCardsCollected(expected);
+        assertEquals(expected, unitUnderTest.getClanCardsCollected());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setTournamentCardsWon(815);
         unitUnderTest.setMaxTrophies(815);
@@ -107,7 +114,8 @@ public class StatsTest {
         unitUnderTest.setChallengeMaxWins(815);
         unitUnderTest.setChallengeCardsWon(815);
         unitUnderTest.setLevel(815);
-        String expected = "Stats{tournamentCardsWon=815, maxTrophies=815, threeCrownWins=815, cardsFound=815, favoriteCard=" + new FavoriteCard() + ", totalDonations=815, challengeMaxWins=815, challengeCardsWon=815, level=815}";
+        unitUnderTest.setClanCardsCollected(815);
+        String expected = "Stats{tournamentCardsWon=815, maxTrophies=815, threeCrownWins=815, cardsFound=815, favoriteCard=" + new FavoriteCard() + ", totalDonations=815, challengeMaxWins=815, challengeCardsWon=815, level=815, clanCardsCollected=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
