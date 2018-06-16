@@ -36,6 +36,8 @@ public class TestClanServlet extends TestJsonFileServlet {
             filename = "src/test/java/jcrapi/clanBattles.json";
         } else if ("history".equals(parameter)) {
             filename = "src/test/java/jcrapi/clanHistory.json";
+        } else if ("weekly".equals(parameter)) {
+            filename = "src/test/java/jcrapi/clanWeeklyHistory.json";
         } else if ("warlog".equals(parameter)) {
             filename = "src/test/java/jcrapi/clanWarLog.json";
         } else if ("war".equals(parameter)) {

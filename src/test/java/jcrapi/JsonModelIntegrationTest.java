@@ -25,6 +25,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
+import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularDeck;
 import jcrapi.model.Profile;
@@ -103,6 +104,11 @@ public class JsonModelIntegrationTest {
     @Test
     public void shouldResolveClanHistory() throws Exception {
         assertType("clanHistory.json", ClanHistory.class);
+    }
+
+    @Test
+    public void shouldResolveClanWeeklyHistory() throws Exception {
+        assertType("clanWeeklyHistory.json", ClanWeeklyHistory.class);
     }
 
     @Test
