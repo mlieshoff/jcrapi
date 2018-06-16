@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class Games {
@@ -48,6 +49,9 @@ public class Games {
 
     @SerializedName("lastBattle")
     private LastBattle lastBattle;
+
+    @SerializedName("warDayWins")
+    private int warDayWins;
 
     public void setTotal(int total) {
         this.total = total;
@@ -121,6 +125,14 @@ public class Games {
         return lastBattle;
     }
     
+    public void setWarDayWins(int warDayWins) {
+        this.warDayWins = warDayWins;
+    }
+    
+    public int getWarDayWins() {
+        return warDayWins;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
         s.append("Games{");
@@ -150,6 +162,9 @@ public class Games {
         s.append(", ");
         s.append("lastBattle=");
         s.append(lastBattle);
+        s.append(", ");
+        s.append("warDayWins=");
+        s.append(warDayWins);
         s.append("}");
         return s.toString();
     }

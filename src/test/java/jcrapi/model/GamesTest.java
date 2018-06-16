@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -97,6 +97,13 @@ public class GamesTest {
     }
 
     @Test
+    public void shouldGetSetWarDayWins() {
+        int expected = 815;
+        unitUnderTest.setWarDayWins(expected);
+        assertEquals(expected, unitUnderTest.getWarDayWins());
+    }
+
+    @Test
     public void shouldToString() {
         unitUnderTest.setTotal(815);
         unitUnderTest.setTournamentGames(815);
@@ -107,7 +114,8 @@ public class GamesTest {
         unitUnderTest.setDraws(815);
         unitUnderTest.setDrawsPercent(1.41);
         unitUnderTest.setLastBattle(new LastBattle());
-        String expected = "Games{total=815, tournamentGames=815, wins=815, winsPercent=1.41, losses=815, lossesPercent=1.41, draws=815, drawsPercent=1.41, lastBattle=" + new LastBattle() + "}";
+        unitUnderTest.setWarDayWins(815);
+        String expected = "Games{total=815, tournamentGames=815, wins=815, winsPercent=1.41, losses=815, lossesPercent=1.41, draws=815, drawsPercent=1.41, lastBattle=" + new LastBattle() + ", warDayWins=815}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
