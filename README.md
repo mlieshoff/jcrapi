@@ -200,6 +200,11 @@ ClanWar clanWar = api.getClanWarLog(ClanWarRequest.builder("RP88QQG")
 ```java
 // get open tournaments
 List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsRequest.builder()
+    .oneK()
+    .open()
+    .full()
+    .prep()
+    .joinable()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
@@ -211,6 +216,11 @@ List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsReq
 ```java
 // get known tournaments
 List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournamentsRequest.builder()
+    .oneK()
+    .open()
+    .full()
+    .prep()
+    .joinable()
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
