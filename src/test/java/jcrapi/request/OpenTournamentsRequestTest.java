@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class OpenTournamentsRequestTest extends LimitedRequestTestBase<OpenTournamentsRequest, OpenTournamentsRequest.OpenTournamentsRequestBuilder> {
+public class OpenTournamentsRequestTest extends TournamentRequestTestBase<OpenTournamentsRequest, OpenTournamentsRequest.OpenTournamentsRequestBuilder> {
 
     @Override
     OpenTournamentsRequest.OpenTournamentsRequestBuilder getBuilder() {
