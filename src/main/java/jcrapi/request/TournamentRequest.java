@@ -45,7 +45,7 @@ public class TournamentRequest extends LimitedRequest {
 
     public Map<String, String> getQueryParameters() {
         Map<String, String> map = super.getQueryParameters();
-        putOneIfTrue(map, oneK, "oneK");
+        putOneIfTrue(map, oneK, "1k");
         putOneIfTrue(map, open, "open");
         putOneIfTrue(map, full, "full");
         putOneIfTrue(map, prep, "prep");

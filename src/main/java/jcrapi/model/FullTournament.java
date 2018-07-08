@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
-public class OpenTournament {
+public class FullTournament {
 
     @SerializedName("tag")
     private String tag;
@@ -38,23 +38,11 @@ public class OpenTournament {
     @SerializedName("capacity")
     private int capacity;
 
-    @Deprecated
-    @SerializedName("playerCount")
-    private int playerCount;
-
-    @SerializedName("currentPlayers")
-    private int currentPlayers;
-
-    @Deprecated
-    @SerializedName("maxCapacity")
-    private int maxCapacity;
-
     @SerializedName("maxPlayers")
     private int maxPlayers;
 
-    @Deprecated
-    @SerializedName("preparationDuration")
-    private int preparationDuration;
+    @SerializedName("currentPlayers")
+    private int currentPlayers;
 
     @SerializedName("prepTime")
     private int prepTime;
@@ -111,34 +99,6 @@ public class OpenTournament {
         return capacity;
     }
     
-    @Deprecated
-    public void setPlayerCount(int playerCount) {
-        this.playerCount = playerCount;
-    }
-    
-    @Deprecated
-    public int getPlayerCount() {
-        return playerCount;
-    }
-    
-    public void setCurrentPlayers(int currentPlayers) {
-        this.currentPlayers = currentPlayers;
-    }
-    
-    public int getCurrentPlayers() {
-        return currentPlayers;
-    }
-    
-    @Deprecated
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-    
-    @Deprecated
-    public int getMaxCapacity() {
-        return maxCapacity;
-    }
-    
     public void setMaxPlayers(int maxPlayers) {
         this.maxPlayers = maxPlayers;
     }
@@ -147,14 +107,12 @@ public class OpenTournament {
         return maxPlayers;
     }
     
-    @Deprecated
-    public void setPreparationDuration(int preparationDuration) {
-        this.preparationDuration = preparationDuration;
+    public void setCurrentPlayers(int currentPlayers) {
+        this.currentPlayers = currentPlayers;
     }
     
-    @Deprecated
-    public int getPreparationDuration() {
-        return preparationDuration;
+    public int getCurrentPlayers() {
+        return currentPlayers;
     }
     
     public void setPrepTime(int prepTime) {
@@ -199,7 +157,7 @@ public class OpenTournament {
     
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("OpenTournament{");
+        s.append("FullTournament{");
         s.append("tag=");
         s.append(tag);
         s.append(", ");
@@ -215,20 +173,11 @@ public class OpenTournament {
         s.append("capacity=");
         s.append(capacity);
         s.append(", ");
-        s.append("playerCount=");
-        s.append(playerCount);
-        s.append(", ");
-        s.append("currentPlayers=");
-        s.append(currentPlayers);
-        s.append(", ");
-        s.append("maxCapacity=");
-        s.append(maxCapacity);
-        s.append(", ");
         s.append("maxPlayers=");
         s.append(maxPlayers);
         s.append(", ");
-        s.append("preparationDuration=");
-        s.append(preparationDuration);
+        s.append("currentPlayers=");
+        s.append(currentPlayers);
         s.append(", ");
         s.append("prepTime=");
         s.append(prepTime);

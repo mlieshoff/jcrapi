@@ -230,6 +230,54 @@ List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournament
 ```
 
 ```java
+// get 1k tournaments
+List<OneKTournament> oneKTournaments = api.getOneKTournaments(OneKTournamentsRequest.builder()
+    .oneK()
+    .open()
+    .full()
+    .prep()
+    .joinable()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .limit(10)
+    .max(5)
+    .page(2)
+    .build());
+```
+
+```java
+// get full tournaments
+List<FullTournament> fullTournaments = api.getFullTournaments(FullTournamentsRequest.builder()
+    .oneK()
+    .open()
+    .full()
+    .prep()
+    .joinable()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .limit(10)
+    .max(5)
+    .page(2)
+    .build());
+```
+
+```java
+// get in preparation tournaments
+List<InPreparationTournament> inPreparationTournaments = api.getInPreparationTournaments(InPreparationTournamentsRequest.builder()
+    .oneK()
+    .open()
+    .full()
+    .prep()
+    .joinable()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("cards"))
+    .limit(10)
+    .max(5)
+    .page(2)
+    .build());
+```
+
+```java
 // tournament search
 List<Clan> clans = api.getTournamentSearch(TournamentSearchRequest.builder()
     .setName("abc")

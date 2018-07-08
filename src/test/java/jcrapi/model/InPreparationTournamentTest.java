@@ -16,21 +16,21 @@
  */
 package jcrapi.model;
 
+import javax.annotation.Generated;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class SearchedTournamentTest {
+public class InPreparationTournamentTest {
 
-    private SearchedTournament unitUnderTest;
+    private InPreparationTournament unitUnderTest;
 
     @Before
     public void setUp() {
-        unitUnderTest = new SearchedTournament();
+        unitUnderTest = new InPreparationTournament();
     }
 
     @Test
@@ -62,17 +62,10 @@ public class SearchedTournamentTest {
     }
 
     @Test
-    public void shouldGetSetDescription() {
-        String expected = "astring";
-        unitUnderTest.setDescription(expected);
-        assertEquals(expected, unitUnderTest.getDescription());
-    }
-
-    @Test
-    public void shouldGetSetMaxCapacity() {
+    public void shouldGetSetCapacity() {
         int expected = 815;
-        unitUnderTest.setMaxCapacity(expected);
-        assertEquals(expected, unitUnderTest.getMaxCapacity());
+        unitUnderTest.setCapacity(expected);
+        assertEquals(expected, unitUnderTest.getCapacity());
     }
 
     @Test
@@ -83,10 +76,10 @@ public class SearchedTournamentTest {
     }
 
     @Test
-    public void shouldGetSetPreparationDuration() {
+    public void shouldGetSetCurrentPlayers() {
         int expected = 815;
-        unitUnderTest.setPreparationDuration(expected);
-        assertEquals(expected, unitUnderTest.getPreparationDuration());
+        unitUnderTest.setCurrentPlayers(expected);
+        assertEquals(expected, unitUnderTest.getCurrentPlayers());
     }
 
     @Test
@@ -112,37 +105,16 @@ public class SearchedTournamentTest {
 
     @Test
     public void shouldGetSetStartTime() {
-        long expected = 4711L;
+        String expected = "astring";
         unitUnderTest.setStartTime(expected);
         assertEquals(expected, unitUnderTest.getStartTime());
     }
 
     @Test
     public void shouldGetSetEndTime() {
-        long expected = 4711L;
+        String expected = "astring";
         unitUnderTest.setEndTime(expected);
         assertEquals(expected, unitUnderTest.getEndTime());
-    }
-
-    @Test
-    public void shouldGetSetPlayerCount() {
-        int expected = 815;
-        unitUnderTest.setPlayerCount(expected);
-        assertEquals(expected, unitUnderTest.getPlayerCount());
-    }
-
-    @Test
-    public void shouldGetSetCurrentPlayers() {
-        int expected = 815;
-        unitUnderTest.setCurrentPlayers(expected);
-        assertEquals(expected, unitUnderTest.getCurrentPlayers());
-    }
-
-    @Test
-    public void shouldGetSetMembers() {
-        java.util.List<TournamentParticipant> expected = new java.util.ArrayList<TournamentParticipant>();
-        unitUnderTest.setMembers(expected);
-        assertEquals(expected, unitUnderTest.getMembers());
     }
 
     @Test
@@ -151,19 +123,15 @@ public class SearchedTournamentTest {
         unitUnderTest.setType("astring");
         unitUnderTest.setStatus("astring");
         unitUnderTest.setName("astring");
-        unitUnderTest.setDescription("astring");
-        unitUnderTest.setMaxCapacity(815);
+        unitUnderTest.setCapacity(815);
         unitUnderTest.setMaxPlayers(815);
-        unitUnderTest.setPreparationDuration(815);
+        unitUnderTest.setCurrentPlayers(815);
         unitUnderTest.setPrepTime(815);
         unitUnderTest.setDuration(815);
         unitUnderTest.setCreateTime(4711L);
-        unitUnderTest.setStartTime(4711L);
-        unitUnderTest.setEndTime(4711L);
-        unitUnderTest.setPlayerCount(815);
-        unitUnderTest.setCurrentPlayers(815);
-        unitUnderTest.setMembers(new java.util.ArrayList<TournamentParticipant>());
-        String expected = "SearchedTournament{tag=astring, type=astring, status=astring, name=astring, description=astring, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=4711, endTime=4711, playerCount=815, currentPlayers=815, members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
+        unitUnderTest.setStartTime("astring");
+        unitUnderTest.setEndTime("astring");
+        String expected = "InPreparationTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, maxPlayers=815, currentPlayers=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

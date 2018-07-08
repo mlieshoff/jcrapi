@@ -21,49 +21,31 @@ import com.google.gson.annotations.SerializedName;
 import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
-public class OpenTournament {
+public class JoinableTournament {
 
     @SerializedName("tag")
     private String tag;
 
-    @SerializedName("type")
-    private String type;
-
-    @SerializedName("status")
-    private String status;
-
     @SerializedName("name")
     private String name;
 
-    @SerializedName("capacity")
-    private int capacity;
-
-    @Deprecated
-    @SerializedName("playerCount")
-    private int playerCount;
-
-    @SerializedName("currentPlayers")
-    private int currentPlayers;
-
-    @Deprecated
-    @SerializedName("maxCapacity")
-    private int maxCapacity;
+    @SerializedName("open")
+    private boolean open;
 
     @SerializedName("maxPlayers")
     private int maxPlayers;
 
-    @Deprecated
-    @SerializedName("preparationDuration")
-    private int preparationDuration;
+    @SerializedName("currentPlayers")
+    private int currentPlayers;
 
-    @SerializedName("prepTime")
-    private int prepTime;
-
-    @SerializedName("duration")
-    private int duration;
+    @SerializedName("status")
+    private String status;
 
     @SerializedName("createTime")
     private long createTime;
+
+    @SerializedName("prepTime")
+    private int prepTime;
 
     @SerializedName("startTime")
     private String startTime;
@@ -71,28 +53,21 @@ public class OpenTournament {
     @SerializedName("endTime")
     private String endTime;
 
+    @SerializedName("duration")
+    private int duration;
+
+    @SerializedName("description")
+    private String description;
+
+    @SerializedName("updatedAt")
+    private long updatedAt;
+
     public void setTag(String tag) {
         this.tag = tag;
     }
     
     public String getTag() {
         return tag;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
-    public String getStatus() {
-        return status;
     }
     
     public void setName(String name) {
@@ -103,40 +78,12 @@ public class OpenTournament {
         return name;
     }
     
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setOpen(boolean open) {
+        this.open = open;
     }
     
-    public int getCapacity() {
-        return capacity;
-    }
-    
-    @Deprecated
-    public void setPlayerCount(int playerCount) {
-        this.playerCount = playerCount;
-    }
-    
-    @Deprecated
-    public int getPlayerCount() {
-        return playerCount;
-    }
-    
-    public void setCurrentPlayers(int currentPlayers) {
-        this.currentPlayers = currentPlayers;
-    }
-    
-    public int getCurrentPlayers() {
-        return currentPlayers;
-    }
-    
-    @Deprecated
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-    
-    @Deprecated
-    public int getMaxCapacity() {
-        return maxCapacity;
+    public boolean getOpen() {
+        return open;
     }
     
     public void setMaxPlayers(int maxPlayers) {
@@ -147,30 +94,20 @@ public class OpenTournament {
         return maxPlayers;
     }
     
-    @Deprecated
-    public void setPreparationDuration(int preparationDuration) {
-        this.preparationDuration = preparationDuration;
+    public void setCurrentPlayers(int currentPlayers) {
+        this.currentPlayers = currentPlayers;
     }
     
-    @Deprecated
-    public int getPreparationDuration() {
-        return preparationDuration;
+    public int getCurrentPlayers() {
+        return currentPlayers;
     }
     
-    public void setPrepTime(int prepTime) {
-        this.prepTime = prepTime;
+    public void setStatus(String status) {
+        this.status = status;
     }
     
-    public int getPrepTime() {
-        return prepTime;
-    }
-    
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-    
-    public int getDuration() {
-        return duration;
+    public String getStatus() {
+        return status;
     }
     
     public void setCreateTime(long createTime) {
@@ -179,6 +116,14 @@ public class OpenTournament {
     
     public long getCreateTime() {
         return createTime;
+    }
+    
+    public void setPrepTime(int prepTime) {
+        this.prepTime = prepTime;
+    }
+    
+    public int getPrepTime() {
+        return prepTime;
     }
     
     public void setStartTime(String startTime) {
@@ -197,53 +142,71 @@ public class OpenTournament {
         return endTime;
     }
     
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    
+    public int getDuration() {
+        return duration;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    public long getUpdatedAt() {
+        return updatedAt;
+    }
+    
     public String toString() {
         java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("OpenTournament{");
+        s.append("JoinableTournament{");
         s.append("tag=");
         s.append(tag);
-        s.append(", ");
-        s.append("type=");
-        s.append(type);
-        s.append(", ");
-        s.append("status=");
-        s.append(status);
         s.append(", ");
         s.append("name=");
         s.append(name);
         s.append(", ");
-        s.append("capacity=");
-        s.append(capacity);
-        s.append(", ");
-        s.append("playerCount=");
-        s.append(playerCount);
-        s.append(", ");
-        s.append("currentPlayers=");
-        s.append(currentPlayers);
-        s.append(", ");
-        s.append("maxCapacity=");
-        s.append(maxCapacity);
+        s.append("open=");
+        s.append(open);
         s.append(", ");
         s.append("maxPlayers=");
         s.append(maxPlayers);
         s.append(", ");
-        s.append("preparationDuration=");
-        s.append(preparationDuration);
+        s.append("currentPlayers=");
+        s.append(currentPlayers);
         s.append(", ");
-        s.append("prepTime=");
-        s.append(prepTime);
-        s.append(", ");
-        s.append("duration=");
-        s.append(duration);
+        s.append("status=");
+        s.append(status);
         s.append(", ");
         s.append("createTime=");
         s.append(createTime);
+        s.append(", ");
+        s.append("prepTime=");
+        s.append(prepTime);
         s.append(", ");
         s.append("startTime=");
         s.append(startTime);
         s.append(", ");
         s.append("endTime=");
         s.append(endTime);
+        s.append(", ");
+        s.append("duration=");
+        s.append(duration);
+        s.append(", ");
+        s.append("description=");
+        s.append(description);
+        s.append(", ");
+        s.append("updatedAt=");
+        s.append(updatedAt);
         s.append("}");
         return s.toString();
     }

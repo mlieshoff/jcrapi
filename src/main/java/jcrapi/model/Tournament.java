@@ -41,11 +41,19 @@ public class Tournament {
     @SerializedName("capacity")
     private int capacity;
 
+    @Deprecated
     @SerializedName("maxCapacity")
     private int maxCapacity;
 
+    @SerializedName("maxPlayers")
+    private int maxPlayers;
+
+    @Deprecated
     @SerializedName("preparationDuration")
     private int preparationDuration;
+
+    @SerializedName("prepTime")
+    private int prepTime;
 
     @SerializedName("duration")
     private int duration;
@@ -117,20 +125,40 @@ public class Tournament {
         return capacity;
     }
     
+    @Deprecated
     public void setMaxCapacity(int maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
     
+    @Deprecated
     public int getMaxCapacity() {
         return maxCapacity;
     }
     
+    public void setMaxPlayers(int maxPlayers) {
+        this.maxPlayers = maxPlayers;
+    }
+    
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+    
+    @Deprecated
     public void setPreparationDuration(int preparationDuration) {
         this.preparationDuration = preparationDuration;
     }
     
+    @Deprecated
     public int getPreparationDuration() {
         return preparationDuration;
+    }
+    
+    public void setPrepTime(int prepTime) {
+        this.prepTime = prepTime;
+    }
+    
+    public int getPrepTime() {
+        return prepTime;
     }
     
     public void setDuration(int duration) {
@@ -215,8 +243,14 @@ public class Tournament {
         s.append("maxCapacity=");
         s.append(maxCapacity);
         s.append(", ");
+        s.append("maxPlayers=");
+        s.append(maxPlayers);
+        s.append(", ");
         s.append("preparationDuration=");
         s.append(preparationDuration);
+        s.append(", ");
+        s.append("prepTime=");
+        s.append(prepTime);
         s.append(", ");
         s.append("duration=");
         s.append(duration);

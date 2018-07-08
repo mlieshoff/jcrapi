@@ -28,7 +28,11 @@ import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
+import jcrapi.model.FullTournament;
+import jcrapi.model.InPreparationTournament;
+import jcrapi.model.JoinableTournament;
 import jcrapi.model.KnownTournament;
+import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularDeck;
@@ -48,7 +52,11 @@ import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
+import jcrapi.request.FullTournamentsRequest;
+import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -393,6 +401,38 @@ public class Api {
     public AuthStats getAuthStats(AuthStatsRequest authStatsRequest) {
         try {
             return createClient().getAuthStats(authStatsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<OneKTournament> getOneKTournaments(OneKTournamentsRequest oneKTournamentsRequest) {
+        try {
+            return createClient().getOneKTournaments(oneKTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<FullTournament> getFullTournaments(FullTournamentsRequest oneKTournamentsRequest) {
+        try {
+            return createClient().getFullTournaments(oneKTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<InPreparationTournament> getInPreparationTournaments(InPreparationTournamentsRequest inPreparationTournamentsRequest) {
+        try {
+            return createClient().getInPreparationTournaments(inPreparationTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<JoinableTournament> getJoinableTournaments(JoinableTournamentsRequest joinableTournamentsRequest) {
+        try {
+            return createClient().getJoinableTournaments(joinableTournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

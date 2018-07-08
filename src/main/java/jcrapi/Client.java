@@ -31,7 +31,11 @@ import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
+import jcrapi.model.FullTournament;
+import jcrapi.model.InPreparationTournament;
+import jcrapi.model.JoinableTournament;
 import jcrapi.model.KnownTournament;
+import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularDeck;
@@ -52,7 +56,11 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.FullTournamentsRequest;
+import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -418,6 +426,30 @@ class Client {
     AuthStats getAuthStats(AuthStatsRequest authStatsRequest) throws IOException {
         String json = get(createUrl("auth/stats"), authStatsRequest);
         return new Gson().fromJson(json, AuthStats.class);
+    }
+
+    List<OneKTournament> getOneKTournaments(OneKTournamentsRequest oneKTournamentsRequest) throws IOException {
+        String json = get(createUrl("tournaments/1k"), oneKTournamentsRequest);
+        Type listType = new TypeToken<List<OneKTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<FullTournament> getFullTournaments(FullTournamentsRequest fullTournamentsRequest) throws IOException {
+        String json = get(createUrl("tournaments/full"), fullTournamentsRequest);
+        Type listType = new TypeToken<List<FullTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<InPreparationTournament> getInPreparationTournaments(InPreparationTournamentsRequest inPreparationTournamentsRequest) throws IOException {
+        String json = get(createUrl("tournaments/prep"), inPreparationTournamentsRequest);
+        Type listType = new TypeToken<List<InPreparationTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<JoinableTournament> getJoinableTournaments(JoinableTournamentsRequest joinableTournamentsRequest) throws IOException {
+        String json = get(createUrl("tournaments/joinable"), joinableTournamentsRequest);
+        Type listType = new TypeToken<List<JoinableTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
     }
 
     Response getLastResponse() {

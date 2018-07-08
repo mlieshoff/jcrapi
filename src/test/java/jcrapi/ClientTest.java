@@ -27,7 +27,11 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.FullTournamentsRequest;
+import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -527,6 +531,38 @@ public class ClientTest {
         Response response = new Response();
         when(crawler.getLastResponse()).thenReturn(response);
         assertEquals(response, createClient().getLastResponse());
+    }
+
+    @Test
+    public void shouldGetOneKTournaments() throws IOException {
+        OneKTournamentsRequest oneKTournamentsRequest = OneKTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/1k", createHeaders(), oneKTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getOneKTournaments(oneKTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetFullTournaments() throws IOException {
+        FullTournamentsRequest fullTournamentsRequest = FullTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/full", createHeaders(), fullTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getFullTournaments(fullTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetInPreparationTournaments() throws IOException {
+        InPreparationTournamentsRequest inPreparationTournamentsRequest = InPreparationTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/prep", createHeaders(), inPreparationTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getInPreparationTournaments(inPreparationTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetJoinableTournaments() throws IOException {
+        JoinableTournamentsRequest inPreparationTournamentsRequest = JoinableTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/joinable", createHeaders(), inPreparationTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getJoinableTournaments(inPreparationTournamentsRequest));
     }
 
 }
