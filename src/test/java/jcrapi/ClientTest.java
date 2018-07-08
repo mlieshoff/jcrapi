@@ -28,6 +28,7 @@ import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -527,6 +528,14 @@ public class ClientTest {
         Response response = new Response();
         when(crawler.getLastResponse()).thenReturn(response);
         assertEquals(response, createClient().getLastResponse());
+    }
+
+    @Test
+    public void shouldGetOneKTournaments() throws IOException {
+        OneKTournamentsRequest oneKTournamentsRequest = OneKTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/1k", createHeaders(), oneKTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getOneKTournaments(oneKTournamentsRequest));
     }
 
 }

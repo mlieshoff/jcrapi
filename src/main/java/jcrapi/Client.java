@@ -32,6 +32,7 @@ import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
+import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularDeck;
@@ -53,6 +54,7 @@ import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -418,6 +420,12 @@ class Client {
     AuthStats getAuthStats(AuthStatsRequest authStatsRequest) throws IOException {
         String json = get(createUrl("auth/stats"), authStatsRequest);
         return new Gson().fromJson(json, AuthStats.class);
+    }
+
+    List<OneKTournament> getOneKTournaments(OneKTournamentsRequest oneKTournamentsRequest) throws IOException {
+        String json = get(createUrl("tournaments/1k"), oneKTournamentsRequest);
+        Type listType = new TypeToken<List<OneKTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
     }
 
     Response getLastResponse() {

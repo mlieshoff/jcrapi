@@ -29,6 +29,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -82,6 +83,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/tournaments/search", new TestTournamentSearchServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/known", new TestKnownTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/open", new TestOpenTournamentsServlet());
+        jettyServer.addServlet("/" + APP + "/tournaments/1k", new TestOneKTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
         jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/auth/stats", new TestAuthStatsServlet());
@@ -707,6 +709,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetClanWarBecauseWrongAuthFromRequest() throws IOException {
         doGetClanWarFromRequest(URL, "abc", ClanWarRequest.builder("abc").build());
+    }
+
+    @Test
+    public void shouldGetOneKTournaments() throws IOException {
+        doGetOneKTournaments(URL, AUTH, OneKTournamentsRequest.builder().build());
+    }
+
+    private void doGetOneKTournaments(String url, String auth, OneKTournamentsRequest oneKTournamentsRequest) {
+        assertNotNull(new Api(url, auth).getOneKTournaments(oneKTournamentsRequest));
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetOneKTournamentsBecauseWrongAuth() throws IOException {
+        doGetOneKTournaments(URL, "abc", OneKTournamentsRequest.builder().build());
     }
 
 }

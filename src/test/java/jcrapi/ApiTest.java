@@ -28,6 +28,7 @@ import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
+import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularClan;
 import jcrapi.model.PopularDeck;
@@ -48,6 +49,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.KnownTournamentsRequest;
+import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
 import jcrapi.request.PlayerBattlesRequest;
 import jcrapi.request.PlayerChestsRequest;
@@ -1226,6 +1228,33 @@ public class ApiTest {
         Response response = new Response();
         when(client.getLastResponse()).thenReturn(response);
         assertEquals(response, api.getLastResponse());
+    }
+
+    @Test
+    public void shouldGetOneKTournaments() throws Exception {
+        List<OneKTournament> oneKTournaments = new ArrayList<>();
+        when(client.getOneKTournaments(argThat(getOneKTournamentsRequestArgumentMatcher()))).thenReturn(oneKTournaments);
+        assertSame(oneKTournaments, api.getOneKTournaments(OneKTournamentsRequest.builder().build()));
+    }
+
+    private Matcher<OneKTournamentsRequest> getOneKTournamentsRequestArgumentMatcher() {
+        return new ArgumentMatcher<OneKTournamentsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof OneKTournamentsRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetOneKTournaments() throws Exception {
+        when(client.getOneKTournaments(argThat(getOneKTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
+        try {
+            api.getOneKTournaments(OneKTournamentsRequest.builder().build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
     }
 
 }
