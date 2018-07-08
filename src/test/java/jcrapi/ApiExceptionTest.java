@@ -16,23 +16,45 @@
  */
 package jcrapi;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * @author Michael Lieshoff
  */
 public class ApiExceptionTest {
 
-    @Test
-    public void shouldGetNoneCode() {
-        assertEquals(-1, new ApiException(new IllegalStateException("lala")).getCode());
+    private CrawlerException crawlerException;
+
+    @Before
+    public void setUp() {
+        crawlerException = mock(CrawlerException.class);
     }
 
     @Test
-    public void shouldGetCode() {
-        assertEquals(402, new ApiException(new IllegalStateException("crapi: 402")).getCode());
+    public void shouldGetNoneCode() {
+        assertEquals(0, new ApiException(new IllegalStateException("lala")).getCode());
+    }
+
+    @Test
+    public void shouldGetNoneCodeForNonKnownException() {
+        assertEquals(0, new ApiException(new IllegalStateException("crapi: 402")).getCode());
+    }
+
+    @Test
+    public void shouldGetCodeForCrawlerException() {
+        when(crawlerException.getStatusCode()).thenReturn(402);
+        assertEquals(402, new ApiException(crawlerException).getCode());
+    }
+
+    @Test
+    public void shouldGetMessageForCrawlerException() {
+        when(crawlerException.getMessage()).thenReturn("xyz");
+        assertEquals("xyz", new ApiException(crawlerException).getMessage());
     }
 
 }

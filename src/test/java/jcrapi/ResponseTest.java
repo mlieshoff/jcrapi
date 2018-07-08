@@ -110,9 +110,36 @@ public class ResponseTest {
     }
 
     @Test
-    public void shouldGetNoRatereset() {
+    public void shouldGetNoRateReset() {
         Response response = createResponse();
         assertFalse(response.getRateReset().isPresent());
     }
+
+    @Test
+    public void shouldGetCached() {
+        Response response = createResponse();
+        response.getResponseHeaders().put(Response.X_CACHED, "true");
+        assertTrue(response.isCached());
+    }
+
+    @Test
+    public void shouldGetNoCached() {
+        Response response = createResponse();
+        assertFalse(response.isCached());
+    }
+
+    @Test
+    public void shouldGetRateRetryAfter() {
+        Response response = createResponse();
+        response.getResponseHeaders().put(Response.X_RATELIMIT_RETRY_AFTER, "4711");
+        assertEquals(4711, response.getRateRetryAfter().get().intValue());
+    }
+
+    @Test
+    public void shouldGetNoRateRetryAfter() {
+        Response response = createResponse();
+        assertFalse(response.getRateRetryAfter().isPresent());
+    }
+
 
 }

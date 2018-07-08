@@ -52,7 +52,7 @@ class Crawler {
         this.httpClientFactory = httpClientFactory;
     }
 
-    String get(String url, Map<String, String> headers) throws IOException {
+    String get(String url, Map<String, String> headers) throws CrawlerException, IOException {
         return get(url, headers, null);
     }
 
@@ -69,7 +69,7 @@ class Crawler {
         StatusLine statusLine = response.getStatusLine();
         if (statusLine.getStatusCode() != 200) {
             setLastResponse(apiResponse, "ERROR", response);
-            throw new IOException("crapi: " + statusLine.getStatusCode());
+            throw new CrawlerException(statusLine);
         }
         BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         StringBuilder s = new StringBuilder();

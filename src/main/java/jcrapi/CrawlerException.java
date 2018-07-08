@@ -14,32 +14,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package jcrapi;
+
+import com.google.common.base.Preconditions;
+import org.apache.commons.lang.StringUtils;
+import org.apache.http.StatusLine;
+
+import java.io.IOException;
 
 /**
  * @author Michael Lieshoff
  */
-public class ApiException extends RuntimeException {
+public class CrawlerException extends IOException {
 
-    private int code;
-    private String message;
+    private final String message;
+    private final String reason;
 
-    public ApiException(Throwable cause) {
-        super(cause);
-        message = cause.getMessage();
-        if (cause instanceof CrawlerException) {
-            CrawlerException crawlerException = (CrawlerException) cause;
-            code = crawlerException.getStatusCode();
-        }
+    private final int statusCode;
+
+    public CrawlerException(StatusLine statusLine) {
+        Preconditions.checkNotNull(statusLine, "statusLine cannot be null!");
+        statusCode = statusLine.getStatusCode();
+        reason = statusLine.getReasonPhrase();
+        message = createMessage();
     }
 
-    public int getCode() {
-        return code;
+    private String createMessage() {
+        StringBuilder s = new StringBuilder();
+        s.append("crapi: " + statusCode);
+        if (StringUtils.isNotBlank(reason)) {
+            s.append(": " + reason);
+        }
+        return s.toString();
     }
 
     @Override
     public String getMessage() {
         return message;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
     }
     
 }
