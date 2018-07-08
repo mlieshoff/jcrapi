@@ -107,7 +107,7 @@ public class TopClanTest {
         unitUnderTest.setBadge(new Badge());
         unitUnderTest.setLocation(new Location());
         unitUnderTest.setTracking(new Tracking());
-        String expected = "TopClan{tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + ", tracking=" + new Tracking() + "}";
+        String expected = "TopClan(tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + ", tracking=" + new Tracking() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

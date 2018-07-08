@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Arena {
 
     @SerializedName("name")
@@ -33,55 +39,5 @@ public class Arena {
 
     @SerializedName("trophyLimit")
     private int trophyLimit;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setArena(String arena) {
-        this.arena = arena;
-    }
-    
-    public String getArena() {
-        return arena;
-    }
-    
-    public void setArenaID(int arenaID) {
-        this.arenaID = arenaID;
-    }
-    
-    public int getArenaID() {
-        return arenaID;
-    }
-    
-    public void setTrophyLimit(int trophyLimit) {
-        this.trophyLimit = trophyLimit;
-    }
-    
-    public int getTrophyLimit() {
-        return trophyLimit;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Arena{");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("arena=");
-        s.append(arena);
-        s.append(", ");
-        s.append("arenaID=");
-        s.append(arenaID);
-        s.append(", ");
-        s.append("trophyLimit=");
-        s.append(trophyLimit);
-        s.append("}");
-        return s.toString();
-    }
 
 }

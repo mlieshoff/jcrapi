@@ -51,7 +51,7 @@ public class PopularityTest {
     public void shouldToString() {
         unitUnderTest.setHits("astring");
         unitUnderTest.setHitsPerDayAvg(1.41);
-        String expected = "Popularity{hits=astring, hitsPerDayAvg=1.41}";
+        String expected = "Popularity(hits=astring, hitsPerDayAvg=1.41)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

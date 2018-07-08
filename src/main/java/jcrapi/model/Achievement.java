@@ -17,10 +17,16 @@
 package jcrapi.model;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Achievement {
 
     @SerializedName("name")
@@ -37,66 +43,5 @@ public class Achievement {
 
     @SerializedName("info")
     private String info;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setStars(int stars) {
-        this.stars = stars;
-    }
-    
-    public int getStars() {
-        return stars;
-    }
-    
-    public void setValue(int value) {
-        this.value = value;
-    }
-    
-    public int getValue() {
-        return value;
-    }
-    
-    public void setTarget(int target) {
-        this.target = target;
-    }
-    
-    public int getTarget() {
-        return target;
-    }
-    
-    public void setInfo(String info) {
-        this.info = info;
-    }
-    
-    public String getInfo() {
-        return info;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Achievement{");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("stars=");
-        s.append(stars);
-        s.append(", ");
-        s.append("value=");
-        s.append(value);
-        s.append(", ");
-        s.append("target=");
-        s.append(target);
-        s.append(", ");
-        s.append("info=");
-        s.append(info);
-        s.append("}");
-        return s.toString();
-    }
 
 }

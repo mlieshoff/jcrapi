@@ -16,11 +16,16 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class AuthStats {
 
     @SerializedName("id")
@@ -31,44 +36,5 @@ public class AuthStats {
 
     @SerializedName("requestCount")
     private java.util.Map<String, String> requestCount;
-
-    public void setId(long id) {
-        this.id = id;
-    }
-    
-    public long getId() {
-        return id;
-    }
-    
-    public void setLastRequest(long lastRequest) {
-        this.lastRequest = lastRequest;
-    }
-    
-    public long getLastRequest() {
-        return lastRequest;
-    }
-    
-    public void setRequestCount(java.util.Map<String, String> requestCount) {
-        this.requestCount = requestCount;
-    }
-    
-    public java.util.Map<String, String> getRequestCount() {
-        return requestCount;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("AuthStats{");
-        s.append("id=");
-        s.append(id);
-        s.append(", ");
-        s.append("lastRequest=");
-        s.append(lastRequest);
-        s.append(", ");
-        s.append("requestCount=");
-        s.append(requestCount);
-        s.append("}");
-        return s.toString();
-    }
 
 }

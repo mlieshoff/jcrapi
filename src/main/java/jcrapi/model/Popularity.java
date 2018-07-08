@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Popularity {
 
     @SerializedName("hits")
@@ -27,33 +33,5 @@ public class Popularity {
 
     @SerializedName("hitsPerDayAvg")
     private double hitsPerDayAvg;
-
-    public void setHits(String hits) {
-        this.hits = hits;
-    }
-    
-    public String getHits() {
-        return hits;
-    }
-    
-    public void setHitsPerDayAvg(double hitsPerDayAvg) {
-        this.hitsPerDayAvg = hitsPerDayAvg;
-    }
-    
-    public double getHitsPerDayAvg() {
-        return hitsPerDayAvg;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Popularity{");
-        s.append("hits=");
-        s.append(hits);
-        s.append(", ");
-        s.append("hitsPerDayAvg=");
-        s.append(hitsPerDayAvg);
-        s.append("}");
-        return s.toString();
-    }
 
 }

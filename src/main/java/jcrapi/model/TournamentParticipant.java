@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class TournamentParticipant {
 
     @SerializedName("tag")
@@ -36,66 +42,5 @@ public class TournamentParticipant {
 
     @SerializedName("clan")
     private TournamentClan clan;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setScore(int score) {
-        this.score = score;
-    }
-    
-    public int getScore() {
-        return score;
-    }
-    
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-    
-    public int getRank() {
-        return rank;
-    }
-    
-    public void setClan(TournamentClan clan) {
-        this.clan = clan;
-    }
-    
-    public TournamentClan getClan() {
-        return clan;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("TournamentParticipant{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("score=");
-        s.append(score);
-        s.append(", ");
-        s.append("rank=");
-        s.append(rank);
-        s.append(", ");
-        s.append("clan=");
-        s.append(clan);
-        s.append("}");
-        return s.toString();
-    }
 
 }

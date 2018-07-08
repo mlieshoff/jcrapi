@@ -83,7 +83,7 @@ public class ChestCycleTest {
         unitUnderTest.setLegendary(815);
         unitUnderTest.setEpic(815);
         unitUnderTest.setGiant(815);
-        String expected = "ChestCycle{upcoming=" + new java.util.ArrayList<String>() + ", superMagical=815, magical=815, legendary=815, epic=815, giant=815}";
+        String expected = "ChestCycle(upcoming=" + new java.util.ArrayList<String>() + ", superMagical=815, magical=815, legendary=815, epic=815, giant=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

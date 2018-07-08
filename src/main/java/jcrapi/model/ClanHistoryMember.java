@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ClanHistoryMember {
 
     @SerializedName("clanRank")
@@ -39,77 +45,5 @@ public class ClanHistoryMember {
 
     @SerializedName("trophies")
     private Integer trophies;
-
-    public void setClanRank(Integer clanRank) {
-        this.clanRank = clanRank;
-    }
-    
-    public Integer getClanRank() {
-        return clanRank;
-    }
-    
-    public void setCrowns(Integer crowns) {
-        this.crowns = crowns;
-    }
-    
-    public Integer getCrowns() {
-        return crowns;
-    }
-    
-    public void setDonations(Integer donations) {
-        this.donations = donations;
-    }
-    
-    public Integer getDonations() {
-        return donations;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setTrophies(Integer trophies) {
-        this.trophies = trophies;
-    }
-    
-    public Integer getTrophies() {
-        return trophies;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ClanHistoryMember{");
-        s.append("clanRank=");
-        s.append(clanRank);
-        s.append(", ");
-        s.append("crowns=");
-        s.append(crowns);
-        s.append(", ");
-        s.append("donations=");
-        s.append(donations);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("trophies=");
-        s.append(trophies);
-        s.append("}");
-        return s.toString();
-    }
 
 }

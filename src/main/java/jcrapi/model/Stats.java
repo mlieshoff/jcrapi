@@ -16,11 +16,16 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Stats {
 
     @SerializedName("tournamentCardsWon")
@@ -52,121 +57,5 @@ public class Stats {
 
     @SerializedName("clanCardsCollected")
     private int clanCardsCollected;
-
-    public void setTournamentCardsWon(int tournamentCardsWon) {
-        this.tournamentCardsWon = tournamentCardsWon;
-    }
-    
-    public int getTournamentCardsWon() {
-        return tournamentCardsWon;
-    }
-    
-    public void setMaxTrophies(int maxTrophies) {
-        this.maxTrophies = maxTrophies;
-    }
-    
-    public int getMaxTrophies() {
-        return maxTrophies;
-    }
-    
-    public void setThreeCrownWins(int threeCrownWins) {
-        this.threeCrownWins = threeCrownWins;
-    }
-    
-    public int getThreeCrownWins() {
-        return threeCrownWins;
-    }
-    
-    public void setCardsFound(int cardsFound) {
-        this.cardsFound = cardsFound;
-    }
-    
-    public int getCardsFound() {
-        return cardsFound;
-    }
-    
-    public void setFavoriteCard(FavoriteCard favoriteCard) {
-        this.favoriteCard = favoriteCard;
-    }
-    
-    public FavoriteCard getFavoriteCard() {
-        return favoriteCard;
-    }
-    
-    public void setTotalDonations(int totalDonations) {
-        this.totalDonations = totalDonations;
-    }
-    
-    public int getTotalDonations() {
-        return totalDonations;
-    }
-    
-    public void setChallengeMaxWins(int challengeMaxWins) {
-        this.challengeMaxWins = challengeMaxWins;
-    }
-    
-    public int getChallengeMaxWins() {
-        return challengeMaxWins;
-    }
-    
-    public void setChallengeCardsWon(int challengeCardsWon) {
-        this.challengeCardsWon = challengeCardsWon;
-    }
-    
-    public int getChallengeCardsWon() {
-        return challengeCardsWon;
-    }
-    
-    public void setLevel(int level) {
-        this.level = level;
-    }
-    
-    public int getLevel() {
-        return level;
-    }
-    
-    public void setClanCardsCollected(int clanCardsCollected) {
-        this.clanCardsCollected = clanCardsCollected;
-    }
-    
-    public int getClanCardsCollected() {
-        return clanCardsCollected;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Stats{");
-        s.append("tournamentCardsWon=");
-        s.append(tournamentCardsWon);
-        s.append(", ");
-        s.append("maxTrophies=");
-        s.append(maxTrophies);
-        s.append(", ");
-        s.append("threeCrownWins=");
-        s.append(threeCrownWins);
-        s.append(", ");
-        s.append("cardsFound=");
-        s.append(cardsFound);
-        s.append(", ");
-        s.append("favoriteCard=");
-        s.append(favoriteCard);
-        s.append(", ");
-        s.append("totalDonations=");
-        s.append(totalDonations);
-        s.append(", ");
-        s.append("challengeMaxWins=");
-        s.append(challengeMaxWins);
-        s.append(", ");
-        s.append("challengeCardsWon=");
-        s.append(challengeCardsWon);
-        s.append(", ");
-        s.append("level=");
-        s.append(level);
-        s.append(", ");
-        s.append("clanCardsCollected=");
-        s.append(clanCardsCollected);
-        s.append("}");
-        return s.toString();
-    }
 
 }

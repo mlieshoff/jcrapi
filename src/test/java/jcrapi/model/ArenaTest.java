@@ -67,7 +67,7 @@ public class ArenaTest {
         unitUnderTest.setArena("astring");
         unitUnderTest.setArenaID(815);
         unitUnderTest.setTrophyLimit(815);
-        String expected = "Arena{name=astring, arena=astring, arenaID=815, trophyLimit=815}";
+        String expected = "Arena(name=astring, arena=astring, arenaID=815, trophyLimit=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Team {
 
     @SerializedName("tag")
@@ -45,99 +51,5 @@ public class Team {
 
     @SerializedName("deck")
     private java.util.List<TeamCard> deck;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setDeckLink(String deckLink) {
-        this.deckLink = deckLink;
-    }
-    
-    public String getDeckLink() {
-        return deckLink;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setCrownsEarned(int crownsEarned) {
-        this.crownsEarned = crownsEarned;
-    }
-    
-    public int getCrownsEarned() {
-        return crownsEarned;
-    }
-    
-    public void setStartTrophies(int startTrophies) {
-        this.startTrophies = startTrophies;
-    }
-    
-    public int getStartTrophies() {
-        return startTrophies;
-    }
-    
-    public void setTrophyChange(int trophyChange) {
-        this.trophyChange = trophyChange;
-    }
-    
-    public int getTrophyChange() {
-        return trophyChange;
-    }
-    
-    public void setClan(TeamClan clan) {
-        this.clan = clan;
-    }
-    
-    public TeamClan getClan() {
-        return clan;
-    }
-    
-    public void setDeck(java.util.List<TeamCard> deck) {
-        this.deck = deck;
-    }
-    
-    public java.util.List<TeamCard> getDeck() {
-        return deck;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Team{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("deckLink=");
-        s.append(deckLink);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("crownsEarned=");
-        s.append(crownsEarned);
-        s.append(", ");
-        s.append("startTrophies=");
-        s.append(startTrophies);
-        s.append(", ");
-        s.append("trophyChange=");
-        s.append(trophyChange);
-        s.append(", ");
-        s.append("clan=");
-        s.append(clan);
-        s.append(", ");
-        s.append("deck=");
-        s.append(deck);
-        s.append("}");
-        return s.toString();
-    }
 
 }

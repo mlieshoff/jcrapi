@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class LeagueStatistics {
 
     @SerializedName("currentSeason")
@@ -30,44 +36,5 @@ public class LeagueStatistics {
 
     @SerializedName("bestSeason")
     private BestSeason bestSeason;
-
-    public void setCurrentSeason(CurrentSeason currentSeason) {
-        this.currentSeason = currentSeason;
-    }
-    
-    public CurrentSeason getCurrentSeason() {
-        return currentSeason;
-    }
-    
-    public void setPreviousSeason(PreviousSeason previousSeason) {
-        this.previousSeason = previousSeason;
-    }
-    
-    public PreviousSeason getPreviousSeason() {
-        return previousSeason;
-    }
-    
-    public void setBestSeason(BestSeason bestSeason) {
-        this.bestSeason = bestSeason;
-    }
-    
-    public BestSeason getBestSeason() {
-        return bestSeason;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("LeagueStatistics{");
-        s.append("currentSeason=");
-        s.append(currentSeason);
-        s.append(", ");
-        s.append("previousSeason=");
-        s.append(previousSeason);
-        s.append(", ");
-        s.append("bestSeason=");
-        s.append(bestSeason);
-        s.append("}");
-        return s.toString();
-    }
 
 }

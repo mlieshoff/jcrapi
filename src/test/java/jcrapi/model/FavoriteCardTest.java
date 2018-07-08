@@ -123,7 +123,7 @@ public class FavoriteCardTest {
         unitUnderTest.setRarity("astring");
         unitUnderTest.setArena(815);
         unitUnderTest.setDescription("astring");
-        String expected = "FavoriteCard{id=815, name=astring, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring}";
+        String expected = "FavoriteCard(id=815, name=astring, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -75,7 +75,7 @@ public class AchievementTest {
         unitUnderTest.setValue(815);
         unitUnderTest.setTarget(815);
         unitUnderTest.setInfo("astring");
-        String expected = "Achievement{name=astring, stars=815, value=815, target=815, info=astring}";
+        String expected = "Achievement(name=astring, stars=815, value=815, target=815, info=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -16,18 +16,18 @@
  */
 package jcrapi.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Version {
 
     public static final String VERSION = "v12.0.160";
-
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Version{");
-        s.append("}");
-        return s.toString();
-    }
 
 }

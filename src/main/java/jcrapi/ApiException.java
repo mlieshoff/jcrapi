@@ -16,9 +16,12 @@
  */
 package jcrapi;
 
+import lombok.Getter;
+
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class ApiException extends RuntimeException {
 
     private int code;
@@ -33,13 +36,4 @@ public class ApiException extends RuntimeException {
         }
     }
 
-    public int getCode() {
-        return code;
-    }
-
-    @Override
-    public String getMessage() {
-        return message;
-    }
-    
 }

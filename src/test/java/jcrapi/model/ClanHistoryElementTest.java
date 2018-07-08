@@ -75,7 +75,7 @@ public class ClanHistoryElementTest {
         unitUnderTest.setMembers(new java.util.ArrayList<ClanHistoryMember>());
         unitUnderTest.setScore(Integer.valueOf(815));
         unitUnderTest.setCrowns(815);
-        String expected = "ClanHistoryElement{donations=815, memberCount=815, members=" + new java.util.ArrayList<ClanHistoryMember>() + ", score=815, crowns=815}";
+        String expected = "ClanHistoryElement(donations=815, memberCount=815, members=" + new java.util.ArrayList<ClanHistoryMember>() + ", score=815, crowns=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

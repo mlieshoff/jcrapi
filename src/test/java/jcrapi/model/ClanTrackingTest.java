@@ -44,14 +44,14 @@ public class ClanTrackingTest {
     public void shouldGetSetActive() {
         boolean expected = false;
         unitUnderTest.setActive(expected);
-        assertEquals(expected, unitUnderTest.getActive());
+        assertEquals(expected, unitUnderTest.isActive());
     }
 
     @Test
     public void shouldGetSetAvailable() {
         boolean expected = false;
         unitUnderTest.setAvailable(expected);
-        assertEquals(expected, unitUnderTest.getAvailable());
+        assertEquals(expected, unitUnderTest.isAvailable());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class ClanTrackingTest {
         unitUnderTest.setActive(false);
         unitUnderTest.setAvailable(false);
         unitUnderTest.setSnapshotCount(815);
-        String expected = "ClanTracking{tag=astring, active=false, available=false, snapshotCount=815}";
+        String expected = "ClanTracking(tag=astring, active=false, available=false, snapshotCount=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

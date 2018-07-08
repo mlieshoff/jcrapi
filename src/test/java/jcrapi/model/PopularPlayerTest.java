@@ -43,7 +43,7 @@ public class PopularPlayerTest {
     @Test
     public void shouldToString() {
         unitUnderTest.setPopularity(new Popularity());
-        String expected = "PopularPlayer{popularity=" + new Popularity() + "}";
+        String expected = "PopularPlayer(popularity=" + new Popularity() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

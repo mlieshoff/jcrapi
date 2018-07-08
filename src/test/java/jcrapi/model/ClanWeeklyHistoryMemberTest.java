@@ -83,7 +83,7 @@ public class ClanWeeklyHistoryMemberTest {
         unitUnderTest.setName("astring");
         unitUnderTest.setTag("astring");
         unitUnderTest.setTrophies(Integer.valueOf(815));
-        String expected = "ClanWeeklyHistoryMember{clanRank=815, crowns=815, donations=815, name=astring, tag=astring, trophies=815}";
+        String expected = "ClanWeeklyHistoryMember(clanRank=815, crowns=815, donations=815, name=astring, tag=astring, trophies=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

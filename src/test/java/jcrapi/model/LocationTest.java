@@ -41,10 +41,10 @@ public class LocationTest {
     }
 
     @Test
-    public void shouldGetSetIsCountry() {
+    public void shouldGetSetCountry() {
         boolean expected = false;
-        unitUnderTest.setIsCountry(expected);
-        assertEquals(expected, unitUnderTest.getIsCountry());
+        unitUnderTest.setCountry(expected);
+        assertEquals(expected, unitUnderTest.isCountry());
     }
 
     @Test
@@ -57,9 +57,9 @@ public class LocationTest {
     @Test
     public void shouldToString() {
         unitUnderTest.setName("astring");
-        unitUnderTest.setIsCountry(false);
+        unitUnderTest.setCountry(false);
         unitUnderTest.setCode("astring");
-        String expected = "Location{name=astring, isCountry=false, code=astring}";
+        String expected = "Location(name=astring, Country=false, code=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

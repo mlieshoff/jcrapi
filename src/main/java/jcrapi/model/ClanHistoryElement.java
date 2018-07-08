@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ClanHistoryElement {
 
     @SerializedName("donations")
@@ -36,66 +42,5 @@ public class ClanHistoryElement {
 
     @SerializedName("crowns")
     private int crowns;
-
-    public void setDonations(Integer donations) {
-        this.donations = donations;
-    }
-    
-    public Integer getDonations() {
-        return donations;
-    }
-    
-    public void setMemberCount(Integer memberCount) {
-        this.memberCount = memberCount;
-    }
-    
-    public Integer getMemberCount() {
-        return memberCount;
-    }
-    
-    public void setMembers(java.util.List<ClanHistoryMember> members) {
-        this.members = members;
-    }
-    
-    public java.util.List<ClanHistoryMember> getMembers() {
-        return members;
-    }
-    
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-    
-    public Integer getScore() {
-        return score;
-    }
-    
-    public void setCrowns(int crowns) {
-        this.crowns = crowns;
-    }
-    
-    public int getCrowns() {
-        return crowns;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ClanHistoryElement{");
-        s.append("donations=");
-        s.append(donations);
-        s.append(", ");
-        s.append("memberCount=");
-        s.append(memberCount);
-        s.append(", ");
-        s.append("members=");
-        s.append(members);
-        s.append(", ");
-        s.append("score=");
-        s.append(score);
-        s.append(", ");
-        s.append("crowns=");
-        s.append(crowns);
-        s.append("}");
-        return s.toString();
-    }
 
 }

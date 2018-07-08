@@ -59,7 +59,7 @@ public class ClanWeeklyHistoryElementTest {
         unitUnderTest.setDonations(Integer.valueOf(815));
         unitUnderTest.setMemberCount(Integer.valueOf(815));
         unitUnderTest.setMembers(new java.util.ArrayList<ClanHistoryMember>());
-        String expected = "ClanWeeklyHistoryElement{donations=815, memberCount=815, members=" + new java.util.ArrayList<ClanHistoryMember>() + "}";
+        String expected = "ClanWeeklyHistoryElement(donations=815, memberCount=815, members=" + new java.util.ArrayList<ClanHistoryMember>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

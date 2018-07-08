@@ -59,7 +59,7 @@ public class TournamentClanTest {
         unitUnderTest.setTag("astring");
         unitUnderTest.setName("astring");
         unitUnderTest.setBadgeId(815);
-        String expected = "TournamentClan{tag=astring, name=astring, badgeId=815}";
+        String expected = "TournamentClan(tag=astring, name=astring, badgeId=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ClanWarLogStanding {
 
     @SerializedName("tag")
@@ -45,99 +51,5 @@ public class ClanWarLogStanding {
 
     @SerializedName("badges")
     private java.util.List<Badge> badges;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setParticipants(int participants) {
-        this.participants = participants;
-    }
-    
-    public int getParticipants() {
-        return participants;
-    }
-    
-    public void setWins(int wins) {
-        this.wins = wins;
-    }
-    
-    public int getWins() {
-        return wins;
-    }
-    
-    public void setCrowns(int crowns) {
-        this.crowns = crowns;
-    }
-    
-    public int getCrowns() {
-        return crowns;
-    }
-    
-    public void setWarTrophies(int warTrophies) {
-        this.warTrophies = warTrophies;
-    }
-    
-    public int getWarTrophies() {
-        return warTrophies;
-    }
-    
-    public void setWarTrophiesChange(int warTrophiesChange) {
-        this.warTrophiesChange = warTrophiesChange;
-    }
-    
-    public int getWarTrophiesChange() {
-        return warTrophiesChange;
-    }
-    
-    public void setBadges(java.util.List<Badge> badges) {
-        this.badges = badges;
-    }
-    
-    public java.util.List<Badge> getBadges() {
-        return badges;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ClanWarLogStanding{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("participants=");
-        s.append(participants);
-        s.append(", ");
-        s.append("wins=");
-        s.append(wins);
-        s.append(", ");
-        s.append("crowns=");
-        s.append(crowns);
-        s.append(", ");
-        s.append("warTrophies=");
-        s.append(warTrophies);
-        s.append(", ");
-        s.append("warTrophiesChange=");
-        s.append(warTrophiesChange);
-        s.append(", ");
-        s.append("badges=");
-        s.append(badges);
-        s.append("}");
-        return s.toString();
-    }
 
 }

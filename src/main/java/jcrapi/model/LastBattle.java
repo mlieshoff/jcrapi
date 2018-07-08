@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class LastBattle {
 
     @SerializedName("type")
@@ -27,33 +33,5 @@ public class LastBattle {
 
     @SerializedName("time")
     private long time;
-
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setTime(long time) {
-        this.time = time;
-    }
-    
-    public long getTime() {
-        return time;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("LastBattle{");
-        s.append("type=");
-        s.append(type);
-        s.append(", ");
-        s.append("time=");
-        s.append(time);
-        s.append("}");
-        return s.toString();
-    }
 
 }

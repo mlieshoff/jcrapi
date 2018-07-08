@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ClanWeeklyHistoryElement {
 
     @SerializedName("donations")
@@ -30,44 +36,5 @@ public class ClanWeeklyHistoryElement {
 
     @SerializedName("members")
     private java.util.List<ClanHistoryMember> members;
-
-    public void setDonations(Integer donations) {
-        this.donations = donations;
-    }
-    
-    public Integer getDonations() {
-        return donations;
-    }
-    
-    public void setMemberCount(Integer memberCount) {
-        this.memberCount = memberCount;
-    }
-    
-    public Integer getMemberCount() {
-        return memberCount;
-    }
-    
-    public void setMembers(java.util.List<ClanHistoryMember> members) {
-        this.members = members;
-    }
-    
-    public java.util.List<ClanHistoryMember> getMembers() {
-        return members;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ClanWeeklyHistoryElement{");
-        s.append("donations=");
-        s.append(donations);
-        s.append(", ");
-        s.append("memberCount=");
-        s.append(memberCount);
-        s.append(", ");
-        s.append("members=");
-        s.append(members);
-        s.append("}");
-        return s.toString();
-    }
 
 }

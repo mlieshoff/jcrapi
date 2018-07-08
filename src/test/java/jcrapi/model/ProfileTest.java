@@ -163,7 +163,7 @@ public class ProfileTest {
         unitUnderTest.setAchievements(new java.util.ArrayList<Achievement>());
         unitUnderTest.setBattles(new java.util.ArrayList<Battle>());
         unitUnderTest.setDeckLink("astring");
-        String expected = "Profile{tag=astring, name=astring, rank=815, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", achievements=" + new java.util.ArrayList<Achievement>() + ", battles=" + new java.util.ArrayList<Battle>() + ", deckLink=astring}";
+        String expected = "Profile(tag=astring, name=astring, rank=815, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", achievements=" + new java.util.ArrayList<Achievement>() + ", battles=" + new java.util.ArrayList<Battle>() + ", deckLink=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ClanWarParticipant {
 
     @SerializedName("tag")
@@ -36,66 +42,5 @@ public class ClanWarParticipant {
 
     @SerializedName("wins")
     private int wins;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setCardsEarned(int cardsEarned) {
-        this.cardsEarned = cardsEarned;
-    }
-    
-    public int getCardsEarned() {
-        return cardsEarned;
-    }
-    
-    public void setBattlesPlayed(int battlesPlayed) {
-        this.battlesPlayed = battlesPlayed;
-    }
-    
-    public int getBattlesPlayed() {
-        return battlesPlayed;
-    }
-    
-    public void setWins(int wins) {
-        this.wins = wins;
-    }
-    
-    public int getWins() {
-        return wins;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ClanWarParticipant{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("cardsEarned=");
-        s.append(cardsEarned);
-        s.append(", ");
-        s.append("battlesPlayed=");
-        s.append(battlesPlayed);
-        s.append(", ");
-        s.append("wins=");
-        s.append(wins);
-        s.append("}");
-        return s.toString();
-    }
 
 }

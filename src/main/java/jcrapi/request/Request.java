@@ -1,5 +1,6 @@
 package jcrapi.request;
 
+import lombok.Getter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public abstract class Request {
 
     private final List<String> excludes = new ArrayList<>();
@@ -23,14 +25,6 @@ public abstract class Request {
         if (CollectionUtils.isNotEmpty(keys)) {
             this.keys.addAll(keys);
         }
-    }
-
-    public List<String> getExcludes() {
-        return excludes;
-    }
-
-    public List<String> getKeys() {
-        return keys;
     }
 
     public Map<String, String> getQueryParameters() {

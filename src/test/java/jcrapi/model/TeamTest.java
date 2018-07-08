@@ -99,7 +99,7 @@ public class TeamTest {
         unitUnderTest.setTrophyChange(815);
         unitUnderTest.setClan(new TeamClan());
         unitUnderTest.setDeck(new java.util.ArrayList<TeamCard>());
-        String expected = "Team{tag=astring, deckLink=astring, name=astring, crownsEarned=815, startTrophies=815, trophyChange=815, clan=" + new TeamClan() + ", deck=" + new java.util.ArrayList<TeamCard>() + "}";
+        String expected = "Team(tag=astring, deckLink=astring, name=astring, crownsEarned=815, startTrophies=815, trophyChange=815, clan=" + new TeamClan() + ", deck=" + new java.util.ArrayList<TeamCard>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

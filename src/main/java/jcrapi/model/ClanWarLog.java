@@ -16,11 +16,16 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ClanWarLog {
 
     @SerializedName("createdDate")
@@ -34,55 +39,5 @@ public class ClanWarLog {
 
     @SerializedName("standings")
     private java.util.List<ClanWarLogStanding> standings;
-
-    public void setCreatedDate(long createdDate) {
-        this.createdDate = createdDate;
-    }
-    
-    public long getCreatedDate() {
-        return createdDate;
-    }
-    
-    public void setSeasonNumber(int seasonNumber) {
-        this.seasonNumber = seasonNumber;
-    }
-    
-    public int getSeasonNumber() {
-        return seasonNumber;
-    }
-    
-    public void setParticipants(java.util.List<ClanWarLogParticipant> participants) {
-        this.participants = participants;
-    }
-    
-    public java.util.List<ClanWarLogParticipant> getParticipants() {
-        return participants;
-    }
-    
-    public void setStandings(java.util.List<ClanWarLogStanding> standings) {
-        this.standings = standings;
-    }
-    
-    public java.util.List<ClanWarLogStanding> getStandings() {
-        return standings;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ClanWarLog{");
-        s.append("createdDate=");
-        s.append(createdDate);
-        s.append(", ");
-        s.append("seasonNumber=");
-        s.append(seasonNumber);
-        s.append(", ");
-        s.append("participants=");
-        s.append(participants);
-        s.append(", ");
-        s.append("standings=");
-        s.append(standings);
-        s.append("}");
-        return s.toString();
-    }
 
 }

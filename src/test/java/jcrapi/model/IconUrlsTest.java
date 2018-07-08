@@ -43,7 +43,7 @@ public class IconUrlsTest {
     @Test
     public void shouldToString() {
         unitUnderTest.setMedium("astring");
-        String expected = "IconUrls{medium=astring}";
+        String expected = "IconUrls(medium=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

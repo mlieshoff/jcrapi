@@ -59,7 +59,7 @@ public class BestSeasonTest {
         unitUnderTest.setId("astring");
         unitUnderTest.setRank(815);
         unitUnderTest.setTrophies(815);
-        String expected = "BestSeason{id=astring, rank=815, trophies=815}";
+        String expected = "BestSeason(id=astring, rank=815, trophies=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

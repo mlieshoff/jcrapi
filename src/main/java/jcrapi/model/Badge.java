@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Badge {
 
     @SerializedName("name")
@@ -33,55 +39,5 @@ public class Badge {
 
     @SerializedName("image")
     private String image;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setCategory(String category) {
-        this.category = category;
-    }
-    
-    public String getCategory() {
-        return category;
-    }
-    
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    public int getId() {
-        return id;
-    }
-    
-    public void setImage(String image) {
-        this.image = image;
-    }
-    
-    public String getImage() {
-        return image;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Badge{");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("category=");
-        s.append(category);
-        s.append(", ");
-        s.append("id=");
-        s.append(id);
-        s.append(", ");
-        s.append("image=");
-        s.append(image);
-        s.append("}");
-        return s.toString();
-    }
 
 }

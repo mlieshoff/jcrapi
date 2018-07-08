@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class TopClan {
 
     @SerializedName("tag")
@@ -48,110 +54,5 @@ public class TopClan {
 
     @SerializedName("tracking")
     private Tracking tracking;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setScore(int score) {
-        this.score = score;
-    }
-    
-    public int getScore() {
-        return score;
-    }
-    
-    public void setMemberCount(int memberCount) {
-        this.memberCount = memberCount;
-    }
-    
-    public int getMemberCount() {
-        return memberCount;
-    }
-    
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-    
-    public int getRank() {
-        return rank;
-    }
-    
-    public void setPreviousRank(int previousRank) {
-        this.previousRank = previousRank;
-    }
-    
-    public int getPreviousRank() {
-        return previousRank;
-    }
-    
-    public void setBadge(Badge badge) {
-        this.badge = badge;
-    }
-    
-    public Badge getBadge() {
-        return badge;
-    }
-    
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-    
-    public Location getLocation() {
-        return location;
-    }
-    
-    public void setTracking(Tracking tracking) {
-        this.tracking = tracking;
-    }
-    
-    public Tracking getTracking() {
-        return tracking;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("TopClan{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("score=");
-        s.append(score);
-        s.append(", ");
-        s.append("memberCount=");
-        s.append(memberCount);
-        s.append(", ");
-        s.append("rank=");
-        s.append(rank);
-        s.append(", ");
-        s.append("previousRank=");
-        s.append(previousRank);
-        s.append(", ");
-        s.append("badge=");
-        s.append(badge);
-        s.append(", ");
-        s.append("location=");
-        s.append(location);
-        s.append(", ");
-        s.append("tracking=");
-        s.append(tracking);
-        s.append("}");
-        return s.toString();
-    }
 
 }

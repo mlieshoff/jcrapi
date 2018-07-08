@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
+import javax.annotation.Generated;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -163,7 +163,7 @@ public class SearchedTournamentTest {
         unitUnderTest.setPlayerCount(815);
         unitUnderTest.setCurrentPlayers(815);
         unitUnderTest.setMembers(new java.util.ArrayList<TournamentParticipant>());
-        String expected = "SearchedTournament{tag=astring, type=astring, status=astring, name=astring, description=astring, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=4711, endTime=4711, playerCount=815, currentPlayers=815, members=" + new java.util.ArrayList<TournamentParticipant>() + "}";
+        String expected = "SearchedTournament(tag=astring, type=astring, status=astring, name=astring, description=astring, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=4711, endTime=4711, playerCount=815, currentPlayers=815, members=" + new java.util.ArrayList<TournamentParticipant>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -86,7 +86,7 @@ public class BattleModeTest {
     public void shouldGetSetSameDeck() {
         boolean expected = false;
         unitUnderTest.setSameDeck(expected);
-        assertEquals(expected, unitUnderTest.getSameDeck());
+        assertEquals(expected, unitUnderTest.isSameDeck());
     }
 
     @Test
@@ -99,7 +99,7 @@ public class BattleModeTest {
         unitUnderTest.setOvertimeSeconds(815);
         unitUnderTest.setPlayers("astring");
         unitUnderTest.setSameDeck(false);
-        String expected = "BattleMode{id=815, name=astring, deck=astring, cardLevels=astring, overtimeSecons=815, overtimeSeconds=815, players=astring, sameDeck=false}";
+        String expected = "BattleMode(id=815, name=astring, deck=astring, cardLevels=astring, overtimeSecons=815, overtimeSeconds=815, players=astring, sameDeck=false)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

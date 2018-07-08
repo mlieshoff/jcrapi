@@ -59,7 +59,7 @@ public class PopularDeckTest {
         unitUnderTest.setDecklink("astring");
         unitUnderTest.setPopularity(815);
         unitUnderTest.setCards(new java.util.ArrayList<PopularCard>());
-        String expected = "PopularDeck{decklink=astring, popularity=815, cards=" + new java.util.ArrayList<PopularCard>() + "}";
+        String expected = "PopularDeck(decklink=astring, popularity=815, cards=" + new java.util.ArrayList<PopularCard>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
