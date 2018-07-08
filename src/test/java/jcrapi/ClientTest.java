@@ -29,6 +29,7 @@ import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -554,6 +555,14 @@ public class ClientTest {
         when(crawler.get("lala/tournaments/prep", createHeaders(), inPreparationTournamentsRequest.getQueryParameters()))
                 .thenReturn("[{}]");
         assertNotNull(createClient().getInPreparationTournaments(inPreparationTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetJoinableTournaments() throws IOException {
+        JoinableTournamentsRequest inPreparationTournamentsRequest = JoinableTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/joinable", createHeaders(), inPreparationTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getJoinableTournaments(inPreparationTournamentsRequest));
     }
 
 }

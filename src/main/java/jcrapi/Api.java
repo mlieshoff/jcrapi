@@ -30,6 +30,7 @@ import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.FullTournament;
 import jcrapi.model.InPreparationTournament;
+import jcrapi.model.JoinableTournament;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
@@ -53,6 +54,7 @@ import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -420,9 +422,17 @@ public class Api {
         }
     }
 
-    public List<InPreparationTournament> getInPreparationTournaments(InPreparationTournamentsRequest oneKTournamentsRequest) {
+    public List<InPreparationTournament> getInPreparationTournaments(InPreparationTournamentsRequest inPreparationTournamentsRequest) {
         try {
-            return createClient().getInPreparationTournaments(oneKTournamentsRequest);
+            return createClient().getInPreparationTournaments(inPreparationTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<JoinableTournament> getJoinableTournaments(JoinableTournamentsRequest joinableTournamentsRequest) {
+        try {
+            return createClient().getJoinableTournaments(joinableTournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

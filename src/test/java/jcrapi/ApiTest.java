@@ -29,6 +29,7 @@ import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.FullTournament;
 import jcrapi.model.InPreparationTournament;
+import jcrapi.model.JoinableTournament;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
@@ -52,6 +53,7 @@ import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -1309,6 +1311,33 @@ public class ApiTest {
         when(client.getInPreparationTournaments(argThat(getInPreparationTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getInPreparationTournaments(InPreparationTournamentsRequest.builder().build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetJoinableTournaments() throws Exception {
+        List<JoinableTournament> oneKTournaments = new ArrayList<>();
+        when(client.getJoinableTournaments(argThat(getJoinableTournamentsRequestArgumentMatcher()))).thenReturn(oneKTournaments);
+        assertSame(oneKTournaments, api.getJoinableTournaments(JoinableTournamentsRequest.builder().build()));
+    }
+
+    private Matcher<JoinableTournamentsRequest> getJoinableTournamentsRequestArgumentMatcher() {
+        return new ArgumentMatcher<JoinableTournamentsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof JoinableTournamentsRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetJoinableTournaments() throws Exception {
+        when(client.getJoinableTournaments(argThat(getJoinableTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
+        try {
+            api.getJoinableTournaments(JoinableTournamentsRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

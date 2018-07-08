@@ -30,6 +30,7 @@ import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
+import jcrapi.request.JoinableTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -88,6 +89,7 @@ public class IntegrationTest {
         jettyServer.addServlet("/" + APP + "/tournaments/1k", new TestOneKTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/full", new TestFullTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/prep", new TestPrepTournamentsServlet());
+        jettyServer.addServlet("/" + APP + "/tournaments/joinable", new TestJoinableTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
         jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
         jettyServer.addServlet("/" + APP + "/auth/stats", new TestAuthStatsServlet());
@@ -755,6 +757,20 @@ public class IntegrationTest {
     @Test(expected = ApiException.class)
     public void failGetInPreparationTournamentsBecauseWrongAuth() throws IOException {
         doGetInPreparationTournaments(URL, "abc", InPreparationTournamentsRequest.builder().build());
+    }
+
+    @Test
+    public void shouldGetJoinableTournaments() throws IOException {
+        doGetJoinableTournaments(URL, AUTH, JoinableTournamentsRequest.builder().build());
+    }
+
+    private void doGetJoinableTournaments(String url, String auth, JoinableTournamentsRequest inPreparationTournamentsRequest) {
+        assertNotNull(new Api(url, auth).getJoinableTournaments(inPreparationTournamentsRequest));
+    }
+
+    @Test(expected = ApiException.class)
+    public void failGetJoinableTournamentsBecauseWrongAuth() throws IOException {
+        doGetJoinableTournaments(URL, "abc", JoinableTournamentsRequest.builder().build());
     }
 
 }
