@@ -26,6 +26,7 @@ import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
+import jcrapi.model.FullTournament;
 import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularDeck;
@@ -173,6 +174,11 @@ public class JsonModelIntegrationTest {
     @Test
     public void shouldResolveOneKTournaments() throws Exception {
         assertListType("tournaments_1k.json", OneKTournament.class);
+    }
+
+    @Test
+    public void shouldResolveFullTournaments() throws Exception {
+        assertListType("tournaments_full.json", FullTournament.class);
     }
 
 }

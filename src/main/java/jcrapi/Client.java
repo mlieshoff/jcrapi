@@ -31,6 +31,7 @@ import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
+import jcrapi.model.FullTournament;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
@@ -53,6 +54,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -425,6 +427,12 @@ class Client {
     List<OneKTournament> getOneKTournaments(OneKTournamentsRequest oneKTournamentsRequest) throws IOException {
         String json = get(createUrl("tournaments/1k"), oneKTournamentsRequest);
         Type listType = new TypeToken<List<OneKTournament>>(){}.getType();
+        return new Gson().fromJson(json, listType);
+    }
+
+    List<FullTournament> getFullTournaments(FullTournamentsRequest oneKTournamentsRequest) throws IOException {
+        String json = get(createUrl("tournaments/full"), oneKTournamentsRequest);
+        Type listType = new TypeToken<List<FullTournament>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 

@@ -28,6 +28,7 @@ import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
+import jcrapi.model.FullTournament;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
@@ -49,6 +50,7 @@ import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
+import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -403,6 +405,14 @@ public class Api {
     public List<OneKTournament> getOneKTournaments(OneKTournamentsRequest oneKTournamentsRequest) {
         try {
             return createClient().getOneKTournaments(oneKTournamentsRequest);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    public List<FullTournament> getFullTournaments(FullTournamentsRequest oneKTournamentsRequest) {
+        try {
+            return createClient().getFullTournaments(oneKTournamentsRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }

@@ -27,6 +27,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -536,6 +537,14 @@ public class ClientTest {
         when(crawler.get("lala/tournaments/1k", createHeaders(), oneKTournamentsRequest.getQueryParameters()))
                 .thenReturn("[{}]");
         assertNotNull(createClient().getOneKTournaments(oneKTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetFullTournaments() throws IOException {
+        FullTournamentsRequest oneKTournamentsRequest = FullTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/full", createHeaders(), oneKTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getFullTournaments(oneKTournamentsRequest));
     }
 
 }
