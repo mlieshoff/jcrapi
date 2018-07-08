@@ -28,6 +28,7 @@ import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
 import jcrapi.request.FullTournamentsRequest;
+import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -541,10 +542,18 @@ public class ClientTest {
 
     @Test
     public void shouldGetFullTournaments() throws IOException {
-        FullTournamentsRequest oneKTournamentsRequest = FullTournamentsRequest.builder().build();
-        when(crawler.get("lala/tournaments/full", createHeaders(), oneKTournamentsRequest.getQueryParameters()))
+        FullTournamentsRequest fullTournamentsRequest = FullTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/full", createHeaders(), fullTournamentsRequest.getQueryParameters()))
                 .thenReturn("[{}]");
-        assertNotNull(createClient().getFullTournaments(oneKTournamentsRequest));
+        assertNotNull(createClient().getFullTournaments(fullTournamentsRequest));
+    }
+
+    @Test
+    public void shouldGetInPreparationTournaments() throws IOException {
+        InPreparationTournamentsRequest inPreparationTournamentsRequest = InPreparationTournamentsRequest.builder().build();
+        when(crawler.get("lala/tournaments/prep", createHeaders(), inPreparationTournamentsRequest.getQueryParameters()))
+                .thenReturn("[{}]");
+        assertNotNull(createClient().getInPreparationTournaments(inPreparationTournamentsRequest));
     }
 
 }

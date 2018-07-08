@@ -28,6 +28,7 @@ import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
 import jcrapi.model.Endpoints;
 import jcrapi.model.FullTournament;
+import jcrapi.model.InPreparationTournament;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OneKTournament;
 import jcrapi.model.OpenTournament;
@@ -50,6 +51,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.FullTournamentsRequest;
+import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.KnownTournamentsRequest;
 import jcrapi.request.OneKTournamentsRequest;
 import jcrapi.request.OpenTournamentsRequest;
@@ -1280,6 +1282,33 @@ public class ApiTest {
         when(client.getFullTournaments(argThat(getFullTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getFullTournaments(FullTournamentsRequest.builder().build());
+            fail();
+        } catch(ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void shouldGetInPreparationTournaments() throws Exception {
+        List<InPreparationTournament> oneKTournaments = new ArrayList<>();
+        when(client.getInPreparationTournaments(argThat(getInPreparationTournamentsRequestArgumentMatcher()))).thenReturn(oneKTournaments);
+        assertSame(oneKTournaments, api.getInPreparationTournaments(InPreparationTournamentsRequest.builder().build()));
+    }
+
+    private Matcher<InPreparationTournamentsRequest> getInPreparationTournamentsRequestArgumentMatcher() {
+        return new ArgumentMatcher<InPreparationTournamentsRequest>() {
+            @Override
+            public boolean matches(Object o) {
+                return o instanceof InPreparationTournamentsRequest;
+            }
+        };
+    }
+
+    @Test
+    public void failGetInPreparationTournaments() throws Exception {
+        when(client.getInPreparationTournaments(argThat(getInPreparationTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
+        try {
+            api.getInPreparationTournaments(InPreparationTournamentsRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());

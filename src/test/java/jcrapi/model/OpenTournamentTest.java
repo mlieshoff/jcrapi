@@ -76,10 +76,10 @@ public class OpenTournamentTest {
     }
 
     @Test
-    public void shouldGetSetCurrentPlayer() {
+    public void shouldGetSetCurrentPlayers() {
         int expected = 815;
-        unitUnderTest.setCurrentPlayer(expected);
-        assertEquals(expected, unitUnderTest.getCurrentPlayer());
+        unitUnderTest.setCurrentPlayers(expected);
+        assertEquals(expected, unitUnderTest.getCurrentPlayers());
     }
 
     @Test
@@ -146,7 +146,7 @@ public class OpenTournamentTest {
         unitUnderTest.setName("astring");
         unitUnderTest.setCapacity(815);
         unitUnderTest.setPlayerCount(815);
-        unitUnderTest.setCurrentPlayer(815);
+        unitUnderTest.setCurrentPlayers(815);
         unitUnderTest.setMaxCapacity(815);
         unitUnderTest.setMaxPlayers(815);
         unitUnderTest.setPreparationDuration(815);
@@ -155,7 +155,7 @@ public class OpenTournamentTest {
         unitUnderTest.setCreateTime(4711L);
         unitUnderTest.setStartTime("astring");
         unitUnderTest.setEndTime("astring");
-        String expected = "OpenTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, currentPlayer=815, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
+        String expected = "OpenTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, currentPlayers=815, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

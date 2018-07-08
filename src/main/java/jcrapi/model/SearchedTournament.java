@@ -68,8 +68,8 @@ public class SearchedTournament {
     @SerializedName("playerCount")
     private int playerCount;
 
-    @SerializedName("currentPlayer")
-    private int currentPlayer;
+    @SerializedName("currentPlayers")
+    private int currentPlayers;
 
     @SerializedName("members")
     private java.util.List<TournamentParticipant> members;
@@ -192,12 +192,12 @@ public class SearchedTournament {
         return playerCount;
     }
     
-    public void setCurrentPlayer(int currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    public void setCurrentPlayers(int currentPlayers) {
+        this.currentPlayers = currentPlayers;
     }
     
-    public int getCurrentPlayer() {
-        return currentPlayer;
+    public int getCurrentPlayers() {
+        return currentPlayers;
     }
     
     public void setMembers(java.util.List<TournamentParticipant> members) {
@@ -253,8 +253,8 @@ public class SearchedTournament {
         s.append("playerCount=");
         s.append(playerCount);
         s.append(", ");
-        s.append("currentPlayer=");
-        s.append(currentPlayer);
+        s.append("currentPlayers=");
+        s.append(currentPlayers);
         s.append(", ");
         s.append("members=");
         s.append(members);
