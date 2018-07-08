@@ -21,7 +21,7 @@ public abstract class TournamentRequestTestBase<A extends TournamentRequest, B e
 
     @Test
     public void shouldQueryWithOneK() {
-        assertEquals("1", getTournamentRequest().getQueryParameters().get("oneK"));
+        assertEquals("1", getTournamentRequest().getQueryParameters().get("1k"));
     }
 
     @Test
