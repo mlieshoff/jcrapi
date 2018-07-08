@@ -67,7 +67,7 @@ public class ClanSearchTest {
         unitUnderTest.setScore(Integer.valueOf(815));
         unitUnderTest.setMinMembers(Integer.valueOf(815));
         unitUnderTest.setMaxMembers(Integer.valueOf(815));
-        String expected = "ClanSearch{name=astring, score=815, minMembers=815, maxMembers=815}";
+        String expected = "ClanSearch(name=astring, score=815, minMembers=815, maxMembers=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -131,7 +131,7 @@ public class FullTournamentTest {
         unitUnderTest.setCreateTime(4711L);
         unitUnderTest.setStartTime("astring");
         unitUnderTest.setEndTime("astring");
-        String expected = "FullTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, maxPlayers=815, currentPlayers=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
+        String expected = "FullTournament(tag=astring, type=astring, status=astring, name=astring, capacity=815, maxPlayers=815, currentPlayers=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

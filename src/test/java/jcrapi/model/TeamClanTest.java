@@ -59,7 +59,7 @@ public class TeamClanTest {
         unitUnderTest.setTag("astring");
         unitUnderTest.setName("astring");
         unitUnderTest.setBadge(new Badge());
-        String expected = "TeamClan{tag=astring, name=astring, badge=" + new Badge() + "}";
+        String expected = "TeamClan(tag=astring, name=astring, badge=" + new Badge() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

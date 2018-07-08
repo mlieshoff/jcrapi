@@ -16,11 +16,16 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class OpenTournament {
 
     @SerializedName("tag")
@@ -70,182 +75,5 @@ public class OpenTournament {
 
     @SerializedName("endTime")
     private String endTime;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
-    public String getStatus() {
-        return status;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-    
-    public int getCapacity() {
-        return capacity;
-    }
-    
-    @Deprecated
-    public void setPlayerCount(int playerCount) {
-        this.playerCount = playerCount;
-    }
-    
-    @Deprecated
-    public int getPlayerCount() {
-        return playerCount;
-    }
-    
-    public void setCurrentPlayers(int currentPlayers) {
-        this.currentPlayers = currentPlayers;
-    }
-    
-    public int getCurrentPlayers() {
-        return currentPlayers;
-    }
-    
-    @Deprecated
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-    
-    @Deprecated
-    public int getMaxCapacity() {
-        return maxCapacity;
-    }
-    
-    public void setMaxPlayers(int maxPlayers) {
-        this.maxPlayers = maxPlayers;
-    }
-    
-    public int getMaxPlayers() {
-        return maxPlayers;
-    }
-    
-    @Deprecated
-    public void setPreparationDuration(int preparationDuration) {
-        this.preparationDuration = preparationDuration;
-    }
-    
-    @Deprecated
-    public int getPreparationDuration() {
-        return preparationDuration;
-    }
-    
-    public void setPrepTime(int prepTime) {
-        this.prepTime = prepTime;
-    }
-    
-    public int getPrepTime() {
-        return prepTime;
-    }
-    
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-    
-    public int getDuration() {
-        return duration;
-    }
-    
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
-    }
-    
-    public long getCreateTime() {
-        return createTime;
-    }
-    
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-    
-    public String getStartTime() {
-        return startTime;
-    }
-    
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-    
-    public String getEndTime() {
-        return endTime;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("OpenTournament{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("type=");
-        s.append(type);
-        s.append(", ");
-        s.append("status=");
-        s.append(status);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("capacity=");
-        s.append(capacity);
-        s.append(", ");
-        s.append("playerCount=");
-        s.append(playerCount);
-        s.append(", ");
-        s.append("currentPlayers=");
-        s.append(currentPlayers);
-        s.append(", ");
-        s.append("maxCapacity=");
-        s.append(maxCapacity);
-        s.append(", ");
-        s.append("maxPlayers=");
-        s.append(maxPlayers);
-        s.append(", ");
-        s.append("preparationDuration=");
-        s.append(preparationDuration);
-        s.append(", ");
-        s.append("prepTime=");
-        s.append(prepTime);
-        s.append(", ");
-        s.append("duration=");
-        s.append(duration);
-        s.append(", ");
-        s.append("createTime=");
-        s.append(createTime);
-        s.append(", ");
-        s.append("startTime=");
-        s.append(startTime);
-        s.append(", ");
-        s.append("endTime=");
-        s.append(endTime);
-        s.append("}");
-        return s.toString();
-    }
 
 }

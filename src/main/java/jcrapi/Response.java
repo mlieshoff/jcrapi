@@ -18,6 +18,9 @@
 package jcrapi;
 
 import com.google.common.base.Optional;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.HashMap;
@@ -26,6 +29,9 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Response {
 
     public static final String X_RATELIMIT_LIMIT = "x-ratelimit-limit";
@@ -37,18 +43,6 @@ public class Response {
     private final Map<String, String> responseHeaders = new HashMap<>();
     
     private String raw;
-
-    public String getRaw() {
-        return raw;
-    }
-
-    public void setRaw(String raw) {
-        this.raw = raw;
-    }
-
-    public Map<String, String> getResponseHeaders() {
-        return responseHeaders;
-    }
 
     public Optional<Integer> getRateLimit() {
         return getInt(X_RATELIMIT_LIMIT);
@@ -84,25 +78,6 @@ public class Response {
 
     public Optional<Integer> getRateRetryAfter() {
         return getInt(X_RATELIMIT_RETRY_AFTER);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Response response = (Response) o;
-
-        if (!responseHeaders.equals(response.responseHeaders))
-            return false;
-        return raw != null ? raw.equals(response.raw) : response.raw == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = responseHeaders.hashCode();
-        result = 31 * result + (raw != null ? raw.hashCode() : 0);
-        return result;
     }
 
 }

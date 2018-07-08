@@ -51,7 +51,7 @@ public class OneKTournamentTest {
     public void shouldGetSetOpen() {
         boolean expected = false;
         unitUnderTest.setOpen(expected);
-        assertEquals(expected, unitUnderTest.getOpen());
+        assertEquals(expected, unitUnderTest.isOpen());
     }
 
     @Test
@@ -147,7 +147,7 @@ public class OneKTournamentTest {
         unitUnderTest.setDescription("astring");
         unitUnderTest.setUpdatedAt(4711L);
         unitUnderTest.setType("astring");
-        String expected = "OneKTournament{tag=astring, name=astring, open=false, maxPlayers=815, currentPlayers=815, status=astring, createTime=4711, prepTime=815, startTime=astring, endTime=astring, duration=815, description=astring, updatedAt=4711, type=astring}";
+        String expected = "OneKTournament(tag=astring, name=astring, open=false, maxPlayers=815, currentPlayers=815, status=astring, createTime=4711, prepTime=815, startTime=astring, endTime=astring, duration=815, description=astring, updatedAt=4711, type=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

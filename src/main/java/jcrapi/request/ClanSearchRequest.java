@@ -1,6 +1,7 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class ClanSearchRequest extends LimitedRequest {
 
     private final String locationId;
@@ -32,26 +34,6 @@ public class ClanSearchRequest extends LimitedRequest {
         this.score = score;
         this.minMembers = minMembers;
         this.maxMembers = maxMembers;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public Integer getMinMembers() {
-        return minMembers;
-    }
-
-    public Integer getMaxMembers() {
-        return maxMembers;
-    }
-
-    public String getLocationId() {
-        return locationId;
     }
 
     @Override

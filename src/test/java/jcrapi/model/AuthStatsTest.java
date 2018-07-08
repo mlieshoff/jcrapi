@@ -59,7 +59,7 @@ public class AuthStatsTest {
         unitUnderTest.setId(4711L);
         unitUnderTest.setLastRequest(4711L);
         unitUnderTest.setRequestCount(new java.util.LinkedHashMap<String, String>());
-        String expected = "AuthStats{id=4711, lastRequest=4711, requestCount=" + new java.util.LinkedHashMap<String, String>() + "}";
+        String expected = "AuthStats(id=4711, lastRequest=4711, requestCount=" + new java.util.LinkedHashMap<String, String>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

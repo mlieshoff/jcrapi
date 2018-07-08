@@ -115,7 +115,7 @@ public class TopPlayerTest {
         unitUnderTest.setClanChestCrowns(815);
         unitUnderTest.setClan(new TeamClan());
         unitUnderTest.setArena(new Arena());
-        String expected = "TopPlayer{name=astring, tag=astring, rank=815, previousRank=815, expLevel=815, trophies=815, donationsDelta=815, clanChestCrowns=815, clan=" + new TeamClan() + ", arena=" + new Arena() + "}";
+        String expected = "TopPlayer(name=astring, tag=astring, rank=815, previousRank=815, expLevel=815, trophies=815, donationsDelta=815, clanChestCrowns=815, clan=" + new TeamClan() + ", arena=" + new Arena() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

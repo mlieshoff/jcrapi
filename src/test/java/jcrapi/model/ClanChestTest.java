@@ -67,7 +67,7 @@ public class ClanChestTest {
         unitUnderTest.setCrowns(815);
         unitUnderTest.setLevel(815);
         unitUnderTest.setMaxLevel(815);
-        String expected = "ClanChest{status=astring, crowns=815, level=815, maxLevel=815}";
+        String expected = "ClanChest(status=astring, crowns=815, level=815, maxLevel=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

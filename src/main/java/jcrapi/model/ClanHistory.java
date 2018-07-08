@@ -22,5 +22,4 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.mili.generator")
 public class ClanHistory extends java.util.LinkedHashMap<String, ClanHistoryElement> {
 
-
 }

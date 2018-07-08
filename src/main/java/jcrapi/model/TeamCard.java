@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class TeamCard {
 
     @SerializedName("id")
@@ -61,156 +67,5 @@ public class TeamCard {
 
     @SerializedName("description")
     private String description;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    public int getId() {
-        return id;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setLevel(int level) {
-        this.level = level;
-    }
-    
-    public int getLevel() {
-        return level;
-    }
-    
-    public void setMaxLevel(int maxLevel) {
-        this.maxLevel = maxLevel;
-    }
-    
-    public int getMaxLevel() {
-        return maxLevel;
-    }
-    
-    @Deprecated
-    public void setIconUrls(IconUrls iconUrls) {
-        this.iconUrls = iconUrls;
-    }
-    
-    @Deprecated
-    public IconUrls getIconUrls() {
-        return iconUrls;
-    }
-    
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-    
-    public String getIcon() {
-        return icon;
-    }
-    
-    public void setKey(String key) {
-        this.key = key;
-    }
-    
-    public String getKey() {
-        return key;
-    }
-    
-    public void setElixir(int elixir) {
-        this.elixir = elixir;
-    }
-    
-    public int getElixir() {
-        return elixir;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
-    }
-    
-    public String getRarity() {
-        return rarity;
-    }
-    
-    public void setArena(int arena) {
-        this.arena = arena;
-    }
-    
-    public int getArena() {
-        return arena;
-    }
-    
-    public void setRequiredForUpgrade(String requiredForUpgrade) {
-        this.requiredForUpgrade = requiredForUpgrade;
-    }
-    
-    public String getRequiredForUpgrade() {
-        return requiredForUpgrade;
-    }
-    
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("TeamCard{");
-        s.append("id=");
-        s.append(id);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("level=");
-        s.append(level);
-        s.append(", ");
-        s.append("maxLevel=");
-        s.append(maxLevel);
-        s.append(", ");
-        s.append("iconUrls=");
-        s.append(iconUrls);
-        s.append(", ");
-        s.append("icon=");
-        s.append(icon);
-        s.append(", ");
-        s.append("key=");
-        s.append(key);
-        s.append(", ");
-        s.append("elixir=");
-        s.append(elixir);
-        s.append(", ");
-        s.append("type=");
-        s.append(type);
-        s.append(", ");
-        s.append("rarity=");
-        s.append(rarity);
-        s.append(", ");
-        s.append("arena=");
-        s.append(arena);
-        s.append(", ");
-        s.append("requiredForUpgrade=");
-        s.append(requiredForUpgrade);
-        s.append(", ");
-        s.append("description=");
-        s.append(description);
-        s.append("}");
-        return s.toString();
-    }
 
 }

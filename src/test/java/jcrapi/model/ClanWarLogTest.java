@@ -67,7 +67,7 @@ public class ClanWarLogTest {
         unitUnderTest.setSeasonNumber(815);
         unitUnderTest.setParticipants(new java.util.ArrayList<ClanWarLogParticipant>());
         unitUnderTest.setStandings(new java.util.ArrayList<ClanWarLogStanding>());
-        String expected = "ClanWarLog{createdDate=4711, seasonNumber=815, participants=" + new java.util.ArrayList<ClanWarLogParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarLogStanding>() + "}";
+        String expected = "ClanWarLog(createdDate=4711, seasonNumber=815, participants=" + new java.util.ArrayList<ClanWarLogParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarLogStanding>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -1,6 +1,7 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class PlayerChestsRequest extends LimitedRequest {
 
     private final List<String> tags;
@@ -16,10 +18,6 @@ public class PlayerChestsRequest extends LimitedRequest {
         super(limit, max, page, excludes, includes);
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         this.tags = tags;
-    }
-
-    public List<String> getTags() {
-        return tags;
     }
 
     public static PlayerChestsRequestBuilder builder(List<String> tags) {

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Battle {
 
     @SerializedName("type")
@@ -63,165 +69,5 @@ public class Battle {
 
     @SerializedName("tournamentTag")
     private String tournamentTag;
-
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setChallengeType(String challengeType) {
-        this.challengeType = challengeType;
-    }
-    
-    public String getChallengeType() {
-        return challengeType;
-    }
-    
-    public void setMode(BattleMode mode) {
-        this.mode = mode;
-    }
-    
-    public BattleMode getMode() {
-        return mode;
-    }
-    
-    public void setWinCountBefore(int winCountBefore) {
-        this.winCountBefore = winCountBefore;
-    }
-    
-    public int getWinCountBefore() {
-        return winCountBefore;
-    }
-    
-    public void setUtcTime(long utcTime) {
-        this.utcTime = utcTime;
-    }
-    
-    public long getUtcTime() {
-        return utcTime;
-    }
-    
-    public void setDeckType(String deckType) {
-        this.deckType = deckType;
-    }
-    
-    public String getDeckType() {
-        return deckType;
-    }
-    
-    public void setTeamSize(int teamSize) {
-        this.teamSize = teamSize;
-    }
-    
-    public int getTeamSize() {
-        return teamSize;
-    }
-    
-    public void setWinner(int winner) {
-        this.winner = winner;
-    }
-    
-    public int getWinner() {
-        return winner;
-    }
-    
-    public void setTeamCrowns(int teamCrowns) {
-        this.teamCrowns = teamCrowns;
-    }
-    
-    public int getTeamCrowns() {
-        return teamCrowns;
-    }
-    
-    public void setOpponentCrowns(int opponentCrowns) {
-        this.opponentCrowns = opponentCrowns;
-    }
-    
-    public int getOpponentCrowns() {
-        return opponentCrowns;
-    }
-    
-    public void setTeam(java.util.List<Team> team) {
-        this.team = team;
-    }
-    
-    public java.util.List<Team> getTeam() {
-        return team;
-    }
-    
-    public void setOpponent(java.util.List<Team> opponent) {
-        this.opponent = opponent;
-    }
-    
-    public java.util.List<Team> getOpponent() {
-        return opponent;
-    }
-    
-    public void setArena(Arena arena) {
-        this.arena = arena;
-    }
-    
-    public Arena getArena() {
-        return arena;
-    }
-    
-    public void setTournamentTag(String tournamentTag) {
-        this.tournamentTag = tournamentTag;
-    }
-    
-    public String getTournamentTag() {
-        return tournamentTag;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Battle{");
-        s.append("type=");
-        s.append(type);
-        s.append(", ");
-        s.append("challengeType=");
-        s.append(challengeType);
-        s.append(", ");
-        s.append("mode=");
-        s.append(mode);
-        s.append(", ");
-        s.append("winCountBefore=");
-        s.append(winCountBefore);
-        s.append(", ");
-        s.append("utcTime=");
-        s.append(utcTime);
-        s.append(", ");
-        s.append("deckType=");
-        s.append(deckType);
-        s.append(", ");
-        s.append("teamSize=");
-        s.append(teamSize);
-        s.append(", ");
-        s.append("winner=");
-        s.append(winner);
-        s.append(", ");
-        s.append("teamCrowns=");
-        s.append(teamCrowns);
-        s.append(", ");
-        s.append("opponentCrowns=");
-        s.append(opponentCrowns);
-        s.append(", ");
-        s.append("team=");
-        s.append(team);
-        s.append(", ");
-        s.append("opponent=");
-        s.append(opponent);
-        s.append(", ");
-        s.append("arena=");
-        s.append(arena);
-        s.append(", ");
-        s.append("tournamentTag=");
-        s.append(tournamentTag);
-        s.append("}");
-        return s.toString();
-    }
 
 }

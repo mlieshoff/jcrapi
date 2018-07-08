@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ChestCycle {
 
     @SerializedName("upcoming")
@@ -39,77 +45,5 @@ public class ChestCycle {
 
     @SerializedName("giant")
     private int giant;
-
-    public void setUpcoming(java.util.List<String> upcoming) {
-        this.upcoming = upcoming;
-    }
-    
-    public java.util.List<String> getUpcoming() {
-        return upcoming;
-    }
-    
-    public void setSuperMagical(int superMagical) {
-        this.superMagical = superMagical;
-    }
-    
-    public int getSuperMagical() {
-        return superMagical;
-    }
-    
-    public void setMagical(int magical) {
-        this.magical = magical;
-    }
-    
-    public int getMagical() {
-        return magical;
-    }
-    
-    public void setLegendary(int legendary) {
-        this.legendary = legendary;
-    }
-    
-    public int getLegendary() {
-        return legendary;
-    }
-    
-    public void setEpic(int epic) {
-        this.epic = epic;
-    }
-    
-    public int getEpic() {
-        return epic;
-    }
-    
-    public void setGiant(int giant) {
-        this.giant = giant;
-    }
-    
-    public int getGiant() {
-        return giant;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ChestCycle{");
-        s.append("upcoming=");
-        s.append(upcoming);
-        s.append(", ");
-        s.append("superMagical=");
-        s.append(superMagical);
-        s.append(", ");
-        s.append("magical=");
-        s.append(magical);
-        s.append(", ");
-        s.append("legendary=");
-        s.append(legendary);
-        s.append(", ");
-        s.append("epic=");
-        s.append(epic);
-        s.append(", ");
-        s.append("giant=");
-        s.append(giant);
-        s.append("}");
-        return s.toString();
-    }
 
 }

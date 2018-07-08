@@ -1,6 +1,7 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class ClanHistoryRequest extends LimitedRequest {
 
     private final String tag;
@@ -23,14 +25,6 @@ public class ClanHistoryRequest extends LimitedRequest {
         }
         this.tag = tag;
         this.days = days;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public Integer getDays() {
-        return days;
     }
 
     @Override

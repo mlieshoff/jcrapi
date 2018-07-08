@@ -18,28 +18,17 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class PopularPlayer extends Profile {
 
     @SerializedName("popularity")
     private Popularity popularity;
-
-    public void setPopularity(Popularity popularity) {
-        this.popularity = popularity;
-    }
-    
-    public Popularity getPopularity() {
-        return popularity;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("PopularPlayer{");
-        s.append("popularity=");
-        s.append(popularity);
-        s.append("}");
-        return s.toString();
-    }
 
 }

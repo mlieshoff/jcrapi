@@ -18,56 +18,23 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Location {
 
     @SerializedName("name")
     private String name;
 
     @SerializedName("isCountry")
-    private boolean isCountry;
+    private boolean Country;
 
     @SerializedName("code")
     private String code;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setIsCountry(boolean isCountry) {
-        this.isCountry = isCountry;
-    }
-    
-    public boolean getIsCountry() {
-        return isCountry;
-    }
-    
-    public void setCode(String code) {
-        this.code = code;
-    }
-    
-    public String getCode() {
-        return code;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Location{");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("isCountry=");
-        s.append(isCountry);
-        s.append(", ");
-        s.append("code=");
-        s.append(code);
-        s.append("}");
-        return s.toString();
-    }
 
 }

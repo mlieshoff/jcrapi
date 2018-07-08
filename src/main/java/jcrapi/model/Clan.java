@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Clan {
 
     @SerializedName("tag")
@@ -60,154 +66,5 @@ public class Clan {
 
     @SerializedName("members")
     private java.util.List<Member> members;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setScore(int score) {
-        this.score = score;
-    }
-    
-    public int getScore() {
-        return score;
-    }
-    
-    public void setMemberCount(int memberCount) {
-        this.memberCount = memberCount;
-    }
-    
-    public int getMemberCount() {
-        return memberCount;
-    }
-    
-    public void setRequiredScore(int requiredScore) {
-        this.requiredScore = requiredScore;
-    }
-    
-    public int getRequiredScore() {
-        return requiredScore;
-    }
-    
-    public void setDonations(int donations) {
-        this.donations = donations;
-    }
-    
-    public int getDonations() {
-        return donations;
-    }
-    
-    public void setClanChest(ClanChest clanChest) {
-        this.clanChest = clanChest;
-    }
-    
-    public ClanChest getClanChest() {
-        return clanChest;
-    }
-    
-    public void setBadge(Badge badge) {
-        this.badge = badge;
-    }
-    
-    public Badge getBadge() {
-        return badge;
-    }
-    
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-    
-    public Location getLocation() {
-        return location;
-    }
-    
-    public void setTracking(Tracking tracking) {
-        this.tracking = tracking;
-    }
-    
-    public Tracking getTracking() {
-        return tracking;
-    }
-    
-    public void setMembers(java.util.List<Member> members) {
-        this.members = members;
-    }
-    
-    public java.util.List<Member> getMembers() {
-        return members;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Clan{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("description=");
-        s.append(description);
-        s.append(", ");
-        s.append("type=");
-        s.append(type);
-        s.append(", ");
-        s.append("score=");
-        s.append(score);
-        s.append(", ");
-        s.append("memberCount=");
-        s.append(memberCount);
-        s.append(", ");
-        s.append("requiredScore=");
-        s.append(requiredScore);
-        s.append(", ");
-        s.append("donations=");
-        s.append(donations);
-        s.append(", ");
-        s.append("clanChest=");
-        s.append(clanChest);
-        s.append(", ");
-        s.append("badge=");
-        s.append(badge);
-        s.append(", ");
-        s.append("location=");
-        s.append(location);
-        s.append(", ");
-        s.append("tracking=");
-        s.append(tracking);
-        s.append(", ");
-        s.append("members=");
-        s.append(members);
-        s.append("}");
-        return s.toString();
-    }
 
 }

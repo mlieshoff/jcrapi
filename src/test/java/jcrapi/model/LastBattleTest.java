@@ -51,7 +51,7 @@ public class LastBattleTest {
     public void shouldToString() {
         unitUnderTest.setType("astring");
         unitUnderTest.setTime(4711L);
-        String expected = "LastBattle{type=astring, time=4711}";
+        String expected = "LastBattle(type=astring, time=4711)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

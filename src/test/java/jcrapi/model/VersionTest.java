@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -40,7 +40,7 @@ public class VersionTest {
     
     @Test
     public void shouldToString() {
-        String expected = "Version{}";
+        String expected = "Version()";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

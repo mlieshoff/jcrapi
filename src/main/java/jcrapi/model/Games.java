@@ -16,11 +16,16 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Games {
 
     @SerializedName("total")
@@ -52,121 +57,5 @@ public class Games {
 
     @SerializedName("warDayWins")
     private int warDayWins;
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-    
-    public int getTotal() {
-        return total;
-    }
-    
-    public void setTournamentGames(int tournamentGames) {
-        this.tournamentGames = tournamentGames;
-    }
-    
-    public int getTournamentGames() {
-        return tournamentGames;
-    }
-    
-    public void setWins(int wins) {
-        this.wins = wins;
-    }
-    
-    public int getWins() {
-        return wins;
-    }
-    
-    public void setWinsPercent(double winsPercent) {
-        this.winsPercent = winsPercent;
-    }
-    
-    public double getWinsPercent() {
-        return winsPercent;
-    }
-    
-    public void setLosses(int losses) {
-        this.losses = losses;
-    }
-    
-    public int getLosses() {
-        return losses;
-    }
-    
-    public void setLossesPercent(double lossesPercent) {
-        this.lossesPercent = lossesPercent;
-    }
-    
-    public double getLossesPercent() {
-        return lossesPercent;
-    }
-    
-    public void setDraws(int draws) {
-        this.draws = draws;
-    }
-    
-    public int getDraws() {
-        return draws;
-    }
-    
-    public void setDrawsPercent(double drawsPercent) {
-        this.drawsPercent = drawsPercent;
-    }
-    
-    public double getDrawsPercent() {
-        return drawsPercent;
-    }
-    
-    public void setLastBattle(LastBattle lastBattle) {
-        this.lastBattle = lastBattle;
-    }
-    
-    public LastBattle getLastBattle() {
-        return lastBattle;
-    }
-    
-    public void setWarDayWins(int warDayWins) {
-        this.warDayWins = warDayWins;
-    }
-    
-    public int getWarDayWins() {
-        return warDayWins;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Games{");
-        s.append("total=");
-        s.append(total);
-        s.append(", ");
-        s.append("tournamentGames=");
-        s.append(tournamentGames);
-        s.append(", ");
-        s.append("wins=");
-        s.append(wins);
-        s.append(", ");
-        s.append("winsPercent=");
-        s.append(winsPercent);
-        s.append(", ");
-        s.append("losses=");
-        s.append(losses);
-        s.append(", ");
-        s.append("lossesPercent=");
-        s.append(lossesPercent);
-        s.append(", ");
-        s.append("draws=");
-        s.append(draws);
-        s.append(", ");
-        s.append("drawsPercent=");
-        s.append(drawsPercent);
-        s.append(", ");
-        s.append("lastBattle=");
-        s.append(lastBattle);
-        s.append(", ");
-        s.append("warDayWins=");
-        s.append(warDayWins);
-        s.append("}");
-        return s.toString();
-    }
 
 }

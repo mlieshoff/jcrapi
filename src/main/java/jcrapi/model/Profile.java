@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Profile {
 
     @SerializedName("tag")
@@ -70,189 +76,5 @@ public class Profile {
 
     @SerializedName("deckLink")
     private String deckLink;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-    
-    public int getRank() {
-        return rank;
-    }
-    
-    public void setTrophies(int trophies) {
-        this.trophies = trophies;
-    }
-    
-    public int getTrophies() {
-        return trophies;
-    }
-    
-    public void setArena(Arena arena) {
-        this.arena = arena;
-    }
-    
-    public Arena getArena() {
-        return arena;
-    }
-    
-    public void setClan(ProfileClan clan) {
-        this.clan = clan;
-    }
-    
-    public ProfileClan getClan() {
-        return clan;
-    }
-    
-    public void setStats(Stats stats) {
-        this.stats = stats;
-    }
-    
-    public Stats getStats() {
-        return stats;
-    }
-    
-    public void setGames(Games games) {
-        this.games = games;
-    }
-    
-    public Games getGames() {
-        return games;
-    }
-    
-    public void setChestCycle(ChestCycle chestCycle) {
-        this.chestCycle = chestCycle;
-    }
-    
-    public ChestCycle getChestCycle() {
-        return chestCycle;
-    }
-    
-    public void setLeagueStatistics(LeagueStatistics leagueStatistics) {
-        this.leagueStatistics = leagueStatistics;
-    }
-    
-    public LeagueStatistics getLeagueStatistics() {
-        return leagueStatistics;
-    }
-    
-    public void setCurrentDeck(java.util.List<Card> currentDeck) {
-        this.currentDeck = currentDeck;
-    }
-    
-    public java.util.List<Card> getCurrentDeck() {
-        return currentDeck;
-    }
-    
-    public void setCards(java.util.List<Card> cards) {
-        this.cards = cards;
-    }
-    
-    public java.util.List<Card> getCards() {
-        return cards;
-    }
-    
-    @Deprecated
-    public void setAchievments(java.util.List<Achievment> achievments) {
-        this.achievments = achievments;
-    }
-    
-    @Deprecated
-    public java.util.List<Achievment> getAchievments() {
-        return achievments;
-    }
-    
-    public void setAchievements(java.util.List<Achievement> achievements) {
-        this.achievements = achievements;
-    }
-    
-    public java.util.List<Achievement> getAchievements() {
-        return achievements;
-    }
-    
-    public void setBattles(java.util.List<Battle> battles) {
-        this.battles = battles;
-    }
-    
-    public java.util.List<Battle> getBattles() {
-        return battles;
-    }
-    
-    public void setDeckLink(String deckLink) {
-        this.deckLink = deckLink;
-    }
-    
-    public String getDeckLink() {
-        return deckLink;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Profile{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("rank=");
-        s.append(rank);
-        s.append(", ");
-        s.append("trophies=");
-        s.append(trophies);
-        s.append(", ");
-        s.append("arena=");
-        s.append(arena);
-        s.append(", ");
-        s.append("clan=");
-        s.append(clan);
-        s.append(", ");
-        s.append("stats=");
-        s.append(stats);
-        s.append(", ");
-        s.append("games=");
-        s.append(games);
-        s.append(", ");
-        s.append("chestCycle=");
-        s.append(chestCycle);
-        s.append(", ");
-        s.append("leagueStatistics=");
-        s.append(leagueStatistics);
-        s.append(", ");
-        s.append("currentDeck=");
-        s.append(currentDeck);
-        s.append(", ");
-        s.append("cards=");
-        s.append(cards);
-        s.append(", ");
-        s.append("achievments=");
-        s.append(achievments);
-        s.append(", ");
-        s.append("achievements=");
-        s.append(achievements);
-        s.append(", ");
-        s.append("battles=");
-        s.append(battles);
-        s.append(", ");
-        s.append("deckLink=");
-        s.append(deckLink);
-        s.append("}");
-        return s.toString();
-    }
 
 }

@@ -51,7 +51,7 @@ public class JoinableTournamentTest {
     public void shouldGetSetOpen() {
         boolean expected = false;
         unitUnderTest.setOpen(expected);
-        assertEquals(expected, unitUnderTest.getOpen());
+        assertEquals(expected, unitUnderTest.isOpen());
     }
 
     @Test
@@ -139,7 +139,7 @@ public class JoinableTournamentTest {
         unitUnderTest.setDuration(815);
         unitUnderTest.setDescription("astring");
         unitUnderTest.setUpdatedAt(4711L);
-        String expected = "JoinableTournament{tag=astring, name=astring, open=false, maxPlayers=815, currentPlayers=815, status=astring, createTime=4711, prepTime=815, startTime=astring, endTime=astring, duration=815, description=astring, updatedAt=4711}";
+        String expected = "JoinableTournament(tag=astring, name=astring, open=false, maxPlayers=815, currentPlayers=815, status=astring, createTime=4711, prepTime=815, startTime=astring, endTime=astring, duration=815, description=astring, updatedAt=4711)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

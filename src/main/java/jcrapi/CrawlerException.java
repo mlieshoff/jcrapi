@@ -18,6 +18,7 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.StatusLine;
 
@@ -26,6 +27,7 @@ import java.io.IOException;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class CrawlerException extends IOException {
 
     private final String message;
@@ -49,17 +51,4 @@ public class CrawlerException extends IOException {
         return s.toString();
     }
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public int getStatusCode() {
-        return statusCode;
-    }
-    
 }

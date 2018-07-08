@@ -91,7 +91,7 @@ public class ProfileClanTest {
         unitUnderTest.setDonationsReceived(815);
         unitUnderTest.setDonationsDelta(815);
         unitUnderTest.setBadge(new Badge());
-        String expected = "ProfileClan{tag=astring, name=astring, role=astring, donations=815, donationsReceived=815, donationsDelta=815, badge=" + new Badge() + "}";
+        String expected = "ProfileClan(tag=astring, name=astring, role=astring, donations=815, donationsReceived=815, donationsDelta=815, badge=" + new Badge() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

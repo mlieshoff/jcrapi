@@ -1,6 +1,7 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public abstract class LimitedRequest extends PaginatedRequest {
 
     private final int limit;
@@ -16,10 +18,6 @@ public abstract class LimitedRequest extends PaginatedRequest {
         super(max, page, excludes, keys);
         Preconditions.checkArgument(limit >= 0, "limit must be > 0");
         this.limit = limit;
-    }
-
-    public int getLimit() {
-        return limit;
     }
 
     public Map<String, String> getQueryParameters() {

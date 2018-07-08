@@ -51,7 +51,7 @@ public class PopularTournamentTest {
     public void shouldToString() {
         unitUnderTest.setPopularity(new Popularity());
         unitUnderTest.setPlayerCount(815);
-        String expected = "PopularTournament{popularity=" + new Popularity() + ", playerCount=815}";
+        String expected = "PopularTournament(popularity=" + new Popularity() + ", playerCount=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

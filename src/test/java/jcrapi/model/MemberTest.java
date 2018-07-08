@@ -139,7 +139,7 @@ public class MemberTest {
         unitUnderTest.setDonationsDelta(815);
         unitUnderTest.setDonationsPercent(1.41);
         unitUnderTest.setArena(new Arena());
-        String expected = "Member{name=astring, tag=astring, rank=815, previousRank=815, role=astring, expLevel=815, trophies=815, clanChestCrowns=815, donations=815, donationsReceived=815, donationsDelta=815, donationsPercent=1.41, arena=" + new Arena() + "}";
+        String expected = "Member(name=astring, tag=astring, rank=815, previousRank=815, role=astring, expLevel=815, trophies=815, clanChestCrowns=815, donations=815, donationsReceived=815, donationsDelta=815, donationsPercent=1.41, arena=" + new Arena() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class BattleMode {
 
     @SerializedName("id")
@@ -46,101 +52,5 @@ public class BattleMode {
 
     @SerializedName("sameDeck")
     private boolean sameDeck;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    public int getId() {
-        return id;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setDeck(String deck) {
-        this.deck = deck;
-    }
-    
-    public String getDeck() {
-        return deck;
-    }
-    
-    public void setCardLevels(String cardLevels) {
-        this.cardLevels = cardLevels;
-    }
-    
-    public String getCardLevels() {
-        return cardLevels;
-    }
-    
-    @Deprecated
-    public void setOvertimeSecons(int overtimeSecons) {
-        this.overtimeSecons = overtimeSecons;
-    }
-    
-    @Deprecated
-    public int getOvertimeSecons() {
-        return overtimeSecons;
-    }
-    
-    public void setOvertimeSeconds(int overtimeSeconds) {
-        this.overtimeSeconds = overtimeSeconds;
-    }
-    
-    public int getOvertimeSeconds() {
-        return overtimeSeconds;
-    }
-    
-    public void setPlayers(String players) {
-        this.players = players;
-    }
-    
-    public String getPlayers() {
-        return players;
-    }
-    
-    public void setSameDeck(boolean sameDeck) {
-        this.sameDeck = sameDeck;
-    }
-    
-    public boolean getSameDeck() {
-        return sameDeck;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("BattleMode{");
-        s.append("id=");
-        s.append(id);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("deck=");
-        s.append(deck);
-        s.append(", ");
-        s.append("cardLevels=");
-        s.append(cardLevels);
-        s.append(", ");
-        s.append("overtimeSecons=");
-        s.append(overtimeSecons);
-        s.append(", ");
-        s.append("overtimeSeconds=");
-        s.append(overtimeSeconds);
-        s.append(", ");
-        s.append("players=");
-        s.append(players);
-        s.append(", ");
-        s.append("sameDeck=");
-        s.append(sameDeck);
-        s.append("}");
-        return s.toString();
-    }
 
 }

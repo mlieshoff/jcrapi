@@ -35,7 +35,7 @@ public class KnownTournamentTest {
 
     @Test
     public void shouldToString() {
-        String expected = "KnownTournament{}";
+        String expected = "KnownTournament()";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

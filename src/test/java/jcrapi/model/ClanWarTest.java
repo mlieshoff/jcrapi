@@ -83,7 +83,7 @@ public class ClanWarTest {
         unitUnderTest.setClan(new ClanWarClan());
         unitUnderTest.setParticipants(new java.util.ArrayList<ClanWarParticipant>());
         unitUnderTest.setStandings(new java.util.ArrayList<ClanWarStanding>());
-        String expected = "ClanWar{state=astring, warEndTime=4711, collectionEndTime=4711, clan=" + new ClanWarClan() + ", participants=" + new java.util.ArrayList<ClanWarParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarStanding>() + "}";
+        String expected = "ClanWar(state=astring, warEndTime=4711, collectionEndTime=4711, clan=" + new ClanWarClan() + ", participants=" + new java.util.ArrayList<ClanWarParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarStanding>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

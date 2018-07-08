@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class Tracking {
 
     @SerializedName("active")
@@ -30,44 +36,5 @@ public class Tracking {
 
     @SerializedName("snapshotCount")
     private int snapshotCount;
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-    
-    public boolean getActive() {
-        return active;
-    }
-    
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-    
-    public boolean getAvailable() {
-        return available;
-    }
-    
-    public void setSnapshotCount(int snapshotCount) {
-        this.snapshotCount = snapshotCount;
-    }
-    
-    public int getSnapshotCount() {
-        return snapshotCount;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("Tracking{");
-        s.append("active=");
-        s.append(active);
-        s.append(", ");
-        s.append("available=");
-        s.append(available);
-        s.append(", ");
-        s.append("snapshotCount=");
-        s.append(snapshotCount);
-        s.append("}");
-        return s.toString();
-    }
 
 }

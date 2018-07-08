@@ -115,7 +115,7 @@ public class PopularCardTest {
         unitUnderTest.setName("astring");
         unitUnderTest.setRarity("astring");
         unitUnderTest.setType("astring");
-        String expected = "PopularCard{arena=815, description=astring, elixir=815, icon=astring, id=4711, key=astring, maxLevel=815, name=astring, rarity=astring, type=astring}";
+        String expected = "PopularCard(arena=815, description=astring, elixir=815, icon=astring, id=4711, key=astring, maxLevel=815, name=astring, rarity=astring, type=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -67,7 +67,7 @@ public class BadgeTest {
         unitUnderTest.setCategory("astring");
         unitUnderTest.setId(815);
         unitUnderTest.setImage("astring");
-        String expected = "Badge{name=astring, category=astring, id=815, image=astring}";
+        String expected = "Badge(name=astring, category=astring, id=815, image=astring)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class ProfileClan {
 
     @SerializedName("tag")
@@ -42,88 +48,5 @@ public class ProfileClan {
 
     @SerializedName("badge")
     private Badge badge;
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setRole(String role) {
-        this.role = role;
-    }
-    
-    public String getRole() {
-        return role;
-    }
-    
-    public void setDonations(int donations) {
-        this.donations = donations;
-    }
-    
-    public int getDonations() {
-        return donations;
-    }
-    
-    public void setDonationsReceived(int donationsReceived) {
-        this.donationsReceived = donationsReceived;
-    }
-    
-    public int getDonationsReceived() {
-        return donationsReceived;
-    }
-    
-    public void setDonationsDelta(int donationsDelta) {
-        this.donationsDelta = donationsDelta;
-    }
-    
-    public int getDonationsDelta() {
-        return donationsDelta;
-    }
-    
-    public void setBadge(Badge badge) {
-        this.badge = badge;
-    }
-    
-    public Badge getBadge() {
-        return badge;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("ProfileClan{");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("role=");
-        s.append(role);
-        s.append(", ");
-        s.append("donations=");
-        s.append(donations);
-        s.append(", ");
-        s.append("donationsReceived=");
-        s.append(donationsReceived);
-        s.append(", ");
-        s.append("donationsDelta=");
-        s.append(donationsDelta);
-        s.append(", ");
-        s.append("badge=");
-        s.append(badge);
-        s.append("}");
-        return s.toString();
-    }
 
 }

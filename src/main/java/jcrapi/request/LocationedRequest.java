@@ -1,10 +1,13 @@
 package jcrapi.request;
 
+import lombok.Getter;
+
 import java.util.List;
 
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public abstract class LocationedRequest extends LimitedRequest {
 
     private final String locationKey;
@@ -12,10 +15,6 @@ public abstract class LocationedRequest extends LimitedRequest {
     LocationedRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> keys) {
         super(limit, max, page, excludes, keys);
         this.locationKey = locationKey;
-    }
-
-    public String getLocationKey() {
-        return locationKey;
     }
 
     static abstract class LocationedRequestBuilder<R extends LocationedRequest, B> extends LimitedRequestBuilder<R, B> {

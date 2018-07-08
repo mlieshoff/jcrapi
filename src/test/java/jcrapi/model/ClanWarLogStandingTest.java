@@ -99,7 +99,7 @@ public class ClanWarLogStandingTest {
         unitUnderTest.setWarTrophies(815);
         unitUnderTest.setWarTrophiesChange(815);
         unitUnderTest.setBadges(new java.util.ArrayList<Badge>());
-        String expected = "ClanWarLogStanding{tag=astring, name=astring, participants=815, wins=815, crowns=815, warTrophies=815, warTrophiesChange=815, badges=" + new java.util.ArrayList<Badge>() + "}";
+        String expected = "ClanWarLogStanding(tag=astring, name=astring, participants=815, wins=815, crowns=815, warTrophies=815, warTrophiesChange=815, badges=" + new java.util.ArrayList<Badge>() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

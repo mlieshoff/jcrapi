@@ -18,28 +18,17 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class IconUrls {
 
     @SerializedName("medium")
     private String medium;
-
-    public void setMedium(String medium) {
-        this.medium = medium;
-    }
-    
-    public String getMedium() {
-        return medium;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("IconUrls{");
-        s.append("medium=");
-        s.append(medium);
-        s.append("}");
-        return s.toString();
-    }
 
 }

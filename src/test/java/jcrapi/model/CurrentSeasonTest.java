@@ -59,7 +59,7 @@ public class CurrentSeasonTest {
         unitUnderTest.setRank(815);
         unitUnderTest.setTrophies(815);
         unitUnderTest.setBestTrophies(815);
-        String expected = "CurrentSeason{rank=815, trophies=815, bestTrophies=815}";
+        String expected = "CurrentSeason(rank=815, trophies=815, bestTrophies=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

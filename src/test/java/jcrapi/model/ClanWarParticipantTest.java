@@ -75,7 +75,7 @@ public class ClanWarParticipantTest {
         unitUnderTest.setCardsEarned(815);
         unitUnderTest.setBattlesPlayed(815);
         unitUnderTest.setWins(815);
-        String expected = "ClanWarParticipant{tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815}";
+        String expected = "ClanWarParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815)";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class TopPlayer {
 
     @SerializedName("name")
@@ -51,121 +57,5 @@ public class TopPlayer {
 
     @SerializedName("arena")
     private Arena arena;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-    
-    public String getTag() {
-        return tag;
-    }
-    
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-    
-    public int getRank() {
-        return rank;
-    }
-    
-    public void setPreviousRank(int previousRank) {
-        this.previousRank = previousRank;
-    }
-    
-    public int getPreviousRank() {
-        return previousRank;
-    }
-    
-    public void setExpLevel(int expLevel) {
-        this.expLevel = expLevel;
-    }
-    
-    public int getExpLevel() {
-        return expLevel;
-    }
-    
-    public void setTrophies(int trophies) {
-        this.trophies = trophies;
-    }
-    
-    public int getTrophies() {
-        return trophies;
-    }
-    
-    public void setDonationsDelta(int donationsDelta) {
-        this.donationsDelta = donationsDelta;
-    }
-    
-    public int getDonationsDelta() {
-        return donationsDelta;
-    }
-    
-    public void setClanChestCrowns(int clanChestCrowns) {
-        this.clanChestCrowns = clanChestCrowns;
-    }
-    
-    public int getClanChestCrowns() {
-        return clanChestCrowns;
-    }
-    
-    public void setClan(TeamClan clan) {
-        this.clan = clan;
-    }
-    
-    public TeamClan getClan() {
-        return clan;
-    }
-    
-    public void setArena(Arena arena) {
-        this.arena = arena;
-    }
-    
-    public Arena getArena() {
-        return arena;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("TopPlayer{");
-        s.append("name=");
-        s.append(name);
-        s.append(", ");
-        s.append("tag=");
-        s.append(tag);
-        s.append(", ");
-        s.append("rank=");
-        s.append(rank);
-        s.append(", ");
-        s.append("previousRank=");
-        s.append(previousRank);
-        s.append(", ");
-        s.append("expLevel=");
-        s.append(expLevel);
-        s.append(", ");
-        s.append("trophies=");
-        s.append(trophies);
-        s.append(", ");
-        s.append("donationsDelta=");
-        s.append(donationsDelta);
-        s.append(", ");
-        s.append("clanChestCrowns=");
-        s.append(clanChestCrowns);
-        s.append(", ");
-        s.append("clan=");
-        s.append(clan);
-        s.append(", ");
-        s.append("arena=");
-        s.append(arena);
-        s.append("}");
-        return s.toString();
-    }
 
 }

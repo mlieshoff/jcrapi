@@ -59,7 +59,7 @@ public class LeagueStatisticsTest {
         unitUnderTest.setCurrentSeason(new CurrentSeason());
         unitUnderTest.setPreviousSeason(new PreviousSeason());
         unitUnderTest.setBestSeason(new BestSeason());
-        String expected = "LeagueStatistics{currentSeason=" + new CurrentSeason() + ", previousSeason=" + new PreviousSeason() + ", bestSeason=" + new BestSeason() + "}";
+        String expected = "LeagueStatistics(currentSeason=" + new CurrentSeason() + ", previousSeason=" + new PreviousSeason() + ", bestSeason=" + new BestSeason() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

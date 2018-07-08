@@ -18,8 +18,14 @@ package jcrapi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class PreviousSeason {
 
     @SerializedName("id")
@@ -33,55 +39,5 @@ public class PreviousSeason {
 
     @SerializedName("bestTrophies")
     private int bestTrophies;
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    
-    public String getId() {
-        return id;
-    }
-    
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-    
-    public int getRank() {
-        return rank;
-    }
-    
-    public void setTrophies(int trophies) {
-        this.trophies = trophies;
-    }
-    
-    public int getTrophies() {
-        return trophies;
-    }
-    
-    public void setBestTrophies(int bestTrophies) {
-        this.bestTrophies = bestTrophies;
-    }
-    
-    public int getBestTrophies() {
-        return bestTrophies;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("PreviousSeason{");
-        s.append("id=");
-        s.append(id);
-        s.append(", ");
-        s.append("rank=");
-        s.append(rank);
-        s.append(", ");
-        s.append("trophies=");
-        s.append(trophies);
-        s.append(", ");
-        s.append("bestTrophies=");
-        s.append(bestTrophies);
-        s.append("}");
-        return s.toString();
-    }
 
 }

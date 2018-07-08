@@ -16,11 +16,16 @@
  */
 package jcrapi.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Generated("org.mili.generator")
+@Getter
+@Setter
+@ToString
 public class PopularTournament extends Tournament {
 
     @SerializedName("popularity")
@@ -28,33 +33,5 @@ public class PopularTournament extends Tournament {
 
     @SerializedName("playerCount")
     private int playerCount;
-
-    public void setPopularity(Popularity popularity) {
-        this.popularity = popularity;
-    }
-    
-    public Popularity getPopularity() {
-        return popularity;
-    }
-    
-    public void setPlayerCount(int playerCount) {
-        this.playerCount = playerCount;
-    }
-    
-    public int getPlayerCount() {
-        return playerCount;
-    }
-    
-    public String toString() {
-        java.lang.StringBuilder s = new java.lang.StringBuilder();
-        s.append("PopularTournament{");
-        s.append("popularity=");
-        s.append(popularity);
-        s.append(", ");
-        s.append("playerCount=");
-        s.append(playerCount);
-        s.append("}");
-        return s.toString();
-    }
 
 }

@@ -21,5 +21,4 @@ import javax.annotation.Generated;
 @Generated("org.mili.generator")
 public class ClanWeeklyHistory extends java.util.LinkedHashMap<String, ClanWeeklyHistoryElement> {
 
-
 }

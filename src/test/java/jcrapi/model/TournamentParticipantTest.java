@@ -75,7 +75,7 @@ public class TournamentParticipantTest {
         unitUnderTest.setScore(815);
         unitUnderTest.setRank(815);
         unitUnderTest.setClan(new TournamentClan());
-        String expected = "TournamentParticipant{tag=astring, name=astring, score=815, rank=815, clan=" + new TournamentClan() + "}";
+        String expected = "TournamentParticipant(tag=astring, name=astring, score=815, rank=815, clan=" + new TournamentClan() + ")";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }

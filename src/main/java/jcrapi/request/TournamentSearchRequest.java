@@ -1,6 +1,7 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class TournamentSearchRequest extends LimitedRequest {
 
     private final String name;
@@ -17,10 +19,6 @@ public class TournamentSearchRequest extends LimitedRequest {
         Preconditions.checkNotNull(name, "name");
         Preconditions.checkArgument(name.length() > 0, "name");
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override

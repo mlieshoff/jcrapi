@@ -1,11 +1,14 @@
 package jcrapi.request;
 
+import lombok.Getter;
+
 import java.util.List;
 import java.util.Map;
 
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class TournamentRequest extends LimitedRequest {
 
     private final boolean oneK;
@@ -21,26 +24,6 @@ public class TournamentRequest extends LimitedRequest {
         this.full = full;
         this.prep = prep;
         this.joinable = joinable;
-    }
-
-    public boolean isOneK() {
-        return oneK;
-    }
-
-    public boolean isOpen() {
-        return open;
-    }
-
-    public boolean isFull() {
-        return full;
-    }
-
-    public boolean isPrep() {
-        return prep;
-    }
-
-    public boolean isJoinable() {
-        return joinable;
     }
 
     public Map<String, String> getQueryParameters() {

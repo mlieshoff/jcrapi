@@ -1,12 +1,14 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Getter;
 
 import java.util.List;
 
 /**
  * @author Michael Lieshoff
  */
+@Getter
 public class ClanRequest extends Request {
 
     private final String tag;
@@ -16,10 +18,6 @@ public class ClanRequest extends Request {
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public static ClanRequestBuilder builder(String tag) {
