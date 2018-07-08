@@ -38,11 +38,19 @@ public class SearchedTournament {
     @SerializedName("description")
     private String description;
 
+    @Deprecated
     @SerializedName("maxCapacity")
     private int maxCapacity;
 
+    @SerializedName("maxPlayers")
+    private int maxPlayers;
+
+    @Deprecated
     @SerializedName("preparationDuration")
     private int preparationDuration;
+
+    @SerializedName("prepTime")
+    private int prepTime;
 
     @SerializedName("duration")
     private int duration;
@@ -56,8 +64,12 @@ public class SearchedTournament {
     @SerializedName("endTime")
     private long endTime;
 
+    @Deprecated
     @SerializedName("playerCount")
     private int playerCount;
+
+    @SerializedName("currentPlayer")
+    private int currentPlayer;
 
     @SerializedName("members")
     private java.util.List<TournamentParticipant> members;
@@ -102,20 +114,40 @@ public class SearchedTournament {
         return description;
     }
     
+    @Deprecated
     public void setMaxCapacity(int maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
     
+    @Deprecated
     public int getMaxCapacity() {
         return maxCapacity;
     }
     
+    public void setMaxPlayers(int maxPlayers) {
+        this.maxPlayers = maxPlayers;
+    }
+    
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+    
+    @Deprecated
     public void setPreparationDuration(int preparationDuration) {
         this.preparationDuration = preparationDuration;
     }
     
+    @Deprecated
     public int getPreparationDuration() {
         return preparationDuration;
+    }
+    
+    public void setPrepTime(int prepTime) {
+        this.prepTime = prepTime;
+    }
+    
+    public int getPrepTime() {
+        return prepTime;
     }
     
     public void setDuration(int duration) {
@@ -150,12 +182,22 @@ public class SearchedTournament {
         return endTime;
     }
     
+    @Deprecated
     public void setPlayerCount(int playerCount) {
         this.playerCount = playerCount;
     }
     
+    @Deprecated
     public int getPlayerCount() {
         return playerCount;
+    }
+    
+    public void setCurrentPlayer(int currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+    
+    public int getCurrentPlayer() {
+        return currentPlayer;
     }
     
     public void setMembers(java.util.List<TournamentParticipant> members) {
@@ -187,8 +229,14 @@ public class SearchedTournament {
         s.append("maxCapacity=");
         s.append(maxCapacity);
         s.append(", ");
+        s.append("maxPlayers=");
+        s.append(maxPlayers);
+        s.append(", ");
         s.append("preparationDuration=");
         s.append(preparationDuration);
+        s.append(", ");
+        s.append("prepTime=");
+        s.append(prepTime);
         s.append(", ");
         s.append("duration=");
         s.append(duration);
@@ -204,6 +252,9 @@ public class SearchedTournament {
         s.append(", ");
         s.append("playerCount=");
         s.append(playerCount);
+        s.append(", ");
+        s.append("currentPlayer=");
+        s.append(currentPlayer);
         s.append(", ");
         s.append("members=");
         s.append(members);

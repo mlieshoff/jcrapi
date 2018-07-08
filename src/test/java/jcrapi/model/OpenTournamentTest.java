@@ -16,10 +16,10 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.annotation.Generated;
 
 import static org.junit.Assert.assertEquals;
 
@@ -76,6 +76,13 @@ public class OpenTournamentTest {
     }
 
     @Test
+    public void shouldGetSetCurrentPlayer() {
+        int expected = 815;
+        unitUnderTest.setCurrentPlayer(expected);
+        assertEquals(expected, unitUnderTest.getCurrentPlayer());
+    }
+
+    @Test
     public void shouldGetSetMaxCapacity() {
         int expected = 815;
         unitUnderTest.setMaxCapacity(expected);
@@ -83,10 +90,24 @@ public class OpenTournamentTest {
     }
 
     @Test
+    public void shouldGetSetMaxPlayers() {
+        int expected = 815;
+        unitUnderTest.setMaxPlayers(expected);
+        assertEquals(expected, unitUnderTest.getMaxPlayers());
+    }
+
+    @Test
     public void shouldGetSetPreparationDuration() {
         int expected = 815;
         unitUnderTest.setPreparationDuration(expected);
         assertEquals(expected, unitUnderTest.getPreparationDuration());
+    }
+
+    @Test
+    public void shouldGetSetPrepTime() {
+        int expected = 815;
+        unitUnderTest.setPrepTime(expected);
+        assertEquals(expected, unitUnderTest.getPrepTime());
     }
 
     @Test
@@ -125,13 +146,16 @@ public class OpenTournamentTest {
         unitUnderTest.setName("astring");
         unitUnderTest.setCapacity(815);
         unitUnderTest.setPlayerCount(815);
+        unitUnderTest.setCurrentPlayer(815);
         unitUnderTest.setMaxCapacity(815);
+        unitUnderTest.setMaxPlayers(815);
         unitUnderTest.setPreparationDuration(815);
+        unitUnderTest.setPrepTime(815);
         unitUnderTest.setDuration(815);
         unitUnderTest.setCreateTime(4711L);
         unitUnderTest.setStartTime("astring");
         unitUnderTest.setEndTime("astring");
-        String expected = "OpenTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, maxCapacity=815, preparationDuration=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
+        String expected = "OpenTournament{tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, currentPlayer=815, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring}";
         String actual = unitUnderTest.toString();
         assertEquals(expected, actual);
     }
