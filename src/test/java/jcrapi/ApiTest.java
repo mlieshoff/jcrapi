@@ -66,15 +66,14 @@ import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentMatcher;
-import org.mockito.Mockito;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.argThat;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -86,12 +85,16 @@ public class ApiTest {
 
     private Api api;
 
+    private CrawlerException crawlerException;
+
     @Before
     public void setUp() {
-        ClientFactory clientFactory = Mockito.mock(ClientFactory.class);
-        client = Mockito.mock(Client.class);
+        ClientFactory clientFactory = mock(ClientFactory.class);
+        client = mock(Client.class);
         when(clientFactory.createClient("lala", "abc", AuthMode.NORMAL)).thenReturn(client);
         api = new Api("lala", "abc", clientFactory, AuthMode.NORMAL);
+        crawlerException = mock(CrawlerException.class);
+        when(crawlerException.getStatusCode()).thenReturn(400);
     }
 
     @Test(expected = NullPointerException.class)
@@ -122,7 +125,7 @@ public class ApiTest {
 
     @Test
     public void failGetVersion() throws Exception {
-        when(client.getVersion()).thenThrow(new IOException("crapi: 400"));
+        when(client.getVersion()).thenThrow(crawlerException);
         try {
             api.getVersion();
             fail();
@@ -159,7 +162,7 @@ public class ApiTest {
 
     @Test
     public void failGetProfile() throws Exception {
-        when(client.getProfile(argThat(getProfileArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getProfile(argThat(getProfileArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getProfile("abc");
             fail();
@@ -184,7 +187,7 @@ public class ApiTest {
     @Test
     public void failGetProfileFromRequest() throws Exception {
         ProfileRequest profileRequest = ProfileRequest.builder("abc").build();
-        when(client.getProfile(profileRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getProfile(profileRequest)).thenThrow(crawlerException);
         try {
             api.getProfile(profileRequest);
             fail();
@@ -220,7 +223,7 @@ public class ApiTest {
     @Test
     public void failGetProfiles() throws Exception {
         List<String> tags = createTags();
-        when(client.getProfiles(argThat(getProfilesArgumentMatcher(tags)))).thenThrow(new IOException("crapi: 400"));
+        when(client.getProfiles(argThat(getProfilesArgumentMatcher(tags)))).thenThrow(crawlerException);
         try {
             api.getProfiles(tags);
             fail();
@@ -256,7 +259,7 @@ public class ApiTest {
     public void failGetProfilesFromRequest() throws Exception {
         ProfilesRequest profilesRequest = ProfilesRequest.builder(Arrays.asList("abc"))
                 .build();
-        when(client.getProfiles(profilesRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getProfiles(profilesRequest)).thenThrow(crawlerException);
         try {
             api.getProfiles(profilesRequest);
             fail();
@@ -284,7 +287,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopClans() throws Exception {
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenThrow(crawlerException);
         try {
             api.getTopClans();
             fail();
@@ -302,7 +305,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopClansWithLocation() throws Exception {
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher("EU")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopClans(argThat(getTopClansArgumentMatcher("EU")))).thenThrow(crawlerException);
         try {
             api.getTopClans("EU");
             fail();
@@ -320,7 +323,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopClansFromRequest() throws Exception {
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenThrow(crawlerException);
         try {
             api.getTopClans();
             fail();
@@ -344,7 +347,7 @@ public class ApiTest {
         TopClansRequest topClansRequest = TopClansRequest.builder()
                 .locationKey("EU")
                 .build();
-        when(client.getTopClans(topClansRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopClans(topClansRequest)).thenThrow(crawlerException);
         try {
             api.getTopClans(topClansRequest);
             fail();
@@ -381,7 +384,7 @@ public class ApiTest {
 
     @Test
     public void failGetClan() throws Exception {
-        when(client.getClan(argThat(getClanArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClan(argThat(getClanArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClan("abc");
             fail();
@@ -406,7 +409,7 @@ public class ApiTest {
     @Test
     public void failGetClanFromRequest() throws Exception {
         ClanRequest clanRequest = ClanRequest.builder("abc").build();
-        when(client.getClan(clanRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getClan(clanRequest)).thenThrow(crawlerException);
         try {
             api.getClan(clanRequest);
             fail();
@@ -436,7 +439,7 @@ public class ApiTest {
     @Test
     public void failGetClans() throws Exception {
         List<String> tags = createTags();
-        when(client.getClans(tags)).thenThrow(new IOException("crapi: 400"));
+        when(client.getClans(tags)).thenThrow(crawlerException);
         try {
             api.getClans(tags);
             fail();
@@ -462,7 +465,7 @@ public class ApiTest {
     @Test
     public void failGetClanSearchWithParams() throws Exception {
         ClanSearch clanSearch = createClanSearch();
-        when(client.getClanSearch(clanSearch)).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanSearch(clanSearch)).thenThrow(crawlerException);
         try {
             api.getClanSearch(clanSearch);
             fail();
@@ -485,7 +488,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanSearchFromRequest() throws Exception {
-        when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getClanSearch(createClanSearchRequest());
             fail();
@@ -512,7 +515,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanSearchWithParamsFromRequest() throws Exception {
-        when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getClanSearch(createClanSearchRequest());
             fail();
@@ -530,7 +533,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopPlayers() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenThrow(crawlerException);
         try {
             api.getTopPlayers();
             fail();
@@ -548,7 +551,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopPlayersWithLocation() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenThrow(crawlerException);
         try {
             api.getTopPlayers("EU");
             fail();
@@ -575,7 +578,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopPlayersWithRequest() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenThrow(crawlerException);
         try {
             api.getTopPlayers();
             fail();
@@ -593,7 +596,7 @@ public class ApiTest {
 
     @Test
     public void failGetTopPlayersWithLocationWithRequest() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenThrow(crawlerException);
         try {
             api.getTopPlayers("EU");
             fail();
@@ -621,7 +624,7 @@ public class ApiTest {
 
     @Test
     public void failGetTournaments() throws Exception {
-        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getTournaments("abc");
             fail();
@@ -653,7 +656,7 @@ public class ApiTest {
 
     @Test
     public void failGetTournamentsFromRequest() throws Exception {
-        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getTournaments(TournamentsRequest.builder("abc").build());
             fail();
@@ -671,7 +674,7 @@ public class ApiTest {
 
     @Test
     public void failGetEndpoints() throws Exception {
-        when(client.getEndpoints()).thenThrow(new IOException("crapi: 400"));
+        when(client.getEndpoints()).thenThrow(crawlerException);
         try {
             api.getEndpoints();
             fail();
@@ -698,7 +701,7 @@ public class ApiTest {
 
     @Test
     public void failGetPopularClans() throws Exception {
-        when(client.getPopularClans(argThat(getPopularClansRequestMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularClans(argThat(getPopularClansRequestMatcher()))).thenThrow(crawlerException);
         try {
             api.getPopularClans();
             fail();
@@ -718,7 +721,7 @@ public class ApiTest {
     @Test
     public void failGetPopularClansFromRequest() throws Exception {
         PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
-        when(client.getPopularClans(popularClansRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularClans(popularClansRequest)).thenThrow(crawlerException);
         try {
             api.getPopularClans(popularClansRequest);
             fail();
@@ -745,7 +748,7 @@ public class ApiTest {
 
     @Test
     public void failGetPopularPlayers() throws Exception {
-        when(client.getPopularPlayers(argThat(getPopularPlayersRequestMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularPlayers(argThat(getPopularPlayersRequestMatcher()))).thenThrow(crawlerException);
         try {
             api.getPopularPlayers();
             fail();
@@ -765,7 +768,7 @@ public class ApiTest {
     @Test
     public void failGetPopularPlayersFromRequest() throws Exception {
         PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
-        when(client.getPopularPlayers(popularPlayersRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularPlayers(popularPlayersRequest)).thenThrow(crawlerException);
         try {
             api.getPopularPlayers(popularPlayersRequest);
             fail();
@@ -792,7 +795,7 @@ public class ApiTest {
 
     @Test
     public void failGetPopularTournaments() throws Exception {
-        when(client.getPopularTournaments(argThat(getPopularTournamentsRequestMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularTournaments(argThat(getPopularTournamentsRequestMatcher()))).thenThrow(crawlerException);
         try {
             api.getPopularTournaments();
             fail();
@@ -812,7 +815,7 @@ public class ApiTest {
     @Test
     public void failGetPopularTournamentsFromRequest() throws Exception {
         PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
-        when(client.getPopularTournaments(popularTournamentsRequest)).thenThrow(new IOException("crapi: 400"));
+        when(client.getPopularTournaments(popularTournamentsRequest)).thenThrow(crawlerException);
         try {
             api.getPopularTournaments(popularTournamentsRequest);
             fail();
@@ -830,7 +833,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanBattles() throws Exception {
-        when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanBattles("abc");
             fail();
@@ -857,7 +860,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanBattlesFromRequest() throws Exception {
-        when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanBattles(ClanBattlesRequest.builder("abc").build());
             fail();
@@ -875,7 +878,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanHistory() throws Exception {
-        when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanHistory("abc");
             fail();
@@ -902,7 +905,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanHistoryFromRequest() throws Exception {
-        when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanHistory(ClanHistoryRequest.builder("abc").build());
             fail();
@@ -929,7 +932,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanWeeklyHistory() throws Exception {
-        when(client.getClanWeeklyHistory(argThat(getClanWeeklyHistoryRequestArgumentMatcher("abc")))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanWeeklyHistory(argThat(getClanWeeklyHistoryRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanWeeklyHistory(ClanWeeklyHistoryRequest.builder("abc").build());
             fail();
@@ -956,7 +959,7 @@ public class ApiTest {
 
     @Test
     public void failGetOpenTournamentsFromRequest() throws Exception {
-        when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getOpenTournaments(OpenTournamentsRequest.builder().build());
             fail();
@@ -983,7 +986,7 @@ public class ApiTest {
 
     @Test
     public void failGetKnownTournamentsFromRequest() throws Exception {
-        when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getKnownTournaments(KnownTournamentsRequest.builder().build());
             fail();
@@ -1010,7 +1013,7 @@ public class ApiTest {
 
     @Test
     public void failGetTournamentSearchFromRequest() throws Exception {
-        when(client.getTournamentSearch(argThat(getTournamentSearchRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getTournamentSearch(argThat(getTournamentSearchRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getTournamentSearch(TournamentSearchRequest.builder("abc").build());
             fail();
@@ -1040,7 +1043,7 @@ public class ApiTest {
     public void failGetPlayerBattlesFromRequest() throws Exception {
         List<String> tags = createTags();
         when(client.getPlayerBattles(argThat(getPlayerBattlesRequestArgumentMatcher(tags)))).thenThrow(
-                new IOException("crapi: 400"));
+                crawlerException);
         try {
             api.getPlayerBattles(PlayerBattlesRequest.builder(tags).build());
             fail();
@@ -1070,7 +1073,7 @@ public class ApiTest {
     public void failGetPlayerChestsFromRequest() throws Exception {
         List<String> tags = createTags();
         when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenThrow(
-                new IOException("crapi: 400"));
+                crawlerException);
         try {
             api.getPlayerChests(PlayerChestsRequest.builder(tags).build());
             fail();
@@ -1098,7 +1101,7 @@ public class ApiTest {
     @Test
     public void failGetPopularDecksFromRequest() throws Exception {
         when(client.getPopularDecks(argThat(getPopularDecksRequestArgumentMatcher()))).thenThrow(
-                new IOException("crapi: 400"));
+                crawlerException);
         try {
             api.getPopularDecks(PopularDecksRequest.builder().build());
             fail();
@@ -1126,7 +1129,7 @@ public class ApiTest {
     @Test
     public void failGetClanTrackingFromRequest() throws Exception {
         when(client.getClanTracking(argThat(getClanTrackingRequestArgumentMatcher()))).thenThrow(
-                new IOException("crapi: 400"));
+                crawlerException);
         try {
             api.getClanTracking(ClanTrackingRequest.builder("abc").build());
             fail();
@@ -1154,7 +1157,7 @@ public class ApiTest {
     @Test
     public void failGetClanWarLogFromRequest() throws Exception {
         when(client.getClanWarLog(argThat(getClanWarLogRequestArgumentMatcher()))).thenThrow(
-                new IOException("crapi: 400"));
+                crawlerException);
         try {
             api.getClanWarLog(ClanWarLogRequest.builder("abc").build());
             fail();
@@ -1181,7 +1184,7 @@ public class ApiTest {
 
     @Test
     public void failGetClanWarFromRequest() throws Exception {
-        when(client.getClanWar(argThat(getClanWarRequestArgumentMatcher()))).thenThrow(new IOException("crapi: 400"));
+        when(client.getClanWar(argThat(getClanWarRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getClanWar(ClanWarRequest.builder("abc").build());
             fail();
@@ -1209,7 +1212,7 @@ public class ApiTest {
     @Test
     public void failGetAuthStatsFromRequest() throws Exception {
         when(client.getAuthStats(argThat(getAuthStatsRequestArgumentMatcher()))).thenThrow(
-                new IOException("crapi: 400"));
+                crawlerException);
         try {
             api.getAuthStats(AuthStatsRequest.builder().build());
             fail();

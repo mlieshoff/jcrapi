@@ -131,11 +131,13 @@ class Client {
 
     private void handleRateLimit() {
         Response response = getLastResponse();
-        if (response.getRateReset().isPresent()) {
-            long limitResetAt = response.getRateReset().get();
-            for (long ms = System.currentTimeMillis(); ms < limitResetAt; ms = System.currentTimeMillis()) {
+        if (response.getRateRetryAfter().isPresent()) {
+            long start = System.currentTimeMillis();
+            long limitResetInMillis = response.getRateRetryAfter().get() * 1000;
+            long end = start + limitResetInMillis;
+            for (long now = start; now < end; now = System.currentTimeMillis()) {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(100 + limitResetInMillis);
                 } catch (InterruptedException e) {
                     Thread.interrupted();
                 }
