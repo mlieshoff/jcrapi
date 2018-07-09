@@ -17,10 +17,10 @@
 package jcrapi;
 
 import com.google.common.collect.ImmutableMap;
-import jcrapi.model.ClanSearch;
 import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
+import jcrapi.request.ClanRequest;
 import jcrapi.request.ClanSearchRequest;
 import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
@@ -42,6 +42,7 @@ import jcrapi.request.PopularTournamentsRequest;
 import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
+import jcrapi.request.TopPlayersRequest;
 import jcrapi.request.TournamentSearchRequest;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
@@ -110,28 +111,12 @@ public class ClientTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void failGetProfileBecauseNullTag() throws IOException {
-        createClient().getProfile((String) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetProfileBecauseEmptyTag() throws IOException {
-        createClient().getProfile("");
+    public void failGetProfileBecauseNullRequest() throws IOException {
+        createClient().getProfile(null);
     }
 
     @Test
     public void shouldGetProfile() throws IOException {
-        when(crawler.get("lala/player/xyz", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
-        assertNotNull(createClient().getProfile("xyz"));
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetProfileBecauseNullRequest() throws IOException {
-        createClient().getProfile((ProfileRequest) null);
-    }
-
-    @Test
-    public void shouldGetProfileFromRequest() throws IOException {
         ProfileRequest profileRequest = ProfileRequest.builder("xyz")
                         .keys(Arrays.asList("a", "b"))
                         .excludes(Arrays.asList("x", "y"))
@@ -139,24 +124,6 @@ public class ClientTest {
         when(crawler.get("lala/player/xyz", createHeaders(),
                 profileRequest.getQueryParameters())).thenReturn("{}");
         assertNotNull(createClient().getProfile(profileRequest));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetProfilesBecauseNullTag() throws IOException {
-        createClient().getProfiles((List<String>) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetProfilesBecauseEmptyTag() throws IOException {
-        createClient().getProfiles(Collections.<String>emptyList());
-    }
-
-    @Test
-    public void shouldGetProfiles() throws IOException {
-        List<String> tags = createTags();
-        when(crawler.get("lala/player/" + StringUtils.join(tags, ','), createHeaders(),
-                Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getProfiles(tags));
     }
 
     private List<String> createTags() {
@@ -168,11 +135,11 @@ public class ClientTest {
 
     @Test(expected = NullPointerException.class)
     public void failGetProfilesBecauseNullRequest() throws IOException {
-        createClient().getProfiles((ProfilesRequest) null);
+        createClient().getProfiles(null);
     }
 
     @Test
-    public void shouldGetProfilesFromRequest() throws IOException {
+    public void shouldGetProfiles() throws IOException {
         ProfilesRequest profilesRequest = ProfilesRequest.builder(createTags())
                 .limit(15)
                 .keys(Arrays.asList("a", "b"))
@@ -185,73 +152,39 @@ public class ClientTest {
     @Test
     public void shouldGetTopClans() throws IOException {
         when(crawler.get("lala/top/clans", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopClans((String) null));
-    }
-
-    @Test
-    public void shouldGetTopClansWithLocation() throws IOException {
-        when(crawler.get("lala/top/clans/EU", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopClans("EU"));
-    }
-
-    @Test
-    public void shouldGetTopClansFromRequest() throws IOException {
-        when(crawler.get("lala/top/clans", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans(TopClansRequest.builder().build()));
     }
 
     @Test
-    public void shouldGetTopClansWithLocationFromRequest() throws IOException {
+    public void shouldGetTopClansWithLocation() throws IOException {
         TopClansRequest topClansRequest = TopClansRequest.builder().locationKey("EU").build();
         when(crawler.get("lala/top/clans/EU", createHeaders(), topClansRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getTopClans(topClansRequest));
     }
 
     @Test(expected = NullPointerException.class)
-    public void failGetClanBecauseNullTag() throws IOException {
-        createClient().getClan((String) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetClanBecauseEmptyTag() throws IOException {
-        createClient().getClan("");
+    public void failGetClanBecauseNullRequest() throws IOException {
+        createClient().getClan(null);
     }
 
     @Test
     public void shouldGetClan() throws IOException {
-        when(crawler.get("lala/clan/xyz", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
-        assertNotNull(createClient().getClan("xyz"));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetClansBecauseNullTag() throws IOException {
-        createClient().getClans((List<String>) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetClansBecauseEmptyTag() throws IOException {
-        createClient().getClans(Collections.<String>emptyList());
-    }
-
-    @Test
-    public void shouldGetClans() throws IOException {
-        List<String> tags = createTags();
-        when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getClans(tags));
+        when(crawler.get("lala/clan/abc", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
+        assertNotNull(createClient().getClan(ClanRequest.builder("abc").build()));
     }
 
     @Test(expected = NullPointerException.class)
     public void failGetClansBecauseNullRequest() throws IOException {
-        createClient().getClans((ClansRequest) null);
+        createClient().getClans(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void failGetClansBecauseEmptyTagFromRequest() throws IOException {
+    public void failGetClansBecauseEmptyTag() throws IOException {
         createClient().getClans(ClansRequest.builder(Collections.EMPTY_LIST).build());
     }
 
     @Test
-    public void shouldGetClansFromRequest() throws IOException {
+    public void shouldGetClans() throws IOException {
         List<String> tags = createTags();
         when(crawler.get("lala/clan/" + StringUtils.join(tags, ','), createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
         assertNotNull(createClient().getClans(ClansRequest.builder(tags).build()));
@@ -259,57 +192,12 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanSearch() throws IOException {
-        ClanSearch clanSearch = new ClanSearch();
-        clanSearch.setScore(50);
-        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder().put("score", "50").build())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch(clanSearch));
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetClanSearchWithoutCriteria() throws IOException {
-        createClient().getClanSearch((ClanSearch) null);
-    }
-
-    @Test
-    public void shouldGetClanSearchWithParameters() throws IOException {
-        ClanSearch clanSearch = new ClanSearch();
-        clanSearch.setName("abc");
-        clanSearch.setScore(2000);
-        clanSearch.setMinMembers(20);
-        clanSearch.setMaxMembers(50);
-        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder()
-                .put("name", "abc")
-                .put("score", "2000")
-                .put("minMembers", "20")
-                .put("maxMembers", "50")
-                .build())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch(clanSearch));
-    }
-
-    @Test
-    public void shouldGetClanSearchWithEncodedParameters() throws IOException {
-        ClanSearch clanSearch = new ClanSearch();
-        clanSearch.setName("reddit+alpha");
-        clanSearch.setScore(2000);
-        clanSearch.setMinMembers(20);
-        clanSearch.setMaxMembers(50);
-        when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder()
-                .put("name", "reddit+alpha")
-                .put("score", "2000")
-                .put("minMembers", "20")
-                .put("maxMembers", "50")
-                .build())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanSearch(clanSearch));
-    }
-
-    @Test
-    public void shouldGetClanSearchFromRequest() throws IOException {
         when(crawler.get("lala/clan/search", createHeaders(), ImmutableMap.<String, String>builder().put("score", "50").build())).thenReturn("[{}]");
         assertNotNull(createClient().getClanSearch(ClanSearchRequest.builder().score(50).build()));
     }
 
     @Test
-    public void shouldGetClanSearchWithParametersFromRequest() throws IOException {
+    public void shouldGetClanSearchWithParameters() throws IOException {
         ClanSearchRequest clanSearchRequest = ClanSearchRequest.builder()
                 .name("abc")
                 .score(2000)
@@ -322,7 +210,7 @@ public class ClientTest {
     }
 
     @Test
-    public void shouldGetClanSearchWithEncodedParametersFromRequest() throws IOException {
+    public void shouldGetClanSearchWithEncodedParameters() throws IOException {
         ClanSearchRequest clanSearchRequest = ClanSearchRequest.builder()
                 .name("reddit+alpha")
                 .score(2000)
@@ -336,13 +224,7 @@ public class ClientTest {
     @Test
     public void shouldGetTopPlayers() throws IOException {
         when(crawler.get("lala/top/players", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopPlayers((String) null));
-    }
-
-    @Test
-    public void shouldGetTopPlayersWithLocation() throws IOException {
-        when(crawler.get("lala/top/players/EU", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getTopPlayers("EU"));
+        assertNotNull(createClient().getTopPlayers(TopPlayersRequest.builder().build()));
     }
 
     @Test
@@ -359,12 +241,6 @@ public class ClientTest {
 
     @Test
     public void shouldGetPopularClans() throws IOException {
-        when(crawler.get("lala/popular/clans", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getPopularClans());
-    }
-
-    @Test
-    public void shouldGetPopularClansFromRequest() throws IOException {
         PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
         when(crawler.get("lala/popular/clans", createHeaders(), popularClansRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getPopularClans(popularClansRequest));
@@ -372,12 +248,6 @@ public class ClientTest {
 
     @Test
     public void shouldGetPopularPlayers() throws IOException {
-        when(crawler.get("lala/popular/players", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getPopularPlayers());
-    }
-
-    @Test
-    public void shouldGetPopularPlayersFromRequest() throws IOException {
         PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
         when(crawler.get("lala/popular/players", createHeaders(), popularPlayersRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getPopularPlayers(popularPlayersRequest));
@@ -385,12 +255,6 @@ public class ClientTest {
 
     @Test
     public void shouldGetPopularTournaments() throws IOException {
-        when(crawler.get("lala/popular/tournaments", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getPopularTournaments());
-    }
-
-    @Test
-    public void shouldGetPopularTournamentsFromRequest() throws IOException {
         PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
         when(crawler.get("lala/popular/tournaments", createHeaders(), popularTournamentsRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getPopularTournaments(popularTournamentsRequest));
@@ -398,12 +262,6 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanBattles() throws IOException {
-        when(crawler.get("lala/clan/xyz/battles", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
-        assertNotNull(createClient().getClanBattles("xyz"));
-    }
-
-    @Test
-    public void shouldGetClanBattlesFromRequest() throws IOException {
         ClanBattlesRequest clanBattlesRequest = ClanBattlesRequest.builder("xyz").build();
         when(crawler.get("lala/clan/xyz/battles", createHeaders(), clanBattlesRequest.getQueryParameters())).thenReturn("[{}]");
         assertNotNull(createClient().getClanBattles(clanBattlesRequest));
@@ -411,12 +269,6 @@ public class ClientTest {
 
     @Test
     public void shouldGetClanHistory() throws IOException {
-        when(crawler.get("lala/clan/xyz/history", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
-        assertNotNull(createClient().getClanHistory("xyz"));
-    }
-
-    @Test
-    public void shouldGetClanHistoryFromRequest() throws IOException {
         ClanHistoryRequest clanHistoryRequest = ClanHistoryRequest.builder("xyz").build();
         when(crawler.get("lala/clan/xyz/history", createHeaders(), clanHistoryRequest.getQueryParameters())).thenReturn("{}");
         assertNotNull(createClient().getClanHistory(clanHistoryRequest));

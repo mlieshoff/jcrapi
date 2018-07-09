@@ -22,7 +22,6 @@ import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
-import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
@@ -52,6 +51,7 @@ import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
+import jcrapi.request.ClansRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.JoinableTournamentsRequest;
@@ -70,7 +70,6 @@ import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
-import org.apache.commons.collections.CollectionUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -120,11 +119,6 @@ public class Api {
         return clientFactory.createClient(url, developerKey, authMode);
     }
 
-    @Deprecated
-    public Profile getProfile(String tag) {
-        return getProfile(ProfileRequest.builder(tag).build());
-    }
-
     public Profile getProfile(ProfileRequest profileRequest) {
         Preconditions.checkNotNull(profileRequest, "profileRequest");
         try {
@@ -134,29 +128,10 @@ public class Api {
         }
     }
 
-    @Deprecated
-    public List<Profile> getProfiles(List<String> tags) {
-        return getProfiles(ProfilesRequest.builder(tags).build());
-    }
-
     public List<Profile> getProfiles(ProfilesRequest profilesRequest) {
         Preconditions.checkNotNull(profilesRequest, "profilesRequest");
         try {
             return createClient().getProfiles(profilesRequest);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
-    public List<TopClan> getTopClans() {
-        return getTopClans(TopClansRequest.builder().build());
-    }
-
-    @Deprecated
-    public List<TopClan> getTopClans(String locationKey) {
-        try {
-            return createClient().getTopClans(TopClansRequest.builder().locationKey(locationKey).build()
-            );
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -170,11 +145,6 @@ public class Api {
         }
     }
 
-    @Deprecated
-    public Clan getClan(String tag) {
-        return getClan(ClanRequest.builder(tag).build());
-    }
-
     public Clan getClan(ClanRequest clanRequest) {
         Preconditions.checkNotNull(clanRequest);
         try {
@@ -184,19 +154,10 @@ public class Api {
         }
     }
 
-    public List<Clan> getClans(List<String> tags) {
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
+    public List<Clan> getClans(ClansRequest clansRequest) {
+        Preconditions.checkNotNull(clansRequest);
         try {
-            return createClient().getClans(tags);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
-    @Deprecated
-    public List<Clan> getClanSearch(ClanSearch clanSearch) {
-        try {
-            return createClient().getClanSearch(clanSearch);
+            return createClient().getClans(clansRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
@@ -210,30 +171,12 @@ public class Api {
         }
     }
 
-    public List<TopPlayer> getTopPlayers() {
-        return getTopPlayers(TopPlayersRequest.builder().build());
-    }
-
-    @Deprecated
-    public List<TopPlayer> getTopPlayers(String locationKey) {
-        try {
-            return createClient().getTopPlayers(TopPlayersRequest.builder().locationKey(locationKey).build());
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
     public List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) {
         try {
             return createClient().getTopPlayers(topPlayersRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
-    }
-
-    @Deprecated
-    public Tournament getTournaments(String tag) {
-        return getTournaments(TournamentsRequest.builder(tag).build());
     }
 
     public Tournament getTournaments(TournamentsRequest tournamentsRequest) {
@@ -253,22 +196,12 @@ public class Api {
         }
     }
 
-    @Deprecated
-    public List<PopularClan> getPopularClans() {
-        return getPopularClans(PopularClansRequest.builder().build());
-    }
-
     public List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) {
         try {
             return createClient().getPopularClans(popularClansRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
-    }
-
-    @Deprecated
-    public List<PopularPlayer> getPopularPlayers() {
-        return getPopularPlayers(PopularPlayersRequest.builder().build());
     }
 
     public List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) {
@@ -279,11 +212,6 @@ public class Api {
         }
     }
 
-    @Deprecated
-    public List<PopularTournament> getPopularTournaments() {
-        return getPopularTournaments(PopularTournamentsRequest.builder().build());
-    }
-
     public List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest) {
         try {
             return createClient().getPopularTournaments(popularTournamentsRequest);
@@ -292,22 +220,12 @@ public class Api {
         }
     }
 
-    @Deprecated
-    public List<Battle> getClanBattles(String tag) {
-        return getClanBattles(ClanBattlesRequest.builder(tag).build());
-    }
-
     public List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) {
         try {
             return createClient().getClanBattles(clanBattlesRequest);
         } catch (IOException e) {
             throw new ApiException(e);
         }
-    }
-
-    @Deprecated
-    public ClanHistory getClanHistory(String tag) {
-        return getClanHistory(ClanHistoryRequest.builder(tag).build());
     }
 
     public ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) {

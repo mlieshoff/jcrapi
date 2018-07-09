@@ -21,7 +21,6 @@ import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
-import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
@@ -41,7 +40,6 @@ import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
-import jcrapi.model.Tournament;
 import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
@@ -51,6 +49,7 @@ import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
+import jcrapi.request.ClansRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.JoinableTournamentsRequest;
@@ -76,9 +75,9 @@ import org.junit.Test;
 import org.mockito.ArgumentMatcher;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.mock;
@@ -143,49 +142,12 @@ public class ApiTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void failGetProfileBecauseNullTag() throws Exception {
-        api.getProfile((String) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetProfileBecauseEmptyTag() throws Exception {
-        api.getProfile("");
+    public void failGetProfileBecauseNullRequest() throws Exception {
+        api.getProfile(null);
     }
 
     @Test
     public void shouldGetProfile() throws Exception {
-        Profile profile = new Profile();
-        when(client.getProfile(argThat(getProfileArgumentMatcher()))).thenReturn(profile);
-        assertEquals(profile, api.getProfile("abc"));
-    }
-
-    private Matcher<ProfileRequest> getProfileArgumentMatcher() {
-        return new ArgumentMatcher<ProfileRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof ProfileRequest && ((ProfileRequest) o).getTag().equals("abc");
-            }
-        };
-    }
-
-    @Test
-    public void failGetProfile() throws Exception {
-        when(client.getProfile(argThat(getProfileArgumentMatcher()))).thenThrow(crawlerException);
-        try {
-            api.getProfile("abc");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetProfileBecauseNullRequest() throws Exception {
-        api.getProfile((ProfileRequest) null);
-    }
-
-    @Test
-    public void shouldGetProfileFromRequest() throws Exception {
         Profile profile = new Profile();
         ProfileRequest profileRequest = ProfileRequest.builder("abc").build();
         when(client.getProfile(profileRequest)).thenReturn(profile);
@@ -193,7 +155,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetProfileFromRequest() throws Exception {
+    public void failGetProfile() throws Exception {
         ProfileRequest profileRequest = ProfileRequest.builder("abc").build();
         when(client.getProfile(profileRequest)).thenThrow(crawlerException);
         try {
@@ -204,69 +166,28 @@ public class ApiTest {
         }
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetProfilesBecauseNullTags() throws Exception {
-        api.getProfiles((List<String>) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetProfilesBecauseEmptyTags() throws Exception {
-        api.getProfiles(new ArrayList<String>());
-    }
-
-    @Test
-    public void shouldGetProfiles() throws Exception {
-        List<Profile> profiles = new ArrayList<>();
-        List<String> tags = createTags();
-        when(client.getProfiles(tags)).thenReturn(profiles);
-        assertEquals(profiles, api.getProfiles(tags));
-    }
-
     private List<String> createTags() {
         List<String> tags = new ArrayList<>();
         tags.add("abc");
         return tags;
     }
 
-    @Test
-    public void failGetProfiles() throws Exception {
-        List<String> tags = createTags();
-        when(client.getProfiles(argThat(getProfilesArgumentMatcher(tags)))).thenThrow(crawlerException);
-        try {
-            api.getProfiles(tags);
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    private ArgumentMatcher<ProfilesRequest> getProfilesArgumentMatcher(final List<String> tags) {
-        return new ArgumentMatcher<ProfilesRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof ProfilesRequest && ((ProfilesRequest) o).getTags().equals(tags);
-            }
-        };
-    }
-
     @Test(expected = NullPointerException.class)
     public void failGetProfilesBecauseNullRequest() throws Exception {
-        api.getProfiles((ProfilesRequest) null);
+        api.getProfiles(null);
     }
 
     @Test
-    public void shouldGetProfilesFromRequest() throws Exception {
+    public void shouldGetProfiles() throws Exception {
         List<Profile> profiles = new ArrayList<>();
-        ProfilesRequest profilesRequest = ProfilesRequest.builder(Arrays.asList("abc"))
-                .build();
+        ProfilesRequest profilesRequest = ProfilesRequest.builder(asList("abc")).build();
         when(client.getProfiles(profilesRequest)).thenReturn(profiles);
         assertEquals(profiles, api.getProfiles(profilesRequest));
     }
 
     @Test
-    public void failGetProfilesFromRequest() throws Exception {
-        ProfilesRequest profilesRequest = ProfilesRequest.builder(Arrays.asList("abc"))
-                .build();
+    public void failGetProfiles() throws Exception {
+        ProfilesRequest profilesRequest = ProfilesRequest.builder(asList("abc")).build();
         when(client.getProfiles(profilesRequest)).thenThrow(crawlerException);
         try {
             api.getProfiles(profilesRequest);
@@ -277,71 +198,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetTopClans() throws Exception {
-        List<TopClan> topClans = new ArrayList<>();
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenReturn(topClans);
-        assertSame(topClans, api.getTopClans());
-    }
-
-    private ArgumentMatcher<TopClansRequest> getTopClansArgumentMatcher(final String locationKey) {
-        return new ArgumentMatcher<TopClansRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof TopClansRequest
-                        && ObjectUtils.equals(((TopClansRequest) o).getLocationKey(), locationKey);
-            }
-        };
-    }
-
-    @Test
-    public void failGetTopClans() throws Exception {
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenThrow(crawlerException);
-        try {
-            api.getTopClans();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
     public void shouldGetTopClansWithLocation() throws Exception {
-        List<TopClan> topClans = new ArrayList<>();
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher("EU")))).thenReturn(topClans);
-        assertSame(topClans, api.getTopClans("EU"));
-    }
-
-    @Test
-    public void failGetTopClansWithLocation() throws Exception {
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher("EU")))).thenThrow(crawlerException);
-        try {
-            api.getTopClans("EU");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetTopClansFromRequest() throws Exception {
-        List<TopClan> topClans = new ArrayList<>();
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenReturn(topClans);
-        assertSame(topClans, api.getTopClans());
-    }
-
-    @Test
-    public void failGetTopClansFromRequest() throws Exception {
-        when(client.getTopClans(argThat(getTopClansArgumentMatcher(null)))).thenThrow(crawlerException);
-        try {
-            api.getTopClans();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetTopClansWithLocationFromRequest() throws Exception {
         TopClansRequest topClansRequest = TopClansRequest.builder()
                 .locationKey("EU")
                 .build();
@@ -351,7 +208,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetTopClansWithLocationFromRequest() throws Exception {
+    public void failGetTopClansWithLocation() throws Exception {
         TopClansRequest topClansRequest = TopClansRequest.builder()
                 .locationKey("EU")
                 .build();
@@ -365,49 +222,12 @@ public class ApiTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void failGetClanBecauseNullTag() throws Exception {
-        api.getClan((String) null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetClanBecauseEmptyTag() throws Exception {
-        api.getClan("");
+    public void failGetClanBecauseNullRequest() throws Exception {
+        api.getClan(null);
     }
 
     @Test
     public void shouldGetClan() throws Exception {
-        Clan clan = new Clan();
-        when(client.getClan(argThat(getClanArgumentMatcher("abc")))).thenReturn(clan);
-        assertEquals(clan, api.getClan("abc"));
-    }
-
-    private ArgumentMatcher<ClanRequest> getClanArgumentMatcher(final String tag) {
-        return new ArgumentMatcher<ClanRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof ClanRequest && ((ClanRequest) o).getTag().equals(tag);
-            }
-        };
-    }
-
-    @Test
-    public void failGetClan() throws Exception {
-        when(client.getClan(argThat(getClanArgumentMatcher("abc")))).thenThrow(crawlerException);
-        try {
-            api.getClan("abc");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetClanBecauseNullRequest() throws Exception {
-        api.getClan((ClanRequest) null);
-    }
-
-    @Test
-    public void shouldGetClanFromRequest() throws Exception {
         Clan clan = new Clan();
         ClanRequest clanRequest = ClanRequest.builder("abc").build();
         when(client.getClan(clanRequest)).thenReturn(clan);
@@ -415,7 +235,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanFromRequest() throws Exception {
+    public void failGetClan() throws Exception {
         ClanRequest clanRequest = ClanRequest.builder("abc").build();
         when(client.getClan(clanRequest)).thenThrow(crawlerException);
         try {
@@ -426,30 +246,20 @@ public class ApiTest {
         }
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetClansBecauseNullTags() throws Exception {
-        api.getClans(null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetClansBecauseEmptyTags() throws Exception {
-        api.getClans(new ArrayList<String>());
-    }
-
     @Test
     public void shouldGetClans() throws Exception {
         List<Clan> clans = new ArrayList<>();
-        List<String> tags = createTags();
-        when(client.getClans(tags)).thenReturn(clans);
-        assertEquals(clans, api.getClans(tags));
+        ClansRequest clansRequest = ClansRequest.builder(asList("abc", "xyz")).build();
+        when(client.getClans(clansRequest)).thenReturn(clans);
+        assertEquals(clans, api.getClans(clansRequest));
     }
 
     @Test
     public void failGetClans() throws Exception {
-        List<String> tags = createTags();
-        when(client.getClans(tags)).thenThrow(crawlerException);
+        ClansRequest clansRequest = ClansRequest.builder(asList("abc", "xyz")).build();
+        when(client.getClans(clansRequest)).thenThrow(crawlerException);
         try {
-            api.getClans(tags);
+            api.getClans(clansRequest);
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
@@ -457,33 +267,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetClanSearchWithParams() throws Exception {
-        List<Clan> clans = new ArrayList<>();
-        ClanSearch clanSearch = createClanSearch();
-        when(client.getClanSearch(clanSearch)).thenReturn(clans);
-        assertEquals(clans, api.getClanSearch(clanSearch));
-    }
-
-    private ClanSearch createClanSearch() {
-        ClanSearch clanSearch = new ClanSearch();
-        clanSearch.setScore(50);
-        return clanSearch;
-    }
-
-    @Test
-    public void failGetClanSearchWithParams() throws Exception {
-        ClanSearch clanSearch = createClanSearch();
-        when(client.getClanSearch(clanSearch)).thenThrow(crawlerException);
-        try {
-            api.getClanSearch(clanSearch);
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetClanSearchFromRequest() throws Exception {
+    public void shouldGetClanSearch() throws Exception {
         List<Clan> clans = new ArrayList<>();
         ClanSearchRequest clanSearchRequest = createClanSearchRequest();
         when(client.getClanSearch(clanSearchRequest)).thenReturn(clans);
@@ -495,7 +279,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanSearchFromRequest() throws Exception {
+    public void failGetClanSearch() throws Exception {
         when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getClanSearch(createClanSearchRequest());
@@ -515,14 +299,14 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetClanSearchWithParamsFromRequest() throws Exception {
+    public void shouldGetClanSearchWithParams() throws Exception {
         List<Clan> clans = new ArrayList<>();
         when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenReturn(clans);
         assertEquals(clans, api.getClanSearch(createClanSearchRequest()));
     }
 
     @Test
-    public void failGetClanSearchWithParamsFromRequest() throws Exception {
+    public void failGetClanSearchWithParams() throws Exception {
         when(client.getClanSearch(argThat(getClanSearchArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getClanSearch(createClanSearchRequest());
@@ -533,46 +317,10 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetTopPlayers() throws Exception {
-        List<TopPlayer> topPlayers = new ArrayList<>();
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenReturn(topPlayers);
-        assertSame(topPlayers, api.getTopPlayers());
-    }
-
-    @Test
-    public void failGetTopPlayers() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenThrow(crawlerException);
-        try {
-            api.getTopPlayers();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetTopPlayersWithLocation() throws Exception {
-        List<TopPlayer> topPlayers = new ArrayList<>();
-        when(client.getTopPlayers("EU")).thenReturn(topPlayers);
-        assertEquals(topPlayers, api.getTopPlayers("EU"));
-    }
-
-    @Test
-    public void failGetTopPlayersWithLocation() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenThrow(crawlerException);
-        try {
-            api.getTopPlayers("EU");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
     public void shouldGetTopPlayersWithRequest() throws Exception {
         List<TopPlayer> topPlayers = new ArrayList<>();
         when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenReturn(topPlayers);
-        assertSame(topPlayers, api.getTopPlayers());
+        assertSame(topPlayers, api.getTopPlayers(TopPlayersRequest.builder().build()));
     }
 
     private Matcher<TopPlayersRequest> getTopPlayersRequestArgumentMatcher(final String locationKey) {
@@ -588,64 +336,11 @@ public class ApiTest {
     public void failGetTopPlayersWithRequest() throws Exception {
         when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher(null)))).thenThrow(crawlerException);
         try {
-            api.getTopPlayers();
+            api.getTopPlayers(TopPlayersRequest.builder().build());
             fail();
         } catch(ApiException e) {
             assertEquals(400, e.getCode());
         }
-    }
-
-    @Test
-    public void shouldGetTopPlayersWithLocationWithRequest() throws Exception {
-        List<TopPlayer> topPlayers = new ArrayList<>();
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenReturn(topPlayers);
-        assertEquals(topPlayers, api.getTopPlayers("EU"));
-    }
-
-    @Test
-    public void failGetTopPlayersWithLocationWithRequest() throws Exception {
-        when(client.getTopPlayers(argThat(getTopPlayersRequestArgumentMatcher("EU")))).thenThrow(crawlerException);
-        try {
-            api.getTopPlayers("EU");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetTournaments() throws Exception {
-        Tournament tournament = new Tournament();
-        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenReturn(tournament);
-        assertSame(tournament, api.getTournaments("abc"));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void failGetTournamentsBecauseEmptyTag() throws Exception {
-        api.getTournaments("");
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failGetTournamentsBecauseNullTag() throws Exception {
-        api.getTournaments((TournamentsRequest) null);
-    }
-
-    @Test
-    public void failGetTournaments() throws Exception {
-        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
-        try {
-            api.getTournaments("abc");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetTournamentsFromRequest() throws Exception {
-        Tournament tournament = new Tournament();
-        when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenReturn(tournament);
-        assertSame(tournament, api.getTournaments("abc"));
     }
 
     private Matcher<TournamentsRequest> getTournamentsRequestArgumentMatcher(final String locationKey) {
@@ -658,12 +353,12 @@ public class ApiTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void failGetTournamentsBecauseNullTagFromRequest() throws Exception {
-        api.getTournaments((TournamentsRequest) null);
+    public void failGetTournamentsBecauseNullTag() throws Exception {
+        api.getTournaments(null);
     }
 
     @Test
-    public void failGetTournamentsFromRequest() throws Exception {
+    public void failGetTournaments() throws Exception {
         when(client.getTournaments(argThat(getTournamentsRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getTournaments(TournamentsRequest.builder("abc").build());
@@ -693,33 +388,6 @@ public class ApiTest {
 
     @Test
     public void shouldGetPopularClans() throws Exception {
-        List<PopularClan> popularClans = new ArrayList<>();
-        when(client.getPopularClans(argThat(getPopularClansRequestMatcher()))).thenReturn(popularClans);
-        assertSame(popularClans, api.getPopularClans());
-    }
-
-    private Matcher<PopularClansRequest> getPopularClansRequestMatcher() {
-        return new ArgumentMatcher<PopularClansRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof PopularClansRequest;
-            }
-        };
-    }
-
-    @Test
-    public void failGetPopularClans() throws Exception {
-        when(client.getPopularClans(argThat(getPopularClansRequestMatcher()))).thenThrow(crawlerException);
-        try {
-            api.getPopularClans();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetPopularClansFromRequest() throws Exception {
         PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
         List<PopularClan> popularClans = new ArrayList<>();
         when(client.getPopularClans(popularClansRequest)).thenReturn(popularClans);
@@ -727,7 +395,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetPopularClansFromRequest() throws Exception {
+    public void failGetPopularClans() throws Exception {
         PopularClansRequest popularClansRequest = PopularClansRequest.builder().build();
         when(client.getPopularClans(popularClansRequest)).thenThrow(crawlerException);
         try {
@@ -740,33 +408,6 @@ public class ApiTest {
 
     @Test
     public void shouldGetPopularPlayers() throws Exception {
-        List<PopularPlayer> popularPlayers = new ArrayList<>();
-        when(client.getPopularPlayers(argThat(getPopularPlayersRequestMatcher()))).thenReturn(popularPlayers);
-        assertSame(popularPlayers, api.getPopularPlayers());
-    }
-
-    private Matcher<PopularPlayersRequest> getPopularPlayersRequestMatcher() {
-        return new ArgumentMatcher<PopularPlayersRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof PopularPlayersRequest;
-            }
-        };
-    }
-
-    @Test
-    public void failGetPopularPlayers() throws Exception {
-        when(client.getPopularPlayers(argThat(getPopularPlayersRequestMatcher()))).thenThrow(crawlerException);
-        try {
-            api.getPopularPlayers();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetPopularPlayersFromRequest() throws Exception {
         PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
         List<PopularPlayer> popularPlayers = new ArrayList<>();
         when(client.getPopularPlayers(popularPlayersRequest)).thenReturn(popularPlayers);
@@ -774,7 +415,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetPopularPlayersFromRequest() throws Exception {
+    public void failGetPopularPlayers() throws Exception {
         PopularPlayersRequest popularPlayersRequest = PopularPlayersRequest.builder().build();
         when(client.getPopularPlayers(popularPlayersRequest)).thenThrow(crawlerException);
         try {
@@ -787,33 +428,6 @@ public class ApiTest {
 
     @Test
     public void shouldGetPopularTournaments() throws Exception {
-        List<PopularTournament> popularTournaments = new ArrayList<>();
-        when(client.getPopularTournaments(argThat(getPopularTournamentsRequestMatcher()))).thenReturn(popularTournaments);
-        assertSame(popularTournaments, api.getPopularTournaments());
-    }
-
-    private Matcher<PopularTournamentsRequest> getPopularTournamentsRequestMatcher() {
-        return new ArgumentMatcher<PopularTournamentsRequest>() {
-            @Override
-            public boolean matches(Object o) {
-                return o instanceof PopularTournamentsRequest;
-            }
-        };
-    }
-
-    @Test
-    public void failGetPopularTournaments() throws Exception {
-        when(client.getPopularTournaments(argThat(getPopularTournamentsRequestMatcher()))).thenThrow(crawlerException);
-        try {
-            api.getPopularTournaments();
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetPopularTournamentsFromRequest() throws Exception {
         PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
         List<PopularTournament> popularTournaments = new ArrayList<>();
         when(client.getPopularTournaments(popularTournamentsRequest)).thenReturn(popularTournaments);
@@ -821,7 +435,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetPopularTournamentsFromRequest() throws Exception {
+    public void failGetPopularTournaments() throws Exception {
         PopularTournamentsRequest popularTournamentsRequest = PopularTournamentsRequest.builder().build();
         when(client.getPopularTournaments(popularTournamentsRequest)).thenThrow(crawlerException);
         try {
@@ -834,24 +448,6 @@ public class ApiTest {
 
     @Test
     public void shouldGetClanBattles() throws Exception {
-        List<Battle> battles = new ArrayList<>();
-        when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenReturn(battles);
-        assertSame(battles, api.getClanBattles("abc"));
-    }
-
-    @Test
-    public void failGetClanBattles() throws Exception {
-        when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
-        try {
-            api.getClanBattles("abc");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetClanBattlesFromRequest() throws Exception {
         List<Battle> battles = new ArrayList<>();
         when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenReturn(battles);
         assertSame(battles, api.getClanBattles(ClanBattlesRequest.builder("abc").build()));
@@ -867,7 +463,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanBattlesFromRequest() throws Exception {
+    public void failGetClanBattles() throws Exception {
         when(client.getClanBattles(argThat(getClanBattlesRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanBattles(ClanBattlesRequest.builder("abc").build());
@@ -879,24 +475,6 @@ public class ApiTest {
 
     @Test
     public void shouldGetClanHistory() throws Exception {
-        ClanHistory clanHistory = new ClanHistory();
-        when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenReturn(clanHistory);
-        assertSame(clanHistory, api.getClanHistory("abc"));
-    }
-
-    @Test
-    public void failGetClanHistory() throws Exception {
-        when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
-        try {
-            api.getClanHistory("abc");
-            fail();
-        } catch(ApiException e) {
-            assertEquals(400, e.getCode());
-        }
-    }
-
-    @Test
-    public void shouldGetClanHistoryFromRequest() throws Exception {
         ClanHistory clanHistory = new ClanHistory();
         when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenReturn(clanHistory);
         assertSame(clanHistory, api.getClanHistory(ClanHistoryRequest.builder("abc").build()));
@@ -912,7 +490,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanHistoryFromRequest() throws Exception {
+    public void failGetClanHistory() throws Exception {
         when(client.getClanHistory(argThat(getClanHistoryRequestArgumentMatcher("abc")))).thenThrow(crawlerException);
         try {
             api.getClanHistory(ClanHistoryRequest.builder("abc").build());
@@ -950,7 +528,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetOpenTournamentsFromRequest() throws Exception {
+    public void shouldGetOpenTournaments() throws Exception {
         List<OpenTournament> openTournaments = new ArrayList<>();
         when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenReturn(openTournaments);
         assertSame(openTournaments, api.getOpenTournaments(OpenTournamentsRequest.builder().build()));
@@ -966,7 +544,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetOpenTournamentsFromRequest() throws Exception {
+    public void failGetOpenTournaments() throws Exception {
         when(client.getOpenTournaments(argThat(getOpenTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getOpenTournaments(OpenTournamentsRequest.builder().build());
@@ -977,7 +555,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetKnownTournamentsFromRequest() throws Exception {
+    public void shouldGetKnownTournaments() throws Exception {
         List<KnownTournament> KnownTournaments = new ArrayList<>();
         when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenReturn(KnownTournaments);
         assertSame(KnownTournaments, api.getKnownTournaments(KnownTournamentsRequest.builder().build()));
@@ -993,7 +571,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetKnownTournamentsFromRequest() throws Exception {
+    public void failGetKnownTournaments() throws Exception {
         when(client.getKnownTournaments(argThat(getKnownTournamentsRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getKnownTournaments(KnownTournamentsRequest.builder().build());
@@ -1004,7 +582,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetTournamentSearchFromRequest() throws Exception {
+    public void shouldGetTournamentSearch() throws Exception {
         List<SearchedTournament> searchedTournaments = new ArrayList<>();
         when(client.getTournamentSearch(argThat(getTournamentSearchRequestArgumentMatcher()))).thenReturn(searchedTournaments);
         assertSame(searchedTournaments, api.getTournamentSearch(TournamentSearchRequest.builder("abc").build()));
@@ -1020,7 +598,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetTournamentSearchFromRequest() throws Exception {
+    public void failGetTournamentSearch() throws Exception {
         when(client.getTournamentSearch(argThat(getTournamentSearchRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getTournamentSearch(TournamentSearchRequest.builder("abc").build());
@@ -1031,7 +609,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetPlayerBattlesFromRequest() throws Exception {
+    public void shouldGetPlayerBattles() throws Exception {
         List<String> tags = createTags();
         List<List<Battle>> playerBattles = new ArrayList<>();
         when(client.getPlayerBattles(argThat(getPlayerBattlesRequestArgumentMatcher(tags)))).thenReturn(playerBattles);
@@ -1048,7 +626,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetPlayerBattlesFromRequest() throws Exception {
+    public void failGetPlayerBattles() throws Exception {
         List<String> tags = createTags();
         when(client.getPlayerBattles(argThat(getPlayerBattlesRequestArgumentMatcher(tags)))).thenThrow(
                 crawlerException);
@@ -1061,7 +639,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetPlayerChestsFromRequest() throws Exception {
+    public void shouldGetPlayerChests() throws Exception {
         List<String> tags = createTags();
         List<ChestCycle> chestCycles = new ArrayList<>();
         when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenReturn(chestCycles);
@@ -1078,7 +656,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetPlayerChestsFromRequest() throws Exception {
+    public void failGetPlayerChests() throws Exception {
         List<String> tags = createTags();
         when(client.getPlayerChests(argThat(getPlayerChestsRequestArgumentMatcher(tags)))).thenThrow(
                 crawlerException);
@@ -1091,7 +669,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetPopularDecksFromRequest() throws Exception {
+    public void shouldGetPopularDecks() throws Exception {
         List<PopularDeck> popularDecks = new ArrayList<>();
         when(client.getPopularDecks(argThat(getPopularDecksRequestArgumentMatcher()))).thenReturn(popularDecks);
         assertSame(popularDecks, api.getPopularDecks(PopularDecksRequest.builder().build()));
@@ -1107,7 +685,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetPopularDecksFromRequest() throws Exception {
+    public void failGetPopularDecks() throws Exception {
         when(client.getPopularDecks(argThat(getPopularDecksRequestArgumentMatcher()))).thenThrow(
                 crawlerException);
         try {
@@ -1119,7 +697,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetClanTrackingFromRequest() throws Exception {
+    public void shouldGetClanTracking() throws Exception {
         ClanTracking clanTracking = new ClanTracking();
         when(client.getClanTracking(argThat(getClanTrackingRequestArgumentMatcher()))).thenReturn(clanTracking);
         assertSame(clanTracking, api.getClanTracking(ClanTrackingRequest.builder("abc").build()));
@@ -1135,7 +713,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanTrackingFromRequest() throws Exception {
+    public void failGetClanTracking() throws Exception {
         when(client.getClanTracking(argThat(getClanTrackingRequestArgumentMatcher()))).thenThrow(
                 crawlerException);
         try {
@@ -1147,7 +725,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetClanWarLogFromRequest() throws Exception {
+    public void shouldGetClanWarLog() throws Exception {
         List<ClanWarLog> clanWarLogs = new ArrayList<>();
         when(client.getClanWarLog(argThat(getClanWarLogRequestArgumentMatcher()))).thenReturn(clanWarLogs);
         assertSame(clanWarLogs, api.getClanWarLog(ClanWarLogRequest.builder("abc").build()));
@@ -1163,7 +741,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanWarLogFromRequest() throws Exception {
+    public void failGetClanWarLog() throws Exception {
         when(client.getClanWarLog(argThat(getClanWarLogRequestArgumentMatcher()))).thenThrow(
                 crawlerException);
         try {
@@ -1175,7 +753,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetClanWarFromRequest() throws Exception {
+    public void shouldGetClanWar() throws Exception {
         ClanWar clanWar = new ClanWar();
         when(client.getClanWar(argThat(getClanWarRequestArgumentMatcher()))).thenReturn(clanWar);
         assertSame(clanWar, api.getClanWar(ClanWarRequest.builder("abc").build()));
@@ -1191,7 +769,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetClanWarFromRequest() throws Exception {
+    public void failGetClanWar() throws Exception {
         when(client.getClanWar(argThat(getClanWarRequestArgumentMatcher()))).thenThrow(crawlerException);
         try {
             api.getClanWar(ClanWarRequest.builder("abc").build());
@@ -1202,7 +780,7 @@ public class ApiTest {
     }
 
     @Test
-    public void shouldGetAuthStatsFromRequest() throws Exception {
+    public void shouldGetAuthStats() throws Exception {
         AuthStats authStats = new AuthStats();
         when(client.getAuthStats(argThat(getAuthStatsRequestArgumentMatcher()))).thenReturn(authStats);
         assertSame(authStats, api.getAuthStats(AuthStatsRequest.builder().build()));
@@ -1218,7 +796,7 @@ public class ApiTest {
     }
 
     @Test
-    public void failGetAuthStatsFromRequest() throws Exception {
+    public void failGetAuthStats() throws Exception {
         when(client.getAuthStats(argThat(getAuthStatsRequestArgumentMatcher()))).thenThrow(
                 crawlerException);
         try {

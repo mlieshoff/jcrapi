@@ -25,7 +25,6 @@ import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
-import jcrapi.model.ClanSearch;
 import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
@@ -179,20 +178,10 @@ class Client {
         return url + part;
     }
 
-    @Deprecated
-    Profile getProfile(String tag) throws IOException {
-        return getProfile(ProfileRequest.builder(tag).build());
-    }
-
     Profile getProfile(ProfileRequest profileRequest) throws IOException {
         Preconditions.checkNotNull(profileRequest, "profileRequest");
         String json = get(createUrl("player/" + profileRequest.getTag()), profileRequest);
         return new Gson().fromJson(json, Profile.class);
-    }
-
-    @Deprecated
-    List<Profile> getProfiles(List<String> tags) throws IOException {
-        return getProfiles(ProfilesRequest.builder(tags).build());
     }
 
     List<Profile> getProfiles(ProfilesRequest profilesRequest) throws IOException {
@@ -200,11 +189,6 @@ class Client {
         String json = get(createUrl("player/" + StringUtils.join(profilesRequest.getTags(), ",")), profilesRequest);
         Type listType = new TypeToken<ArrayList<Profile>>(){}.getType();
         return new Gson().fromJson(json, listType);
-    }
-
-    @Deprecated
-    List<TopClan> getTopClans(String locationKey) throws IOException {
-        return getTopClans(TopClansRequest.builder().locationKey(locationKey).build());
     }
 
     List<TopClan> getTopClans(TopClansRequest topClansRequest) throws IOException {
@@ -218,20 +202,10 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    @Deprecated
-    Clan getClan(String tag) throws IOException {
-        return getClan(ClanRequest.builder(tag).build());
-    }
-
     Clan getClan(ClanRequest clanRequest) throws IOException {
         Preconditions.checkNotNull(clanRequest);
         String json = get(createUrl("clan/" + clanRequest.getTag()), clanRequest);
         return new Gson().fromJson(json, Clan.class);
-    }
-
-    @Deprecated
-    List<Clan> getClans(List<String> tags) throws IOException {
-        return getClans(ClansRequest.builder(tags).build());
     }
 
     List<Clan> getClans(ClansRequest clansRequest) throws IOException {
@@ -241,34 +215,10 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    @Deprecated
-    List<Clan> getClanSearch(ClanSearch clanSearch) throws IOException {
-        Preconditions.checkNotNull(clanSearch);
-        ClanSearchRequest.ClanSearchRequestBuilder builder = ClanSearchRequest.builder();
-        if (StringUtils.isNotBlank(clanSearch.getName())) {
-            builder.name(clanSearch.getName());
-        }
-        if (clanSearch.getScore() != null) {
-            builder.score(clanSearch.getScore());
-        }
-        if (clanSearch.getMinMembers() != null) {
-            builder.minMembers(clanSearch.getMinMembers());
-        }
-        if (clanSearch.getMaxMembers() != null) {
-            builder.maxMembers(clanSearch.getMaxMembers());
-        }
-        return getClanSearch(builder.build());
-    }
-
     List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) throws IOException {
         String json = get(createUrl("clan/search"), clanSearchRequest);
         Type listType = new TypeToken<ArrayList<Clan>>(){}.getType();
         return new Gson().fromJson(json, listType);
-    }
-
-    @Deprecated
-    List<TopPlayer> getTopPlayers(String locationKey) throws IOException {
-        return getTopPlayers(TopPlayersRequest.builder().locationKey(locationKey).build());
     }
 
     List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) throws IOException {
@@ -296,20 +246,10 @@ class Client {
         return new Gson().fromJson(json, Endpoints.class);
     }
 
-    @Deprecated
-    List<PopularClan> getPopularClans() throws IOException {
-        return getPopularClans(PopularClansRequest.builder().build());
-    }
-
     List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) throws IOException {
         String json = get(createUrl("popular/clans"), popularClansRequest);
         Type listType = new TypeToken<ArrayList<PopularClan>>(){}.getType();
         return new Gson().fromJson(json, listType);
-    }
-
-    @Deprecated
-    List<PopularPlayer> getPopularPlayers() throws IOException {
-        return getPopularPlayers(PopularPlayersRequest.builder().build());
     }
 
     List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) throws IOException {
@@ -318,31 +258,16 @@ class Client {
         return new Gson().fromJson(json, listType);
     }
 
-    @Deprecated
-    List<PopularTournament> getPopularTournaments() throws IOException {
-        return getPopularTournaments(PopularTournamentsRequest.builder().build());
-    }
-
     List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest) throws IOException {
         String json = get(createUrl("popular/tournaments"), popularTournamentsRequest);
         Type listType = new TypeToken<ArrayList<PopularTournament>>(){}.getType();
         return new Gson().fromJson(json, listType);
     }
 
-    @Deprecated
-    List<Battle> getClanBattles(String tag) throws IOException {
-        return getClanBattles(ClanBattlesRequest.builder(tag).build());
-    }
-
     List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) throws IOException {
         String json = get(createUrl("clan/" + clanBattlesRequest.getTag() + "/battles"), clanBattlesRequest);
         Type listType = new TypeToken<ArrayList<Battle>>(){}.getType();
         return new Gson().fromJson(json, listType);
-    }
-
-    @Deprecated
-    ClanHistory getClanHistory(String tag) throws IOException {
-        return getClanHistory(ClanHistoryRequest.builder(tag).build());
     }
 
     ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) throws IOException {
