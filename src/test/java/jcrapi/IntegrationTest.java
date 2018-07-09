@@ -17,7 +17,6 @@
 package jcrapi;
 
 import jcrapi.model.Clan;
-import jcrapi.model.ClanSearch;
 import jcrapi.model.Endpoints;
 import jcrapi.model.Profile;
 import jcrapi.request.ClanBattlesRequest;
@@ -118,20 +117,6 @@ public class IntegrationTest {
 
     @Test
     public void shouldGetProfileWithAuth() throws IOException {
-        doGetProfile(URL, AUTH, "8L9L9GL");
-    }
-
-    private void doGetProfile(String url, String auth, String tag) {
-        assertEquals(tag, new Api(url, auth).getProfile(tag).getTag());
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetProfileBecauseWrongAuth() throws IOException {
-        doGetProfile(URL, "abc", "8L9L9GL");
-    }
-
-    @Test
-    public void shouldGetProfileWithAuthFromRequest() throws IOException {
         doGetProfile(URL, AUTH, ProfileRequest.builder("8L9L9GL").build());
     }
 
@@ -140,12 +125,12 @@ public class IntegrationTest {
     }
 
     @Test(expected = ApiException.class)
-    public void failGetProfileBecauseWrongAuthFromRequest() throws IOException {
+    public void failGetProfileBecauseWrongAuth() throws IOException {
         doGetProfile(URL, "abc", ProfileRequest.builder("8L9L9GL").build());
     }
 
     @Test
-    public void shouldGetProfileWithAuthFromRequestWithBearer() throws IOException {
+    public void shouldGetProfileWithAuthWithBearer() throws IOException {
         doGetProfileWithBearer(URL, AUTH, ProfileRequest.builder("8L9L9GL").build());
     }
 
@@ -154,23 +139,8 @@ public class IntegrationTest {
     }
 
     @Test(expected = ApiException.class)
-    public void failGetProfileBecauseWrongAuthFromRequestWithBearer() throws IOException {
+    public void failGetProfileBecauseWrongAuthWithBearer() throws IOException {
         doGetProfileWithBearer(URL, "abc", ProfileRequest.builder("8L9L9GL").build());
-    }
-
-    @Test
-    public void shouldGetProfilesWithAuth() throws IOException {
-        doGetProfiles(URL, AUTH, createProfileTags());
-    }
-
-    private void doGetProfiles(String url, String auth, List<String> tags) {
-        List<Profile> profiles = new Api(url, auth).getProfiles(tags);
-        assertEquals(tags.size(), profiles.size());
-        for (int i = 0, n = tags.size(); i < n; i ++) {
-            Profile profile = profiles.get(i);
-            String tag = tags.get(i);
-            assertEquals(tag, profile.getTag());
-        }
     }
 
     private List<String> createProfileTags() {
@@ -181,13 +151,8 @@ public class IntegrationTest {
         return tags;
     }
 
-    @Test(expected = ApiException.class)
-    public void failGetProfilesBecauseWrongAuth() throws IOException {
-        doGetProfiles(URL, "abc", createProfileTags());
-    }
-
     @Test
-    public void shouldGetProfilesWithAuthFromRequest() throws IOException {
+    public void shouldGetProfilesWithAuth() throws IOException {
         doGetProfiles(URL, AUTH, ProfilesRequest.builder(createProfileTags()).build());
     }
 
@@ -202,65 +167,27 @@ public class IntegrationTest {
         }
     }
 
-    @Test(expected = ApiException.class)
-    public void failGetProfilesBecauseWrongAuthFromRequest() throws IOException {
-        doGetProfiles(URL, "abc", createProfileTags());
-    }
-
     @Test
     public void shouldGetTopClansWithAuth() throws IOException {
-        doGetTopClans(URL, AUTH, null);
+        doGetTopClans(URL, AUTH, TopClansRequest.builder().build());
     }
 
-    private void doGetTopClans(String url, String auth, String locationKey) {
-        assertTrue(new Api(url, auth).getTopClans(locationKey).size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetTopClansBecauseWrongAuth() throws IOException {
-        doGetTopClans(URL, "abc", null);
-    }
-
-    @Test
-    public void shouldGetTopClansWithLocation() throws IOException {
-        doGetTopClans(URL, AUTH, "EU");
-    }
-
-    @Test
-    public void shouldGetTopClansWithAuthFromRequest() throws IOException {
-        doGetTopClansFromRequest(URL, AUTH, TopClansRequest.builder().build());
-    }
-
-    private void doGetTopClansFromRequest(String url, String auth, TopClansRequest topClansRequest) {
+    private void doGetTopClans(String url, String auth, TopClansRequest topClansRequest) {
         assertTrue(new Api(url, auth).getTopClans(topClansRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetTopClansBecauseWrongAuthFromRequest() throws IOException {
-        doGetTopClansFromRequest(URL, "abc", TopClansRequest.builder().build());
+    public void failGetTopClansBecauseWrongAuth() throws IOException {
+        doGetTopClans(URL, "abc", TopClansRequest.builder().build());
     }
 
     @Test
-    public void shouldGetTopClansWithLocationFromRequest() throws IOException {
-        doGetTopClansFromRequest(URL, AUTH, TopClansRequest.builder().locationKey("EU").build());
+    public void shouldGetTopClansWithLocation() throws IOException {
+        doGetTopClans(URL, AUTH, TopClansRequest.builder().locationKey("EU").build());
     }
 
     @Test
     public void shouldGetClanWithAuth() throws IOException {
-        doGetClan(URL, AUTH, "2CCCP");
-    }
-
-    private void doGetClan(String url, String auth, String tag) {
-        assertEquals(tag, new Api(url, auth).getClan(tag).getTag());
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetClanBecauseWrongAuth() throws IOException {
-        doGetClan(URL, "abc", "2CCCP");
-    }
-
-    @Test
-    public void shouldGetClanWithAuthFromRequest() throws IOException {
         doGetClan(URL, AUTH, ClanRequest.builder("2CCCP").build());
     }
 
@@ -269,35 +196,8 @@ public class IntegrationTest {
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanBecauseWrongAuthFromRequest() throws IOException {
+    public void failGetClanBecauseWrongAuth() throws IOException {
         doGetClan(URL, "abc", ClanRequest.builder("2CCCP").build());
-    }
-
-    @Test
-    public void shouldGetClansWithAuth() throws IOException {
-        doGetClans(URL, AUTH, createClanTags());
-    }
-
-    private void doGetClans(String url, String auth, List<String> tags) {
-        List<Clan> clans = new Api(url, auth).getClans(tags);
-        assertEquals(tags.size(), clans.size());
-        for (int i = 0, n = tags.size(); i < n; i ++) {
-            Clan clan = clans.get(i);
-            String tag = tags.get(i);
-            assertEquals(tag, clan.getTag());
-        }
-    }
-
-    private List<String> createClanTags() {
-        List<String> tags = new ArrayList<>();
-        tags.add("2CCCP");
-        tags.add("2U2GGQJ");
-        return tags;
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetClansBecauseWrongAuth() throws IOException {
-        doGetClans(URL, "abc", createClanTags());
     }
 
     @Test
@@ -306,9 +206,7 @@ public class IntegrationTest {
     }
 
     private void doGetClanSearch(String url, String auth) {
-        ClanSearch clanSearch = new ClanSearch();
-        clanSearch.setScore(50);
-        List<Clan> clans = new Api(url, auth).getClanSearch(clanSearch);
+        List<Clan> clans = new Api(url, auth).getClanSearch(ClanSearchRequest.builder().score(50).build());
         assertTrue(clans.size() > 0);
     }
 
@@ -318,84 +216,36 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetClanSearchWithAuthFromRequest() throws IOException {
-        doGetClanSearchFromRequest(URL, AUTH);
-    }
-
-    private void doGetClanSearchFromRequest(String url, String auth) {
-        List<Clan> clans = new Api(url, auth).getClanSearch(ClanSearchRequest.builder().score(50).build());
-        assertTrue(clans.size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetClanSearchBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanSearchFromRequest(URL, "abc");
-    }
-
-    @Test
     public void shouldGetTopPlayersWithAuth() throws IOException {
-        doGetTopPlayers(URL, AUTH, null);
+        doGetTopPlayers(URL, AUTH, TopPlayersRequest.builder().build());
     }
 
-    private void doGetTopPlayers(String url, String auth, String locationKey) {
-        assertTrue(new Api(url, auth).getTopPlayers(locationKey).size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetTopPlayersBecauseWrongAuth() throws IOException {
-        doGetTopPlayers(URL, "abc", null);
-    }
-
-    @Test
-    public void shouldGetTopPlayersWithLocation() throws IOException {
-        doGetTopPlayers(URL, AUTH, "EU");
-    }
-
-    @Test
-    public void shouldGetTopPlayersWithAuthFromRequest() throws IOException {
-        doGetTopPlayersFromRequest(URL, AUTH, TopPlayersRequest.builder().build());
-    }
-
-    private void doGetTopPlayersFromRequest(String url, String auth, TopPlayersRequest topPlayersRequest) {
+    private void doGetTopPlayers(String url, String auth, TopPlayersRequest topPlayersRequest) {
         assertTrue(new Api(url, auth).getTopPlayers(topPlayersRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetTopPlayersBecauseWrongAuthFromRequest() throws IOException {
-        doGetTopPlayersFromRequest(URL, "abc", TopPlayersRequest.builder().build());
+    public void failGetTopPlayersBecauseWrongAuth() throws IOException {
+        doGetTopPlayers(URL, "abc", TopPlayersRequest.builder().build());
     }
 
     @Test
-    public void shouldGetTopPlayersWithLocationFromRequest() throws IOException {
-        doGetTopPlayersFromRequest(URL, AUTH, TopPlayersRequest.builder().locationKey("EU").build());
+    public void shouldGetTopPlayersWithLocation() throws IOException {
+        doGetTopPlayers(URL, AUTH, TopPlayersRequest.builder().locationKey("EU").build());
     }
 
     @Test
     public void shouldGetTournamentsWithAuth() throws IOException {
-        doGetTournaments(URL, AUTH, "20YU0VJ9");
+        doGetTournaments(URL, AUTH, TournamentsRequest.builder("20YU0VJ9").build());
     }
 
-    private void doGetTournaments(String url, String auth, String tag) {
-        assertEquals("im a baaad guuy r.i.p.papakush", new Api(url, auth).getTournaments(tag).getName());
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetTournamentsBecauseWrongAuth() throws IOException {
-        doGetTournaments(URL, "abc", "20YU0VJ9");
-    }
-
-    @Test
-    public void shouldGetTournamentsWithAuthFromRequest() throws IOException {
-        doGetTournamentsFromRequest(URL, AUTH, TournamentsRequest.builder("20YU0VJ9").build());
-    }
-
-    private void doGetTournamentsFromRequest(String url, String auth, TournamentsRequest tournamentsRequest) {
+    private void doGetTournaments(String url, String auth, TournamentsRequest tournamentsRequest) {
         assertEquals("im a baaad guuy r.i.p.papakush", new Api(url, auth).getTournaments(tournamentsRequest).getName());
     }
 
     @Test(expected = ApiException.class)
-    public void failGetTournamentsBecauseWrongAuthFromRequest() throws IOException {
-        doGetTournamentsFromRequest(URL, "abc", TournamentsRequest.builder("abc").build());
+    public void failGetTournamentsBecauseWrongAuth() throws IOException {
+        doGetTournaments(URL, "abc", TournamentsRequest.builder("abc").build());
     }
 
     @Test
@@ -419,7 +269,7 @@ public class IntegrationTest {
     }
 
     private void doGetPopularClans(String url, String auth) {
-        assertTrue(new Api(url, auth).getPopularClans().size() > 0);
+        assertTrue(new Api(url, auth).getPopularClans(PopularClansRequest.builder().build()).size() > 0);
     }
 
     @Test(expected = ApiException.class)
@@ -428,26 +278,12 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetPopularClansWithAuthFromRequest() throws IOException {
-        doGetPopularClansFromRequest(URL, AUTH);
-    }
-
-    private void doGetPopularClansFromRequest(String url, String auth) {
-        assertTrue(new Api(url, auth).getPopularClans(PopularClansRequest.builder().build()).size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetPopularClansBecauseWrongAuthFromRequest() throws IOException {
-        doGetPopularClansFromRequest(URL, "abc");
-    }
-
-    @Test
     public void shouldGetPopularPlayersWithAuth() throws IOException {
         doGetPopularPlayers(URL, AUTH);
     }
 
     private void doGetPopularPlayers(String url, String auth) {
-        assertTrue(new Api(url, auth).getPopularPlayers().size() > 0);
+        assertTrue(new Api(url, auth).getPopularPlayers(PopularPlayersRequest.builder().build()).size() > 0);
     }
 
     @Test(expected = ApiException.class)
@@ -456,26 +292,12 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetPopularPlayersWithAuthFromRequest() throws IOException {
-        doGetPopularPlayersFromRequest(URL, AUTH);
-    }
-
-    private void doGetPopularPlayersFromRequest(String url, String auth) {
-        assertTrue(new Api(url, auth).getPopularPlayers(PopularPlayersRequest.builder().build()).size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetPopularPlayersBecauseWrongAuthFromRequest() throws IOException {
-        doGetPopularPlayersFromRequest(URL, "abc");
-    }
-
-    @Test
     public void shouldGetPopularTournamentsWithAuth() throws IOException {
         doGetPopularTournaments(URL, AUTH);
     }
 
     private void doGetPopularTournaments(String url, String auth) {
-        assertTrue(new Api(url, auth).getPopularTournaments().size() > 0);
+        assertTrue(new Api(url, auth).getPopularTournaments(PopularTournamentsRequest.builder().build()).size() > 0);
     }
 
     @Test(expected = ApiException.class)
@@ -484,237 +306,195 @@ public class IntegrationTest {
     }
 
     @Test
-    public void shouldGetPopularTournamentsWithAuthFromRequest() throws IOException {
-        doGetPopularTournamentsFromRequest(URL, AUTH);
-    }
-
-    private void doGetPopularTournamentsFromRequest(String url, String auth) {
-        assertTrue(new Api(url, auth).getPopularTournaments(PopularTournamentsRequest.builder().build()).size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetPopularTournamentsBecauseWrongAuthFromRequest() throws IOException {
-        doGetPopularTournamentsFromRequest(URL, "abc");
-    }
-
-    @Test
     public void shouldGetClanBattlesWithAuth() throws IOException {
-        doGetClanBattles(URL, AUTH);
+        doGetClanBattles(URL, AUTH, ClanBattlesRequest.builder("abc").build());
     }
 
-    private void doGetClanBattles(String url, String auth) {
-        assertTrue(new Api(url, auth).getClanBattles("abc").size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetClanBattlesBecauseWrongAuth() throws IOException {
-        doGetClanBattles(URL, "abc");
-    }
-
-    @Test
-    public void shouldGetClanBattlesWithAuthFromRequest() throws IOException {
-        doGetClanBattlesFromRequest(URL, AUTH, ClanBattlesRequest.builder("abc").build());
-    }
-
-    private void doGetClanBattlesFromRequest(String url, String auth, ClanBattlesRequest clanBattlesRequest) {
+    private void doGetClanBattles(String url, String auth, ClanBattlesRequest clanBattlesRequest) {
         assertTrue(new Api(url, auth).getClanBattles(clanBattlesRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanBattlesBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanBattlesFromRequest(URL, "abc", ClanBattlesRequest.builder("abc").build());
+    public void failGetClanBattlesBecauseWrongAuth() throws IOException {
+        doGetClanBattles(URL, "abc", ClanBattlesRequest.builder("abc").build());
     }
 
     @Test
     public void shouldGetClanHistoryWithAuth() throws IOException {
-        doGetClanHistory(URL, AUTH);
+        doGetClanHistory(URL, AUTH, ClanHistoryRequest.builder("abc").build());
     }
 
-    private void doGetClanHistory(String url, String auth) {
-        assertTrue(new Api(url, auth).getClanHistory("abc").size() > 0);
-    }
-
-    @Test(expected = ApiException.class)
-    public void failGetClanHistoryBecauseWrongAuth() throws IOException {
-        doGetClanHistory(URL, "abc");
-    }
-
-    @Test
-    public void shouldGetClanHistoryWithAuthFromRequest() throws IOException {
-        doGetClanHistoryFromRequest(URL, AUTH, ClanHistoryRequest.builder("abc").build());
-    }
-
-    private void doGetClanHistoryFromRequest(String url, String auth, ClanHistoryRequest clanHistoryRequest) {
+    private void doGetClanHistory(String url, String auth, ClanHistoryRequest clanHistoryRequest) {
         assertTrue(new Api(url, auth).getClanHistory(clanHistoryRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanHistoryBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanHistoryFromRequest(URL, "abc", ClanHistoryRequest.builder("abc").build());
+    public void failGetClanHistoryBecauseWrongAuth() throws IOException {
+        doGetClanHistory(URL, "abc", ClanHistoryRequest.builder("abc").build());
     }
 
     @Test
-    public void shouldGetClanWeeklyHistoryWithAuthFromRequest() throws IOException {
-        doGetClanWeeklyHistoryFromRequest(URL, AUTH, ClanWeeklyHistoryRequest.builder("abc").build());
+    public void shouldGetClanWeeklyHistoryWithAuth() throws IOException {
+        doGetClanWeeklyHistory(URL, AUTH, ClanWeeklyHistoryRequest.builder("abc").build());
     }
 
-    private void doGetClanWeeklyHistoryFromRequest(String url, String auth, ClanWeeklyHistoryRequest clanWeeklyHistoryRequest) {
+    private void doGetClanWeeklyHistory(String url, String auth, ClanWeeklyHistoryRequest clanWeeklyHistoryRequest) {
         assertTrue(new Api(url, auth).getClanWeeklyHistory(clanWeeklyHistoryRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanWeeklyHistoryBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanWeeklyHistoryFromRequest(URL, "abc", ClanWeeklyHistoryRequest.builder("abc").build());
+    public void failGetClanWeeklyHistoryBecauseWrongAuth() throws IOException {
+        doGetClanWeeklyHistory(URL, "abc", ClanWeeklyHistoryRequest.builder("abc").build());
     }
 
     @Test
-    public void shouldGetOpenTournamentsWithAuthFromRequest() throws IOException {
-        doGetOpenTournamentsFromRequest(URL, AUTH, OpenTournamentsRequest.builder().build());
+    public void shouldGetOpenTournamentsWithAuth() throws IOException {
+        doGetOpenTournaments(URL, AUTH, OpenTournamentsRequest.builder().build());
     }
 
-    private void doGetOpenTournamentsFromRequest(String url, String auth, OpenTournamentsRequest openTournamentsRequest) {
+    private void doGetOpenTournaments(String url, String auth, OpenTournamentsRequest openTournamentsRequest) {
         assertTrue(new Api(url, auth).getOpenTournaments(openTournamentsRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetOpenTournamentsBecauseWrongAuthFromRequest() throws IOException {
-        doGetOpenTournamentsFromRequest(URL, "abc", OpenTournamentsRequest.builder().build());
+    public void failGetOpenTournamentsBecauseWrongAuth() throws IOException {
+        doGetOpenTournaments(URL, "abc", OpenTournamentsRequest.builder().build());
     }
 
     @Test
-    public void shouldGetKnownTournamentsWithAuthFromRequest() throws IOException {
-        doGetKnownTournamentsFromRequest(URL, AUTH, KnownTournamentsRequest.builder().build());
+    public void shouldGetKnownTournamentsWithAuth() throws IOException {
+        doGetKnownTournaments(URL, AUTH, KnownTournamentsRequest.builder().build());
     }
 
-    private void doGetKnownTournamentsFromRequest(String url, String auth, KnownTournamentsRequest knownTournamentsRequest) {
+    private void doGetKnownTournaments(String url, String auth, KnownTournamentsRequest knownTournamentsRequest) {
         assertTrue(new Api(url, auth).getKnownTournaments(knownTournamentsRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetKnownTournamentsBecauseWrongAuthFromRequest() throws IOException {
-        doGetKnownTournamentsFromRequest(URL, "abc", KnownTournamentsRequest.builder().build());
+    public void failGetKnownTournamentsBecauseWrongAuth() throws IOException {
+        doGetKnownTournaments(URL, "abc", KnownTournamentsRequest.builder().build());
     }
 
     @Test
-    public void shouldGetTournamentSearchWithAuthFromRequest() throws IOException {
-        doGetTournamentSearchFromRequest(URL, AUTH, TournamentSearchRequest.builder("abc").build());
+    public void shouldGetTournamentSearchWithAuth() throws IOException {
+        doGetTournamentSearch(URL, AUTH, TournamentSearchRequest.builder("abc").build());
     }
 
-    private void doGetTournamentSearchFromRequest(String url, String auth, TournamentSearchRequest tournamentSearchRequest) {
+    private void doGetTournamentSearch(String url, String auth, TournamentSearchRequest tournamentSearchRequest) {
         assertTrue(new Api(url, auth).getTournamentSearch(tournamentSearchRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetTournamentSearchBecauseWrongAuthFromRequest() throws IOException {
-        doGetTournamentSearchFromRequest(URL, "abc", TournamentSearchRequest.builder("abc").build());
+    public void failGetTournamentSearchBecauseWrongAuth() throws IOException {
+        doGetTournamentSearch(URL, "abc", TournamentSearchRequest.builder("abc").build());
     }
 
     @Test
-    public void shouldGetPlayerBattlesWithAuthFromRequest() throws IOException {
-        doGetPlayerBattlesFromRequest(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags().subList(0, 1))
+    public void shouldGetPlayerBattlesWithAuth() throws IOException {
+        doGetPlayerBattles(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags().subList(0, 1))
                 .build());
     }
 
-    private void doGetPlayerBattlesFromRequest(String url, String auth, PlayerBattlesRequest playerBattlesRequest) {
+    private void doGetPlayerBattles(String url, String auth, PlayerBattlesRequest playerBattlesRequest) {
         assertTrue(new Api(url, auth).getPlayerBattles(playerBattlesRequest).size() > 0);
     }
 
     @Test(expected = ApiException.class)
-    public void failGetPlayerBattlesBecauseWrongAuthFromRequest() throws IOException {
-        doGetPlayerBattlesFromRequest(URL, "abc", PlayerBattlesRequest.builder(createProfileTags().subList(0, 1))
+    public void failGetPlayerBattlesBecauseWrongAuth() throws IOException {
+        doGetPlayerBattles(URL, "abc", PlayerBattlesRequest.builder(createProfileTags().subList(0, 1))
                 .build());
     }
 
     @Test
-    public void shouldGetMultiPlayerBattlesWithAuthFromRequest() throws IOException {
-        doGetPlayerBattlesFromRequest(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags()).build());
+    public void shouldGetMultiPlayerBattlesWithAuth() throws IOException {
+        doGetPlayerBattles(URL, AUTH, PlayerBattlesRequest.builder(createProfileTags()).build());
     }
 
     @Test(expected = ApiException.class)
-    public void failGetMultiPlayerBattlesBecauseWrongAuthFromRequest() throws IOException {
-        doGetPlayerBattlesFromRequest(URL, "abc", PlayerBattlesRequest.builder(createProfileTags()).build());
+    public void failGetMultiPlayerBattlesBecauseWrongAuth() throws IOException {
+        doGetPlayerBattles(URL, "abc", PlayerBattlesRequest.builder(createProfileTags()).build());
     }
 
     @Test
-    public void shouldGetPlayerChestsWithAuthFromRequest() throws IOException {
-        doGetPlayerChestsFromRequest(URL, AUTH, PlayerChestsRequest.builder(createProfileTags().subList(0, 1))
+    public void shouldGetPlayerChestsWithAuth() throws IOException {
+        doGetPlayerChests(URL, AUTH, PlayerChestsRequest.builder(createProfileTags().subList(0, 1))
                 .build());
     }
 
-    private void doGetPlayerChestsFromRequest(String url, String auth, PlayerChestsRequest playerChestsRequest) {
+    private void doGetPlayerChests(String url, String auth, PlayerChestsRequest playerChestsRequest) {
         assertNotNull(new Api(url, auth).getPlayerChests(playerChestsRequest));
     }
 
     @Test(expected = ApiException.class)
-    public void failGetPlayerChestsBecauseWrongAuthFromRequest() throws IOException {
-        doGetPlayerChestsFromRequest(URL, "abc", PlayerChestsRequest.builder(createProfileTags().subList(0, 1))
+    public void failGetPlayerChestsBecauseWrongAuth() throws IOException {
+        doGetPlayerChests(URL, "abc", PlayerChestsRequest.builder(createProfileTags().subList(0, 1))
                 .build());
     }
 
     @Test
-    public void shouldGetMultiPlayerChestsWithAuthFromRequest() throws IOException {
-        doGetPlayerChestsFromRequest(URL, AUTH, PlayerChestsRequest.builder(createProfileTags()).build());
+    public void shouldGetMultiPlayerChestsWithAuth() throws IOException {
+        doGetPlayerChests(URL, AUTH, PlayerChestsRequest.builder(createProfileTags()).build());
     }
 
     @Test(expected = ApiException.class)
-    public void failGetMultiPlayerChestsBecauseWrongAuthFromRequest() throws IOException {
-        doGetPlayerChestsFromRequest(URL, "abc", PlayerChestsRequest.builder(createProfileTags()).build());
+    public void failGetMultiPlayerChestsBecauseWrongAuth() throws IOException {
+        doGetPlayerChests(URL, "abc", PlayerChestsRequest.builder(createProfileTags()).build());
     }
 
     @Test
-    public void shouldGetPopularDecksWithAuthFromRequest() throws IOException {
-        doGetPopularDecksFromRequest(URL, AUTH, PopularDecksRequest.builder().build());
+    public void shouldGetPopularDecksWithAuth() throws IOException {
+        doGetPopularDecks(URL, AUTH, PopularDecksRequest.builder().build());
     }
 
-    private void doGetPopularDecksFromRequest(String url, String auth, PopularDecksRequest popularDecksRequest) {
+    private void doGetPopularDecks(String url, String auth, PopularDecksRequest popularDecksRequest) {
         assertNotNull(new Api(url, auth).getPopularDecks(popularDecksRequest));
     }
 
     @Test(expected = ApiException.class)
-    public void failGetPopularDecksBecauseWrongAuthFromRequest() throws IOException {
-        doGetPopularDecksFromRequest(URL, "abc", PopularDecksRequest.builder().build());
+    public void failGetPopularDecksBecauseWrongAuth() throws IOException {
+        doGetPopularDecks(URL, "abc", PopularDecksRequest.builder().build());
     }
 
     @Test
-    public void shouldGetClanTrackingWithAuthFromRequest() throws IOException {
-        doGetClanTrackingFromRequest(URL, AUTH, ClanTrackingRequest.builder("abc").build());
+    public void shouldGetClanTrackingWithAuth() throws IOException {
+        doGetClanTracking(URL, AUTH, ClanTrackingRequest.builder("abc").build());
     }
 
-    private void doGetClanTrackingFromRequest(String url, String auth, ClanTrackingRequest clanTrackingRequest) {
+    private void doGetClanTracking(String url, String auth, ClanTrackingRequest clanTrackingRequest) {
         assertNotNull(new Api(url, auth).getClanTracking(clanTrackingRequest));
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanTrackingBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanTrackingFromRequest(URL, "abc", ClanTrackingRequest.builder("abc").build());
+    public void failGetClanTrackingBecauseWrongAuth() throws IOException {
+        doGetClanTracking(URL, "abc", ClanTrackingRequest.builder("abc").build());
     }
 
     @Test
-    public void shouldGetClanWarLogWithAuthFromRequest() throws IOException {
-        doGetClanWarLogFromRequest(URL, AUTH, ClanWarLogRequest.builder("abc").build());
+    public void shouldGetClanWarLogWithAuth() throws IOException {
+        doGetClanWarLog(URL, AUTH, ClanWarLogRequest.builder("abc").build());
     }
 
-    private void doGetClanWarLogFromRequest(String url, String auth, ClanWarLogRequest clanWarLogRequest) {
+    private void doGetClanWarLog(String url, String auth, ClanWarLogRequest clanWarLogRequest) {
         assertNotNull(new Api(url, auth).getClanWarLog(clanWarLogRequest));
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanWarLogBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanWarLogFromRequest(URL, "abc", ClanWarLogRequest.builder("abc").build());
+    public void failGetClanWarLogBecauseWrongAuth() throws IOException {
+        doGetClanWarLog(URL, "abc", ClanWarLogRequest.builder("abc").build());
     }
 
     @Test
-    public void shouldGetClanWarWithAuthFromRequest() throws IOException {
-        doGetClanWarFromRequest(URL, AUTH, ClanWarRequest.builder("abc").build());
+    public void shouldGetClanWarWithAuth() throws IOException {
+        doGetClanWar(URL, AUTH, ClanWarRequest.builder("abc").build());
     }
 
-    private void doGetClanWarFromRequest(String url, String auth, ClanWarRequest clanWarRequest) {
+    private void doGetClanWar(String url, String auth, ClanWarRequest clanWarRequest) {
         assertNotNull(new Api(url, auth).getClanWar(clanWarRequest));
     }
 
     @Test(expected = ApiException.class)
-    public void failGetClanWarBecauseWrongAuthFromRequest() throws IOException {
-        doGetClanWarFromRequest(URL, "abc", ClanWarRequest.builder("abc").build());
+    public void failGetClanWarBecauseWrongAuth() throws IOException {
+        doGetClanWar(URL, "abc", ClanWarRequest.builder("abc").build());
     }
 
     @Test
