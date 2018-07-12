@@ -1,20 +1,22 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
  */
 @Getter
-public abstract class PaginatedRequest extends Request {
+public class PaginatedRequest extends Request {
 
     private final int max;
     private final int page;
 
+    @Builder(builderMethodName = "paginatedRequestBuilder")
     PaginatedRequest(int max, int page, List<String> excludes, List<String> keys) {
         super(excludes, keys);
         Preconditions.checkArgument(max >= 0, "max must be >= 0");
@@ -32,23 +34,6 @@ public abstract class PaginatedRequest extends Request {
             map.put("page", String.valueOf(page));
         }
         return map;
-    }
-
-    static abstract class PaginatedRequestBuilder<R extends PaginatedRequest, B> extends RequestBuilder<R, B> {
-
-        int max;
-        int page;
-
-        public B max(int max) {
-            this.max = max;
-            return getThis();
-        }
-
-        public B page(int page) {
-            this.page = page;
-            return getThis();
-        }
-
     }
 
 }

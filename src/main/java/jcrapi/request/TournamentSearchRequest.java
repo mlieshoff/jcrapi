@@ -1,10 +1,11 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -14,6 +15,7 @@ public class TournamentSearchRequest extends LimitedRequest {
 
     private final String name;
 
+    @Builder
     private TournamentSearchRequest(String name, int limit, int max, int page, List<String> excludes, List<String> keys) {
         super(limit, max, page, excludes, keys);
         Preconditions.checkNotNull(name, "name");
@@ -29,27 +31,7 @@ public class TournamentSearchRequest extends LimitedRequest {
     }
 
     public static TournamentSearchRequestBuilder builder(String name) {
-        return new TournamentSearchRequestBuilder(name);
-    }
-
-    public static class TournamentSearchRequestBuilder extends LimitedRequestBuilder<TournamentSearchRequest, TournamentSearchRequestBuilder> {
-
-        private final String name;
-
-        public TournamentSearchRequestBuilder(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public TournamentSearchRequest build() {
-            return new TournamentSearchRequest(name, limit, max, page, excludes, keys);
-        }
-
-        @Override
-        public TournamentSearchRequestBuilder getThis() {
-            return this;
-        }
-
+        return new TournamentSearchRequestBuilder().name(name);
     }
 
 }

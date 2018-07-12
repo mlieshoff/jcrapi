@@ -4,6 +4,11 @@
 
 ## Simplest Usage ##
 
+Note: Please combine the builder methods as it makes sense. The demonstrated was is showing only all possibilities. 
+For more information please check 
+
+https://docs.royaleapi.com 
+
 ```java
 // connect to api
 Api api = new Api("http://api.royaleapi.com/", "my-developer-key"); // standard auth mode
@@ -200,11 +205,11 @@ ClanWar clanWar = api.getClanWarLog(ClanWarRequest.builder("RP88QQG")
 ```java
 // get open tournaments
 List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsRequest.builder()
-    .oneK()
-    .open()
-    .full()
-    .prep()
-    .joinable()
+    .oneK(true)
+    .open(true)
+    .full(true)
+    .prep(true)
+    .joinable(true)
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
@@ -216,11 +221,11 @@ List<OpenTournament> openTournaments = api.getOpenTournaments(OpenTournamentsReq
 ```java
 // get known tournaments
 List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournamentsRequest.builder()
-    .oneK()
-    .open()
-    .full()
-    .prep()
-    .joinable()
+    .oneK(true)
+    .open(true)
+    .full(true)
+    .prep(true)
+    .joinable(true)
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
@@ -232,11 +237,11 @@ List<KnownTournament> knownTournaments = api.getKnownTournaments(KnownTournament
 ```java
 // get 1k tournaments
 List<OneKTournament> oneKTournaments = api.getOneKTournaments(OneKTournamentsRequest.builder()
-    .oneK()
-    .open()
-    .full()
-    .prep()
-    .joinable()
+    .oneK(true)
+    .open(true)
+    .full(true)
+    .prep(true)
+    .joinable(true)
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
@@ -248,11 +253,11 @@ List<OneKTournament> oneKTournaments = api.getOneKTournaments(OneKTournamentsReq
 ```java
 // get full tournaments
 List<FullTournament> fullTournaments = api.getFullTournaments(FullTournamentsRequest.builder()
-    .oneK()
-    .open()
-    .full()
-    .prep()
-    .joinable()
+    .oneK(true)
+    .open(true)
+    .full(true)
+    .prep(true)
+    .joinable(true)
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)
@@ -264,11 +269,11 @@ List<FullTournament> fullTournaments = api.getFullTournaments(FullTournamentsReq
 ```java
 // get in preparation tournaments
 List<InPreparationTournament> inPreparationTournaments = api.getInPreparationTournaments(InPreparationTournamentsRequest.builder()
-    .oneK()
-    .open()
-    .full()
-    .prep()
-    .joinable()
+    .oneK(true)
+    .open(true)
+    .full(true)
+    .prep(true)
+    .joinable(true)
     .keys(Arrays.asList("name", "clan", "tag"))
     .excludes(Arrays.asList("cards"))
     .limit(10)

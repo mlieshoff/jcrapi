@@ -1,31 +1,45 @@
 package jcrapi.request;
 
+import static jcrapi.request.BuilderTestUtil.invokeBuildMethod;
+import static jcrapi.request.BuilderTestUtil.invokeExcludesMethod;
+import static jcrapi.request.BuilderTestUtil.invokeKeysMethod;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+import jcrapi.request.Request.RequestBuilder;
 
 /**
  * @author Michael Lieshoff
  */
-public abstract class RequestTestBase<A extends Request, B extends Request.RequestBuilder<A, B>> {
+public abstract class RequestTestBase<T extends Request> {
 
-    abstract B getBuilder();
-    
+    abstract Object getBuilder();
+
     @Test
-    public void shouldBeWithExcludes() {
+    public void shouldCreateRequestBuilder() {
+        assertTrue(Request.requestBuilder() instanceof RequestBuilder);
+    }
+
+    @Test
+    public void shouldBeWithExcludes() throws Exception {
         List<String> expected = Arrays.asList("a", "b");
-        A request = getBuilder().excludes(expected).build();
+        Object builder = getBuilder();
+        builder = invokeExcludesMethod(builder, expected);
+        T request = invokeBuildMethod(builder);
         assertEquals(expected, request.getExcludes());
         assertEquals("a,b", request.getQueryParameters().get("excludes"));
     }
 
     @Test
-    public void shouldBeWithKeys() {
+    public void shouldBeWithKeys() throws Exception {
         List<String> expected = Arrays.asList("a", "b");
-        A request = getBuilder().keys(expected).build();
+        Object builder = getBuilder();
+        builder = invokeKeysMethod(builder, expected);
+        T request = invokeBuildMethod(builder);
         assertEquals(expected, request.getKeys());
         assertEquals("a,b", request.getQueryParameters().get("keys"));
     }

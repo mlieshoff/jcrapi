@@ -1,9 +1,10 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
 
 import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -13,35 +14,16 @@ public class ProfileRequest extends Request {
 
     private final String tag;
 
-    private ProfileRequest(String tag, List<String> excludes, List<String> includes) {
-        super(excludes, includes);
+    @Builder
+    private ProfileRequest(String tag, List<String> excludes, List<String> keys) {
+        super(excludes, keys);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
     }
 
     public static ProfileRequestBuilder builder(String tag) {
-        return new ProfileRequestBuilder(tag);
-    }
-
-    public static class ProfileRequestBuilder extends RequestBuilder<ProfileRequest, ProfileRequestBuilder> {
-
-        private final String tag;
-
-        public ProfileRequestBuilder(String tag) {
-            this.tag = tag;
-        }
-
-        @Override
-        public ProfileRequest build() {
-            return new ProfileRequest(tag, excludes, keys);
-        }
-
-        @Override
-        public ProfileRequestBuilder getThis() {
-            return this;
-        }
-
+        return new ProfileRequestBuilder().tag(tag);
     }
 
 }

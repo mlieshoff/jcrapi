@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ClanHistoryRequestTest extends LimitedRequestTestBase<ClanHistoryRequest, ClanHistoryRequest.ClanHistoryRequestBuilder> {
+public class ClanHistoryRequestTest extends LimitedRequestTestBase<ClanHistoryRequest> {
 
     @Override
-    ClanHistoryRequest.ClanHistoryRequestBuilder getBuilder() {
+    Object getBuilder() {
         return ClanHistoryRequest.builder("abc");
     }
 

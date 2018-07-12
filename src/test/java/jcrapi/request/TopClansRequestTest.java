@@ -8,10 +8,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class TopClansRequestTest extends LocationedRequestTestBase<TopClansRequest, TopClansRequest.TopClansRequestBuilder> {
+public class TopClansRequestTest extends LocationedRequestTestBase<TopClansRequest> {
 
     @Override
-    TopClansRequest.TopClansRequestBuilder getBuilder() {
+    Object getBuilder() {
         return TopClansRequest.builder();
     }
 

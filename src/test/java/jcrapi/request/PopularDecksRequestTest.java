@@ -8,10 +8,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class PopularDecksRequestTest extends LimitedRequestTestBase<PopularDecksRequest, PopularDecksRequest.PopularDecksRequestBuilder> {
+public class PopularDecksRequestTest extends LimitedRequestTestBase<PopularDecksRequest> {
 
     @Override
-    PopularDecksRequest.PopularDecksRequestBuilder getBuilder() {
+    Object getBuilder() {
         return PopularDecksRequest.builder();
     }
 

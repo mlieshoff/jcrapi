@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class OneKTournamentsRequestTest extends TournamentRequestTestBase<OneKTournamentsRequest, OneKTournamentsRequest.OneKTournamentsRequestBuilder> {
+public class OneKTournamentsRequestTest extends TournamentRequestTestBase<OneKTournamentsRequest> {
 
     @Override
-    OneKTournamentsRequest.OneKTournamentsRequestBuilder getBuilder() {
+    Object getBuilder() {
         return OneKTournamentsRequest.builder();
     }
 

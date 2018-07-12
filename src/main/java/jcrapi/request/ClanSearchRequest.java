@@ -1,6 +1,7 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
+import lombok.Builder;
 import lombok.Getter;
 import org.apache.commons.lang.StringUtils;
 
@@ -21,6 +22,7 @@ public class ClanSearchRequest extends LimitedRequest {
     private final Integer minMembers;
     private final Integer maxMembers;
 
+    @Builder
     private ClanSearchRequest(String locationId, String name, Integer score, Integer minMembers, Integer maxMembers,
                               int limit, int max, int page, List<String> excludes, List<String> keys) {
         super(limit, max, page, excludes, keys);
@@ -55,56 +57,6 @@ public class ClanSearchRequest extends LimitedRequest {
             parameters.put("maxMembers", maxMembers.toString());
         }
         return parameters;
-    }
-
-    public static ClanSearchRequestBuilder builder() {
-        return new ClanSearchRequestBuilder();
-    }
-
-    public static class ClanSearchRequestBuilder extends LimitedRequestBuilder<ClanSearchRequest, ClanSearchRequestBuilder> {
-
-        private String locationId;
-        private String name;
-
-        private Integer score;
-        private Integer minMembers;
-        private Integer maxMembers;
-
-        public ClanSearchRequestBuilder locationId(String locationId) {
-            this.locationId = locationId;
-            return getThis();
-        }
-
-        public ClanSearchRequestBuilder name(String name) {
-            this.name = name;
-            return getThis();
-        }
-
-        public ClanSearchRequestBuilder score(int score) {
-            this.score = score;
-            return getThis();
-        }
-
-        public ClanSearchRequestBuilder minMembers(int minMembers) {
-            this.minMembers = minMembers;
-            return getThis();
-        }
-
-        public ClanSearchRequestBuilder maxMembers(int maxMembers) {
-            this.maxMembers = maxMembers;
-            return getThis();
-        }
-
-        @Override
-        public ClanSearchRequest build() {
-            return new ClanSearchRequest(locationId, name, score, minMembers, maxMembers, limit, max, page, excludes, keys);
-        }
-
-        @Override
-        public ClanSearchRequestBuilder getThis() {
-            return this;
-        }
-
     }
 
 }

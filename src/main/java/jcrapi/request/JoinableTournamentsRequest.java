@@ -1,5 +1,7 @@
 package jcrapi.request;
 
+import lombok.Builder;
+
 import java.util.List;
 
 /**
@@ -7,26 +9,9 @@ import java.util.List;
  */
 public class JoinableTournamentsRequest extends TournamentRequest {
 
-    private JoinableTournamentsRequest(boolean oneK, boolean open, boolean full, boolean prep, boolean joinable, int limit, int max, int page, List<String> excludes, List<String> includes) {
-        super(oneK, open, full, prep, joinable, limit, max, page, excludes, includes);
-    }
-
-    public static JoinableTournamentsRequestBuilder builder() {
-        return new JoinableTournamentsRequestBuilder();
-    }
-
-    public static class JoinableTournamentsRequestBuilder extends TournamentRequestBuilder<JoinableTournamentsRequest, JoinableTournamentsRequestBuilder> {
-
-        @Override
-        public JoinableTournamentsRequest build() {
-            return new JoinableTournamentsRequest(oneK, open, full, prep, joinable, limit, max, page, excludes, keys);
-        }
-
-        @Override
-        public JoinableTournamentsRequestBuilder getThis() {
-            return this;
-        }
-
+    @Builder
+    private JoinableTournamentsRequest(boolean oneK, boolean open, boolean full, boolean prep, boolean joinable, int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(oneK, open, full, prep, joinable, limit, max, page, excludes, keys);
     }
 
 }

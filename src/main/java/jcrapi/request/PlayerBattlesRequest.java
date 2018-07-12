@@ -1,10 +1,12 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
+
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -14,34 +16,15 @@ public class PlayerBattlesRequest extends LimitedRequest {
 
     private final List<String> tags;
 
-    private PlayerBattlesRequest(List<String> tags, int limit, int max, int page, List<String> excludes, List<String> includes) {
-        super(limit, max, page, excludes, includes);
+    @Builder
+    private PlayerBattlesRequest(List<String> tags, int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(limit, max, page, excludes, keys);
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
         this.tags = tags;
     }
 
     public static PlayerBattlesRequestBuilder builder(List<String> tags) {
-        return new PlayerBattlesRequestBuilder(tags);
-    }
-
-    public static class PlayerBattlesRequestBuilder extends LimitedRequestBuilder<PlayerBattlesRequest, PlayerBattlesRequestBuilder> {
-
-        private final List<String> tags;
-
-        public PlayerBattlesRequestBuilder(List<String> tags) {
-            this.tags = tags;
-        }
-
-        @Override
-        public PlayerBattlesRequest build() {
-            return new PlayerBattlesRequest(tags, limit, max, page, excludes, keys);
-        }
-
-        @Override
-        public PlayerBattlesRequestBuilder getThis() {
-            return this;
-        }
-
+        return new PlayerBattlesRequestBuilder().tags(tags);
     }
 
 }

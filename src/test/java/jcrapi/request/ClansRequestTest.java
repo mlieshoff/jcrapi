@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ClansRequestTest extends LimitedRequestTestBase<ClansRequest, ClansRequest.ClansRequestBuilder> {
+public class ClansRequestTest extends LimitedRequestTestBase<ClansRequest> {
 
     @Override
-    ClansRequest.ClansRequestBuilder getBuilder() {
+    Object getBuilder() {
         return ClansRequest.builder(Arrays.asList("abc"));
     }
 

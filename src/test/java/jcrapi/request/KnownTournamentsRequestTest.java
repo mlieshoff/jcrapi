@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class KnownTournamentsRequestTest extends TournamentRequestTestBase<KnownTournamentsRequest, KnownTournamentsRequest.KnownTournamentsRequestBuilder> {
+public class KnownTournamentsRequestTest extends TournamentRequestTestBase<KnownTournamentsRequest> {
 
     @Override
-    KnownTournamentsRequest.KnownTournamentsRequestBuilder getBuilder() {
+    Object getBuilder() {
         return KnownTournamentsRequest.builder();
     }
 

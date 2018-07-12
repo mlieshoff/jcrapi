@@ -8,10 +8,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class ClanSearchRequestTest extends LimitedRequestTestBase<ClanSearchRequest, ClanSearchRequest.ClanSearchRequestBuilder> {
+public class ClanSearchRequestTest extends LimitedRequestTestBase<ClanSearchRequest> {
 
     @Override
-    ClanSearchRequest.ClanSearchRequestBuilder getBuilder() {
+    Object getBuilder() {
         return ClanSearchRequest.builder().score(50);
     }
 

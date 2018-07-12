@@ -8,10 +8,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class TournamentSearchRequestTest extends LimitedRequestTestBase<TournamentSearchRequest, TournamentSearchRequest.TournamentSearchRequestBuilder> {
+public class TournamentSearchRequestTest extends LimitedRequestTestBase<TournamentSearchRequest> {
 
     @Override
-    TournamentSearchRequest.TournamentSearchRequestBuilder getBuilder() {
+    Object getBuilder() {
         return TournamentSearchRequest.builder("abc");
     }
 

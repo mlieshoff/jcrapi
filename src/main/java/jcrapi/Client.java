@@ -20,6 +20,15 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.http.HttpHeaders;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import jcrapi.model.AuthStats;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
@@ -74,14 +83,6 @@ import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
-import org.apache.commons.lang.StringUtils;
-import org.apache.http.HttpHeaders;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author Michael Lieshoff
@@ -230,10 +231,6 @@ class Client {
         String json = get(url, topPlayersRequest);
         Type listType = new TypeToken<ArrayList<TopPlayer>>(){}.getType();
         return new Gson().fromJson(json, listType);
-    }
-
-    Tournament getTournaments(String tag) throws IOException {
-        return getTournaments(TournamentsRequest.builder(tag).build());
     }
 
     Tournament getTournaments(TournamentsRequest tournamentsRequest) throws IOException {
