@@ -1,11 +1,13 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
+
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.Collection;
 import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -15,34 +17,15 @@ public class ClansRequest extends LimitedRequest {
 
     private final Collection<String> tags;
 
-    private ClansRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes, List<String> includes) {
-        super(limit, max, page, excludes, includes);
+    @Builder
+    private ClansRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(limit, max, page, excludes, keys);
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags), "tags");
         this.tags = tags;
     }
 
-    public static ClansRequestBuilder builder(Collection<String> tags) {
-        return new ClansRequestBuilder(tags);
-    }
-
-    public static class ClansRequestBuilder extends LimitedRequestBuilder<ClansRequest, ClansRequestBuilder> {
-
-        private final Collection<String> tags;
-
-        public ClansRequestBuilder(Collection<String> tags) {
-            this.tags = tags;
-        }
-
-        @Override
-        public ClansRequest build() {
-            return new ClansRequest(tags, limit, max, page, excludes, keys);
-        }
-
-        @Override
-        public ClansRequestBuilder getThis() {
-            return this;
-        }
-
+    public static ClansRequest.ClansRequestBuilder builder(Collection<String> tags) {
+        return new ClansRequest.ClansRequestBuilder().tags(tags);
     }
 
 }

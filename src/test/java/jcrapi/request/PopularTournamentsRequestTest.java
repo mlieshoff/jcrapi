@@ -8,10 +8,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @author Michael Lieshoff
  */
-public class PopularTournamentsRequestTest extends LimitedRequestTestBase<PopularTournamentsRequest, PopularTournamentsRequest.PopularTournamentsRequestBuilder> {
+public class PopularTournamentsRequestTest extends LimitedRequestTestBase<PopularTournamentsRequest> {
 
     @Override
-    PopularTournamentsRequest.PopularTournamentsRequestBuilder getBuilder() {
+    Object getBuilder() {
         return PopularTournamentsRequest.builder();
     }
 

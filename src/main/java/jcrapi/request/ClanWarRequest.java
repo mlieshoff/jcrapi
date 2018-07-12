@@ -1,9 +1,10 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
 
 import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -13,35 +14,16 @@ public class ClanWarRequest extends Request {
 
     private final String tag;
 
-    private ClanWarRequest(String tag, List<String> excludes, List<String> includes) {
-        super(excludes, includes);
+    @Builder
+    private ClanWarRequest(String tag, List<String> excludes, List<String> keys) {
+        super(excludes, keys);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         this.tag = tag;
     }
 
     public static ClanWarRequestBuilder builder(String tag) {
-        return new ClanWarRequestBuilder(tag);
-    }
-
-    public static class ClanWarRequestBuilder extends RequestBuilder<ClanWarRequest, ClanWarRequestBuilder> {
-
-        private final String tag;
-
-        public ClanWarRequestBuilder(String tag) {
-            this.tag = tag;
-        }
-
-        @Override
-        public ClanWarRequest build() {
-            return new ClanWarRequest(tag, excludes, keys);
-        }
-
-        @Override
-        public ClanWarRequestBuilder getThis() {
-            return this;
-        }
-
+        return new ClanWarRequestBuilder().tag(tag);
     }
 
 }

@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class ProfileRequestTest extends RequestTestBase<ProfileRequest, ProfileRequest.ProfileRequestBuilder> {
+public class ProfileRequestTest extends RequestTestBase<ProfileRequest> {
 
     @Override
-    ProfileRequest.ProfileRequestBuilder getBuilder() {
+    Object getBuilder() {
         return ProfileRequest.builder("abc");
     }
 

@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class AuthStatsRequestTest extends RequestTestBase<AuthStatsRequest, AuthStatsRequest.AuthStatsRequestBuilder> {
+public class AuthStatsRequestTest extends RequestTestBase<AuthStatsRequest> {
 
     @Override
-    AuthStatsRequest.AuthStatsRequestBuilder getBuilder() {
+    Object getBuilder() {
         return AuthStatsRequest.builder();
     }
 

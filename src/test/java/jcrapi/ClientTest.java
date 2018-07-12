@@ -16,7 +16,23 @@
  */
 package jcrapi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.when;
+
 import com.google.common.collect.ImmutableMap;
+
+import org.apache.commons.lang.StringUtils;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
@@ -44,21 +60,7 @@ import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
 import jcrapi.request.TournamentSearchRequest;
-import org.apache.commons.lang.StringUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.when;
+import jcrapi.request.TournamentsRequest;
 
 /**
  * @author Michael Lieshoff
@@ -230,7 +232,7 @@ public class ClientTest {
     @Test
     public void shouldGetTournaments() throws IOException {
         when(crawler.get("lala/tournaments/abc", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("{}");
-        assertNotNull(createClient().getTournaments("abc"));
+        assertNotNull(createClient().getTournaments(TournamentsRequest.builder("abc").build()));
     }
 
     @Test

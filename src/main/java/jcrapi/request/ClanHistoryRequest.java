@@ -1,10 +1,11 @@
 package jcrapi.request;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
+import lombok.Builder;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -16,8 +17,9 @@ public class ClanHistoryRequest extends LimitedRequest {
 
     private final Integer days;
 
-    private ClanHistoryRequest(String tag, Integer days, int limit, int max, int page, List<String> excludes, List<String> includes) {
-        super(limit, max, page, excludes, includes);
+    @Builder
+    private ClanHistoryRequest(String tag, Integer days, int limit, int max, int page, List<String> excludes, List<String> keys) {
+        super(limit, max, page, excludes, keys);
         Preconditions.checkNotNull(tag, "tag");
         Preconditions.checkArgument(tag.length() > 0, "tag");
         if (days != null) {
@@ -37,34 +39,7 @@ public class ClanHistoryRequest extends LimitedRequest {
     }
 
     public static ClanHistoryRequestBuilder builder(String tag) {
-        return new ClanHistoryRequestBuilder(tag);
-    }
-
-    public static class ClanHistoryRequestBuilder extends LimitedRequestBuilder<ClanHistoryRequest, ClanHistoryRequestBuilder> {
-
-        private final String tag;
-
-        private Integer days;
-
-        public ClanHistoryRequestBuilder(String tag) {
-            this.tag = tag;
-        }
-
-        public ClanHistoryRequestBuilder days(Integer days) {
-            this.days = days;
-            return getThis();
-        }
-
-        @Override
-        public ClanHistoryRequest build() {
-            return new ClanHistoryRequest(tag, days, limit, max, page, excludes, keys);
-        }
-
-        @Override
-        public ClanHistoryRequestBuilder getThis() {
-            return this;
-        }
-
+        return new ClanHistoryRequestBuilder().tag(tag);
     }
 
 }

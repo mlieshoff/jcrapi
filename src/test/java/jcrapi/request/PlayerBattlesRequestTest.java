@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Michael Lieshoff
  */
-public class PlayerBattlesRequestTest extends LimitedRequestTestBase<PlayerBattlesRequest, PlayerBattlesRequest.PlayerBattlesRequestBuilder> {
+public class PlayerBattlesRequestTest extends LimitedRequestTestBase<PlayerBattlesRequest> {
 
     @Override
-    PlayerBattlesRequest.PlayerBattlesRequestBuilder getBuilder() {
+    Object getBuilder() {
         return PlayerBattlesRequest.builder(Arrays.asList("abc"));
     }
 
