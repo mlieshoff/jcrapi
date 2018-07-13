@@ -33,6 +33,20 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
             <plugin>
@@ -79,12 +93,6 @@
             </plugin>
         </plugins>
         <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.java</include>
-                </includes>
-            </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
