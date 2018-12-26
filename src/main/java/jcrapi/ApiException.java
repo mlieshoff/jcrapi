@@ -24,16 +24,16 @@ import lombok.Getter;
 @Getter
 public class ApiException extends RuntimeException {
 
-    private int code;
-    private String message;
+  private int code;
+  private String message;
 
-    public ApiException(Throwable cause) {
-        super(cause);
-        message = cause.getMessage();
-        if (cause instanceof CrawlerException) {
-            CrawlerException crawlerException = (CrawlerException) cause;
-            code = crawlerException.getStatusCode();
-        }
+  public ApiException(Throwable cause) {
+    super(cause);
+    message = cause.getMessage();
+    if (cause instanceof CrawlerException) {
+      CrawlerException crawlerException = (CrawlerException) cause;
+      code = crawlerException.getStatusCode();
     }
+  }
 
 }

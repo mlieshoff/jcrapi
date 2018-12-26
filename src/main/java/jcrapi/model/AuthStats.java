@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,13 +29,13 @@ import lombok.ToString;
 @ToString
 public class AuthStats {
 
-    @SerializedName("id")
-    private long id;
+  @SerializedName("id")
+  private long id;
 
-    @SerializedName("lastRequest")
-    private long lastRequest;
+  @SerializedName("lastRequest")
+  private long lastRequest;
 
-    @SerializedName("requestCount")
-    private java.util.Map<String, String> requestCount;
+  @SerializedName("requestCount")
+  private java.util.Map<String, String> requestCount;
 
 }

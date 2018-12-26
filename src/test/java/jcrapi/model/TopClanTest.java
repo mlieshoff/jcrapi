@@ -16,100 +16,100 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class TopClanTest {
 
-    private TopClan unitUnderTest;
+  private TopClan unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new TopClan();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new TopClan();
+  }
 
-    @Test
-    public void shouldGetSetTag() {
-        String expected = "astring";
-        unitUnderTest.setTag(expected);
-        assertEquals(expected, unitUnderTest.getTag());
-    }
+  @Test
+  public void shouldGetSetTag() {
+    String expected = "astring";
+    unitUnderTest.setTag(expected);
+    assertEquals(expected, unitUnderTest.getTag());
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetScore() {
-        int expected = 815;
-        unitUnderTest.setScore(expected);
-        assertEquals(expected, unitUnderTest.getScore());
-    }
+  @Test
+  public void shouldGetSetScore() {
+    int expected = 815;
+    unitUnderTest.setScore(expected);
+    assertEquals(expected, unitUnderTest.getScore());
+  }
 
-    @Test
-    public void shouldGetSetMemberCount() {
-        int expected = 815;
-        unitUnderTest.setMemberCount(expected);
-        assertEquals(expected, unitUnderTest.getMemberCount());
-    }
+  @Test
+  public void shouldGetSetMemberCount() {
+    int expected = 815;
+    unitUnderTest.setMemberCount(expected);
+    assertEquals(expected, unitUnderTest.getMemberCount());
+  }
 
-    @Test
-    public void shouldGetSetRank() {
-        int expected = 815;
-        unitUnderTest.setRank(expected);
-        assertEquals(expected, unitUnderTest.getRank());
-    }
+  @Test
+  public void shouldGetSetRank() {
+    int expected = 815;
+    unitUnderTest.setRank(expected);
+    assertEquals(expected, unitUnderTest.getRank());
+  }
 
-    @Test
-    public void shouldGetSetPreviousRank() {
-        int expected = 815;
-        unitUnderTest.setPreviousRank(expected);
-        assertEquals(expected, unitUnderTest.getPreviousRank());
-    }
+  @Test
+  public void shouldGetSetPreviousRank() {
+    int expected = 815;
+    unitUnderTest.setPreviousRank(expected);
+    assertEquals(expected, unitUnderTest.getPreviousRank());
+  }
 
-    @Test
-    public void shouldGetSetBadge() {
-        Badge expected = new Badge();
-        unitUnderTest.setBadge(expected);
-        assertEquals(expected, unitUnderTest.getBadge());
-    }
+  @Test
+  public void shouldGetSetBadge() {
+    Badge expected = new Badge();
+    unitUnderTest.setBadge(expected);
+    assertEquals(expected, unitUnderTest.getBadge());
+  }
 
-    @Test
-    public void shouldGetSetLocation() {
-        Location expected = new Location();
-        unitUnderTest.setLocation(expected);
-        assertEquals(expected, unitUnderTest.getLocation());
-    }
+  @Test
+  public void shouldGetSetLocation() {
+    Location expected = new Location();
+    unitUnderTest.setLocation(expected);
+    assertEquals(expected, unitUnderTest.getLocation());
+  }
 
-    @Test
-    public void shouldGetSetTracking() {
-        Tracking expected = new Tracking();
-        unitUnderTest.setTracking(expected);
-        assertEquals(expected, unitUnderTest.getTracking());
-    }
+  @Test
+  public void shouldGetSetTracking() {
+    Tracking expected = new Tracking();
+    unitUnderTest.setTracking(expected);
+    assertEquals(expected, unitUnderTest.getTracking());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setTag("astring");
-        unitUnderTest.setName("astring");
-        unitUnderTest.setScore(815);
-        unitUnderTest.setMemberCount(815);
-        unitUnderTest.setRank(815);
-        unitUnderTest.setPreviousRank(815);
-        unitUnderTest.setBadge(new Badge());
-        unitUnderTest.setLocation(new Location());
-        unitUnderTest.setTracking(new Tracking());
-        String expected = "TopClan(tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + ", tracking=" + new Tracking() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setTag("astring");
+    unitUnderTest.setName("astring");
+    unitUnderTest.setScore(815);
+    unitUnderTest.setMemberCount(815);
+    unitUnderTest.setRank(815);
+    unitUnderTest.setPreviousRank(815);
+    unitUnderTest.setBadge(new Badge());
+    unitUnderTest.setLocation(new Location());
+    unitUnderTest.setTracking(new Tracking());
+    String expected = "TopClan(tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + ", tracking=" + new Tracking() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class TournamentClanTest {
 
-    private TournamentClan unitUnderTest;
+  private TournamentClan unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new TournamentClan();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new TournamentClan();
+  }
 
-    @Test
-    public void shouldGetSetTag() {
-        String expected = "astring";
-        unitUnderTest.setTag(expected);
-        assertEquals(expected, unitUnderTest.getTag());
-    }
+  @Test
+  public void shouldGetSetTag() {
+    String expected = "astring";
+    unitUnderTest.setTag(expected);
+    assertEquals(expected, unitUnderTest.getTag());
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetBadgeId() {
-        int expected = 815;
-        unitUnderTest.setBadgeId(expected);
-        assertEquals(expected, unitUnderTest.getBadgeId());
-    }
+  @Test
+  public void shouldGetSetBadgeId() {
+    int expected = 815;
+    unitUnderTest.setBadgeId(expected);
+    assertEquals(expected, unitUnderTest.getBadgeId());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setTag("astring");
-        unitUnderTest.setName("astring");
-        unitUnderTest.setBadgeId(815);
-        String expected = "TournamentClan(tag=astring, name=astring, badgeId=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setTag("astring");
+    unitUnderTest.setName("astring");
+    unitUnderTest.setBadgeId(815);
+    String expected = "TournamentClan(tag=astring, name=astring, badgeId=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

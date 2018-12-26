@@ -16,76 +16,76 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanHistoryMemberTest {
 
-    private ClanHistoryMember unitUnderTest;
+  private ClanHistoryMember unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanHistoryMember();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanHistoryMember();
+  }
 
-    @Test
-    public void shouldGetSetClanRank() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setClanRank(expected);
-        assertEquals(expected, unitUnderTest.getClanRank());
-    }
+  @Test
+  public void shouldGetSetClanRank() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setClanRank(expected);
+    assertEquals(expected, unitUnderTest.getClanRank());
+  }
 
-    @Test
-    public void shouldGetSetCrowns() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setCrowns(expected);
-        assertEquals(expected, unitUnderTest.getCrowns());
-    }
+  @Test
+  public void shouldGetSetCrowns() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setCrowns(expected);
+    assertEquals(expected, unitUnderTest.getCrowns());
+  }
 
-    @Test
-    public void shouldGetSetDonations() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setDonations(expected);
-        assertEquals(expected, unitUnderTest.getDonations());
-    }
+  @Test
+  public void shouldGetSetDonations() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setDonations(expected);
+    assertEquals(expected, unitUnderTest.getDonations());
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetTag() {
-        String expected = "astring";
-        unitUnderTest.setTag(expected);
-        assertEquals(expected, unitUnderTest.getTag());
-    }
+  @Test
+  public void shouldGetSetTag() {
+    String expected = "astring";
+    unitUnderTest.setTag(expected);
+    assertEquals(expected, unitUnderTest.getTag());
+  }
 
-    @Test
-    public void shouldGetSetTrophies() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setTrophies(expected);
-        assertEquals(expected, unitUnderTest.getTrophies());
-    }
+  @Test
+  public void shouldGetSetTrophies() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setTrophies(expected);
+    assertEquals(expected, unitUnderTest.getTrophies());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setClanRank(Integer.valueOf(815));
-        unitUnderTest.setCrowns(Integer.valueOf(815));
-        unitUnderTest.setDonations(Integer.valueOf(815));
-        unitUnderTest.setName("astring");
-        unitUnderTest.setTag("astring");
-        unitUnderTest.setTrophies(Integer.valueOf(815));
-        String expected = "ClanHistoryMember(clanRank=815, crowns=815, donations=815, name=astring, tag=astring, trophies=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setClanRank(Integer.valueOf(815));
+    unitUnderTest.setCrowns(Integer.valueOf(815));
+    unitUnderTest.setDonations(Integer.valueOf(815));
+    unitUnderTest.setName("astring");
+    unitUnderTest.setTag("astring");
+    unitUnderTest.setTrophies(Integer.valueOf(815));
+    String expected = "ClanHistoryMember(clanRank=815, crowns=815, donations=815, name=astring, tag=astring, trophies=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

@@ -16,68 +16,68 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class AchievmentTest {
 
-    private Achievment unitUnderTest;
+  private Achievment unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new Achievment();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new Achievment();
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetStars() {
-        int expected = 815;
-        unitUnderTest.setStars(expected);
-        assertEquals(expected, unitUnderTest.getStars());
-    }
+  @Test
+  public void shouldGetSetStars() {
+    int expected = 815;
+    unitUnderTest.setStars(expected);
+    assertEquals(expected, unitUnderTest.getStars());
+  }
 
-    @Test
-    public void shouldGetSetValue() {
-        int expected = 815;
-        unitUnderTest.setValue(expected);
-        assertEquals(expected, unitUnderTest.getValue());
-    }
+  @Test
+  public void shouldGetSetValue() {
+    int expected = 815;
+    unitUnderTest.setValue(expected);
+    assertEquals(expected, unitUnderTest.getValue());
+  }
 
-    @Test
-    public void shouldGetSetTarget() {
-        int expected = 815;
-        unitUnderTest.setTarget(expected);
-        assertEquals(expected, unitUnderTest.getTarget());
-    }
+  @Test
+  public void shouldGetSetTarget() {
+    int expected = 815;
+    unitUnderTest.setTarget(expected);
+    assertEquals(expected, unitUnderTest.getTarget());
+  }
 
-    @Test
-    public void shouldGetSetInfo() {
-        String expected = "astring";
-        unitUnderTest.setInfo(expected);
-        assertEquals(expected, unitUnderTest.getInfo());
-    }
+  @Test
+  public void shouldGetSetInfo() {
+    String expected = "astring";
+    unitUnderTest.setInfo(expected);
+    assertEquals(expected, unitUnderTest.getInfo());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setName("astring");
-        unitUnderTest.setStars(815);
-        unitUnderTest.setValue(815);
-        unitUnderTest.setTarget(815);
-        unitUnderTest.setInfo("astring");
-        String expected = "Achievment(name=astring, stars=815, value=815, target=815, info=astring)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setName("astring");
+    unitUnderTest.setStars(815);
+    unitUnderTest.setValue(815);
+    unitUnderTest.setTarget(815);
+    unitUnderTest.setInfo("astring");
+    String expected = "Achievment(name=astring, stars=815, value=815, target=815, info=astring)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

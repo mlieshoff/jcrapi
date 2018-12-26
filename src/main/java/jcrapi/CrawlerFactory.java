@@ -23,19 +23,19 @@ import com.google.common.base.Preconditions;
  */
 class CrawlerFactory {
 
-    private final HttpClientFactory httpClientFactory;
+  private final HttpClientFactory httpClientFactory;
 
-    CrawlerFactory() {
-        this.httpClientFactory = new HttpClientFactory() ;
-    }
+  CrawlerFactory() {
+    this.httpClientFactory = new HttpClientFactory();
+  }
 
-    CrawlerFactory(HttpClientFactory httpClientFactory) {
-        Preconditions.checkNotNull(httpClientFactory);
-        this.httpClientFactory = httpClientFactory;
-    }
+  CrawlerFactory(HttpClientFactory httpClientFactory) {
+    Preconditions.checkNotNull(httpClientFactory);
+    this.httpClientFactory = httpClientFactory;
+  }
 
-    Crawler createCrawler() {
-        return new Crawler(httpClientFactory);
-    }
+  Crawler createCrawler() {
+    return new Crawler(httpClientFactory);
+  }
 
 }

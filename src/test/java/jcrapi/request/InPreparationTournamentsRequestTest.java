@@ -1,22 +1,23 @@
 package jcrapi.request;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 /**
  * @author Michael Lieshoff
  */
 public class InPreparationTournamentsRequestTest extends TournamentRequestTestBase<InPreparationTournamentsRequest> {
 
-    @Override
-    Object getBuilder() {
-        return InPreparationTournamentsRequest.builder();
-    }
+  @Override
+  Object getBuilder() {
+    return InPreparationTournamentsRequest.builder();
+  }
 
-    @Test
-    public void shouldCreateBuilderWithCorrectClass() {
-        assertEquals(InPreparationTournamentsRequest.InPreparationTournamentsRequestBuilder.class, InPreparationTournamentsRequest.builder().getClass());
-    }
+  @Test
+  public void shouldCreateBuilderWithCorrectClass() {
+    assertEquals(InPreparationTournamentsRequest.InPreparationTournamentsRequestBuilder.class,
+        InPreparationTournamentsRequest.builder().getClass());
+  }
 
 }

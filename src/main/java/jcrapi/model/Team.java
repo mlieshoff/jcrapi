@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,28 +29,28 @@ import lombok.ToString;
 @ToString
 public class Team {
 
-    @SerializedName("tag")
-    private String tag;
+  @SerializedName("tag")
+  private String tag;
 
-    @SerializedName("deckLink")
-    private String deckLink;
+  @SerializedName("deckLink")
+  private String deckLink;
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("crownsEarned")
-    private int crownsEarned;
+  @SerializedName("crownsEarned")
+  private int crownsEarned;
 
-    @SerializedName("startTrophies")
-    private int startTrophies;
+  @SerializedName("startTrophies")
+  private int startTrophies;
 
-    @SerializedName("trophyChange")
-    private int trophyChange;
+  @SerializedName("trophyChange")
+  private int trophyChange;
 
-    @SerializedName("clan")
-    private TeamClan clan;
+  @SerializedName("clan")
+  private TeamClan clan;
 
-    @SerializedName("deck")
-    private java.util.List<TeamCard> deck;
+  @SerializedName("deck")
+  private java.util.List<TeamCard> deck;
 
 }

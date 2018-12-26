@@ -14,32 +14,32 @@ import jcrapi.request.LimitedRequest.LimitedRequestBuilder;
  */
 public abstract class LimitedRequestTestBase<A extends LimitedRequest> extends PaginatedRequestTestBase<A> {
 
-    @Test
-    public void shouldCreateLimitedRequestBuilder() {
-        assertTrue(LimitedRequest.limitedRequestBuilder() instanceof LimitedRequestBuilder);
-    }
+  @Test
+  public void shouldCreateLimitedRequestBuilder() {
+    assertTrue(LimitedRequest.limitedRequestBuilder() instanceof LimitedRequestBuilder);
+  }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void failBecauseLimitIsNegative() throws Exception {
-        Object builder = getBuilder();
-        builder = invokeLimitMethod(builder, -1);
-        invokeBuildMethod(builder);
-    }
+  @Test(expected = IllegalArgumentException.class)
+  public void failBecauseLimitIsNegative() throws Exception {
+    Object builder = getBuilder();
+    builder = invokeLimitMethod(builder, -1);
+    invokeBuildMethod(builder);
+  }
 
-    @Test
-    public void shouldBeWithLimit() throws Exception {
-        assertEquals(100, getLimitedRequest().getLimit());
-    }
+  @Test
+  public void shouldBeWithLimit() throws Exception {
+    assertEquals(100, getLimitedRequest().getLimit());
+  }
 
-    private A getLimitedRequest() throws Exception {
-        Object builder = getBuilder();
-        builder = invokeLimitMethod(builder, 100);
-        return invokeBuildMethod(builder);
-    }
+  private A getLimitedRequest() throws Exception {
+    Object builder = getBuilder();
+    builder = invokeLimitMethod(builder, 100);
+    return invokeBuildMethod(builder);
+  }
 
-    @Test
-    public void shouldQueryWithLimit() throws Exception {
-        assertEquals("100", getLimitedRequest().getQueryParameters().get("limit"));
-    }
+  @Test
+  public void shouldQueryWithLimit() throws Exception {
+    assertEquals("100", getLimitedRequest().getQueryParameters().get("limit"));
+  }
 
 }

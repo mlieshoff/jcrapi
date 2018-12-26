@@ -15,17 +15,18 @@ import lombok.Getter;
 @Getter
 public class ClansRequest extends LimitedRequest {
 
-    private final Collection<String> tags;
+  private final Collection<String> tags;
 
-    @Builder
-    private ClansRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(limit, max, page, excludes, keys);
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags), "tags");
-        this.tags = tags;
-    }
+  @Builder
+  private ClansRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes,
+                       List<String> keys) {
+    super(limit, max, page, excludes, keys);
+    Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags), "tags");
+    this.tags = tags;
+  }
 
-    public static ClansRequest.ClansRequestBuilder builder(Collection<String> tags) {
-        return new ClansRequest.ClansRequestBuilder().tags(tags);
-    }
+  public static ClansRequest.ClansRequestBuilder builder(Collection<String> tags) {
+    return new ClansRequest.ClansRequestBuilder().tags(tags);
+  }
 
 }

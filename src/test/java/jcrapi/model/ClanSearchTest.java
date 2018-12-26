@@ -16,60 +16,60 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanSearchTest {
 
-    private ClanSearch unitUnderTest;
+  private ClanSearch unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanSearch();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanSearch();
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetScore() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setScore(expected);
-        assertEquals(expected, unitUnderTest.getScore());
-    }
+  @Test
+  public void shouldGetSetScore() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setScore(expected);
+    assertEquals(expected, unitUnderTest.getScore());
+  }
 
-    @Test
-    public void shouldGetSetMinMembers() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setMinMembers(expected);
-        assertEquals(expected, unitUnderTest.getMinMembers());
-    }
+  @Test
+  public void shouldGetSetMinMembers() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setMinMembers(expected);
+    assertEquals(expected, unitUnderTest.getMinMembers());
+  }
 
-    @Test
-    public void shouldGetSetMaxMembers() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setMaxMembers(expected);
-        assertEquals(expected, unitUnderTest.getMaxMembers());
-    }
+  @Test
+  public void shouldGetSetMaxMembers() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setMaxMembers(expected);
+    assertEquals(expected, unitUnderTest.getMaxMembers());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setName("astring");
-        unitUnderTest.setScore(Integer.valueOf(815));
-        unitUnderTest.setMinMembers(Integer.valueOf(815));
-        unitUnderTest.setMaxMembers(Integer.valueOf(815));
-        String expected = "ClanSearch(name=astring, score=815, minMembers=815, maxMembers=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setName("astring");
+    unitUnderTest.setScore(Integer.valueOf(815));
+    unitUnderTest.setMinMembers(Integer.valueOf(815));
+    unitUnderTest.setMaxMembers(Integer.valueOf(815));
+    String expected = "ClanSearch(name=astring, score=815, minMembers=815, maxMembers=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

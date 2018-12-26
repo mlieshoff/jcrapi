@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class PopularDeckTest {
 
-    private PopularDeck unitUnderTest;
+  private PopularDeck unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new PopularDeck();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new PopularDeck();
+  }
 
-    @Test
-    public void shouldGetSetDecklink() {
-        String expected = "astring";
-        unitUnderTest.setDecklink(expected);
-        assertEquals(expected, unitUnderTest.getDecklink());
-    }
+  @Test
+  public void shouldGetSetDecklink() {
+    String expected = "astring";
+    unitUnderTest.setDecklink(expected);
+    assertEquals(expected, unitUnderTest.getDecklink());
+  }
 
-    @Test
-    public void shouldGetSetPopularity() {
-        int expected = 815;
-        unitUnderTest.setPopularity(expected);
-        assertEquals(expected, unitUnderTest.getPopularity());
-    }
+  @Test
+  public void shouldGetSetPopularity() {
+    int expected = 815;
+    unitUnderTest.setPopularity(expected);
+    assertEquals(expected, unitUnderTest.getPopularity());
+  }
 
-    @Test
-    public void shouldGetSetCards() {
-        java.util.List<PopularCard> expected = new java.util.ArrayList<PopularCard>();
-        unitUnderTest.setCards(expected);
-        assertEquals(expected, unitUnderTest.getCards());
-    }
+  @Test
+  public void shouldGetSetCards() {
+    java.util.List<PopularCard> expected = new java.util.ArrayList<PopularCard>();
+    unitUnderTest.setCards(expected);
+    assertEquals(expected, unitUnderTest.getCards());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setDecklink("astring");
-        unitUnderTest.setPopularity(815);
-        unitUnderTest.setCards(new java.util.ArrayList<PopularCard>());
-        String expected = "PopularDeck(decklink=astring, popularity=815, cards=" + new java.util.ArrayList<PopularCard>() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setDecklink("astring");
+    unitUnderTest.setPopularity(815);
+    unitUnderTest.setCards(new java.util.ArrayList<PopularCard>());
+    String expected = "PopularDeck(decklink=astring, popularity=815, cards=" + new java.util.ArrayList<PopularCard>() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

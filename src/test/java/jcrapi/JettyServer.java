@@ -27,31 +27,31 @@ import javax.servlet.Servlet;
  */
 public class JettyServer {
 
-    private Server _server;
+  private Server _server;
 
-    private Context _context;
+  private Context _context;
 
-    public JettyServer(int port, String contextPath) {
-        _server = new Server(port);
-        _context = new Context(_server, contextPath, Context.SESSIONS);
-        _context.setContextPath(contextPath);
-        _server.setHandler(_context);
+  public JettyServer(int port, String contextPath) {
+    _server = new Server(port);
+    _context = new Context(_server, contextPath, Context.SESSIONS);
+    _context.setContextPath(contextPath);
+    _server.setHandler(_context);
+  }
+
+  public void addServlet(String pathSpec, Servlet servlet) {
+    _context.addServlet(new ServletHolder(servlet), pathSpec);
+  }
+
+  public void start() throws Exception {
+    if (_server != null) {
+      _server.start();
     }
+  }
 
-    public void addServlet(String pathSpec, Servlet servlet) {
-        _context.addServlet(new ServletHolder(servlet), pathSpec);
+  public void stop() throws Exception {
+    if (_server != null) {
+      _server.stop();
     }
-
-    public void start() throws Exception {
-        if (_server != null) {
-            _server.start();
-        }
-    }
-
-    public void stop() throws Exception {
-        if (_server != null) {
-            _server.stop();
-        }
-    }
+  }
 
 }

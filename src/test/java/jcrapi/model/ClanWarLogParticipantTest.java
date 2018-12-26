@@ -16,68 +16,68 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanWarLogParticipantTest {
 
-    private ClanWarLogParticipant unitUnderTest;
+  private ClanWarLogParticipant unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanWarLogParticipant();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanWarLogParticipant();
+  }
 
-    @Test
-    public void shouldGetSetTag() {
-        String expected = "astring";
-        unitUnderTest.setTag(expected);
-        assertEquals(expected, unitUnderTest.getTag());
-    }
+  @Test
+  public void shouldGetSetTag() {
+    String expected = "astring";
+    unitUnderTest.setTag(expected);
+    assertEquals(expected, unitUnderTest.getTag());
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetCardsEarned() {
-        int expected = 815;
-        unitUnderTest.setCardsEarned(expected);
-        assertEquals(expected, unitUnderTest.getCardsEarned());
-    }
+  @Test
+  public void shouldGetSetCardsEarned() {
+    int expected = 815;
+    unitUnderTest.setCardsEarned(expected);
+    assertEquals(expected, unitUnderTest.getCardsEarned());
+  }
 
-    @Test
-    public void shouldGetSetBattlesPlayed() {
-        int expected = 815;
-        unitUnderTest.setBattlesPlayed(expected);
-        assertEquals(expected, unitUnderTest.getBattlesPlayed());
-    }
+  @Test
+  public void shouldGetSetBattlesPlayed() {
+    int expected = 815;
+    unitUnderTest.setBattlesPlayed(expected);
+    assertEquals(expected, unitUnderTest.getBattlesPlayed());
+  }
 
-    @Test
-    public void shouldGetSetWins() {
-        int expected = 815;
-        unitUnderTest.setWins(expected);
-        assertEquals(expected, unitUnderTest.getWins());
-    }
+  @Test
+  public void shouldGetSetWins() {
+    int expected = 815;
+    unitUnderTest.setWins(expected);
+    assertEquals(expected, unitUnderTest.getWins());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setTag("astring");
-        unitUnderTest.setName("astring");
-        unitUnderTest.setCardsEarned(815);
-        unitUnderTest.setBattlesPlayed(815);
-        unitUnderTest.setWins(815);
-        String expected = "ClanWarLogParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setTag("astring");
+    unitUnderTest.setName("astring");
+    unitUnderTest.setCardsEarned(815);
+    unitUnderTest.setBattlesPlayed(815);
+    unitUnderTest.setWins(815);
+    String expected = "ClanWarLogParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

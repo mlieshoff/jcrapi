@@ -16,33 +16,33 @@
  */
 package jcrapi.model;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.annotation.Generated;
 
-import static org.junit.Assert.assertEquals;
-
 @Generated("org.mili.generator")
 public class VersionTest {
 
-    private Version unitUnderTest;
+  private Version unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new Version();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new Version();
+  }
 
-    @Test
-    public void shouldGetVERSION() {
-        assertEquals( "v12.0.160", unitUnderTest.VERSION);
-    }
+  @Test
+  public void shouldGetVERSION() {
+    assertEquals( "v12.0.160", unitUnderTest.VERSION);
+  }
     
-    @Test
-    public void shouldToString() {
-        String expected = "Version()";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    String expected = "Version()";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

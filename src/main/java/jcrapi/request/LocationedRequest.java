@@ -10,12 +10,12 @@ import lombok.Getter;
 @Getter
 public class LocationedRequest extends LimitedRequest {
 
-    private final String locationKey;
+  private final String locationKey;
 
-    @Builder(builderMethodName = "locationedRequestBuilder")
-    LocationedRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(limit, max, page, excludes, keys);
-        this.locationKey = locationKey;
-    }
+  @Builder(builderMethodName = "locationedRequestBuilder")
+  LocationedRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> keys) {
+    super(limit, max, page, excludes, keys);
+    this.locationKey = locationKey;
+  }
 
 }

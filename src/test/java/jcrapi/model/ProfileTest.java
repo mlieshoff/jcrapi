@@ -16,156 +16,156 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ProfileTest {
 
-    private Profile unitUnderTest;
+  private Profile unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new Profile();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new Profile();
+  }
 
-    @Test
-    public void shouldGetSetTag() {
-        String expected = "astring";
-        unitUnderTest.setTag(expected);
-        assertEquals(expected, unitUnderTest.getTag());
-    }
+  @Test
+  public void shouldGetSetTag() {
+    String expected = "astring";
+    unitUnderTest.setTag(expected);
+    assertEquals(expected, unitUnderTest.getTag());
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetRank() {
-        int expected = 815;
-        unitUnderTest.setRank(expected);
-        assertEquals(expected, unitUnderTest.getRank());
-    }
+  @Test
+  public void shouldGetSetRank() {
+    int expected = 815;
+    unitUnderTest.setRank(expected);
+    assertEquals(expected, unitUnderTest.getRank());
+  }
 
-    @Test
-    public void shouldGetSetTrophies() {
-        int expected = 815;
-        unitUnderTest.setTrophies(expected);
-        assertEquals(expected, unitUnderTest.getTrophies());
-    }
+  @Test
+  public void shouldGetSetTrophies() {
+    int expected = 815;
+    unitUnderTest.setTrophies(expected);
+    assertEquals(expected, unitUnderTest.getTrophies());
+  }
 
-    @Test
-    public void shouldGetSetArena() {
-        Arena expected = new Arena();
-        unitUnderTest.setArena(expected);
-        assertEquals(expected, unitUnderTest.getArena());
-    }
+  @Test
+  public void shouldGetSetArena() {
+    Arena expected = new Arena();
+    unitUnderTest.setArena(expected);
+    assertEquals(expected, unitUnderTest.getArena());
+  }
 
-    @Test
-    public void shouldGetSetClan() {
-        ProfileClan expected = new ProfileClan();
-        unitUnderTest.setClan(expected);
-        assertEquals(expected, unitUnderTest.getClan());
-    }
+  @Test
+  public void shouldGetSetClan() {
+    ProfileClan expected = new ProfileClan();
+    unitUnderTest.setClan(expected);
+    assertEquals(expected, unitUnderTest.getClan());
+  }
 
-    @Test
-    public void shouldGetSetStats() {
-        Stats expected = new Stats();
-        unitUnderTest.setStats(expected);
-        assertEquals(expected, unitUnderTest.getStats());
-    }
+  @Test
+  public void shouldGetSetStats() {
+    Stats expected = new Stats();
+    unitUnderTest.setStats(expected);
+    assertEquals(expected, unitUnderTest.getStats());
+  }
 
-    @Test
-    public void shouldGetSetGames() {
-        Games expected = new Games();
-        unitUnderTest.setGames(expected);
-        assertEquals(expected, unitUnderTest.getGames());
-    }
+  @Test
+  public void shouldGetSetGames() {
+    Games expected = new Games();
+    unitUnderTest.setGames(expected);
+    assertEquals(expected, unitUnderTest.getGames());
+  }
 
-    @Test
-    public void shouldGetSetChestCycle() {
-        ChestCycle expected = new ChestCycle();
-        unitUnderTest.setChestCycle(expected);
-        assertEquals(expected, unitUnderTest.getChestCycle());
-    }
+  @Test
+  public void shouldGetSetChestCycle() {
+    ChestCycle expected = new ChestCycle();
+    unitUnderTest.setChestCycle(expected);
+    assertEquals(expected, unitUnderTest.getChestCycle());
+  }
 
-    @Test
-    public void shouldGetSetLeagueStatistics() {
-        LeagueStatistics expected = new LeagueStatistics();
-        unitUnderTest.setLeagueStatistics(expected);
-        assertEquals(expected, unitUnderTest.getLeagueStatistics());
-    }
+  @Test
+  public void shouldGetSetLeagueStatistics() {
+    LeagueStatistics expected = new LeagueStatistics();
+    unitUnderTest.setLeagueStatistics(expected);
+    assertEquals(expected, unitUnderTest.getLeagueStatistics());
+  }
 
-    @Test
-    public void shouldGetSetCurrentDeck() {
-        java.util.List<Card> expected = new java.util.ArrayList<Card>();
-        unitUnderTest.setCurrentDeck(expected);
-        assertEquals(expected, unitUnderTest.getCurrentDeck());
-    }
+  @Test
+  public void shouldGetSetCurrentDeck() {
+    java.util.List<Card> expected = new java.util.ArrayList<Card>();
+    unitUnderTest.setCurrentDeck(expected);
+    assertEquals(expected, unitUnderTest.getCurrentDeck());
+  }
 
-    @Test
-    public void shouldGetSetCards() {
-        java.util.List<Card> expected = new java.util.ArrayList<Card>();
-        unitUnderTest.setCards(expected);
-        assertEquals(expected, unitUnderTest.getCards());
-    }
+  @Test
+  public void shouldGetSetCards() {
+    java.util.List<Card> expected = new java.util.ArrayList<Card>();
+    unitUnderTest.setCards(expected);
+    assertEquals(expected, unitUnderTest.getCards());
+  }
 
-    @Test
-    public void shouldGetSetAchievments() {
-        java.util.List<Achievment> expected = new java.util.ArrayList<Achievment>();
-        unitUnderTest.setAchievments(expected);
-        assertEquals(expected, unitUnderTest.getAchievments());
-    }
+  @Test
+  public void shouldGetSetAchievments() {
+    java.util.List<Achievment> expected = new java.util.ArrayList<Achievment>();
+    unitUnderTest.setAchievments(expected);
+    assertEquals(expected, unitUnderTest.getAchievments());
+  }
 
-    @Test
-    public void shouldGetSetAchievements() {
-        java.util.List<Achievement> expected = new java.util.ArrayList<Achievement>();
-        unitUnderTest.setAchievements(expected);
-        assertEquals(expected, unitUnderTest.getAchievements());
-    }
+  @Test
+  public void shouldGetSetAchievements() {
+    java.util.List<Achievement> expected = new java.util.ArrayList<Achievement>();
+    unitUnderTest.setAchievements(expected);
+    assertEquals(expected, unitUnderTest.getAchievements());
+  }
 
-    @Test
-    public void shouldGetSetBattles() {
-        java.util.List<Battle> expected = new java.util.ArrayList<Battle>();
-        unitUnderTest.setBattles(expected);
-        assertEquals(expected, unitUnderTest.getBattles());
-    }
+  @Test
+  public void shouldGetSetBattles() {
+    java.util.List<Battle> expected = new java.util.ArrayList<Battle>();
+    unitUnderTest.setBattles(expected);
+    assertEquals(expected, unitUnderTest.getBattles());
+  }
 
-    @Test
-    public void shouldGetSetDeckLink() {
-        String expected = "astring";
-        unitUnderTest.setDeckLink(expected);
-        assertEquals(expected, unitUnderTest.getDeckLink());
-    }
+  @Test
+  public void shouldGetSetDeckLink() {
+    String expected = "astring";
+    unitUnderTest.setDeckLink(expected);
+    assertEquals(expected, unitUnderTest.getDeckLink());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setTag("astring");
-        unitUnderTest.setName("astring");
-        unitUnderTest.setRank(815);
-        unitUnderTest.setTrophies(815);
-        unitUnderTest.setArena(new Arena());
-        unitUnderTest.setClan(new ProfileClan());
-        unitUnderTest.setStats(new Stats());
-        unitUnderTest.setGames(new Games());
-        unitUnderTest.setChestCycle(new ChestCycle());
-        unitUnderTest.setLeagueStatistics(new LeagueStatistics());
-        unitUnderTest.setCurrentDeck(new java.util.ArrayList<Card>());
-        unitUnderTest.setCards(new java.util.ArrayList<Card>());
-        unitUnderTest.setAchievments(new java.util.ArrayList<Achievment>());
-        unitUnderTest.setAchievements(new java.util.ArrayList<Achievement>());
-        unitUnderTest.setBattles(new java.util.ArrayList<Battle>());
-        unitUnderTest.setDeckLink("astring");
-        String expected = "Profile(tag=astring, name=astring, rank=815, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", achievements=" + new java.util.ArrayList<Achievement>() + ", battles=" + new java.util.ArrayList<Battle>() + ", deckLink=astring)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setTag("astring");
+    unitUnderTest.setName("astring");
+    unitUnderTest.setRank(815);
+    unitUnderTest.setTrophies(815);
+    unitUnderTest.setArena(new Arena());
+    unitUnderTest.setClan(new ProfileClan());
+    unitUnderTest.setStats(new Stats());
+    unitUnderTest.setGames(new Games());
+    unitUnderTest.setChestCycle(new ChestCycle());
+    unitUnderTest.setLeagueStatistics(new LeagueStatistics());
+    unitUnderTest.setCurrentDeck(new java.util.ArrayList<Card>());
+    unitUnderTest.setCards(new java.util.ArrayList<Card>());
+    unitUnderTest.setAchievments(new java.util.ArrayList<Achievment>());
+    unitUnderTest.setAchievements(new java.util.ArrayList<Achievement>());
+    unitUnderTest.setBattles(new java.util.ArrayList<Battle>());
+    unitUnderTest.setDeckLink("astring");
+    String expected = "Profile(tag=astring, name=astring, rank=815, trophies=815, arena=" + new Arena() + ", clan=" + new ProfileClan() + ", stats=" + new Stats() + ", games=" + new Games() + ", chestCycle=" + new ChestCycle() + ", leagueStatistics=" + new LeagueStatistics() + ", currentDeck=" + new java.util.ArrayList<Card>() + ", cards=" + new java.util.ArrayList<Card>() + ", achievments=" + new java.util.ArrayList<Achievment>() + ", achievements=" + new java.util.ArrayList<Achievement>() + ", battles=" + new java.util.ArrayList<Battle>() + ", deckLink=astring)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

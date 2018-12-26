@@ -16,38 +16,38 @@
  */
 package jcrapi;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author Michael Lieshoff
  */
 public class TestClanServlet extends TestJsonFileServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String parameter = getRestTagParameter(req);
-        String filename = null;
-        if ("tracking".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clanTracking.json";
-        } else if ("battles".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clanBattles.json";
-        } else if ("history".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clanHistory.json";
-        } else if ("weekly".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clanWeeklyHistory.json";
-        } else if ("warlog".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clanWarLog.json";
-        } else if ("war".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clanWar.json";
-        } else if ("2CCCP".equals(parameter)) {
-            filename = "src/test/java/jcrapi/clan.json";
-        } else if ("2CCCP,2U2GGQJ".equals(parameter)) {
-            filename = "src/test/java/jcrapi/multiClans.json";
-        }
-        super.doGet(filename, req, resp);
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String parameter = getRestTagParameter(req);
+    String filename = null;
+    if ("tracking".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clanTracking.json";
+    } else if ("battles".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clanBattles.json";
+    } else if ("history".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clanHistory.json";
+    } else if ("weekly".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clanWeeklyHistory.json";
+    } else if ("warlog".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clanWarLog.json";
+    } else if ("war".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clanWar.json";
+    } else if ("2CCCP".equals(parameter)) {
+      filename = "src/test/java/jcrapi/clan.json";
+    } else if ("2CCCP,2U2GGQJ".equals(parameter)) {
+      filename = "src/test/java/jcrapi/multiClans.json";
     }
+    super.doGet(filename, req, resp);
+  }
 
 }

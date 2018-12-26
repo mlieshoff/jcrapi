@@ -8,9 +8,9 @@ import lombok.Builder;
  */
 public class TopClansRequest extends LocationedRequest {
 
-    @Builder
-    private TopClansRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(locationKey, limit, max, page, excludes, keys);
-    }
+  @Builder
+  private TopClansRequest(String locationKey, int limit, int max, int page, List<String> excludes, List<String> keys) {
+    super(locationKey, limit, max, page, excludes, keys);
+  }
 
 }

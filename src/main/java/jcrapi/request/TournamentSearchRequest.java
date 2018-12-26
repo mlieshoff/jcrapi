@@ -13,25 +13,25 @@ import lombok.Getter;
 @Getter
 public class TournamentSearchRequest extends LimitedRequest {
 
-    private final String name;
+  private final String name;
 
-    @Builder
-    private TournamentSearchRequest(String name, int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(limit, max, page, excludes, keys);
-        Preconditions.checkNotNull(name, "name");
-        Preconditions.checkArgument(name.length() > 0, "name");
-        this.name = name;
-    }
+  @Builder
+  private TournamentSearchRequest(String name, int limit, int max, int page, List<String> excludes, List<String> keys) {
+    super(limit, max, page, excludes, keys);
+    Preconditions.checkNotNull(name, "name");
+    Preconditions.checkArgument(name.length() > 0, "name");
+    this.name = name;
+  }
 
-    @Override
-    public Map<String, String> getQueryParameters() {
-        Map<String, String> parameters = super.getQueryParameters();
-        parameters.put("name", name);
-        return parameters;
-    }
+  @Override
+  public Map<String, String> getQueryParameters() {
+    Map<String, String> parameters = super.getQueryParameters();
+    parameters.put("name", name);
+    return parameters;
+  }
 
-    public static TournamentSearchRequestBuilder builder(String name) {
-        return new TournamentSearchRequestBuilder().name(name);
-    }
+  public static TournamentSearchRequestBuilder builder(String name) {
+    return new TournamentSearchRequestBuilder().name(name);
+  }
 
 }

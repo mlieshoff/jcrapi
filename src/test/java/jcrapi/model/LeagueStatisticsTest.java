@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class LeagueStatisticsTest {
 
-    private LeagueStatistics unitUnderTest;
+  private LeagueStatistics unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new LeagueStatistics();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new LeagueStatistics();
+  }
 
-    @Test
-    public void shouldGetSetCurrentSeason() {
-        CurrentSeason expected = new CurrentSeason();
-        unitUnderTest.setCurrentSeason(expected);
-        assertEquals(expected, unitUnderTest.getCurrentSeason());
-    }
+  @Test
+  public void shouldGetSetCurrentSeason() {
+    CurrentSeason expected = new CurrentSeason();
+    unitUnderTest.setCurrentSeason(expected);
+    assertEquals(expected, unitUnderTest.getCurrentSeason());
+  }
 
-    @Test
-    public void shouldGetSetPreviousSeason() {
-        PreviousSeason expected = new PreviousSeason();
-        unitUnderTest.setPreviousSeason(expected);
-        assertEquals(expected, unitUnderTest.getPreviousSeason());
-    }
+  @Test
+  public void shouldGetSetPreviousSeason() {
+    PreviousSeason expected = new PreviousSeason();
+    unitUnderTest.setPreviousSeason(expected);
+    assertEquals(expected, unitUnderTest.getPreviousSeason());
+  }
 
-    @Test
-    public void shouldGetSetBestSeason() {
-        BestSeason expected = new BestSeason();
-        unitUnderTest.setBestSeason(expected);
-        assertEquals(expected, unitUnderTest.getBestSeason());
-    }
+  @Test
+  public void shouldGetSetBestSeason() {
+    BestSeason expected = new BestSeason();
+    unitUnderTest.setBestSeason(expected);
+    assertEquals(expected, unitUnderTest.getBestSeason());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setCurrentSeason(new CurrentSeason());
-        unitUnderTest.setPreviousSeason(new PreviousSeason());
-        unitUnderTest.setBestSeason(new BestSeason());
-        String expected = "LeagueStatistics(currentSeason=" + new CurrentSeason() + ", previousSeason=" + new PreviousSeason() + ", bestSeason=" + new BestSeason() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setCurrentSeason(new CurrentSeason());
+    unitUnderTest.setPreviousSeason(new PreviousSeason());
+    unitUnderTest.setBestSeason(new BestSeason());
+    String expected = "LeagueStatistics(currentSeason=" + new CurrentSeason() + ", previousSeason=" + new PreviousSeason() + ", bestSeason=" + new BestSeason() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

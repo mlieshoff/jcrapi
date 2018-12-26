@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,40 +29,40 @@ import lombok.ToString;
 @ToString
 public class FullTournament {
 
-    @SerializedName("tag")
-    private String tag;
+  @SerializedName("tag")
+  private String tag;
 
-    @SerializedName("type")
-    private String type;
+  @SerializedName("type")
+  private String type;
 
-    @SerializedName("status")
-    private String status;
+  @SerializedName("status")
+  private String status;
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("capacity")
-    private int capacity;
+  @SerializedName("capacity")
+  private int capacity;
 
-    @SerializedName("maxPlayers")
-    private int maxPlayers;
+  @SerializedName("maxPlayers")
+  private int maxPlayers;
 
-    @SerializedName("currentPlayers")
-    private int currentPlayers;
+  @SerializedName("currentPlayers")
+  private int currentPlayers;
 
-    @SerializedName("prepTime")
-    private int prepTime;
+  @SerializedName("prepTime")
+  private int prepTime;
 
-    @SerializedName("duration")
-    private int duration;
+  @SerializedName("duration")
+  private int duration;
 
-    @SerializedName("createTime")
-    private long createTime;
+  @SerializedName("createTime")
+  private long createTime;
 
-    @SerializedName("startTime")
-    private String startTime;
+  @SerializedName("startTime")
+  private String startTime;
 
-    @SerializedName("endTime")
-    private String endTime;
+  @SerializedName("endTime")
+  private String endTime;
 
 }

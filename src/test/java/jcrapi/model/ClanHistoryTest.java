@@ -16,22 +16,19 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
-
 import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanHistoryTest {
 
-    private ClanHistory unitUnderTest;
+  private ClanHistory unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanHistory();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanHistory();
+  }
 
 
 }

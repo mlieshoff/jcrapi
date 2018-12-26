@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanWeeklyHistoryElementTest {
 
-    private ClanWeeklyHistoryElement unitUnderTest;
+  private ClanWeeklyHistoryElement unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanWeeklyHistoryElement();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanWeeklyHistoryElement();
+  }
 
-    @Test
-    public void shouldGetSetDonations() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setDonations(expected);
-        assertEquals(expected, unitUnderTest.getDonations());
-    }
+  @Test
+  public void shouldGetSetDonations() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setDonations(expected);
+    assertEquals(expected, unitUnderTest.getDonations());
+  }
 
-    @Test
-    public void shouldGetSetMemberCount() {
-        Integer expected = Integer.valueOf(815);
-        unitUnderTest.setMemberCount(expected);
-        assertEquals(expected, unitUnderTest.getMemberCount());
-    }
+  @Test
+  public void shouldGetSetMemberCount() {
+    Integer expected = Integer.valueOf(815);
+    unitUnderTest.setMemberCount(expected);
+    assertEquals(expected, unitUnderTest.getMemberCount());
+  }
 
-    @Test
-    public void shouldGetSetMembers() {
-        java.util.List<ClanHistoryMember> expected = new java.util.ArrayList<ClanHistoryMember>();
-        unitUnderTest.setMembers(expected);
-        assertEquals(expected, unitUnderTest.getMembers());
-    }
+  @Test
+  public void shouldGetSetMembers() {
+    java.util.List<ClanHistoryMember> expected = new java.util.ArrayList<ClanHistoryMember>();
+    unitUnderTest.setMembers(expected);
+    assertEquals(expected, unitUnderTest.getMembers());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setDonations(Integer.valueOf(815));
-        unitUnderTest.setMemberCount(Integer.valueOf(815));
-        unitUnderTest.setMembers(new java.util.ArrayList<ClanHistoryMember>());
-        String expected = "ClanWeeklyHistoryElement(donations=815, memberCount=815, members=" + new java.util.ArrayList<ClanHistoryMember>() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setDonations(Integer.valueOf(815));
+    unitUnderTest.setMemberCount(Integer.valueOf(815));
+    unitUnderTest.setMembers(new java.util.ArrayList<ClanHistoryMember>());
+    String expected = "ClanWeeklyHistoryElement(donations=815, memberCount=815, members=" + new java.util.ArrayList<ClanHistoryMember>() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

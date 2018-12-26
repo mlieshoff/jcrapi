@@ -14,25 +14,25 @@ import jcrapi.request.LocationedRequest.LocationedRequestBuilder;
  */
 public abstract class LocationedRequestTestBase<A extends LocationedRequest> extends LimitedRequestTestBase<A> {
 
-    @Test
-    public void shouldCreateLocationedRequestBuilder() {
-        assertTrue(LocationedRequest.locationedRequestBuilder() instanceof LocationedRequestBuilder);
-    }
+  @Test
+  public void shouldCreateLocationedRequestBuilder() {
+    assertTrue(LocationedRequest.locationedRequestBuilder() instanceof LocationedRequestBuilder);
+  }
 
-    @Test
-    public void shouldBeWithLocationKey() throws Exception {
-        assertEquals("EU", getLocationedRequest().getLocationKey());
-    }
+  @Test
+  public void shouldBeWithLocationKey() throws Exception {
+    assertEquals("EU", getLocationedRequest().getLocationKey());
+  }
 
-    private A getLocationedRequest() throws Exception {
-        Object builder = getBuilder();
-        builder = invokeLocationKeyMethod(builder, "EU");
-        return invokeBuildMethod(builder);
-    }
+  private A getLocationedRequest() throws Exception {
+    Object builder = getBuilder();
+    builder = invokeLocationKeyMethod(builder, "EU");
+    return invokeBuildMethod(builder);
+  }
 
-    @Test
-    public void shouldGetLocationKey() throws Exception {
-        assertEquals("EU", getLocationedRequest().getLocationKey());
-    }
+  @Test
+  public void shouldGetLocationKey() throws Exception {
+    assertEquals("EU", getLocationedRequest().getLocationKey());
+  }
 
 }

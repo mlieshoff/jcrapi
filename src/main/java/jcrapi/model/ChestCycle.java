@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,22 +29,22 @@ import lombok.ToString;
 @ToString
 public class ChestCycle {
 
-    @SerializedName("upcoming")
-    private java.util.List<String> upcoming;
+  @SerializedName("upcoming")
+  private java.util.List<String> upcoming;
 
-    @SerializedName("superMagical")
-    private int superMagical;
+  @SerializedName("superMagical")
+  private int superMagical;
 
-    @SerializedName("magical")
-    private int magical;
+  @SerializedName("magical")
+  private int magical;
 
-    @SerializedName("legendary")
-    private int legendary;
+  @SerializedName("legendary")
+  private int legendary;
 
-    @SerializedName("epic")
-    private int epic;
+  @SerializedName("epic")
+  private int epic;
 
-    @SerializedName("giant")
-    private int giant;
+  @SerializedName("giant")
+  private int giant;
 
 }

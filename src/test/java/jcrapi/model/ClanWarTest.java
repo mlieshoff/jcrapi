@@ -16,76 +16,76 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanWarTest {
 
-    private ClanWar unitUnderTest;
+  private ClanWar unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanWar();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanWar();
+  }
 
-    @Test
-    public void shouldGetSetState() {
-        String expected = "astring";
-        unitUnderTest.setState(expected);
-        assertEquals(expected, unitUnderTest.getState());
-    }
+  @Test
+  public void shouldGetSetState() {
+    String expected = "astring";
+    unitUnderTest.setState(expected);
+    assertEquals(expected, unitUnderTest.getState());
+  }
 
-    @Test
-    public void shouldGetSetWarEndTime() {
-        long expected = 4711L;
-        unitUnderTest.setWarEndTime(expected);
-        assertEquals(expected, unitUnderTest.getWarEndTime());
-    }
+  @Test
+  public void shouldGetSetWarEndTime() {
+    long expected = 4711L;
+    unitUnderTest.setWarEndTime(expected);
+    assertEquals(expected, unitUnderTest.getWarEndTime());
+  }
 
-    @Test
-    public void shouldGetSetCollectionEndTime() {
-        long expected = 4711L;
-        unitUnderTest.setCollectionEndTime(expected);
-        assertEquals(expected, unitUnderTest.getCollectionEndTime());
-    }
+  @Test
+  public void shouldGetSetCollectionEndTime() {
+    long expected = 4711L;
+    unitUnderTest.setCollectionEndTime(expected);
+    assertEquals(expected, unitUnderTest.getCollectionEndTime());
+  }
 
-    @Test
-    public void shouldGetSetClan() {
-        ClanWarClan expected = new ClanWarClan();
-        unitUnderTest.setClan(expected);
-        assertEquals(expected, unitUnderTest.getClan());
-    }
+  @Test
+  public void shouldGetSetClan() {
+    ClanWarClan expected = new ClanWarClan();
+    unitUnderTest.setClan(expected);
+    assertEquals(expected, unitUnderTest.getClan());
+  }
 
-    @Test
-    public void shouldGetSetParticipants() {
-        java.util.List<ClanWarParticipant> expected = new java.util.ArrayList<ClanWarParticipant>();
-        unitUnderTest.setParticipants(expected);
-        assertEquals(expected, unitUnderTest.getParticipants());
-    }
+  @Test
+  public void shouldGetSetParticipants() {
+    java.util.List<ClanWarParticipant> expected = new java.util.ArrayList<ClanWarParticipant>();
+    unitUnderTest.setParticipants(expected);
+    assertEquals(expected, unitUnderTest.getParticipants());
+  }
 
-    @Test
-    public void shouldGetSetStandings() {
-        java.util.List<ClanWarStanding> expected = new java.util.ArrayList<ClanWarStanding>();
-        unitUnderTest.setStandings(expected);
-        assertEquals(expected, unitUnderTest.getStandings());
-    }
+  @Test
+  public void shouldGetSetStandings() {
+    java.util.List<ClanWarStanding> expected = new java.util.ArrayList<ClanWarStanding>();
+    unitUnderTest.setStandings(expected);
+    assertEquals(expected, unitUnderTest.getStandings());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setState("astring");
-        unitUnderTest.setWarEndTime(4711L);
-        unitUnderTest.setCollectionEndTime(4711L);
-        unitUnderTest.setClan(new ClanWarClan());
-        unitUnderTest.setParticipants(new java.util.ArrayList<ClanWarParticipant>());
-        unitUnderTest.setStandings(new java.util.ArrayList<ClanWarStanding>());
-        String expected = "ClanWar(state=astring, warEndTime=4711, collectionEndTime=4711, clan=" + new ClanWarClan() + ", participants=" + new java.util.ArrayList<ClanWarParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarStanding>() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setState("astring");
+    unitUnderTest.setWarEndTime(4711L);
+    unitUnderTest.setCollectionEndTime(4711L);
+    unitUnderTest.setClan(new ClanWarClan());
+    unitUnderTest.setParticipants(new java.util.ArrayList<ClanWarParticipant>());
+    unitUnderTest.setStandings(new java.util.ArrayList<ClanWarStanding>());
+    String expected = "ClanWar(state=astring, warEndTime=4711, collectionEndTime=4711, clan=" + new ClanWarClan() + ", participants=" + new java.util.ArrayList<ClanWarParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarStanding>() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

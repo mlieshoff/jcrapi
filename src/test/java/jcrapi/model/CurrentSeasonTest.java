@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class CurrentSeasonTest {
 
-    private CurrentSeason unitUnderTest;
+  private CurrentSeason unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new CurrentSeason();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new CurrentSeason();
+  }
 
-    @Test
-    public void shouldGetSetRank() {
-        int expected = 815;
-        unitUnderTest.setRank(expected);
-        assertEquals(expected, unitUnderTest.getRank());
-    }
+  @Test
+  public void shouldGetSetRank() {
+    int expected = 815;
+    unitUnderTest.setRank(expected);
+    assertEquals(expected, unitUnderTest.getRank());
+  }
 
-    @Test
-    public void shouldGetSetTrophies() {
-        int expected = 815;
-        unitUnderTest.setTrophies(expected);
-        assertEquals(expected, unitUnderTest.getTrophies());
-    }
+  @Test
+  public void shouldGetSetTrophies() {
+    int expected = 815;
+    unitUnderTest.setTrophies(expected);
+    assertEquals(expected, unitUnderTest.getTrophies());
+  }
 
-    @Test
-    public void shouldGetSetBestTrophies() {
-        int expected = 815;
-        unitUnderTest.setBestTrophies(expected);
-        assertEquals(expected, unitUnderTest.getBestTrophies());
-    }
+  @Test
+  public void shouldGetSetBestTrophies() {
+    int expected = 815;
+    unitUnderTest.setBestTrophies(expected);
+    assertEquals(expected, unitUnderTest.getBestTrophies());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setRank(815);
-        unitUnderTest.setTrophies(815);
-        unitUnderTest.setBestTrophies(815);
-        String expected = "CurrentSeason(rank=815, trophies=815, bestTrophies=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setRank(815);
+    unitUnderTest.setTrophies(815);
+    unitUnderTest.setBestTrophies(815);
+    String expected = "CurrentSeason(rank=815, trophies=815, bestTrophies=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

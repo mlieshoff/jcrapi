@@ -12,18 +12,18 @@ import lombok.Getter;
 @Getter
 public class ProfileRequest extends Request {
 
-    private final String tag;
+  private final String tag;
 
-    @Builder
-    private ProfileRequest(String tag, List<String> excludes, List<String> keys) {
-        super(excludes, keys);
-        Preconditions.checkNotNull(tag, "tag");
-        Preconditions.checkArgument(tag.length() > 0, "tag");
-        this.tag = tag;
-    }
+  @Builder
+  private ProfileRequest(String tag, List<String> excludes, List<String> keys) {
+    super(excludes, keys);
+    Preconditions.checkNotNull(tag, "tag");
+    Preconditions.checkArgument(tag.length() > 0, "tag");
+    this.tag = tag;
+  }
 
-    public static ProfileRequestBuilder builder(String tag) {
-        return new ProfileRequestBuilder().tag(tag);
-    }
+  public static ProfileRequestBuilder builder(String tag) {
+    return new ProfileRequestBuilder().tag(tag);
+  }
 
 }

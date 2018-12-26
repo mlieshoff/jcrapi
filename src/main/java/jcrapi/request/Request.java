@@ -16,28 +16,28 @@ import lombok.Getter;
 @Getter
 public class Request {
 
-    private final List<String> excludes = new ArrayList<>();
-    private final List<String> keys = new ArrayList<>();
+  private final List<String> excludes = new ArrayList<>();
+  private final List<String> keys = new ArrayList<>();
 
-    @Builder(builderMethodName = "requestBuilder")
-    Request(List<String> excludes, List<String> keys) {
-        if (CollectionUtils.isNotEmpty(excludes)) {
-            this.excludes.addAll(excludes);
-        }
-        if (CollectionUtils.isNotEmpty(keys)) {
-            this.keys.addAll(keys);
-        }
+  @Builder(builderMethodName = "requestBuilder")
+  Request(List<String> excludes, List<String> keys) {
+    if (CollectionUtils.isNotEmpty(excludes)) {
+      this.excludes.addAll(excludes);
     }
+    if (CollectionUtils.isNotEmpty(keys)) {
+      this.keys.addAll(keys);
+    }
+  }
 
-    public Map<String, String> getQueryParameters() {
-        Map<String, String>  map = new LinkedHashMap<>();
-        if (CollectionUtils.isNotEmpty(keys)) {
-            map.put("keys", StringUtils.join(keys, ','));
-        }
-        if (CollectionUtils.isNotEmpty(excludes)) {
-            map.put("excludes", StringUtils.join(excludes, ','));
-        }
-        return map;
+  public Map<String, String> getQueryParameters() {
+    Map<String, String> map = new LinkedHashMap<>();
+    if (CollectionUtils.isNotEmpty(keys)) {
+      map.put("keys", StringUtils.join(keys, ','));
     }
+    if (CollectionUtils.isNotEmpty(excludes)) {
+      map.put("excludes", StringUtils.join(excludes, ','));
+    }
+    return map;
+  }
 
 }

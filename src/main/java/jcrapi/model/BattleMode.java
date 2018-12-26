@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,29 +29,29 @@ import lombok.ToString;
 @ToString
 public class BattleMode {
 
-    @SerializedName("id")
-    private int id;
+  @SerializedName("id")
+  private int id;
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("deck")
-    private String deck;
+  @SerializedName("deck")
+  private String deck;
 
-    @SerializedName("cardLevels")
-    private String cardLevels;
+  @SerializedName("cardLevels")
+  private String cardLevels;
 
-    @Deprecated
-    @SerializedName("overtimeSecons")
-    private int overtimeSecons;
+  @Deprecated
+  @SerializedName("overtimeSecons")
+  private int overtimeSecons;
 
-    @SerializedName("overtimeSeconds")
-    private int overtimeSeconds;
+  @SerializedName("overtimeSeconds")
+  private int overtimeSeconds;
 
-    @SerializedName("players")
-    private String players;
+  @SerializedName("players")
+  private String players;
 
-    @SerializedName("sameDeck")
-    private boolean sameDeck;
+  @SerializedName("sameDeck")
+  private boolean sameDeck;
 
 }
