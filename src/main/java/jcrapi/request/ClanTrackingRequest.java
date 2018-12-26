@@ -12,18 +12,18 @@ import lombok.Getter;
 @Getter
 public class ClanTrackingRequest extends Request {
 
-    private final String tag;
+  private final String tag;
 
-    @Builder
-    private ClanTrackingRequest(String tag, List<String> excludes, List<String> keys) {
-        super(excludes, keys);
-        Preconditions.checkNotNull(tag, "tag");
-        Preconditions.checkArgument(tag.length() > 0, "tag");
-        this.tag = tag;
-    }
+  @Builder
+  private ClanTrackingRequest(String tag, List<String> excludes, List<String> keys) {
+    super(excludes, keys);
+    Preconditions.checkNotNull(tag, "tag");
+    Preconditions.checkArgument(tag.length() > 0, "tag");
+    this.tag = tag;
+  }
 
-    public static ClanTrackingRequestBuilder builder(String tag) {
-        return new ClanTrackingRequestBuilder().tag(tag);
-    }
+  public static ClanTrackingRequestBuilder builder(String tag) {
+    return new ClanTrackingRequestBuilder().tag(tag);
+  }
 
 }

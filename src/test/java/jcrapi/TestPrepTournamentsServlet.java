@@ -16,19 +16,19 @@
  */
 package jcrapi;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author Michael Lieshoff
  */
 public class TestPrepTournamentsServlet extends TestJsonFileServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet("src/test/java/jcrapi/tournaments_prep.json", req, resp);
-    }
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    super.doGet("src/test/java/jcrapi/tournaments_prep.json", req, resp);
+  }
 
 }

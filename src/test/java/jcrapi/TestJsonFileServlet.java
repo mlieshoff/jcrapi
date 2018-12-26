@@ -20,42 +20,43 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpHeaders;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @author Michael Lieshoff
  */
 public class TestJsonFileServlet extends HttpServlet {
 
-    protected void doGet(String filename, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (!checkAuth(req)) {
-            resp.setStatus(503);
-        } else {
-            PrintWriter printWriter = resp.getWriter();
-            printWriter.print(FileUtils.readFileToString(new File(filename)));
-            printWriter.flush();
-        }
+  protected void doGet(String filename, HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+    if (!checkAuth(req)) {
+      resp.setStatus(503);
+    } else {
+      PrintWriter printWriter = resp.getWriter();
+      printWriter.print(FileUtils.readFileToString(new File(filename)));
+      printWriter.flush();
     }
+  }
 
-    public String getRestTagParameter(HttpServletRequest req) {
-        String uri = req.getRequestURI();
-        return uri.substring(uri.lastIndexOf("/") + 1);
-    }
+  public String getRestTagParameter(HttpServletRequest req) {
+    String uri = req.getRequestURI();
+    return uri.substring(uri.lastIndexOf("/") + 1);
+  }
 
-    public boolean checkAuth(HttpServletRequest req) {
-        String auth = req.getHeader("auth");
-        if (StringUtils.isNotBlank(auth)) {
-            return IntegrationTest.AUTH.equals(auth);
-        } else {
-            auth = req.getHeader(HttpHeaders.AUTHORIZATION);
-            return ("Bearer " + IntegrationTest.AUTH).equals(auth);
-        }
+  public boolean checkAuth(HttpServletRequest req) {
+    String auth = req.getHeader("auth");
+    if (StringUtils.isNotBlank(auth)) {
+      return IntegrationTest.AUTH.equals(auth);
+    } else {
+      auth = req.getHeader(HttpHeaders.AUTHORIZATION);
+      return ("Bearer " + IntegrationTest.AUTH).equals(auth);
     }
+  }
 
 }

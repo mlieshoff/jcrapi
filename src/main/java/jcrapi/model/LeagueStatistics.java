@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,13 +29,13 @@ import lombok.ToString;
 @ToString
 public class LeagueStatistics {
 
-    @SerializedName("currentSeason")
-    private CurrentSeason currentSeason;
+  @SerializedName("currentSeason")
+  private CurrentSeason currentSeason;
 
-    @SerializedName("previousSeason")
-    private PreviousSeason previousSeason;
+  @SerializedName("previousSeason")
+  private PreviousSeason previousSeason;
 
-    @SerializedName("bestSeason")
-    private BestSeason bestSeason;
+  @SerializedName("bestSeason")
+  private BestSeason bestSeason;
 
 }

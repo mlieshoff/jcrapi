@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class AuthStatsTest {
 
-    private AuthStats unitUnderTest;
+  private AuthStats unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new AuthStats();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new AuthStats();
+  }
 
-    @Test
-    public void shouldGetSetId() {
-        long expected = 4711L;
-        unitUnderTest.setId(expected);
-        assertEquals(expected, unitUnderTest.getId());
-    }
+  @Test
+  public void shouldGetSetId() {
+    long expected = 4711L;
+    unitUnderTest.setId(expected);
+    assertEquals(expected, unitUnderTest.getId());
+  }
 
-    @Test
-    public void shouldGetSetLastRequest() {
-        long expected = 4711L;
-        unitUnderTest.setLastRequest(expected);
-        assertEquals(expected, unitUnderTest.getLastRequest());
-    }
+  @Test
+  public void shouldGetSetLastRequest() {
+    long expected = 4711L;
+    unitUnderTest.setLastRequest(expected);
+    assertEquals(expected, unitUnderTest.getLastRequest());
+  }
 
-    @Test
-    public void shouldGetSetRequestCount() {
-        java.util.Map<String, String> expected = new java.util.LinkedHashMap<String, String>();
-        unitUnderTest.setRequestCount(expected);
-        assertEquals(expected, unitUnderTest.getRequestCount());
-    }
+  @Test
+  public void shouldGetSetRequestCount() {
+    java.util.Map<String, String> expected = new java.util.LinkedHashMap<String, String>();
+    unitUnderTest.setRequestCount(expected);
+    assertEquals(expected, unitUnderTest.getRequestCount());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setId(4711L);
-        unitUnderTest.setLastRequest(4711L);
-        unitUnderTest.setRequestCount(new java.util.LinkedHashMap<String, String>());
-        String expected = "AuthStats(id=4711, lastRequest=4711, requestCount=" + new java.util.LinkedHashMap<String, String>() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setId(4711L);
+    unitUnderTest.setLastRequest(4711L);
+    unitUnderTest.setRequestCount(new java.util.LinkedHashMap<String, String>());
+    String expected = "AuthStats(id=4711, lastRequest=4711, requestCount=" + new java.util.LinkedHashMap<String, String>() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,10 +29,10 @@ import lombok.ToString;
 @ToString
 public class PopularTournament extends Tournament {
 
-    @SerializedName("popularity")
-    private Popularity popularity;
+  @SerializedName("popularity")
+  private Popularity popularity;
 
-    @SerializedName("playerCount")
-    private int playerCount;
+  @SerializedName("playerCount")
+  private int playerCount;
 
 }

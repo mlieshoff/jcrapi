@@ -16,24 +16,24 @@
  */
 package jcrapi;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author Michael Lieshoff
  */
 public class TestTournamentServlet extends TestJsonFileServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String tag = getRestTagParameter(req);
-        String filename = null;
-        if ("20YU0VJ9".equals(tag)) {
-            filename = "src/test/java/jcrapi/tournaments.json";
-        }
-        super.doGet(filename, req, resp);
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String tag = getRestTagParameter(req);
+    String filename = null;
+    if ("20YU0VJ9".equals(tag)) {
+      filename = "src/test/java/jcrapi/tournaments.json";
     }
+    super.doGet(filename, req, resp);
+  }
 
 }

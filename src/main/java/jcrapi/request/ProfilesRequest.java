@@ -15,17 +15,18 @@ import lombok.Getter;
 @Getter
 public class ProfilesRequest extends LimitedRequest {
 
-    private final Collection<String> tags;
+  private final Collection<String> tags;
 
-    @Builder
-    private ProfilesRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(limit, max, page, excludes, keys);
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags), "tags");
-        this.tags = tags;
-    }
+  @Builder
+  private ProfilesRequest(Collection<String> tags, int limit, int max, int page, List<String> excludes,
+                          List<String> keys) {
+    super(limit, max, page, excludes, keys);
+    Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags), "tags");
+    this.tags = tags;
+  }
 
-    public static ProfilesRequestBuilder builder(Collection<String> tags) {
-        return new ProfilesRequestBuilder().tags(tags);
-    }
+  public static ProfilesRequestBuilder builder(Collection<String> tags) {
+    return new ProfilesRequestBuilder().tags(tags);
+  }
 
 }

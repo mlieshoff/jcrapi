@@ -16,92 +16,92 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class BattleModeTest {
 
-    private BattleMode unitUnderTest;
+  private BattleMode unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new BattleMode();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new BattleMode();
+  }
 
-    @Test
-    public void shouldGetSetId() {
-        int expected = 815;
-        unitUnderTest.setId(expected);
-        assertEquals(expected, unitUnderTest.getId());
-    }
+  @Test
+  public void shouldGetSetId() {
+    int expected = 815;
+    unitUnderTest.setId(expected);
+    assertEquals(expected, unitUnderTest.getId());
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetDeck() {
-        String expected = "astring";
-        unitUnderTest.setDeck(expected);
-        assertEquals(expected, unitUnderTest.getDeck());
-    }
+  @Test
+  public void shouldGetSetDeck() {
+    String expected = "astring";
+    unitUnderTest.setDeck(expected);
+    assertEquals(expected, unitUnderTest.getDeck());
+  }
 
-    @Test
-    public void shouldGetSetCardLevels() {
-        String expected = "astring";
-        unitUnderTest.setCardLevels(expected);
-        assertEquals(expected, unitUnderTest.getCardLevels());
-    }
+  @Test
+  public void shouldGetSetCardLevels() {
+    String expected = "astring";
+    unitUnderTest.setCardLevels(expected);
+    assertEquals(expected, unitUnderTest.getCardLevels());
+  }
 
-    @Test
-    public void shouldGetSetOvertimeSecons() {
-        int expected = 815;
-        unitUnderTest.setOvertimeSecons(expected);
-        assertEquals(expected, unitUnderTest.getOvertimeSecons());
-    }
+  @Test
+  public void shouldGetSetOvertimeSecons() {
+    int expected = 815;
+    unitUnderTest.setOvertimeSecons(expected);
+    assertEquals(expected, unitUnderTest.getOvertimeSecons());
+  }
 
-    @Test
-    public void shouldGetSetOvertimeSeconds() {
-        int expected = 815;
-        unitUnderTest.setOvertimeSeconds(expected);
-        assertEquals(expected, unitUnderTest.getOvertimeSeconds());
-    }
+  @Test
+  public void shouldGetSetOvertimeSeconds() {
+    int expected = 815;
+    unitUnderTest.setOvertimeSeconds(expected);
+    assertEquals(expected, unitUnderTest.getOvertimeSeconds());
+  }
 
-    @Test
-    public void shouldGetSetPlayers() {
-        String expected = "astring";
-        unitUnderTest.setPlayers(expected);
-        assertEquals(expected, unitUnderTest.getPlayers());
-    }
+  @Test
+  public void shouldGetSetPlayers() {
+    String expected = "astring";
+    unitUnderTest.setPlayers(expected);
+    assertEquals(expected, unitUnderTest.getPlayers());
+  }
 
-    @Test
-    public void shouldGetSetSameDeck() {
-        boolean expected = false;
-        unitUnderTest.setSameDeck(expected);
-        assertEquals(expected, unitUnderTest.isSameDeck());
-    }
+  @Test
+  public void shouldGetSetSameDeck() {
+    boolean expected = false;
+    unitUnderTest.setSameDeck(expected);
+    assertEquals(expected, unitUnderTest.isSameDeck());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setId(815);
-        unitUnderTest.setName("astring");
-        unitUnderTest.setDeck("astring");
-        unitUnderTest.setCardLevels("astring");
-        unitUnderTest.setOvertimeSecons(815);
-        unitUnderTest.setOvertimeSeconds(815);
-        unitUnderTest.setPlayers("astring");
-        unitUnderTest.setSameDeck(false);
-        String expected = "BattleMode(id=815, name=astring, deck=astring, cardLevels=astring, overtimeSecons=815, overtimeSeconds=815, players=astring, sameDeck=false)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setId(815);
+    unitUnderTest.setName("astring");
+    unitUnderTest.setDeck("astring");
+    unitUnderTest.setCardLevels("astring");
+    unitUnderTest.setOvertimeSecons(815);
+    unitUnderTest.setOvertimeSeconds(815);
+    unitUnderTest.setPlayers("astring");
+    unitUnderTest.setSameDeck(false);
+    String expected = "BattleMode(id=815, name=astring, deck=astring, cardLevels=astring, overtimeSecons=815, overtimeSeconds=815, players=astring, sameDeck=false)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

@@ -16,20 +16,20 @@
  */
 package jcrapi;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author Michael Lieshoff
  */
 public class TestClanSearchServlet extends TestJsonFileServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String filename = "src/test/java/jcrapi/clanSearch.json";
-        super.doGet(filename, req, resp);
-    }
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String filename = "src/test/java/jcrapi/clanSearch.json";
+    super.doGet(filename, req, resp);
+  }
 
 }

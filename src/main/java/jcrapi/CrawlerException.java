@@ -18,11 +18,12 @@
 package jcrapi;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.StatusLine;
 
 import java.io.IOException;
+import lombok.Getter;
 
 /**
  * @author Michael Lieshoff
@@ -30,25 +31,25 @@ import java.io.IOException;
 @Getter
 public class CrawlerException extends IOException {
 
-    private final String message;
-    private final String reason;
+  private final String message;
+  private final String reason;
 
-    private final int statusCode;
+  private final int statusCode;
 
-    public CrawlerException(StatusLine statusLine) {
-        Preconditions.checkNotNull(statusLine, "statusLine cannot be null!");
-        statusCode = statusLine.getStatusCode();
-        reason = statusLine.getReasonPhrase();
-        message = createMessage();
+  public CrawlerException(StatusLine statusLine) {
+    Preconditions.checkNotNull(statusLine, "statusLine cannot be null!");
+    statusCode = statusLine.getStatusCode();
+    reason = statusLine.getReasonPhrase();
+    message = createMessage();
+  }
+
+  private String createMessage() {
+    StringBuilder s = new StringBuilder();
+    s.append("crapi: " + statusCode);
+    if (StringUtils.isNotBlank(reason)) {
+      s.append(": " + reason);
     }
-
-    private String createMessage() {
-        StringBuilder s = new StringBuilder();
-        s.append("crapi: " + statusCode);
-        if (StringUtils.isNotBlank(reason)) {
-            s.append(": " + reason);
-        }
-        return s.toString();
-    }
+    return s.toString();
+  }
 
 }

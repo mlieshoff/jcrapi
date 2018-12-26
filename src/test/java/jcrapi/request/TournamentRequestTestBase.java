@@ -18,69 +18,69 @@ import jcrapi.request.TournamentRequest.TournamentRequestBuilder;
  */
 public abstract class TournamentRequestTestBase<A extends TournamentRequest> extends LimitedRequestTestBase<A> {
 
-    @Test
-    public void shouldCreateTournamentRequestBuilder() {
-        assertTrue(TournamentRequest.tournamentRequestBuilder() instanceof TournamentRequestBuilder);
-    }
+  @Test
+  public void shouldCreateTournamentRequestBuilder() {
+    assertTrue(TournamentRequest.tournamentRequestBuilder() instanceof TournamentRequestBuilder);
+  }
 
-    @Test
-    public void shouldBeWithOneK() throws Exception {
-        assertTrue(getTournamentRequest().isOneK());
-    }
+  @Test
+  public void shouldBeWithOneK() throws Exception {
+    assertTrue(getTournamentRequest().isOneK());
+  }
 
-    private A getTournamentRequest() throws Exception {
-        Object builder = getBuilder();
-        builder = invokeOneKMethod(builder, true);
-        builder = invokeOpenMethod(builder, true);
-        builder = invokeFullMethod(builder, true);
-        builder = invokePrepMethod(builder, true);
-        builder = invokeJoinableMethod(builder, true);
-        return invokeBuildMethod(builder);
-    }
+  private A getTournamentRequest() throws Exception {
+    Object builder = getBuilder();
+    builder = invokeOneKMethod(builder, true);
+    builder = invokeOpenMethod(builder, true);
+    builder = invokeFullMethod(builder, true);
+    builder = invokePrepMethod(builder, true);
+    builder = invokeJoinableMethod(builder, true);
+    return invokeBuildMethod(builder);
+  }
 
-    @Test
-    public void shouldQueryWithOneK() throws Exception {
-        assertEquals("1", getTournamentRequest().getQueryParameters().get("1k"));
-    }
+  @Test
+  public void shouldQueryWithOneK() throws Exception {
+    assertEquals("1", getTournamentRequest().getQueryParameters().get("1k"));
+  }
 
-    @Test
-    public void shouldBeWithOpen() throws Exception {
-        assertTrue(getTournamentRequest().isOpen());
-    }
+  @Test
+  public void shouldBeWithOpen() throws Exception {
+    assertTrue(getTournamentRequest().isOpen());
+  }
 
-    @Test
-    public void shouldQueryWithOpen() throws Exception {
-        assertEquals("1", getTournamentRequest().getQueryParameters().get("open"));
-    }
+  @Test
+  public void shouldQueryWithOpen() throws Exception {
+    assertEquals("1", getTournamentRequest().getQueryParameters().get("open"));
+  }
 
-    @Test
-    public void shouldBeWithFull() throws Exception {
-        assertTrue(getTournamentRequest().isFull());
-    }
+  @Test
+  public void shouldBeWithFull() throws Exception {
+    assertTrue(getTournamentRequest().isFull());
+  }
 
-    @Test
-    public void shouldQueryWithFull() throws Exception {
-        assertEquals("1", getTournamentRequest().getQueryParameters().get("full"));
-    }
+  @Test
+  public void shouldQueryWithFull() throws Exception {
+    assertEquals("1", getTournamentRequest().getQueryParameters().get("full"));
+  }
 
-    @Test
-    public void shouldBeWithPrep() throws Exception {
-        assertTrue(getTournamentRequest().isPrep());
-    }
+  @Test
+  public void shouldBeWithPrep() throws Exception {
+    assertTrue(getTournamentRequest().isPrep());
+  }
 
-    @Test
-    public void shouldQueryWithPrep() throws Exception {
-        assertEquals("1", getTournamentRequest().getQueryParameters().get("prep"));
-    }
+  @Test
+  public void shouldQueryWithPrep() throws Exception {
+    assertEquals("1", getTournamentRequest().getQueryParameters().get("prep"));
+  }
 
-    @Test
-    public void shouldBeWithJoinable() throws Exception {
-        assertTrue(getTournamentRequest().isJoinable());
-    }
+  @Test
+  public void shouldBeWithJoinable() throws Exception {
+    assertTrue(getTournamentRequest().isJoinable());
+  }
 
-    @Test
-    public void shouldQueryWithJoinable() throws Exception {
-        assertEquals("1", getTournamentRequest().getQueryParameters().get("joinable"));
-    }
+  @Test
+  public void shouldQueryWithJoinable() throws Exception {
+    assertEquals("1", getTournamentRequest().getQueryParameters().get("joinable"));
+  }
 
 }

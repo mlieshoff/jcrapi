@@ -16,60 +16,60 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class ClanChestTest {
 
-    private ClanChest unitUnderTest;
+  private ClanChest unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new ClanChest();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new ClanChest();
+  }
 
-    @Test
-    public void shouldGetSetStatus() {
-        String expected = "astring";
-        unitUnderTest.setStatus(expected);
-        assertEquals(expected, unitUnderTest.getStatus());
-    }
+  @Test
+  public void shouldGetSetStatus() {
+    String expected = "astring";
+    unitUnderTest.setStatus(expected);
+    assertEquals(expected, unitUnderTest.getStatus());
+  }
 
-    @Test
-    public void shouldGetSetCrowns() {
-        int expected = 815;
-        unitUnderTest.setCrowns(expected);
-        assertEquals(expected, unitUnderTest.getCrowns());
-    }
+  @Test
+  public void shouldGetSetCrowns() {
+    int expected = 815;
+    unitUnderTest.setCrowns(expected);
+    assertEquals(expected, unitUnderTest.getCrowns());
+  }
 
-    @Test
-    public void shouldGetSetLevel() {
-        int expected = 815;
-        unitUnderTest.setLevel(expected);
-        assertEquals(expected, unitUnderTest.getLevel());
-    }
+  @Test
+  public void shouldGetSetLevel() {
+    int expected = 815;
+    unitUnderTest.setLevel(expected);
+    assertEquals(expected, unitUnderTest.getLevel());
+  }
 
-    @Test
-    public void shouldGetSetMaxLevel() {
-        int expected = 815;
-        unitUnderTest.setMaxLevel(expected);
-        assertEquals(expected, unitUnderTest.getMaxLevel());
-    }
+  @Test
+  public void shouldGetSetMaxLevel() {
+    int expected = 815;
+    unitUnderTest.setMaxLevel(expected);
+    assertEquals(expected, unitUnderTest.getMaxLevel());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setStatus("astring");
-        unitUnderTest.setCrowns(815);
-        unitUnderTest.setLevel(815);
-        unitUnderTest.setMaxLevel(815);
-        String expected = "ClanChest(status=astring, crowns=815, level=815, maxLevel=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setStatus("astring");
+    unitUnderTest.setCrowns(815);
+    unitUnderTest.setLevel(815);
+    unitUnderTest.setMaxLevel(815);
+    String expected = "ClanChest(status=astring, crowns=815, level=815, maxLevel=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

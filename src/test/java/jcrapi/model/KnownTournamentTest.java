@@ -16,28 +16,28 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class KnownTournamentTest {
 
-    private KnownTournament unitUnderTest;
+  private KnownTournament unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new KnownTournament();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new KnownTournament();
+  }
 
-    @Test
-    public void shouldToString() {
-        String expected = "KnownTournament()";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    String expected = "KnownTournament()";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

@@ -28,7 +28,7 @@ public class BuilderTestUtil {
   public static <T> T invokeBuildMethod(Object builder) throws Exception {
     Method buildMethod = builder.getClass().getDeclaredMethod("build");
     try {
-        return (T) buildMethod.invoke(builder);
+      return (T) buildMethod.invoke(builder);
     } catch (Exception e) {
       if (e.getCause() != null) {
         throw (Exception) e.getCause();
@@ -38,12 +38,12 @@ public class BuilderTestUtil {
   }
 
   public static Object invokeExcludesMethod(Object builder, List<String> expected) throws Exception {
-      return invokeMethod("excludes", builder, expected, List.class);
+    return invokeMethod("excludes", builder, expected, List.class);
   }
 
   public static Object invokeMethod(String name, Object builder, Object expected, Class<?> clazz) throws Exception {
-      Method excludesMethod = builder.getClass().getMethod(name, clazz);
-      return excludesMethod.invoke(builder, expected);
+    Method excludesMethod = builder.getClass().getMethod(name, clazz);
+    return excludesMethod.invoke(builder, expected);
   }
 
   public static Object invokeKeysMethod(Object builder, List<String> expected) throws Exception {
@@ -51,7 +51,7 @@ public class BuilderTestUtil {
   }
 
   public static Object invokeMaxMethod(Object builder, int max) throws Exception {
-      return invokeMethod("max", builder, max, int.class);
+    return invokeMethod("max", builder, max, int.class);
   }
 
   public static Object invokePageMethod(Object builder, int page) throws Exception {

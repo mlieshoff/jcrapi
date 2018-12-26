@@ -17,8 +17,19 @@ package jcrapi;
  * limitations under the License.
  */
 
+import static org.junit.Assert.assertNotNull;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import jcrapi.model.Battle;
 import jcrapi.model.ChestCycle;
 import jcrapi.model.Clan;
@@ -36,161 +47,153 @@ import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
-import org.apache.commons.io.FileUtils;
-import org.junit.Test;
-
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Michael Lieshoff
  */
 public class JsonModelIntegrationTest {
 
-    private static final Gson GSON = new Gson();
+  private static final Gson GSON = new Gson();
 
-    @Test
-    public void shouldResolveProfile() throws Exception {
-        assertType("profile.json", Profile.class);
-    }
+  @Test
+  public void shouldResolveProfile() throws Exception {
+    assertType("profile.json", Profile.class);
+  }
 
-    private <T> void assertType(String filename, Class<T> typeClass) throws IOException {
-        String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
-        T object = GSON.fromJson(json, typeClass);
-        assertNotNull(object);
-    }
+  private <T> void assertType(String filename, Class<T> typeClass) throws IOException {
+    String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
+    T object = GSON.fromJson(json, typeClass);
+    assertNotNull(object);
+  }
 
-    @Test
-    public void shouldResolveProfiles() throws Exception {
-        assertListType("profiles.json", Profile.class);
-    }
+  @Test
+  public void shouldResolveProfiles() throws Exception {
+    assertListType("profiles.json", Profile.class);
+  }
 
-    private <T> void assertListType(String filename, Class<T> elementClass) throws IOException {
-        String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
-        Type listType = new TypeToken<ArrayList<T>>(){}.getType();
-        List<T> list = new Gson().fromJson(json, listType);
-        assertNotNull(list);
-        for (T element : list) {
-            assertNotNull(element);
-        }
+  private <T> void assertListType(String filename, Class<T> elementClass) throws IOException {
+    String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
+    Type listType = new TypeToken<ArrayList<T>>() {
+    }.getType();
+    List<T> list = new Gson().fromJson(json, listType);
+    assertNotNull(list);
+    for (T element : list) {
+      assertNotNull(element);
     }
+  }
 
-    @Test
-    public void shouldResolveTopClans() throws Exception {
-        assertListType("topClans.json", TopClan.class);
-    }
+  @Test
+  public void shouldResolveTopClans() throws Exception {
+    assertListType("topClans.json", TopClan.class);
+  }
 
-    @Test
-    public void shouldResolveClan() throws Exception {
-        assertType("clan.json", Clan.class);
-    }
+  @Test
+  public void shouldResolveClan() throws Exception {
+    assertType("clan.json", Clan.class);
+  }
 
-    @Test
-    public void shouldResolveMultiClans() throws Exception {
-        assertListType("multiClans.json", Clan.class);
-    }
+  @Test
+  public void shouldResolveMultiClans() throws Exception {
+    assertListType("multiClans.json", Clan.class);
+  }
 
-    @Test
-    public void shouldResolveTopPlayers() throws Exception {
-        assertListType("topPlayers.json", TopPlayer.class);
-    }
+  @Test
+  public void shouldResolveTopPlayers() throws Exception {
+    assertListType("topPlayers.json", TopPlayer.class);
+  }
 
-    @Test
-    public void shouldResolveClanBattles() throws Exception {
-        assertListType("clanBattles.json", Battle.class);
-    }
+  @Test
+  public void shouldResolveClanBattles() throws Exception {
+    assertListType("clanBattles.json", Battle.class);
+  }
 
-    @Test
-    public void shouldResolveClanHistory() throws Exception {
-        assertType("clanHistory.json", ClanHistory.class);
-    }
+  @Test
+  public void shouldResolveClanHistory() throws Exception {
+    assertType("clanHistory.json", ClanHistory.class);
+  }
 
-    @Test
-    public void shouldResolveClanWeeklyHistory() throws Exception {
-        assertType("clanWeeklyHistory.json", ClanWeeklyHistory.class);
-    }
+  @Test
+  public void shouldResolveClanWeeklyHistory() throws Exception {
+    assertType("clanWeeklyHistory.json", ClanWeeklyHistory.class);
+  }
 
-    @Test
-    public void shouldResolveClanWarLog() throws Exception {
-        assertListType("clanWarLog.json", ClanWarLog.class);
-    }
+  @Test
+  public void shouldResolveClanWarLog() throws Exception {
+    assertListType("clanWarLog.json", ClanWarLog.class);
+  }
 
-    @Test
-    public void shouldResolveClanWar() throws Exception {
-        assertType("clanWar.json", ClanWar.class);
-    }
+  @Test
+  public void shouldResolveClanWar() throws Exception {
+    assertType("clanWar.json", ClanWar.class);
+  }
 
-    @Test
-    public void shouldResolveOpenTournaments() throws Exception {
-        assertListType("openTournaments.json", OpenTournament.class);
-    }
+  @Test
+  public void shouldResolveOpenTournaments() throws Exception {
+    assertListType("openTournaments.json", OpenTournament.class);
+  }
 
-    @Test
-    public void shouldResolvePlayerBattles() throws Exception {
-        assertListType("playerBattles.json", Battle.class);
-    }
+  @Test
+  public void shouldResolvePlayerBattles() throws Exception {
+    assertListType("playerBattles.json", Battle.class);
+  }
 
-    @Test
-    public void shouldResolveMultiPlayerBattles() throws Exception {
-        assertListOfListType("multiPlayerBattles.json", Battle.class);
-    }
+  @Test
+  public void shouldResolveMultiPlayerBattles() throws Exception {
+    assertListOfListType("multiPlayerBattles.json", Battle.class);
+  }
 
-    private <T> void assertListOfListType(String filename, Class<T> elementClass) throws IOException {
-        String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
-        Type listType = new TypeToken<List<List<T>>>(){}.getType();
-        List<List<T>> list = new Gson().fromJson(json, listType);
-        assertNotNull(list);
-        for (List<T> innerList : list) {
-            assertNotNull(innerList);
-            for (T t : innerList) {
-                assertNotNull(t);
-            }
-        }
+  private <T> void assertListOfListType(String filename, Class<T> elementClass) throws IOException {
+    String json = FileUtils.readFileToString(new File("src/test/java/jcrapi/" + filename));
+    Type listType = new TypeToken<List<List<T>>>() {
+    }.getType();
+    List<List<T>> list = new Gson().fromJson(json, listType);
+    assertNotNull(list);
+    for (List<T> innerList : list) {
+      assertNotNull(innerList);
+      for (T t : innerList) {
+        assertNotNull(t);
+      }
     }
+  }
 
-    @Test
-    public void shouldResolvePlayerChests() throws Exception {
-        assertType("playerChests.json", ChestCycle.class);
-    }
+  @Test
+  public void shouldResolvePlayerChests() throws Exception {
+    assertType("playerChests.json", ChestCycle.class);
+  }
 
-    @Test
-    public void shouldResolveMultiPlayerChests() throws Exception {
-        assertListType("multiPlayerChests.json", ChestCycle.class);
-    }
+  @Test
+  public void shouldResolveMultiPlayerChests() throws Exception {
+    assertListType("multiPlayerChests.json", ChestCycle.class);
+  }
 
-    @Test
-    public void shouldResolvePopularDecks() throws Exception {
-        assertListType("popularDecks.json", PopularDeck.class);
-    }
+  @Test
+  public void shouldResolvePopularDecks() throws Exception {
+    assertListType("popularDecks.json", PopularDeck.class);
+  }
 
-    @Test
-    public void shouldResolveTournamentSearch() throws Exception {
-        assertListType("tournamentSearch.json", SearchedTournament.class);
-    }
+  @Test
+  public void shouldResolveTournamentSearch() throws Exception {
+    assertListType("tournamentSearch.json", SearchedTournament.class);
+  }
 
-    @Test
-    public void shouldResolveOneKTournaments() throws Exception {
-        assertListType("tournaments_1k.json", OneKTournament.class);
-    }
+  @Test
+  public void shouldResolveOneKTournaments() throws Exception {
+    assertListType("tournaments_1k.json", OneKTournament.class);
+  }
 
-    @Test
-    public void shouldResolveFullTournaments() throws Exception {
-        assertListType("tournaments_full.json", FullTournament.class);
-    }
+  @Test
+  public void shouldResolveFullTournaments() throws Exception {
+    assertListType("tournaments_full.json", FullTournament.class);
+  }
 
-    @Test
-    public void shouldResolveInPreparationTournaments() throws Exception {
-        assertListType("tournaments_prep.json", InPreparationTournament.class);
-    }
+  @Test
+  public void shouldResolveInPreparationTournaments() throws Exception {
+    assertListType("tournaments_prep.json", InPreparationTournament.class);
+  }
 
-    @Test
-    public void shouldResolveJoinableTournaments() throws Exception {
-        assertListType("tournaments_joinable.json", JoinableTournament.class);
-    }
+  @Test
+  public void shouldResolveJoinableTournaments() throws Exception {
+    assertListType("tournaments_joinable.json", JoinableTournament.class);
+  }
 
 }

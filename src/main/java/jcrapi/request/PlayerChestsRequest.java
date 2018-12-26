@@ -14,17 +14,18 @@ import lombok.Getter;
 @Getter
 public class PlayerChestsRequest extends LimitedRequest {
 
-    private final List<String> tags;
+  private final List<String> tags;
 
-    @Builder
-    private PlayerChestsRequest(List<String> tags, int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(limit, max, page, excludes, keys);
-        Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
-        this.tags = tags;
-    }
+  @Builder
+  private PlayerChestsRequest(List<String> tags, int limit, int max, int page, List<String> excludes,
+                              List<String> keys) {
+    super(limit, max, page, excludes, keys);
+    Preconditions.checkArgument(CollectionUtils.isNotEmpty(tags));
+    this.tags = tags;
+  }
 
-    public static PlayerChestsRequestBuilder builder(List<String> tags) {
-        return new PlayerChestsRequestBuilder().tags(tags);
-    }
+  public static PlayerChestsRequestBuilder builder(List<String> tags) {
+    return new PlayerChestsRequestBuilder().tags(tags);
+  }
 
 }

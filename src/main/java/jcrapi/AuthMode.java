@@ -22,7 +22,7 @@ package jcrapi;
  */
 public enum AuthMode {
 
-    NORMAL,
-    BEARER
+  NORMAL,
+  BEARER
 
 }

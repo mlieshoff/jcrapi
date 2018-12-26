@@ -8,9 +8,9 @@ import lombok.Builder;
  */
 public class PopularTournamentsRequest extends LimitedRequest {
 
-    @Builder
-    private PopularTournamentsRequest(int limit, int max, int page, List<String> excludes, List<String> keys) {
-        super(limit, max, page, excludes, keys);
-    }
+  @Builder
+  private PopularTournamentsRequest(int limit, int max, int page, List<String> excludes, List<String> keys) {
+    super(limit, max, page, excludes, keys);
+  }
 
 }

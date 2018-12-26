@@ -16,36 +16,36 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class PopularClanTest {
 
-    private PopularClan unitUnderTest;
+  private PopularClan unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new PopularClan();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new PopularClan();
+  }
 
-    @Test
-    public void shouldGetSetPopularity() {
-        Popularity expected = new Popularity();
-        unitUnderTest.setPopularity(expected);
-        assertEquals(expected, unitUnderTest.getPopularity());
-    }
+  @Test
+  public void shouldGetSetPopularity() {
+    Popularity expected = new Popularity();
+    unitUnderTest.setPopularity(expected);
+    assertEquals(expected, unitUnderTest.getPopularity());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setPopularity(new Popularity());
-        String expected = "PopularClan(popularity=" + new Popularity() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setPopularity(new Popularity());
+    String expected = "PopularClan(popularity=" + new Popularity() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

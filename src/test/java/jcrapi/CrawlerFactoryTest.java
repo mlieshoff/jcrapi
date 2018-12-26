@@ -16,23 +16,23 @@
  */
 package jcrapi;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
 
 /**
  * @author Michael Lieshoff
  */
 public class CrawlerFactoryTest {
 
-    @Test(expected = NullPointerException.class)
-    public void failCreateBecauseNUllHttpClientFactory() {
-        new CrawlerFactory(null);
-    }
+  @Test(expected = NullPointerException.class)
+  public void failCreateBecauseNUllHttpClientFactory() {
+    new CrawlerFactory(null);
+  }
 
-    @Test
-    public void shouldCreate() {
-        assertNotNull(new CrawlerFactory(new HttpClientFactory()).createCrawler());
-    }
+  @Test
+  public void shouldCreate() {
+    assertNotNull(new CrawlerFactory(new HttpClientFactory()).createCrawler());
+  }
 
 }

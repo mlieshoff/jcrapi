@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,13 +29,13 @@ import lombok.ToString;
 @ToString
 public class PopularDeck {
 
-    @SerializedName("decklink")
-    private String decklink;
+  @SerializedName("decklink")
+  private String decklink;
 
-    @SerializedName("popularity")
-    private int popularity;
+  @SerializedName("popularity")
+  private int popularity;
 
-    @SerializedName("cards")
-    private java.util.List<PopularCard> cards;
+  @SerializedName("cards")
+  private java.util.List<PopularCard> cards;
 
 }

@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,13 +29,13 @@ import lombok.ToString;
 @ToString
 public class Tracking {
 
-    @SerializedName("active")
-    private boolean active;
+  @SerializedName("active")
+  private boolean active;
 
-    @SerializedName("available")
-    private boolean available;
+  @SerializedName("available")
+  private boolean available;
 
-    @SerializedName("snapshotCount")
-    private int snapshotCount;
+  @SerializedName("snapshotCount")
+  private int snapshotCount;
 
 }

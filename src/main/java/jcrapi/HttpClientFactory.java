@@ -24,8 +24,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
  */
 class HttpClientFactory {
 
-    HttpClient create() {
-        return new DefaultHttpClient();
-    }
+  HttpClient create() {
+    return new DefaultHttpClient();
+  }
 
 }

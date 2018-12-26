@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,38 +29,38 @@ import lombok.ToString;
 @ToString
 public class FavoriteCard {
 
-    @SerializedName("id")
-    private int id;
+  @SerializedName("id")
+  private int id;
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("maxLevel")
-    private int maxLevel;
+  @SerializedName("maxLevel")
+  private int maxLevel;
 
-    @Deprecated
-    @SerializedName("iconUrls")
-    private IconUrls iconUrls;
+  @Deprecated
+  @SerializedName("iconUrls")
+  private IconUrls iconUrls;
 
-    @SerializedName("icon")
-    private String icon;
+  @SerializedName("icon")
+  private String icon;
 
-    @SerializedName("key")
-    private String key;
+  @SerializedName("key")
+  private String key;
 
-    @SerializedName("elixir")
-    private int elixir;
+  @SerializedName("elixir")
+  private int elixir;
 
-    @SerializedName("type")
-    private String type;
+  @SerializedName("type")
+  private String type;
 
-    @SerializedName("rarity")
-    private String rarity;
+  @SerializedName("rarity")
+  private String rarity;
 
-    @SerializedName("arena")
-    private int arena;
+  @SerializedName("arena")
+  private int arena;
 
-    @SerializedName("description")
-    private String description;
+  @SerializedName("description")
+  private String description;
 
 }

@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,43 +29,43 @@ import lombok.ToString;
 @ToString
 public class Clan {
 
-    @SerializedName("tag")
-    private String tag;
+  @SerializedName("tag")
+  private String tag;
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("description")
-    private String description;
+  @SerializedName("description")
+  private String description;
 
-    @SerializedName("type")
-    private String type;
+  @SerializedName("type")
+  private String type;
 
-    @SerializedName("score")
-    private int score;
+  @SerializedName("score")
+  private int score;
 
-    @SerializedName("memberCount")
-    private int memberCount;
+  @SerializedName("memberCount")
+  private int memberCount;
 
-    @SerializedName("requiredScore")
-    private int requiredScore;
+  @SerializedName("requiredScore")
+  private int requiredScore;
 
-    @SerializedName("donations")
-    private int donations;
+  @SerializedName("donations")
+  private int donations;
 
-    @SerializedName("clanChest")
-    private ClanChest clanChest;
+  @SerializedName("clanChest")
+  private ClanChest clanChest;
 
-    @SerializedName("badge")
-    private Badge badge;
+  @SerializedName("badge")
+  private Badge badge;
 
-    @SerializedName("location")
-    private Location location;
+  @SerializedName("location")
+  private Location location;
 
-    @SerializedName("tracking")
-    private Tracking tracking;
+  @SerializedName("tracking")
+  private Tracking tracking;
 
-    @SerializedName("members")
-    private java.util.List<Member> members;
+  @SerializedName("members")
+  private java.util.List<Member> members;
 
 }

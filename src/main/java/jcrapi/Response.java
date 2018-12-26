@@ -18,13 +18,14 @@
 package jcrapi;
 
 import com.google.common.base.Optional;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+
 import org.apache.commons.lang.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Michael Lieshoff
@@ -34,50 +35,50 @@ import java.util.Map;
 @EqualsAndHashCode
 public class Response {
 
-    public static final String X_RATELIMIT_LIMIT = "x-ratelimit-limit";
-    public static final String X_RATELIMIT_REMAINING = "x-ratelimit-remaining";
-    public static final String X_RATELIMIT_RESET = "x-ratelimit-reset";
-    public static final String X_CACHED = "x-cached";
-    public static final String X_RATELIMIT_RETRY_AFTER = "x-ratelimit-retry-after";
+  public static final String X_RATELIMIT_LIMIT = "x-ratelimit-limit";
+  public static final String X_RATELIMIT_REMAINING = "x-ratelimit-remaining";
+  public static final String X_RATELIMIT_RESET = "x-ratelimit-reset";
+  public static final String X_CACHED = "x-cached";
+  public static final String X_RATELIMIT_RETRY_AFTER = "x-ratelimit-retry-after";
 
-    private final Map<String, String> responseHeaders = new HashMap<>();
-    
-    private String raw;
+  private final Map<String, String> responseHeaders = new HashMap<>();
 
-    public Optional<Integer> getRateLimit() {
-        return getInt(X_RATELIMIT_LIMIT);
+  private String raw;
+
+  public Optional<Integer> getRateLimit() {
+    return getInt(X_RATELIMIT_LIMIT);
+  }
+
+  public Optional<Integer> getRateRemaining() {
+    return getInt(X_RATELIMIT_REMAINING);
+  }
+
+  private Optional<Integer> getInt(String headerName) {
+    String value = responseHeaders.get(headerName);
+    if (StringUtils.isNotBlank(value)) {
+      return Optional.of(Integer.valueOf(value));
     }
+    return Optional.absent();
+  }
 
-    public Optional<Integer> getRateRemaining() {
-        return getInt(X_RATELIMIT_REMAINING);
-    }
+  public Optional<Long> getRateReset() {
+    return getLong(X_RATELIMIT_RESET);
+  }
 
-    private Optional<Integer> getInt(String headerName) {
-        String value = responseHeaders.get(headerName);
-        if (StringUtils.isNotBlank(value)) {
-            return Optional.of(Integer.valueOf(value));
-        }
-        return Optional.absent();
+  private Optional<Long> getLong(String headerName) {
+    String value = responseHeaders.get(headerName);
+    if (StringUtils.isNotBlank(value)) {
+      return Optional.of(Long.valueOf(value));
     }
+    return Optional.absent();
+  }
 
-    public Optional<Long> getRateReset() {
-        return getLong(X_RATELIMIT_RESET);
-    }
+  public boolean isCached() {
+    return Boolean.valueOf(responseHeaders.get(X_CACHED));
+  }
 
-    private Optional<Long> getLong(String headerName) {
-        String value = responseHeaders.get(headerName);
-        if (StringUtils.isNotBlank(value)) {
-            return Optional.of(Long.valueOf(value));
-        }
-        return Optional.absent();
-    }
-
-    public boolean isCached() {
-        return Boolean.valueOf(responseHeaders.get(X_CACHED));
-    }
-
-    public Optional<Integer> getRateRetryAfter() {
-        return getInt(X_RATELIMIT_RETRY_AFTER);
-    }
+  public Optional<Integer> getRateRetryAfter() {
+    return getInt(X_RATELIMIT_RETRY_AFTER);
+  }
 
 }

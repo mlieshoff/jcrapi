@@ -16,108 +16,108 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class TopPlayerTest {
 
-    private TopPlayer unitUnderTest;
+  private TopPlayer unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new TopPlayer();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new TopPlayer();
+  }
 
-    @Test
-    public void shouldGetSetName() {
-        String expected = "astring";
-        unitUnderTest.setName(expected);
-        assertEquals(expected, unitUnderTest.getName());
-    }
+  @Test
+  public void shouldGetSetName() {
+    String expected = "astring";
+    unitUnderTest.setName(expected);
+    assertEquals(expected, unitUnderTest.getName());
+  }
 
-    @Test
-    public void shouldGetSetTag() {
-        String expected = "astring";
-        unitUnderTest.setTag(expected);
-        assertEquals(expected, unitUnderTest.getTag());
-    }
+  @Test
+  public void shouldGetSetTag() {
+    String expected = "astring";
+    unitUnderTest.setTag(expected);
+    assertEquals(expected, unitUnderTest.getTag());
+  }
 
-    @Test
-    public void shouldGetSetRank() {
-        int expected = 815;
-        unitUnderTest.setRank(expected);
-        assertEquals(expected, unitUnderTest.getRank());
-    }
+  @Test
+  public void shouldGetSetRank() {
+    int expected = 815;
+    unitUnderTest.setRank(expected);
+    assertEquals(expected, unitUnderTest.getRank());
+  }
 
-    @Test
-    public void shouldGetSetPreviousRank() {
-        int expected = 815;
-        unitUnderTest.setPreviousRank(expected);
-        assertEquals(expected, unitUnderTest.getPreviousRank());
-    }
+  @Test
+  public void shouldGetSetPreviousRank() {
+    int expected = 815;
+    unitUnderTest.setPreviousRank(expected);
+    assertEquals(expected, unitUnderTest.getPreviousRank());
+  }
 
-    @Test
-    public void shouldGetSetExpLevel() {
-        int expected = 815;
-        unitUnderTest.setExpLevel(expected);
-        assertEquals(expected, unitUnderTest.getExpLevel());
-    }
+  @Test
+  public void shouldGetSetExpLevel() {
+    int expected = 815;
+    unitUnderTest.setExpLevel(expected);
+    assertEquals(expected, unitUnderTest.getExpLevel());
+  }
 
-    @Test
-    public void shouldGetSetTrophies() {
-        int expected = 815;
-        unitUnderTest.setTrophies(expected);
-        assertEquals(expected, unitUnderTest.getTrophies());
-    }
+  @Test
+  public void shouldGetSetTrophies() {
+    int expected = 815;
+    unitUnderTest.setTrophies(expected);
+    assertEquals(expected, unitUnderTest.getTrophies());
+  }
 
-    @Test
-    public void shouldGetSetDonationsDelta() {
-        int expected = 815;
-        unitUnderTest.setDonationsDelta(expected);
-        assertEquals(expected, unitUnderTest.getDonationsDelta());
-    }
+  @Test
+  public void shouldGetSetDonationsDelta() {
+    int expected = 815;
+    unitUnderTest.setDonationsDelta(expected);
+    assertEquals(expected, unitUnderTest.getDonationsDelta());
+  }
 
-    @Test
-    public void shouldGetSetClanChestCrowns() {
-        int expected = 815;
-        unitUnderTest.setClanChestCrowns(expected);
-        assertEquals(expected, unitUnderTest.getClanChestCrowns());
-    }
+  @Test
+  public void shouldGetSetClanChestCrowns() {
+    int expected = 815;
+    unitUnderTest.setClanChestCrowns(expected);
+    assertEquals(expected, unitUnderTest.getClanChestCrowns());
+  }
 
-    @Test
-    public void shouldGetSetClan() {
-        TeamClan expected = new TeamClan();
-        unitUnderTest.setClan(expected);
-        assertEquals(expected, unitUnderTest.getClan());
-    }
+  @Test
+  public void shouldGetSetClan() {
+    TeamClan expected = new TeamClan();
+    unitUnderTest.setClan(expected);
+    assertEquals(expected, unitUnderTest.getClan());
+  }
 
-    @Test
-    public void shouldGetSetArena() {
-        Arena expected = new Arena();
-        unitUnderTest.setArena(expected);
-        assertEquals(expected, unitUnderTest.getArena());
-    }
+  @Test
+  public void shouldGetSetArena() {
+    Arena expected = new Arena();
+    unitUnderTest.setArena(expected);
+    assertEquals(expected, unitUnderTest.getArena());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setName("astring");
-        unitUnderTest.setTag("astring");
-        unitUnderTest.setRank(815);
-        unitUnderTest.setPreviousRank(815);
-        unitUnderTest.setExpLevel(815);
-        unitUnderTest.setTrophies(815);
-        unitUnderTest.setDonationsDelta(815);
-        unitUnderTest.setClanChestCrowns(815);
-        unitUnderTest.setClan(new TeamClan());
-        unitUnderTest.setArena(new Arena());
-        String expected = "TopPlayer(name=astring, tag=astring, rank=815, previousRank=815, expLevel=815, trophies=815, donationsDelta=815, clanChestCrowns=815, clan=" + new TeamClan() + ", arena=" + new Arena() + ")";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setName("astring");
+    unitUnderTest.setTag("astring");
+    unitUnderTest.setRank(815);
+    unitUnderTest.setPreviousRank(815);
+    unitUnderTest.setExpLevel(815);
+    unitUnderTest.setTrophies(815);
+    unitUnderTest.setDonationsDelta(815);
+    unitUnderTest.setClanChestCrowns(815);
+    unitUnderTest.setClan(new TeamClan());
+    unitUnderTest.setArena(new Arena());
+    String expected = "TopPlayer(name=astring, tag=astring, rank=815, previousRank=815, expLevel=815, trophies=815, donationsDelta=815, clanChestCrowns=815, clan=" + new TeamClan() + ", arena=" + new Arena() + ")";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

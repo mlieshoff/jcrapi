@@ -17,11 +17,11 @@
 package jcrapi.model;
 
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 @Getter
@@ -29,19 +29,19 @@ import javax.annotation.Generated;
 @ToString
 public class Achievement {
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("stars")
-    private int stars;
+  @SerializedName("stars")
+  private int stars;
 
-    @SerializedName("value")
-    private int value;
+  @SerializedName("value")
+  private int value;
 
-    @SerializedName("target")
-    private int target;
+  @SerializedName("target")
+  private int target;
 
-    @SerializedName("info")
-    private String info;
+  @SerializedName("info")
+  private String info;
 
 }

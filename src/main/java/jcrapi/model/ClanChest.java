@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,16 +29,16 @@ import lombok.ToString;
 @ToString
 public class ClanChest {
 
-    @SerializedName("status")
-    private String status;
+  @SerializedName("status")
+  private String status;
 
-    @SerializedName("crowns")
-    private int crowns;
+  @SerializedName("crowns")
+  private int crowns;
 
-    @SerializedName("level")
-    private int level;
+  @SerializedName("level")
+  private int level;
 
-    @SerializedName("maxLevel")
-    private int maxLevel;
+  @SerializedName("maxLevel")
+  private int maxLevel;
 
 }

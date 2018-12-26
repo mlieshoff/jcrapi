@@ -17,60 +17,60 @@
 
 package jcrapi;
 
-import org.apache.http.StatusLine;
-import org.junit.Before;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
+import org.apache.http.StatusLine;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author Michael Lieshoff
  */
 public class CrawlerExceptionTest {
 
-    private CrawlerException crawlerException;
+  private CrawlerException crawlerException;
 
-    private StatusLine statusLine;
+  private StatusLine statusLine;
 
-    @Before
-    public void setUp() {
-        statusLine = mock(StatusLine.class);
-    }
+  @Before
+  public void setUp() {
+    statusLine = mock(StatusLine.class);
+  }
 
-    @Test(expected = NullPointerException.class)
-    public void failWithNullStatsLine() {
-        new CrawlerException(null);
-    }
+  @Test(expected = NullPointerException.class)
+  public void failWithNullStatsLine() {
+    new CrawlerException(null);
+  }
 
-    @Test
-    public void shouldSetStatusCode() {
-        when(statusLine.getStatusCode()).thenReturn(400);
-        crawlerException = new CrawlerException(statusLine);
-        assertEquals(400, crawlerException.getStatusCode());
-    }
+  @Test
+  public void shouldSetStatusCode() {
+    when(statusLine.getStatusCode()).thenReturn(400);
+    crawlerException = new CrawlerException(statusLine);
+    assertEquals(400, crawlerException.getStatusCode());
+  }
 
-    @Test
-    public void shouldSetReason() {
-        when(statusLine.getReasonPhrase()).thenReturn("that is what she said!");
-        crawlerException = new CrawlerException(statusLine);
-        assertEquals("that is what she said!", crawlerException.getReason());
-    }
+  @Test
+  public void shouldSetReason() {
+    when(statusLine.getReasonPhrase()).thenReturn("that is what she said!");
+    crawlerException = new CrawlerException(statusLine);
+    assertEquals("that is what she said!", crawlerException.getReason());
+  }
 
-    @Test
-    public void shouldGetMessageWithoutReason() {
-        when(statusLine.getStatusCode()).thenReturn(400);
-        crawlerException = new CrawlerException(statusLine);
-        assertEquals("crapi: 400", crawlerException.getMessage());
-    }
+  @Test
+  public void shouldGetMessageWithoutReason() {
+    when(statusLine.getStatusCode()).thenReturn(400);
+    crawlerException = new CrawlerException(statusLine);
+    assertEquals("crapi: 400", crawlerException.getMessage());
+  }
 
-    @Test
-    public void shouldGetMessageWithStatusCodeAndReason() {
-        when(statusLine.getReasonPhrase()).thenReturn("that is what she said!");
-        when(statusLine.getStatusCode()).thenReturn(400);
-        crawlerException = new CrawlerException(statusLine);
-        assertEquals("crapi: 400: that is what she said!", crawlerException.getMessage());
-    }
+  @Test
+  public void shouldGetMessageWithStatusCodeAndReason() {
+    when(statusLine.getReasonPhrase()).thenReturn("that is what she said!");
+    when(statusLine.getStatusCode()).thenReturn(400);
+    crawlerException = new CrawlerException(statusLine);
+    assertEquals("crapi: 400: that is what she said!", crawlerException.getMessage());
+  }
 
 }

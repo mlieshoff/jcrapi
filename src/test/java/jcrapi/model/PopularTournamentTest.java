@@ -16,44 +16,44 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class PopularTournamentTest {
 
-    private PopularTournament unitUnderTest;
+  private PopularTournament unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new PopularTournament();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new PopularTournament();
+  }
 
-    @Test
-    public void shouldGetSetPopularity() {
-        Popularity expected = new Popularity();
-        unitUnderTest.setPopularity(expected);
-        assertEquals(expected, unitUnderTest.getPopularity());
-    }
+  @Test
+  public void shouldGetSetPopularity() {
+    Popularity expected = new Popularity();
+    unitUnderTest.setPopularity(expected);
+    assertEquals(expected, unitUnderTest.getPopularity());
+  }
 
-    @Test
-    public void shouldGetSetPlayerCount() {
-        int expected = 815;
-        unitUnderTest.setPlayerCount(expected);
-        assertEquals(expected, unitUnderTest.getPlayerCount());
-    }
+  @Test
+  public void shouldGetSetPlayerCount() {
+    int expected = 815;
+    unitUnderTest.setPlayerCount(expected);
+    assertEquals(expected, unitUnderTest.getPlayerCount());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setPopularity(new Popularity());
-        unitUnderTest.setPlayerCount(815);
-        String expected = "PopularTournament(popularity=" + new Popularity() + ", playerCount=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setPopularity(new Popularity());
+    unitUnderTest.setPlayerCount(815);
+    String expected = "PopularTournament(popularity=" + new Popularity() + ", playerCount=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

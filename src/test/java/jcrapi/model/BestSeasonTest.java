@@ -16,52 +16,52 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 @Generated("org.mili.generator")
 public class BestSeasonTest {
 
-    private BestSeason unitUnderTest;
+  private BestSeason unitUnderTest;
 
-    @Before
-    public void setUp() {
-        unitUnderTest = new BestSeason();
-    }
+  @Before
+  public void setUp() {
+    unitUnderTest = new BestSeason();
+  }
 
-    @Test
-    public void shouldGetSetId() {
-        String expected = "astring";
-        unitUnderTest.setId(expected);
-        assertEquals(expected, unitUnderTest.getId());
-    }
+  @Test
+  public void shouldGetSetId() {
+    String expected = "astring";
+    unitUnderTest.setId(expected);
+    assertEquals(expected, unitUnderTest.getId());
+  }
 
-    @Test
-    public void shouldGetSetRank() {
-        int expected = 815;
-        unitUnderTest.setRank(expected);
-        assertEquals(expected, unitUnderTest.getRank());
-    }
+  @Test
+  public void shouldGetSetRank() {
+    int expected = 815;
+    unitUnderTest.setRank(expected);
+    assertEquals(expected, unitUnderTest.getRank());
+  }
 
-    @Test
-    public void shouldGetSetTrophies() {
-        int expected = 815;
-        unitUnderTest.setTrophies(expected);
-        assertEquals(expected, unitUnderTest.getTrophies());
-    }
+  @Test
+  public void shouldGetSetTrophies() {
+    int expected = 815;
+    unitUnderTest.setTrophies(expected);
+    assertEquals(expected, unitUnderTest.getTrophies());
+  }
 
-    @Test
-    public void shouldToString() {
-        unitUnderTest.setId("astring");
-        unitUnderTest.setRank(815);
-        unitUnderTest.setTrophies(815);
-        String expected = "BestSeason(id=astring, rank=815, trophies=815)";
-        String actual = unitUnderTest.toString();
-        assertEquals(expected, actual);
-    }
+  @Test
+  public void shouldToString() {
+    unitUnderTest.setId("astring");
+    unitUnderTest.setRank(815);
+    unitUnderTest.setTrophies(815);
+    String expected = "BestSeason(id=astring, rank=815, trophies=815)";
+    String actual = unitUnderTest.toString();
+    assertEquals(expected, actual);
+  }
 
 }

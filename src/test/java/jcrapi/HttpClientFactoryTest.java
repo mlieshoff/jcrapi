@@ -16,18 +16,18 @@
  */
 package jcrapi;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
 
 /**
  * @author Michael Lieshoff
  */
 public class HttpClientFactoryTest {
 
-    @Test
-    public void shouldCreate() {
-        assertNotNull(new HttpClientFactory().create());
-    }
+  @Test
+  public void shouldCreate() {
+    assertNotNull(new HttpClientFactory().create());
+  }
 
 }

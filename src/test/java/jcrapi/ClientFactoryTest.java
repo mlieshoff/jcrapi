@@ -23,19 +23,19 @@ import org.junit.Test;
  */
 public class ClientFactoryTest {
 
-    @Test(expected = NullPointerException.class)
-    public void failCreateClientBecauseNullUrl() {
-        new ClientFactory().createClient(null, "abc", AuthMode.NORMAL);
-    }
+  @Test(expected = NullPointerException.class)
+  public void failCreateClientBecauseNullUrl() {
+    new ClientFactory().createClient(null, "abc", AuthMode.NORMAL);
+  }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void failCreateClientBecauseEmptyUrl() {
-        new ClientFactory().createClient("", "abc", AuthMode.NORMAL);
-    }
+  @Test(expected = IllegalArgumentException.class)
+  public void failCreateClientBecauseEmptyUrl() {
+    new ClientFactory().createClient("", "abc", AuthMode.NORMAL);
+  }
 
-    @Test(expected = NullPointerException.class)
-    public void failCreateClientBecauseNullAuthMode() {
-        new ClientFactory().createClient(null, "abc", null);
-    }
+  @Test(expected = NullPointerException.class)
+  public void failCreateClientBecauseNullAuthMode() {
+    new ClientFactory().createClient(null, "abc", null);
+  }
 
 }

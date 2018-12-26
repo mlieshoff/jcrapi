@@ -8,9 +8,9 @@ import lombok.Builder;
  */
 public class AuthStatsRequest extends Request {
 
-    @Builder
-    private AuthStatsRequest(List<String> excludes, List<String> keys) {
-        super(excludes, keys);
-    }
+  @Builder
+  private AuthStatsRequest(List<String> excludes, List<String> keys) {
+    super(excludes, keys);
+  }
 
 }

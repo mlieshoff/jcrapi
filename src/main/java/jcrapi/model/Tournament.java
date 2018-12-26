@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,58 +29,58 @@ import lombok.ToString;
 @ToString
 public class Tournament {
 
-    @SerializedName("tag")
-    private String tag;
+  @SerializedName("tag")
+  private String tag;
 
-    @SerializedName("type")
-    private String type;
+  @SerializedName("type")
+  private String type;
 
-    @SerializedName("status")
-    private String status;
+  @SerializedName("status")
+  private String status;
 
-    @SerializedName("name")
-    private String name;
+  @SerializedName("name")
+  private String name;
 
-    @SerializedName("description")
-    private String description;
+  @SerializedName("description")
+  private String description;
 
-    @SerializedName("capacity")
-    private int capacity;
+  @SerializedName("capacity")
+  private int capacity;
 
-    @Deprecated
-    @SerializedName("maxCapacity")
-    private int maxCapacity;
+  @Deprecated
+  @SerializedName("maxCapacity")
+  private int maxCapacity;
 
-    @SerializedName("maxPlayers")
-    private int maxPlayers;
+  @SerializedName("maxPlayers")
+  private int maxPlayers;
 
-    @Deprecated
-    @SerializedName("preparationDuration")
-    private int preparationDuration;
+  @Deprecated
+  @SerializedName("preparationDuration")
+  private int preparationDuration;
 
-    @SerializedName("prepTime")
-    private int prepTime;
+  @SerializedName("prepTime")
+  private int prepTime;
 
-    @SerializedName("duration")
-    private int duration;
+  @SerializedName("duration")
+  private int duration;
 
-    @Deprecated
-    @SerializedName("endedTime")
-    private String endedTime;
+  @Deprecated
+  @SerializedName("endedTime")
+  private String endedTime;
 
-    @SerializedName("endTime")
-    private long endTime;
+  @SerializedName("endTime")
+  private long endTime;
 
-    @SerializedName("startTime")
-    private long startTime;
+  @SerializedName("startTime")
+  private long startTime;
 
-    @SerializedName("createTime")
-    private long createTime;
+  @SerializedName("createTime")
+  private long createTime;
 
-    @SerializedName("creator")
-    private TournamentParticipant creator;
+  @SerializedName("creator")
+  private TournamentParticipant creator;
 
-    @SerializedName("members")
-    private java.util.List<TournamentParticipant> members;
+  @SerializedName("members")
+  private java.util.List<TournamentParticipant> members;
 
 }

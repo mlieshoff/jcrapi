@@ -16,8 +16,9 @@
  */
 package jcrapi.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,10 +29,10 @@ import lombok.ToString;
 @ToString
 public class Popularity {
 
-    @SerializedName("hits")
-    private String hits;
+  @SerializedName("hits")
+  private String hits;
 
-    @SerializedName("hitsPerDayAvg")
-    private double hitsPerDayAvg;
+  @SerializedName("hitsPerDayAvg")
+  private double hitsPerDayAvg;
 
 }
