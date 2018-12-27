@@ -24,13 +24,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
-public class ProfileClanTest {
+public class TopWarTest {
 
-  private ProfileClan unitUnderTest;
+  private TopWar unitUnderTest;
 
   @Before
   public void setUp() {
-    unitUnderTest = new ProfileClan();
+    unitUnderTest = new TopWar();
   }
 
   @Test
@@ -48,31 +48,31 @@ public class ProfileClanTest {
   }
 
   @Test
-  public void shouldGetSetRole() {
-    String expected = "astring";
-    unitUnderTest.setRole(expected);
-    assertEquals(expected, unitUnderTest.getRole());
+  public void shouldGetSetScore() {
+    int expected = 815;
+    unitUnderTest.setScore(expected);
+    assertEquals(expected, unitUnderTest.getScore());
   }
 
   @Test
-  public void shouldGetSetDonations() {
+  public void shouldGetSetMemberCount() {
     int expected = 815;
-    unitUnderTest.setDonations(expected);
-    assertEquals(expected, unitUnderTest.getDonations());
+    unitUnderTest.setMemberCount(expected);
+    assertEquals(expected, unitUnderTest.getMemberCount());
   }
 
   @Test
-  public void shouldGetSetDonationsReceived() {
+  public void shouldGetSetRank() {
     int expected = 815;
-    unitUnderTest.setDonationsReceived(expected);
-    assertEquals(expected, unitUnderTest.getDonationsReceived());
+    unitUnderTest.setRank(expected);
+    assertEquals(expected, unitUnderTest.getRank());
   }
 
   @Test
-  public void shouldGetSetDonationsDelta() {
+  public void shouldGetSetPreviousRank() {
     int expected = 815;
-    unitUnderTest.setDonationsDelta(expected);
-    assertEquals(expected, unitUnderTest.getDonationsDelta());
+    unitUnderTest.setPreviousRank(expected);
+    assertEquals(expected, unitUnderTest.getPreviousRank());
   }
 
   @Test
@@ -83,15 +83,31 @@ public class ProfileClanTest {
   }
 
   @Test
+  public void shouldGetSetLocation() {
+    Location expected = new Location();
+    unitUnderTest.setLocation(expected);
+    assertEquals(expected, unitUnderTest.getLocation());
+  }
+
+  @Test
+  public void shouldGetSetTracking() {
+    Tracking expected = new Tracking();
+    unitUnderTest.setTracking(expected);
+    assertEquals(expected, unitUnderTest.getTracking());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setTag("astring");
     unitUnderTest.setName("astring");
-    unitUnderTest.setRole("astring");
-    unitUnderTest.setDonations(815);
-    unitUnderTest.setDonationsReceived(815);
-    unitUnderTest.setDonationsDelta(815);
+    unitUnderTest.setScore(815);
+    unitUnderTest.setMemberCount(815);
+    unitUnderTest.setRank(815);
+    unitUnderTest.setPreviousRank(815);
     unitUnderTest.setBadge(new Badge());
-    String expected = "ProfileClan(tag=astring, name=astring, role=astring, donations=815, donationsReceived=815, donationsDelta=815, badge=" + new Badge() + ")";
+    unitUnderTest.setLocation(new Location());
+    unitUnderTest.setTracking(new Tracking());
+    String expected = "TopWar(tag=astring, name=astring, score=815, memberCount=815, rank=815, previousRank=815, badge=" + new Badge() + ", location=" + new Location() + ", tracking=" + new Tracking() + ")";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

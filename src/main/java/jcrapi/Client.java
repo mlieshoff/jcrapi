@@ -53,6 +53,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.TopWar;
 import jcrapi.model.Tournament;
 import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
@@ -81,6 +82,7 @@ import jcrapi.request.ProfilesRequest;
 import jcrapi.request.Request;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TopWarsRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 
@@ -403,6 +405,18 @@ class Client {
 
   Response getLastResponse() {
     return createCrawler().getLastResponse();
+  }
+
+  List<TopWar> getTopWars(TopWarsRequest topWarsRequest) throws IOException {
+    String url = createUrl("top/war");
+    String locationKey = topWarsRequest.getLocationKey();
+    if (StringUtils.isNotBlank(locationKey)) {
+      url += "/" + locationKey;
+    }
+    String json = get(url, topWarsRequest);
+    Type listType = new TypeToken<ArrayList<TopWar>>() {
+    }.getType();
+    return new Gson().fromJson(json, listType);
   }
 
 }

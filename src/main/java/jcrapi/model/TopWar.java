@@ -26,52 +26,33 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Card {
+public class TopWar {
 
-  @SerializedName("id")
-  private int id;
+  @SerializedName("tag")
+  private String tag;
 
   @SerializedName("name")
   private String name;
 
-  @SerializedName("level")
-  private int level;
+  @SerializedName("score")
+  private int score;
 
-  @SerializedName("maxLevel")
-  private int maxLevel;
+  @SerializedName("memberCount")
+  private int memberCount;
 
-  @SerializedName("count")
-  private int count;
+  @SerializedName("rank")
+  private int rank;
 
-  @Deprecated
-  @SerializedName("iconUrls")
-  private IconUrls iconUrls;
+  @SerializedName("previousRank")
+  private int previousRank;
 
-  @SerializedName("icon")
-  private String icon;
+  @SerializedName("badge")
+  private Badge badge;
 
-  @SerializedName("key")
-  private String key;
+  @SerializedName("location")
+  private Location location;
 
-  @SerializedName("elixir")
-  private int elixir;
-
-  @SerializedName("type")
-  private String type;
-
-  @SerializedName("rarity")
-  private String rarity;
-
-  @SerializedName("arena")
-  private int arena;
-
-  @SerializedName("requiredForUpgrade")
-  private String requiredForUpgrade;
-
-  @SerializedName("leftToUpgrade")
-  private int leftToUpgrade;
-
-  @SerializedName("description")
-  private String description;
+  @SerializedName("tracking")
+  private Tracking tracking;
 
 }

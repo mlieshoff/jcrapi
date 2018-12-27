@@ -16,12 +16,12 @@
  */
 package jcrapi.model;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
 public class InPreparationTournamentTest {

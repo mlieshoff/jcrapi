@@ -311,6 +311,20 @@
         <member name="arena" type="Arena"/>
     </class>
 
+    <!-- top wars -->
+
+    <class name="TopWar">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="score" type="int"/>
+        <member name="memberCount" type="int"/>
+        <member name="rank" type="int"/>
+        <member name="previousRank" type="int"/>
+        <member name="badge" type="Badge"/>
+        <member name="location" type="Location"/>
+        <member name="tracking" type="Tracking"/>
+    </class>
+
     <!-- tournaments -->
 
     <class name="Tournament">
