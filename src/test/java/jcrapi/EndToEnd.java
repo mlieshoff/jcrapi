@@ -86,7 +86,7 @@ public class EndToEnd {
 
   private void start() throws IOException, ClassNotFoundException {
     loadModel();
-/*
+
     testPlayer();
     testPlayers();
     testPlayerBattle();
@@ -111,9 +111,6 @@ public class EndToEnd {
     testPopularDecks();
     testApiKeyStats();
     testEndpoints();
-*/
-
-    testConstants();
 
   }
 

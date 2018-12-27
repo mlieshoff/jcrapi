@@ -102,7 +102,8 @@
 
     <class name="ChestCycle">
         <member name="upcoming" type="list(String)"/>
-        <member name="superMagical" type="int"/>
+        <member name="superMagical" type="int" deprecated="true"/>
+        <member name="megaLightning" type="int"/>
         <member name="magical" type="int"/>
         <member name="legendary" type="int"/>
         <member name="epic" type="int"/>
