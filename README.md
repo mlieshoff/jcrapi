@@ -109,6 +109,18 @@ List<TopPlayer> topPlayersForEu = api.getTopPlayers(TopPlayerRequest.builder()
 ```
 
 ```java
+// get top Wars
+List<TopWar> topWarsForEu = api.getTopWars(TopWarRequest.builder()
+    .locationKey("EU")
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .limit(10)
+    .max(5)
+    .page(2)
+    .build());
+```
+
+```java
 // get endpoints
 Endpoints endpoints = api.getEndpoints();
 ```

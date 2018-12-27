@@ -44,6 +44,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.TopWar;
 import jcrapi.model.Tournament;
 import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
@@ -71,6 +72,7 @@ import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TopWarsRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 
@@ -359,6 +361,14 @@ public class Api {
 
   public Response getLastResponse() {
     return createClient().getLastResponse();
+  }
+
+  public List<TopWar> getTopWars(TopWarsRequest topWarsRequest) {
+    try {
+      return createClient().getTopWars(topWarsRequest);
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
   }
 
 }

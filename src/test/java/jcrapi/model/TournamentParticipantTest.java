@@ -16,12 +16,12 @@
  */
 package jcrapi.model;
 
-import static org.junit.Assert.assertEquals;
+import javax.annotation.Generated;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.annotation.Generated;
+import static org.junit.Assert.assertEquals;
 
 @Generated("org.mili.generator")
 public class TournamentParticipantTest {
@@ -75,9 +75,7 @@ public class TournamentParticipantTest {
     unitUnderTest.setScore(815);
     unitUnderTest.setRank(815);
     unitUnderTest.setClan(new TournamentClan());
-    String
-        expected =
-        "TournamentParticipant(tag=astring, name=astring, score=815, rank=815, clan=" + new TournamentClan() + ")";
+    String expected = "TournamentParticipant(tag=astring, name=astring, score=815, rank=815, clan=" + new TournamentClan() + ")";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

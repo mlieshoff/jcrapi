@@ -59,6 +59,7 @@ import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TopWarsRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 
@@ -431,6 +432,19 @@ public class ClientTest {
         crawler.get("lala/tournaments/joinable", createHeaders(), inPreparationTournamentsRequest.getQueryParameters()))
         .thenReturn("[{}]");
     assertNotNull(createClient().getJoinableTournaments(inPreparationTournamentsRequest));
+  }
+
+  @Test
+  public void shouldGetTopWars() throws IOException {
+    when(crawler.get("lala/top/war", createHeaders(), Collections.<String, String>emptyMap())).thenReturn("[{}]");
+    assertNotNull(createClient().getTopWars(TopWarsRequest.builder().build()));
+  }
+
+  @Test
+  public void shouldGetTopWarsWithLocation() throws IOException {
+    TopWarsRequest topWarsRequest = TopWarsRequest.builder().locationKey("EU").build();
+    when(crawler.get("lala/top/war/EU", createHeaders(), topWarsRequest.getQueryParameters())).thenReturn("[{}]");
+    assertNotNull(createClient().getTopWars(topWarsRequest));
   }
 
 }

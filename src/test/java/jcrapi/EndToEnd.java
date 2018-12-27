@@ -58,6 +58,7 @@ import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.TopWar;
 
 /**
  * @author Michael Lieshoff
@@ -84,7 +85,7 @@ public class EndToEnd {
 
   private void start() throws IOException, ClassNotFoundException {
     loadModel();
-
+/*
     testPlayer();
     testPlayers();
     testPlayerBattle();
@@ -100,15 +101,18 @@ public class EndToEnd {
     testClanWarLog();
     testOpenTournaments();
     testKnownTournaments();
-//        testTournaments();
     testTopClans();
     testTopPlayers();
+    testTopWars();
     testPopularClans();
     testPopularPlayers();
     testPopularTournaments();
     testPopularDecks();
     testApiKeyStats();
-    testEndpoinst();
+    testEndpoints();
+*/
+    testTopWars();
+
   }
 
   private void printResults() {
@@ -260,6 +264,14 @@ public class EndToEnd {
     ), TopPlayer.class, true);
   }
 
+  private void testTopWars() throws IOException {
+    test(Arrays.asList(
+        "/top/war",
+        "/top/war/_EU",
+        "/top/war/US"
+    ), TopWar.class, true);
+  }
+
   private void testPopularClans() throws IOException {
     test(Arrays.asList(
         "/popular/clans?max=10"
@@ -290,7 +302,7 @@ public class EndToEnd {
     ), AuthStats.class, false);
   }
 
-  private void testEndpoinst() throws IOException {
+  private void testEndpoints() throws IOException {
     test(Arrays.asList(
         "/endpoints"
     ), Endpoints.class, true);

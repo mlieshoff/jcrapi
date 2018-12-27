@@ -54,6 +54,7 @@ import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TopWarsRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 
@@ -78,6 +79,7 @@ public class IntegrationTest {
     jettyServer.addServlet("/" + APP + "/player/*", new TestProfileServlet());
     jettyServer.addServlet("/" + APP + "/top/clans/*", new TestTopClansServlet());
     jettyServer.addServlet("/" + APP + "/top/players/*", new TestTopPlayersServlet());
+    jettyServer.addServlet("/" + APP + "/top/war/*", new TestTopWarsServlet());
     jettyServer.addServlet("/" + APP + "/clan/search/*", new TestClanSearchServlet());
     jettyServer.addServlet("/" + APP + "/clan/*", new TestClanServlet());
     jettyServer.addServlet("/" + APP + "/endpoints", new TestEndpointsServlet());
@@ -555,6 +557,20 @@ public class IntegrationTest {
   @Test(expected = ApiException.class)
   public void failGetJoinableTournamentsBecauseWrongAuth() throws IOException {
     doGetJoinableTournaments(URL, "abc", JoinableTournamentsRequest.builder().build());
+  }
+
+  @Test
+  public void shouldGetTopWars() throws IOException {
+    doGetTopWars(URL, AUTH, TopWarsRequest.builder().build());
+  }
+
+  private void doGetTopWars(String url, String auth, TopWarsRequest topWarsRequest) {
+    assertNotNull(new Api(url, auth).getTopWars(topWarsRequest));
+  }
+
+  @Test(expected = ApiException.class)
+  public void failGetTopWarsBecauseWrongAuth() throws IOException {
+    doGetTopWars(URL, "abc", TopWarsRequest.builder().build());
   }
 
 }

@@ -56,6 +56,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.TopWar;
 import jcrapi.request.AuthStatsRequest;
 import jcrapi.request.ClanBattlesRequest;
 import jcrapi.request.ClanHistoryRequest;
@@ -82,6 +83,7 @@ import jcrapi.request.ProfileRequest;
 import jcrapi.request.ProfilesRequest;
 import jcrapi.request.TopClansRequest;
 import jcrapi.request.TopPlayersRequest;
+import jcrapi.request.TopWarsRequest;
 import jcrapi.request.TournamentSearchRequest;
 import jcrapi.request.TournamentsRequest;
 
@@ -926,6 +928,34 @@ public class ApiTest {
         .thenThrow(crawlerException);
     try {
       api.getJoinableTournaments(JoinableTournamentsRequest.builder().build());
+      fail();
+    } catch (ApiException e) {
+      assertEquals(400, e.getCode());
+    }
+  }
+
+  @Test
+  public void shouldGetTopWarsWithRequest() throws Exception {
+    List<TopWar> topWars = new ArrayList<>();
+    when(client.getTopWars(argThat(getTopWarsRequestArgumentMatcher(null)))).thenReturn(topWars);
+    assertSame(topWars, api.getTopWars(TopWarsRequest.builder().build()));
+  }
+
+  private Matcher<TopWarsRequest> getTopWarsRequestArgumentMatcher(final String locationKey) {
+    return new ArgumentMatcher<TopWarsRequest>() {
+      @Override
+      public boolean matches(Object o) {
+        return o instanceof TopWarsRequest && ObjectUtils
+            .equals(((TopWarsRequest) o).getLocationKey(), locationKey);
+      }
+    };
+  }
+
+  @Test
+  public void failGetTopWarsWithRequest() throws Exception {
+    when(client.getTopWars(argThat(getTopWarsRequestArgumentMatcher(null)))).thenThrow(crawlerException);
+    try {
+      api.getTopWars(TopWarsRequest.builder().build());
       fail();
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
