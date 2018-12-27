@@ -261,6 +261,7 @@
         <member name="memberCount" type="int"/>
         <member name="requiredScore" type="int"/>
         <member name="donations" type="int"/>
+        <member name="warTrophies" type="int"/>
         <member name="clanChest" type="ClanChest"/>
         <member name="badge" type="Badge"/>
         <member name="location" type="Location"/>

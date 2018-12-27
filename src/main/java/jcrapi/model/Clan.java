@@ -52,6 +52,9 @@ public class Clan {
   @SerializedName("donations")
   private int donations;
 
+  @SerializedName("warTrophies")
+  private int warTrophies;
+
   @SerializedName("clanChest")
   private ClanChest clanChest;
 
