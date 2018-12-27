@@ -31,8 +31,12 @@ public class ChestCycle {
   @SerializedName("upcoming")
   private java.util.List<String> upcoming;
 
+  @Deprecated
   @SerializedName("superMagical")
   private int superMagical;
+
+  @SerializedName("megaLightning")
+  private int megaLightning;
 
   @SerializedName("magical")
   private int magical;
