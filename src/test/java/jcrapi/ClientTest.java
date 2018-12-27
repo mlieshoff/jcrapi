@@ -43,6 +43,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.ConstantsRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.JoinableTournamentsRequest;
@@ -445,6 +446,13 @@ public class ClientTest {
     TopWarsRequest topWarsRequest = TopWarsRequest.builder().locationKey("EU").build();
     when(crawler.get("lala/top/war/EU", createHeaders(), topWarsRequest.getQueryParameters())).thenReturn("[{}]");
     assertNotNull(createClient().getTopWars(topWarsRequest));
+  }
+
+  @Test
+  public void shouldGetConstants() throws IOException {
+    ConstantsRequest constantsRequest = ConstantsRequest.builder().build();
+    when(crawler.get("lala/constants", createHeaders(), constantsRequest.getQueryParameters())).thenReturn("{}");
+    assertNotNull(createClient().getConstants(constantsRequest));
   }
 
 }

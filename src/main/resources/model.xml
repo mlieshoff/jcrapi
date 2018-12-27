@@ -382,66 +382,546 @@
 
     <!-- constants -->
 
-    <!--class name="Constants">
-        <member name="alliance" type="Alliance"/>
-        <member name="arenas" type="list(Arena)"/>
-        <member name="badges" type="Badges"/>
-        <member name="chestCycle" type="ChestCycleList"/>
-        <member name="countryCodes" type="list(CountryCode)"/>
-        <member name="rarities" type="list(Rarity)"/>
-        <member name="cards" type="list(ConstantCard)"/>
+    <class name="Constants">
+        <member name="allianceBadges" alias="alliance_badges" type="list(ConstantsAllianceBadge)"/>
+        <member name="arenas" type="list(ConstantsArena)"/>
+        <member name="cards" type="list(ConstantsCard)"/>
+        <member name="cardsStats" alias="cards_stats" type="ConstantsCardsStats"/>
+        <member name="challenges" type="list(ConstantsChallenge)"/>
+        <member name="chestOrder" alias="chest_order" type="ConstantsChestOrder"/>
+        <member name="clanChest" alias="clan_chest" type="ConstantsClanChest"/>
+        <member name="gameModes" alias="game_modes" type="list(ConstantsGameMode)"/>
+        <member name="rarities" type="list(ConstantsRarity)"/>
+        <member name="regions" type="list(ConstantsRegion)"/>
+        <member name="tournaments" type="list(ConstantsTournament)"/>
+        <member name="treasureChests" alias="treasure_chests" type="ConstantsTreasureChests"/>
     </class>
 
-    <class name="Alliance">
-        <member name="roles" type="list(String)"/>
-        <member name="types" type="list(String)"/>
+    <class name="ConstantsAllianceBadge">
+        <member name="category" type="String"/>
+        <member name="id" type="long"/>
+        <member name="name" type="String"/>
     </class>
 
-    <class name="Badges" extends="map(String,String)">
+    <class name="ConstantsArena">
+        <member name="arena" type="long"/>
+        <member name="arenaId" alias="arena_id" type="long"/>
+        <member name="battleRewardGold" alias="battle_reward_gold" type="long"/>
+        <member name="chestArena" alias="chest_arena" type="String"/>
+        <member name="chestRewardMultiplier" alias="chest_reward_multiplier" type="long"/>
+        <member name="dailyDonationCapacityLimit" alias="daily_donation_capacity_limit" type="long"/>
+        <member name="demoteTrophyLimit" alias="demote_trophy_limit" type="long"/>
+        <member name="forceQuestChestCycle" alias="force_quest_chest_cycle" type="String"/>
+        <member name="id" type="long"/>
+        <member name="isInUse" alias="is_in_use" type="boolean"/>
+        <member name="key" type="String"/>
+        <member name="leagueId" alias="league_id" type="String"/>
+        <member name="matchmakingMaxSeconds" alias="matchmaking_max_seconds" type="long"/>
+        <member name="matchmakingMaxTrophyDelta" alias="matchmaking_max_trophy_delta" type="long"/>
+        <member name="matchmakingMinTrophyDelta" alias="matchmaking_min_trophy_delta" type="long"/>
+        <member name="maxDonationCountCommon" alias="max_donation_count_common" type="long"/>
+        <member name="maxDonationCountEpic" alias="max_donation_count_epic" type="long"/>
+        <member name="maxDonationCountRare" alias="max_donation_count_rare" type="long"/>
+        <member name="name" type="String"/>
+        <member name="questCycle" alias="quest_cycle" type="String"/>
+        <member name="requestSize" alias="request_size" type="long"/>
+        <member name="seasonRewardChest" alias="season_reward_chest" type="String"/>
+        <member name="shopChestRewardMultiplier" alias="shop_chest_reward_multiplier" type="long"/>
+        <member name="subtitle" type="String"/>
+        <member name="title" type="String"/>
+        <member name="trainingCamp" alias="training_camp" type="boolean"/>
+        <member name="trophyLimit" alias="trophy_limit" type="long"/>
+        <member name="tvArena" alias="tv_arena" type="String"/>
     </class>
 
-    <class name="ChestCycleList">
-        <member name="order" type="list(String)"/>
+    <class name="ConstantsBuilding">
+        <member name="allTargetsHit" alias="all_targets_hit" type="boolean"/>
+        <member name="attachedCharacterHeight" alias="attached_character_height" type="long"/>
+        <member name="attacksAir" alias="attacks_air" type="boolean"/>
+        <member name="attacksGround" alias="attacks_ground" type="boolean"/>
+        <member name="buildingTarget" alias="building_target" type="boolean"/>
+        <member name="burstAffectAnimation" alias="burst_affect_animation" type="boolean"/>
+        <member name="burstKeepTarget" alias="burst_keep_target" type="boolean"/>
+        <member name="collisionRadius" alias="collision_radius" type="long"/>
+        <member name="crowdEffects" alias="crowd_effects" type="boolean"/>
+        <member name="dashOnlyOnce" alias="dash_only_once" type="boolean"/>
+        <member name="deathInheritIgnoreList" alias="death_inherit_ignore_list" type="boolean"/>
+        <member name="deathSpawnPushback" alias="death_spawn_pushback" type="boolean"/>
+        <member name="destroyAtLimit" alias="destroy_at_limit" type="boolean"/>
+        <member name="dontStopMoveAnim" alias="dont_stop_move_anim" type="boolean"/>
+        <member name="flyDirectPaths" alias="fly_direct_paths" type="boolean"/>
+        <member name="flyFromGround" alias="fly_from_ground" type="boolean"/>
+        <member name="hasRotationOnTimeline" alias="has_rotation_on_timeline" type="boolean"/>
+        <member name="healOnMorph" alias="heal_on_morph" type="boolean"/>
+        <member name="hideBeforeFirstHit" alias="hide_before_first_hit" type="boolean"/>
+        <member name="hidesWhenNotAttacking" alias="hides_when_not_attacking" type="boolean"/>
+        <member name="hitSpeed" alias="hit_speed" type="long"/>
+        <member name="hitpoints" type="long"/>
+        <member name="ignorePushback" alias="ignore_pushback" type="boolean"/>
+        <member name="isSummonerTower" alias="is_summoner_tower" type="boolean"/>
+        <member name="jumpEnabled" alias="jump_enabled" type="boolean"/>
+        <member name="kamikaze" type="boolean"/>
+        <member name="loadAfterRetarget" alias="load_after_retarget" type="boolean"/>
+        <member name="loadFirstHit" alias="load_first_hit" type="boolean"/>
+        <member name="loadTime" alias="load_time" type="long"/>
+        <member name="morphKeepTarget" alias="morph_keep_target" type="boolean"/>
+        <member name="name" type="String"/>
+        <member name="nameEn" alias="name_en" type="String"/>
+        <member name="noDeploySizeH" alias="no_deploy_size_h" type="long"/>
+        <member name="noDeploySizeW" alias="no_deploy_size_w" type="long"/>
+        <member name="projectile" type="String"/>
+        <member name="projectileStartRadius" alias="projectile_start_radius" type="long"/>
+        <member name="projectileStartZ" alias="projectile_start_z" type="long"/>
+        <member name="projectileYOffset" alias="projectile_y_offset" type="long"/>
+        <member name="range" type="long"/>
+        <member name="rarity" type="String"/>
+        <member name="retargetAfterAttack" alias="retarget_after_attack" type="boolean"/>
+        <member name="scale" type="long"/>
+        <member name="selfAsAoeCenter" alias="self_as_aoe_center" type="boolean"/>
+        <member name="showHealthNumber" alias="show_health_number" type="boolean"/>
+        <member name="sightRange" alias="sight_range" type="long"/>
+        <member name="spawnAttach" alias="spawn_attach" type="boolean"/>
+        <member name="spawnConstPriority" alias="spawn_const_priority" type="boolean"/>
+        <member name="spawnEffectOnce" alias="spawn_effect_once" type="boolean"/>
+        <member name="specialAttackWhenHidden" alias="special_attack_when_hidden" type="boolean"/>
+        <member name="targetOnlyBuildings" alias="target_only_buildings" type="boolean"/>
+        <member name="tileSizeOverride" alias="tile_size_override" type="long"/>
+        <member name="turretMovement" alias="turret_movement" type="long"/>
     </class>
 
-    <class name="CountryCode">
+    <class name="ConstantsCard">
+        <member name="arena" type="long"/>
+        <member name="description" type="String"/>
+        <member name="elixir" type="long"/>
+        <member name="id" type="long"/>
+        <member name="key" type="String"/>
+        <member name="name" type="String"/>
+        <member name="rarity" type="String"/>
+        <member name="type" type="String"/>
+    </class>
+
+    <class name="ConstantsCardsStats">
+        <member name="building" type="list(ConstantsBuilding)"/>
+        <member name="spell" type="list(ConstantsSpell)"/>
+        <member name="troop" type="list(ConstantsTroop)"/>
+    </class>
+
+    <class name="ConstantsChallenge">
+        <member name="enabled" type="boolean"/>
+        <member name="gameMode" alias="game_mode" type="String"/>
+        <member name="id" type="long"/>
+        <member name="joinCost" alias="join_cost" type="long"/>
+        <member name="joinCostResource" alias="join_cost_resource" type="String"/>
+        <member name="key" type="String"/>
+        <member name="maxLoss" alias="max_loss" type="long"/>
+        <member name="maxWins" alias="max_wins" type="long"/>
+        <member name="name" type="String"/>
+        <member name="nameEn" alias="name_en" type="String"/>
+        <member name="rewardCards" alias="reward_cards" type="list(Long)"/>
+        <member name="rewardGold" alias="reward_gold" type="list(Long)"/>
+        <member name="rewardSpell" alias="reward_spell" type="String"/>
+        <member name="rewardSpellMaxCount" alias="reward_spell_max_count" type="long"/>
+    </class>
+
+    <class name="ConstantsChestOrder">
+        <member name="mainCycle" alias="MainCycle" type="list(String)"/>
+        <member name="questArena3Super" alias="Quest_arena3_super" type="list(ConstantsQuestArena3Super)"/>
+        <member name="questEarlygame1" alias="Quest_earlygame_1" type="list(ConstantsQuestEarlygame1)"/>
+        <member name="questEarlygame2" alias="Quest_earlygame_2" type="list(ConstantsQuestEarlygame2)"/>
+        <member name="questLategame1" alias="Quest_lategame_1" type="list(ConstantsQuestLategame1)"/>
+        <member name="questLategame10" alias="Quest_lategame_10" type="list(ConstantsQuestLategame10)"/>
+        <member name="questLategame2" alias="Quest_lategame_2" type="list(ConstantsQuestLategame2)"/>
+        <member name="questLategame3" alias="Quest_lategame_3" type="list(ConstantsQuestLategame3)"/>
+        <member name="questLategame4" alias="Quest_lategame_4" type="list(ConstantsQuestLategame4)"/>
+        <member name="questLategame5" alias="Quest_lategame_5" type="list(ConstantsQuestLategame5)"/>
+        <member name="questLategame6" alias="Quest_lategame_6" type="list(ConstantsQuestLategame6)"/>
+        <member name="questLategame7" alias="Quest_lategame_7" type="list(ConstantsQuestLategame7)"/>
+        <member name="questLategame8" alias="Quest_lategame_8" type="list(ConstantsQuestLategame8)"/>
+        <member name="questLategame9" alias="Quest_lategame_9" type="list(ConstantsQuestLategame9)"/>
+    </class>
+
+    <class name="ConstantsClanChest">
+        <member name="v1" alias="1v1" type="ConstantsV1"/>
+        <member name="v2" alias="2v2" type="ConstantsV2"/>
+    </class>
+
+    <class name="ConstantsCrown">
+        <member name="arena" type="ConstantsArena"/>
+        <member name="arenas" type="list(ConstantsArena)"/>
+        <member name="baseChest" alias="base_chest" type="String"/>
+        <member name="boostedChest" alias="boosted_chest" type="boolean"/>
+        <member name="cardCount" alias="card_count" type="long"/>
+        <member name="chestCountInChestCycle" alias="chest_count_in_chest_cycle" type="long"/>
+        <member name="description" type="String"/>
+        <member name="differentSpells" alias="different_spells" type="long"/>
+        <member name="draftChest" alias="draft_chest" type="boolean"/>
+        <member name="epicChance" alias="epic_chance" type="long"/>
+        <member name="exp" type="long"/>
+        <member name="guaranteedSpells" alias="guaranteed_spells" type="String"/>
+        <member name="inArenaInfo" alias="in_arena_info" type="boolean"/>
+        <member name="inShop" alias="in_shop" type="boolean"/>
+        <member name="legendaryChance" alias="legendary_chance" type="long"/>
+        <member name="legendaryOverrideChance" alias="legendary_override_chance" type="long"/>
+        <member name="maxGold" alias="max_gold" type="long"/>
+        <member name="maxGoldPerCard" alias="max_gold_per_card" type="long"/>
+        <member name="minGold" alias="min_gold" type="long"/>
+        <member name="minGoldPerCard" alias="min_gold_per_card" type="long"/>
+        <member name="name" type="String"/>
+        <member name="notification" type="String"/>
+        <member name="randomSpells" alias="random_spells" type="long"/>
+        <member name="rareChance" alias="rare_chance" type="long"/>
+        <member name="shopPriceWithoutSpeedUp" alias="shop_price_without_speed_up" type="long"/>
+        <member name="skinChance" alias="skin_chance" type="long"/>
+        <member name="sortValue" alias="sort_value" type="long"/>
+        <member name="specialOffer" alias="special_offer" type="boolean"/>
+        <member name="spellSet" alias="spell_set" type="String"/>
+        <member name="survivalChest" alias="survival_chest" type="boolean"/>
+        <member name="timeTakenDays" alias="time_taken_days" type="long"/>
+        <member name="timeTakenHours" alias="time_taken_hours" type="long"/>
+        <member name="timeTakenMinutes" alias="time_taken_minutes" type="long"/>
+        <member name="timeTakenSeconds" alias="time_taken_seconds" type="long"/>
+        <member name="tournamentChest" alias="tournament_chest" type="boolean"/>
+    </class>
+
+    <class name="ConstantsCycle">
+        <member name="arena" type="ConstantsArena"/>
+        <member name="arenas" type="list(ConstantsArena)"/>
+        <member name="baseChest" alias="base_chest" type="String"/>
+        <member name="boostedChest" alias="boosted_chest" type="boolean"/>
+        <member name="cardCount" alias="card_count" type="long"/>
+        <member name="chestCountInChestCycle" alias="chest_count_in_chest_cycle" type="long"/>
+        <member name="description" type="String"/>
+        <member name="differentSpells" alias="different_spells" type="long"/>
+        <member name="draftChest" alias="draft_chest" type="boolean"/>
+        <member name="epicChance" alias="epic_chance" type="long"/>
+        <member name="exp" type="long"/>
+        <member name="guaranteedSpells" alias="guaranteed_spells" type="String"/>
+        <member name="inArenaInfo" alias="in_arena_info" type="boolean"/>
+        <member name="inShop" alias="in_shop" type="boolean"/>
+        <member name="legendaryChance" alias="legendary_chance" type="long"/>
+        <member name="legendaryOverrideChance" alias="legendary_override_chance" type="long"/>
+        <member name="maxGold" alias="max_gold" type="long"/>
+        <member name="maxGoldPerCard" alias="max_gold_per_card" type="long"/>
+        <member name="minGold" alias="min_gold" type="long"/>
+        <member name="minGoldPerCard" alias="min_gold_per_card" type="long"/>
+        <member name="name" type="String"/>
+        <member name="notification" type="String"/>
+        <member name="randomSpells" alias="random_spells" type="long"/>
+        <member name="rareChance" alias="rare_chance" type="long"/>
+        <member name="shopPriceWithoutSpeedUp" alias="shop_price_without_speed_up" type="long"/>
+        <member name="skinChance" alias="skin_chance" type="long"/>
+        <member name="sortValue" alias="sort_value" type="long"/>
+        <member name="specialOffer" alias="special_offer" type="boolean"/>
+        <member name="spellSet" alias="spell_set" type="String"/>
+        <member name="survivalChest" alias="survival_chest" type="boolean"/>
+        <member name="timeTakenDays" alias="time_taken_days" type="long"/>
+        <member name="timeTakenHours" alias="time_taken_hours" type="long"/>
+        <member name="timeTakenMinutes" alias="time_taken_minutes" type="long"/>
+        <member name="timeTakenSeconds" alias="time_taken_seconds" type="long"/>
+        <member name="tournamentChest" alias="tournament_chest" type="boolean"/>
+    </class>
+
+    <class name="ConstantsGameMode">
+        <member name="battleStartCooldown" alias="battle_start_cooldown" type="long"/>
+        <member name="cardLevelAdjustment" alias="card_level_adjustment" type="String"/>
+        <member name="deckSelection" alias="deck_selection" type="String"/>
+        <member name="fixedDeckOrder" alias="fixed_deck_order" type="boolean"/>
+        <member name="givesClanScore" alias="gives_clan_score" type="boolean"/>
+        <member name="heroes" type="boolean"/>
+        <member name="id" type="long"/>
+        <member name="name" type="String"/>
+        <member name="nameEn" alias="name_en" type="String"/>
+        <member name="overtimeSeconds" alias="overtime_seconds" type="long"/>
+        <member name="players" type="String"/>
+        <member name="predefinedDecks" alias="predefined_decks" type="String"/>
+        <member name="sameDeckOnBoth" alias="same_deck_on_both" type="boolean"/>
+        <member name="separateTeamDecks" alias="separate_team_decks" type="boolean"/>
+        <member name="swappingTowers" alias="swapping_towers" type="boolean"/>
+        <member name="useStartingElixir" alias="use_starting_elixir" type="boolean"/>
+    </class>
+
+    <class name="ConstantsObject">
+    </class>
+
+    <class name="ConstantsPrize">
+        <member name="cards" type="long"/>
+        <member name="rank" type="long"/>
+        <member name="tier" type="long"/>
+    </class>
+
+    <class name="ConstantsQuestArena3Super">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestEarlygame1">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestEarlygame2">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame1">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame10">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame2">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame3">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame4">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame5">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame6">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame7">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame8">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsQuestLategame9">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
+    <class name="ConstantsRarity">
+        <member name="balanceMultiplier" alias="balance_multiplier" type="long"/>
+        <member name="chanceWeight" alias="chance_weight" type="long"/>
+        <member name="cloneRelativeLevel" alias="clone_relative_level" type="long"/>
+        <member name="donateCapacity" alias="donate_capacity" type="long"/>
+        <member name="donateReward" alias="donate_reward" type="long"/>
+        <member name="donateXp" alias="donate_xp" type="long"/>
+        <member name="goldConversionValue" alias="gold_conversion_value" type="long"/>
+        <member name="levelCount" alias="level_count" type="long"/>
+        <member name="mirrorRelativeLevel" alias="mirror_relative_level" type="long"/>
+        <member name="name" type="String"/>
+        <member name="powerLevelMultiplier" alias="power_level_multiplier" type="list(Long)"/>
+        <member name="refundGems" alias="refund_gems" type="long"/>
+        <member name="relativeLevel" alias="relative_level" type="long"/>
+        <member name="sortCapacity" alias="sort_capacity" type="long"/>
+        <member name="upgradeCost" alias="upgrade_cost" type="list(Long)"/>
+        <member name="upgradeExp" alias="upgrade_exp" type="list(Long)"/>
+        <member name="upgradeMaterialCount" alias="upgrade_material_count" type="list(Long)"/>
+    </class>
+
+    <class name="ConstantsRegion">
         <member name="id" type="long"/>
         <member name="isCountry" type="boolean"/>
         <member name="key" type="String"/>
         <member name="name" type="String"/>
     </class>
 
-    <class name="Rarity">
-        <member name="balance_multiplier" type="int"/>
-        <member name="chance_weight" type="int"/>
-        <member name="clone_relative_level" type="int"/>
-        <member name="donate_capacity" type="int"/>
-        <member name="donate_reward" type="int"/>
-        <member name="donate_xp" type="int"/>
-        <member name="gold_conversion_value" type="int"/>
-        <member name="level_count" type="int"/>
-        <member name="mirror_relative_level" type="int"/>
-        <member name="power_level_multiplier" type="list(int)"/>
-        <member name="refund_gems" type="int"/>
-        <member name="relative_level" type="int"/>
-        <member name="sort_capacity" type="int"/>
-        <member name="upgrade_cost" type="list(int)"/>
-        <member name="upgrade_exp" type="list(int)"/>
-        <member name="upgrade_material_cost" type="list(int)"/>
+    <class name="ConstantsShop">
+        <member name="arena" type="ConstantsArena"/>
+        <member name="arenas" type="list(ConstantsArena)"/>
+        <member name="baseChest" alias="base_chest" type="String"/>
+        <member name="boostedChest" alias="boosted_chest" type="boolean"/>
+        <member name="cardCount" alias="card_count" type="long"/>
+        <member name="chestCountInChestCycle" alias="chest_count_in_chest_cycle" type="long"/>
+        <member name="description" type="String"/>
+        <member name="differentSpells" alias="different_spells" type="long"/>
+        <member name="draftChest" alias="draft_chest" type="boolean"/>
+        <member name="epicChance" alias="epic_chance" type="long"/>
+        <member name="exp" type="long"/>
+        <member name="guaranteedSpells" alias="guaranteed_spells" type="String"/>
+        <member name="inArenaInfo" alias="in_arena_info" type="boolean"/>
+        <member name="inShop" alias="in_shop" type="boolean"/>
+        <member name="legendaryChance" alias="legendary_chance" type="long"/>
+        <member name="legendaryOverrideChance" alias="legendary_override_chance" type="long"/>
+        <member name="maxGold" alias="max_gold" type="long"/>
+        <member name="maxGoldPerCard" alias="max_gold_per_card" type="long"/>
+        <member name="minGold" alias="min_gold" type="long"/>
+        <member name="minGoldPerCard" alias="min_gold_per_card" type="long"/>
+        <member name="name" type="String"/>
+        <member name="randomSpells" alias="random_spells" type="long"/>
+        <member name="rareChance" alias="rare_chance" type="long"/>
+        <member name="shopPriceWithoutSpeedUp" alias="shop_price_without_speed_up" type="long"/>
+        <member name="skinChance" alias="skin_chance" type="long"/>
+        <member name="sortValue" alias="sort_value" type="long"/>
+        <member name="specialOffer" alias="special_offer" type="boolean"/>
+        <member name="spellSet" alias="spell_set" type="String"/>
+        <member name="survivalChest" alias="survival_chest" type="boolean"/>
+        <member name="timeTakenDays" alias="time_taken_days" type="long"/>
+        <member name="timeTakenHours" alias="time_taken_hours" type="long"/>
+        <member name="timeTakenMinutes" alias="time_taken_minutes" type="long"/>
+        <member name="timeTakenSeconds" alias="time_taken_seconds" type="long"/>
+        <member name="tournamentChest" alias="tournament_chest" type="boolean"/>
     </class>
 
-    <class name="ConstantCard">
-        <member name="card_id" type="int"/>
-        <member name="key" type="String"/>
-        <member name="card_key" type="String"/>
-        <member name="name" type="String"/>
-        <member name="elixir" type="int"/>
-        <member name="type" type="String"/>
-        <member name="rarity" type="String"/>
-        <member name="arena" type="int"/>
+    <class name="ConstantsSpell">
+        <member name="affectsHidden" alias="affects_hidden" type="boolean"/>
+        <member name="arena" type="long"/>
+        <member name="buff" type="String"/>
+        <member name="buffNumber" alias="buff_number" type="long"/>
+        <member name="buffTime" alias="buff_time" type="long"/>
+        <member name="buffTimeIncreaseAfterTournamentCap" alias="buff_time_increase_after_tournament_cap" type="long"/>
+        <member name="buffTimeIncreasePerLevel" alias="buff_time_increase_per_level" type="long"/>
+        <member name="capBuffTimeToAreaEffectTime" alias="cap_buff_time_to_area_effect_time" type="boolean"/>
+        <member name="crownTowerDamagePercent" alias="crown_tower_damage_percent" type="long"/>
+        <member name="damage" type="long"/>
         <member name="description" type="String"/>
-        <member name="decklink" type="String"/>
-    </class-->
+        <member name="elixir" type="long"/>
+        <member name="hitBiggestTargets" alias="hit_biggest_targets" type="boolean"/>
+        <member name="hitSpeed" alias="hit_speed" type="long"/>
+        <member name="hitsAir" alias="hits_air" type="boolean"/>
+        <member name="hitsGround" alias="hits_ground" type="boolean"/>
+        <member name="id" type="long"/>
+        <member name="ignoreBuildings" alias="ignore_buildings" type="boolean"/>
+        <member name="ignoreHero" alias="ignore_hero" type="boolean"/>
+        <member name="key" type="String"/>
+        <member name="lifeDuration" alias="life_duration" type="long"/>
+        <member name="lifeDurationIncreaseAfterTournamentCap" alias="life_duration_increase_after_tournament_cap" type="long"/>
+        <member name="lifeDurationIncreasePerLevel" alias="life_duration_increase_per_level" type="long"/>
+        <member name="name" type="String"/>
+        <member name="noEffectToCrownTowers" alias="no_effect_to_crown_towers" type="boolean"/>
+        <member name="onlyEnemies" alias="only_enemies" type="boolean"/>
+        <member name="onlyOwnTroops" alias="only_own_troops" type="boolean"/>
+        <member name="projectile" type="String"/>
+        <member name="radius" type="long"/>
+        <member name="rarity" type="String"/>
+        <member name="spawnAngleShift" alias="spawn_angle_shift" type="long"/>
+        <member name="spawnCharacter" alias="spawn_character" type="String"/>
+        <member name="spawnCharacterLevelIndex" alias="spawn_character_level_index" type="long"/>
+        <member name="spawnDeployBaseAnim" alias="spawn_deploy_base_anim" type="String"/>
+        <member name="spawnFromMinToMax" alias="spawn_from_min_to_max" type="boolean"/>
+        <member name="spawnInitialDelay" alias="spawn_initial_delay" type="long"/>
+        <member name="spawnInterval" alias="spawn_interval" type="long"/>
+        <member name="spawnMaxCount" alias="spawn_max_count" type="long"/>
+        <member name="spawnMaxRadius" alias="spawn_max_radius" type="long"/>
+        <member name="spawnMinRadius" alias="spawn_min_radius" type="long"/>
+        <member name="spawnRandomizeSequence" alias="spawn_randomize_sequence" type="boolean"/>
+        <member name="spawnTime" alias="spawn_time" type="long"/>
+        <member name="type" type="String"/>
+    </class>
+
+    <class name="ConstantsTournament">
+        <member name="cards" type="list(Long)"/>
+        <member name="createCost" alias="create_cost" type="long"/>
+        <member name="key" type="String"/>
+        <member name="maxPlayers" alias="max_players" type="long"/>
+        <member name="prizes" type="list(ConstantsPrize)"/>
+    </class>
+
+    <class name="ConstantsTreasureChests">
+        <member name="crown" type="list(ConstantsCrown)"/>
+        <member name="cycle" type="list(ConstantsCycle)"/>
+        <member name="shop" type="list(ConstantsShop)"/>
+    </class>
+
+    <class name="ConstantsTroop">
+        <member name="allTargetsHit" alias="all_targets_hit" type="boolean"/>
+        <member name="arena" type="long"/>
+        <member name="attacksAir" alias="attacks_air" type="boolean"/>
+        <member name="attacksGround" alias="attacks_ground" type="boolean"/>
+        <member name="buildingTarget" alias="building_target" type="boolean"/>
+        <member name="burstAffectAnimation" alias="burst_affect_animation" type="boolean"/>
+        <member name="burstKeepTarget" alias="burst_keep_target" type="boolean"/>
+        <member name="collisionRadius" alias="collision_radius" type="long"/>
+        <member name="crowdEffects" alias="crowd_effects" type="boolean"/>
+        <member name="damage" type="long"/>
+        <member name="dashOnlyOnce" alias="dash_only_once" type="boolean"/>
+        <member name="deathInheritIgnoreList" alias="death_inherit_ignore_list" type="boolean"/>
+        <member name="deathSpawnPushback" alias="death_spawn_pushback" type="boolean"/>
+        <member name="deployTime" alias="deploy_time" type="long"/>
+        <member name="description" type="String"/>
+        <member name="destroyAtLimit" alias="destroy_at_limit" type="boolean"/>
+        <member name="dontStopMoveAnim" alias="dont_stop_move_anim" type="boolean"/>
+        <member name="dps" type="double"/>
+        <member name="elixir" type="long"/>
+        <member name="flyDirectPaths" alias="fly_direct_paths" type="boolean"/>
+        <member name="flyFromGround" alias="fly_from_ground" type="boolean"/>
+        <member name="hasRotationOnTimeline" alias="has_rotation_on_timeline" type="boolean"/>
+        <member name="healOnMorph" alias="heal_on_morph" type="boolean"/>
+        <member name="hideBeforeFirstHit" alias="hide_before_first_hit" type="boolean"/>
+        <member name="hidesWhenNotAttacking" alias="hides_when_not_attacking" type="boolean"/>
+        <member name="hitSpeed" alias="hit_speed" type="long"/>
+        <member name="hitpoints" type="long"/>
+        <member name="id" type="long"/>
+        <member name="ignorePushback" alias="ignore_pushback" type="boolean"/>
+        <member name="isSummonerTower" alias="is_summoner_tower" type="boolean"/>
+        <member name="jumpEnabled" alias="jump_enabled" type="boolean"/>
+        <member name="kamikaze" type="boolean"/>
+        <member name="key" type="String"/>
+        <member name="loadAfterRetarget" alias="load_after_retarget" type="boolean"/>
+        <member name="loadFirstHit" alias="load_first_hit" type="boolean"/>
+        <member name="loadTime" alias="load_time" type="long"/>
+        <member name="mass" type="long"/>
+        <member name="morphKeepTarget" alias="morph_keep_target" type="boolean"/>
+        <member name="name" type="String"/>
+        <member name="nameEn" alias="name_en" type="String"/>
+        <member name="projectileStartRadius" alias="projectile_start_radius" type="long"/>
+        <member name="projectileStartZ" alias="projectile_start_z" type="long"/>
+        <member name="range" type="long"/>
+        <member name="rarity" type="String"/>
+        <member name="retargetAfterAttack" alias="retarget_after_attack" type="boolean"/>
+        <member name="scale" type="long"/>
+        <member name="selfAsAoeCenter" alias="self_as_aoe_center" type="boolean"/>
+        <member name="showHealthNumber" alias="show_health_number" type="boolean"/>
+        <member name="sightRange" alias="sight_range" type="long"/>
+        <member name="spawnAttach" alias="spawn_attach" type="boolean"/>
+        <member name="spawnConstPriority" alias="spawn_const_priority" type="boolean"/>
+        <member name="spawnEffectOnce" alias="spawn_effect_once" type="boolean"/>
+        <member name="specialAttackWhenHidden" alias="special_attack_when_hidden" type="boolean"/>
+        <member name="speed" type="long"/>
+        <member name="speedEn" alias="speed_en" type="String"/>
+        <member name="targetOnlyBuildings" alias="target_only_buildings" type="boolean"/>
+        <member name="type" type="String"/>
+    </class>
+
+    <class name="ConstantsV1">
+        <member name="cards" type="list(Long)"/>
+        <member name="gold" type="list(Long)"/>
+        <member name="thresholds" type="list(Long)"/>
+    </class>
+
+    <class name="ConstantsV2">
+        <member name="cards" type="list(Long)"/>
+        <member name="gold" type="list(Long)"/>
+        <member name="thresholds" type="list(Long)"/>
+    </class>
 
     <!-- endpoints -->
 

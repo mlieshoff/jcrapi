@@ -37,6 +37,7 @@ import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
+import jcrapi.model.Constants;
 import jcrapi.model.FullTournament;
 import jcrapi.model.InPreparationTournament;
 import jcrapi.model.JoinableTournament;
@@ -47,6 +48,7 @@ import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
+import jcrapi.model.TopWar;
 
 /**
  * @author Michael Lieshoff
@@ -194,6 +196,16 @@ public class JsonModelIntegrationTest {
   @Test
   public void shouldResolveJoinableTournaments() throws Exception {
     assertListType("tournaments_joinable.json", JoinableTournament.class);
+  }
+
+  @Test
+  public void shouldResolveGetTopWars() throws Exception {
+    assertListType("topWars.json", TopWar.class);
+  }
+
+  @Test
+  public void shouldResolveGetConstants() throws Exception {
+    assertType("constants.json", Constants.class);
   }
 
 }

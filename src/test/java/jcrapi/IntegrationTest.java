@@ -38,6 +38,7 @@ import jcrapi.request.ClanTrackingRequest;
 import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
+import jcrapi.request.ConstantsRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.JoinableTournamentsRequest;
@@ -96,6 +97,7 @@ public class IntegrationTest {
     jettyServer.addServlet("/" + APP + "/tournaments/*", new TestTournamentServlet());
     jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
     jettyServer.addServlet("/" + APP + "/auth/stats", new TestAuthStatsServlet());
+    jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());
     jettyServer.start();
   }
 
@@ -571,6 +573,20 @@ public class IntegrationTest {
   @Test(expected = ApiException.class)
   public void failGetTopWarsBecauseWrongAuth() throws IOException {
     doGetTopWars(URL, "abc", TopWarsRequest.builder().build());
+  }
+
+  @Test
+  public void shouldGetConstants() throws IOException {
+    doGetConstants(URL, AUTH, ConstantsRequest.builder().build());
+  }
+
+  private void doGetConstants(String url, String auth, ConstantsRequest ConstantsRequest) {
+    assertNotNull(new Api(url, auth).getConstants(ConstantsRequest));
+  }
+
+  @Test(expected = ApiException.class)
+  public void failGetConstantsBecauseWrongAuth() throws IOException {
+    doGetConstants(URL, "abc", ConstantsRequest.builder().build());
   }
 
 }
