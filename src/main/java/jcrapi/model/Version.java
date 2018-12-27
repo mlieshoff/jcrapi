@@ -28,6 +28,6 @@ import lombok.ToString;
 @ToString
 public class Version {
 
-  public static final String VERSION = "v12.0.160";
+  public static final String VERSION = "v12.0.236";
 
 }
