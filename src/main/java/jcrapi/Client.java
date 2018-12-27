@@ -38,6 +38,7 @@ import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
+import jcrapi.model.Constants;
 import jcrapi.model.Endpoints;
 import jcrapi.model.FullTournament;
 import jcrapi.model.InPreparationTournament;
@@ -65,6 +66,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.ConstantsRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.JoinableTournamentsRequest;
@@ -417,6 +419,11 @@ class Client {
     Type listType = new TypeToken<ArrayList<TopWar>>() {
     }.getType();
     return new Gson().fromJson(json, listType);
+  }
+
+  Constants getConstants(ConstantsRequest constantsRequest) throws IOException {
+    String json = get(createUrl("constants"), constantsRequest);
+    return new Gson().fromJson(json, Constants.class);
   }
 
 }

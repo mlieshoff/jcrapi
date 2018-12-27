@@ -356,6 +356,17 @@ AuthStats authStats = api.getAuthStats(AuthStatsRequest.builder()
 ```
 
 ```java
+// get constants
+Constants constants = api.getConstants(ConstantsRequest.builder()
+    .keys(Arrays.asList("name", "clan", "tag"))
+    .excludes(Arrays.asList("battles"))
+    .limit(10)
+    .max(5)
+    .page(2)
+    .build());
+```
+
+```java
 // get thread safe last response object from last request 
 Response response = api.getLastResponse();
 
@@ -363,7 +374,6 @@ String raw = response.getRaw();
 Map<String, String> responseHeaders = response.getResponseHeaders();
 int rateLimit = response.getRateLimit();
 int rateRemaining = response.getRateRemaining();
-
 ```
 
 ## How to bind the bintray repository ##

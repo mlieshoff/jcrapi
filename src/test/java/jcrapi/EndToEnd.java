@@ -48,6 +48,7 @@ import jcrapi.model.Clan;
 import jcrapi.model.ClanHistory;
 import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWarLog;
+import jcrapi.model.Constants;
 import jcrapi.model.Endpoints;
 import jcrapi.model.KnownTournament;
 import jcrapi.model.OpenTournament;
@@ -111,7 +112,8 @@ public class EndToEnd {
     testApiKeyStats();
     testEndpoints();
 */
-    testTopWars();
+
+    testConstants();
 
   }
 
@@ -306,6 +308,12 @@ public class EndToEnd {
     test(Arrays.asList(
         "/endpoints"
     ), Endpoints.class, true);
+  }
+
+  private void testConstants() throws IOException {
+    test(Arrays.asList(
+        "/constants"
+    ), Constants.class, false);
   }
 
   private void test(List<String> parts, Class<?> clazz, boolean isList) throws IOException {

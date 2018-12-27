@@ -41,6 +41,7 @@ import jcrapi.model.ClanTracking;
 import jcrapi.model.ClanWar;
 import jcrapi.model.ClanWarLog;
 import jcrapi.model.ClanWeeklyHistory;
+import jcrapi.model.Constants;
 import jcrapi.model.Endpoints;
 import jcrapi.model.FullTournament;
 import jcrapi.model.InPreparationTournament;
@@ -67,6 +68,7 @@ import jcrapi.request.ClanWarLogRequest;
 import jcrapi.request.ClanWarRequest;
 import jcrapi.request.ClanWeeklyHistoryRequest;
 import jcrapi.request.ClansRequest;
+import jcrapi.request.ConstantsRequest;
 import jcrapi.request.FullTournamentsRequest;
 import jcrapi.request.InPreparationTournamentsRequest;
 import jcrapi.request.JoinableTournamentsRequest;
@@ -956,6 +958,33 @@ public class ApiTest {
     when(client.getTopWars(argThat(getTopWarsRequestArgumentMatcher(null)))).thenThrow(crawlerException);
     try {
       api.getTopWars(TopWarsRequest.builder().build());
+      fail();
+    } catch (ApiException e) {
+      assertEquals(400, e.getCode());
+    }
+  }
+
+  @Test
+  public void shouldGetConstantsWithRequest() throws Exception {
+    Constants constants = new Constants();
+    when(client.getConstants(argThat(getConstantsRequestArgumentMatcher()))).thenReturn(constants);
+    assertSame(constants, api.getConstants(ConstantsRequest.builder().build()));
+  }
+
+  private Matcher<ConstantsRequest> getConstantsRequestArgumentMatcher() {
+    return new ArgumentMatcher<ConstantsRequest>() {
+      @Override
+      public boolean matches(Object o) {
+        return o instanceof ConstantsRequest;
+      }
+    };
+  }
+
+  @Test
+  public void failGetConstantsWithRequest() throws Exception {
+    when(client.getConstants(argThat(getConstantsRequestArgumentMatcher()))).thenThrow(crawlerException);
+    try {
+      api.getConstants(ConstantsRequest.builder().build());
       fail();
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
