@@ -46,6 +46,7 @@ import jcrapi.model.OpenTournament;
 import jcrapi.model.PopularDeck;
 import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
+import jcrapi.model.Status;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.TopWar;
@@ -206,6 +207,11 @@ public class JsonModelIntegrationTest {
   @Test
   public void shouldResolveGetConstants() throws Exception {
     assertType("constants.json", Constants.class);
+  }
+
+  @Test
+  public void shouldResolveGetStatus() throws Exception {
+    assertType("status.json", Status.class);
   }
 
 }

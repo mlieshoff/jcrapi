@@ -1219,4 +1219,18 @@
         <member name="requestCount" type="map(String,String)"/>
     </class>
 
+    <!-- status -->
+
+    <class name="Status">
+        <member name="env" type="String"/>
+        <member name="serverTime" type="String"/>
+        <member name="serverVersion" type="String"/>
+        <member name="nodeVersion" type="String"/>
+        <member name="host" type="String"/>
+        <member name="uptime" type="double"/>
+        <member name="uptimeHuman" type="String"/>
+        <member name="freeMemory" type="String"/>
+        <member name="memoryUsage" type="String"/>
+    </class>
+
 </model>
