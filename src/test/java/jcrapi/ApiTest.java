@@ -1010,4 +1010,21 @@ public class ApiTest {
     }
   }
 
+  @Test
+  public void shouldGetHealth() throws Exception {
+    when(client.getHealth()).thenReturn("ok");
+    assertEquals("ok", api.getHealth());
+  }
+
+  @Test
+  public void failGetHealth() throws Exception {
+    when(client.getHealth()).thenThrow(crawlerException);
+    try {
+      api.getHealth();
+      fail();
+    } catch (ApiException e) {
+      assertEquals(400, e.getCode());
+    }
+  }
+
 }

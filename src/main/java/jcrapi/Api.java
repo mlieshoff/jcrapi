@@ -390,4 +390,12 @@ public class Api {
     }
   }
 
+  public String getHealth() {
+    try {
+      return createClient().getHealth();
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+  }
+
 }

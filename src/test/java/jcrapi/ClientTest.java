@@ -461,4 +461,10 @@ public class ClientTest {
     assertNotNull(createClient().getStatus());
   }
 
+  @Test
+  public void shouldGetHealth() throws IOException {
+    when(crawler.get("lala/health", createHeaders(), null)).thenReturn("ok");
+    assertEquals("ok", createClient().getHealth());
+  }
+
 }

@@ -432,4 +432,8 @@ class Client {
     return new Gson().fromJson(json, Status.class);
   }
 
+  String getHealth() throws IOException {
+    return get(createUrl("health"), null);
+  }
+
 }
