@@ -99,6 +99,7 @@ public class IntegrationTest {
     jettyServer.addServlet("/" + APP + "/auth/stats", new TestAuthStatsServlet());
     jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());
     jettyServer.addServlet("/" + APP + "/status", new TestStatusServlet());
+    jettyServer.addServlet("/" + APP + "/health", new TestHealthServlet());
     jettyServer.start();
   }
 
@@ -602,6 +603,20 @@ public class IntegrationTest {
   @Test(expected = ApiException.class)
   public void failGetStatusBecauseWrongAuth() throws IOException {
     doGetStatus(URL, "abc");
+  }
+
+  @Test
+  public void shouldGetHealth() throws IOException {
+    doGetHealth(URL, AUTH);
+  }
+
+  private void doGetHealth(String url, String auth) {
+    assertNotNull(new Api(url, auth).getHealth());
+  }
+
+  @Test(expected = ApiException.class)
+  public void failGetHealthBecauseWrongAuth() throws IOException {
+    doGetHealth(URL, "abc");
   }
 
 }

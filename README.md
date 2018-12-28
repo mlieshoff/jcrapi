@@ -372,6 +372,11 @@ Status status = api.getStatus();
 ```
 
 ```java
+// get health
+String health = api.getHealth();
+```
+
+```java
 // get thread safe last response object from last request 
 Response response = api.getLastResponse();
 
