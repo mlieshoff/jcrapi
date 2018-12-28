@@ -43,6 +43,7 @@ import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
+import jcrapi.model.Status;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.TopWar;
@@ -376,6 +377,14 @@ public class Api {
   public Constants getConstants(ConstantsRequest constantsRequest) {
     try {
       return createClient().getConstants(constantsRequest);
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+  }
+
+  public Status getStatus() {
+    try {
+      return createClient().getStatus();
     } catch (IOException e) {
       throw new ApiException(e);
     }

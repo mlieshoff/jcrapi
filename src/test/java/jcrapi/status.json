@@ -1,0 +1,11 @@
+{
+  "env": "production",
+  "serverTime": "2018-12-28T00:07:00.544Z",
+  "serverVersion": "12.0.236",
+  "nodeVersion": "v10.15.0",
+  "host": "df6aca5f-fdb2-42c9-a458-d80ab6e664fa",
+  "uptime": 8126.305,
+  "uptimeHuman": "2 hours",
+  "freeMemory": "2696M",
+  "memoryUsage": "338M"
+}

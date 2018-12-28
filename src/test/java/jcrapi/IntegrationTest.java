@@ -98,6 +98,7 @@ public class IntegrationTest {
     jettyServer.addServlet("/" + APP + "/popular/tournaments", new TestPopularTournamentsServlet());
     jettyServer.addServlet("/" + APP + "/auth/stats", new TestAuthStatsServlet());
     jettyServer.addServlet("/" + APP + "/constants", new TestConstantsServlet());
+    jettyServer.addServlet("/" + APP + "/status", new TestStatusServlet());
     jettyServer.start();
   }
 
@@ -587,6 +588,20 @@ public class IntegrationTest {
   @Test(expected = ApiException.class)
   public void failGetConstantsBecauseWrongAuth() throws IOException {
     doGetConstants(URL, "abc", ConstantsRequest.builder().build());
+  }
+
+  @Test
+  public void shouldGetStatus() throws IOException {
+    doGetStatus(URL, AUTH);
+  }
+
+  private void doGetStatus(String url, String auth) {
+    assertNotNull(new Api(url, auth).getStatus());
+  }
+
+  @Test(expected = ApiException.class)
+  public void failGetStatusBecauseWrongAuth() throws IOException {
+    doGetStatus(URL, "abc");
   }
 
 }

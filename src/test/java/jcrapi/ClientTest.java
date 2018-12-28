@@ -455,4 +455,10 @@ public class ClientTest {
     assertNotNull(createClient().getConstants(constantsRequest));
   }
 
+  @Test
+  public void shouldGetStatus() throws IOException {
+    when(crawler.get("lala/status", createHeaders(), null)).thenReturn("{}");
+    assertNotNull(createClient().getStatus());
+  }
+
 }

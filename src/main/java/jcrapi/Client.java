@@ -52,6 +52,7 @@ import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
+import jcrapi.model.Status;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.TopWar;
@@ -424,6 +425,11 @@ class Client {
   Constants getConstants(ConstantsRequest constantsRequest) throws IOException {
     String json = get(createUrl("constants"), constantsRequest);
     return new Gson().fromJson(json, Constants.class);
+  }
+
+  Status getStatus() throws IOException {
+    String json = get(createUrl("status"), null);
+    return new Gson().fromJson(json, Status.class);
   }
 
 }

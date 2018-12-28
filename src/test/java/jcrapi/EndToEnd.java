@@ -57,6 +57,7 @@ import jcrapi.model.PopularDeck;
 import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
+import jcrapi.model.Status;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.TopWar;
@@ -111,6 +112,7 @@ public class EndToEnd {
     testPopularDecks();
     testApiKeyStats();
     testEndpoints();
+    testStatus();
 
   }
 
@@ -311,6 +313,12 @@ public class EndToEnd {
     test(Arrays.asList(
         "/constants"
     ), Constants.class, false);
+  }
+
+  private void testStatus() throws IOException {
+    test(Arrays.asList(
+        "/status"
+    ), Status.class, false);
   }
 
   private void test(List<String> parts, Class<?> clazz, boolean isList) throws IOException {

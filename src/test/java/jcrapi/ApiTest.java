@@ -55,6 +55,7 @@ import jcrapi.model.PopularPlayer;
 import jcrapi.model.PopularTournament;
 import jcrapi.model.Profile;
 import jcrapi.model.SearchedTournament;
+import jcrapi.model.Status;
 import jcrapi.model.TopClan;
 import jcrapi.model.TopPlayer;
 import jcrapi.model.TopWar;
@@ -985,6 +986,24 @@ public class ApiTest {
     when(client.getConstants(argThat(getConstantsRequestArgumentMatcher()))).thenThrow(crawlerException);
     try {
       api.getConstants(ConstantsRequest.builder().build());
+      fail();
+    } catch (ApiException e) {
+      assertEquals(400, e.getCode());
+    }
+  }
+
+  @Test
+  public void shouldGetStatusWithRequest() throws Exception {
+    Status status = new Status();
+    when(client.getStatus()).thenReturn(status);
+    assertSame(status, api.getStatus());
+  }
+
+  @Test
+  public void failGetStatusWithRequest() throws Exception {
+    when(client.getStatus()).thenThrow(crawlerException);
+    try {
+      api.getStatus();
       fail();
     } catch (ApiException e) {
       assertEquals(400, e.getCode());

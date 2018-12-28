@@ -367,6 +367,11 @@ Constants constants = api.getConstants(ConstantsRequest.builder()
 ```
 
 ```java
+// get status
+Status status = api.getStatus();
+```
+
+```java
 // get thread safe last response object from last request 
 Response response = api.getLastResponse();
 
