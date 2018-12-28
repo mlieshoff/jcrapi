@@ -48,6 +48,13 @@ public class FavoriteCardTest {
   }
 
   @Test
+  public void shouldGetSetMinLevel() {
+    int expected = 815;
+    unitUnderTest.setMinLevel(expected);
+    assertEquals(expected, unitUnderTest.getMinLevel());
+  }
+
+  @Test
   public void shouldGetSetMaxLevel() {
     int expected = 815;
     unitUnderTest.setMaxLevel(expected);
@@ -114,6 +121,7 @@ public class FavoriteCardTest {
   public void shouldToString() {
     unitUnderTest.setId(815);
     unitUnderTest.setName("astring");
+    unitUnderTest.setMinLevel(815);
     unitUnderTest.setMaxLevel(815);
     unitUnderTest.setIconUrls(new IconUrls());
     unitUnderTest.setIcon("astring");
@@ -123,7 +131,7 @@ public class FavoriteCardTest {
     unitUnderTest.setRarity("astring");
     unitUnderTest.setArena(815);
     unitUnderTest.setDescription("astring");
-    String expected = "FavoriteCard(id=815, name=astring, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring)";
+    String expected = "FavoriteCard(id=815, name=astring, minLevel=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

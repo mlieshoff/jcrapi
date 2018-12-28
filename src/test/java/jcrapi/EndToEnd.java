@@ -192,7 +192,7 @@ public class EndToEnd {
 
   private void testClanSearch() throws IOException {
     test(Arrays.asList(
-        "/clan/search?minMembers=1&maxMembers=50&locationId=_EU&limit=10&max=10"
+        "/clan/search?name=Puzzles&score=300&minMembers=1&maxMembers=50&locationId=57000000"
     ), Clan.class, true);
   }
 

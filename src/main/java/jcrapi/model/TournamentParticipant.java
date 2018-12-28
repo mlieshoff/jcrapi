@@ -43,4 +43,7 @@ public class TournamentParticipant {
   @SerializedName("clan")
   private TournamentClan clan;
 
+  @SerializedName("creator")
+  private boolean creator;
+
 }

@@ -125,6 +125,13 @@ public class OpenTournamentTest {
   }
 
   @Test
+  public void shouldGetSetUpdatedAt() {
+    long expected = 4711L;
+    unitUnderTest.setUpdatedAt(expected);
+    assertEquals(expected, unitUnderTest.getUpdatedAt());
+  }
+
+  @Test
   public void shouldGetSetStartTime() {
     String expected = "astring";
     unitUnderTest.setStartTime(expected);
@@ -136,6 +143,27 @@ public class OpenTournamentTest {
     String expected = "astring";
     unitUnderTest.setEndTime(expected);
     assertEquals(expected, unitUnderTest.getEndTime());
+  }
+
+  @Test
+  public void shouldGetSetDescription() {
+    String expected = "astring";
+    unitUnderTest.setDescription(expected);
+    assertEquals(expected, unitUnderTest.getDescription());
+  }
+
+  @Test
+  public void shouldGetSetOpen() {
+    boolean expected = false;
+    unitUnderTest.setOpen(expected);
+    assertEquals(expected, unitUnderTest.isOpen());
+  }
+
+  @Test
+  public void shouldGetSetMembers() {
+    java.util.List<Member> expected = new java.util.ArrayList<Member>();
+    unitUnderTest.setMembers(expected);
+    assertEquals(expected, unitUnderTest.getMembers());
   }
 
   @Test
@@ -153,9 +181,13 @@ public class OpenTournamentTest {
     unitUnderTest.setPrepTime(815);
     unitUnderTest.setDuration(815);
     unitUnderTest.setCreateTime(4711L);
+    unitUnderTest.setUpdatedAt(4711L);
     unitUnderTest.setStartTime("astring");
     unitUnderTest.setEndTime("astring");
-    String expected = "OpenTournament(tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, currentPlayers=815, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, startTime=astring, endTime=astring)";
+    unitUnderTest.setDescription("astring");
+    unitUnderTest.setOpen(false);
+    unitUnderTest.setMembers(new java.util.ArrayList<Member>());
+    String expected = "OpenTournament(tag=astring, type=astring, status=astring, name=astring, capacity=815, playerCount=815, currentPlayers=815, maxCapacity=815, maxPlayers=815, preparationDuration=815, prepTime=815, duration=815, createTime=4711, updatedAt=4711, startTime=astring, endTime=astring, description=astring, open=false, members=" + new java.util.ArrayList<Member>() + ")";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

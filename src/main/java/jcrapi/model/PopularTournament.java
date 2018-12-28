@@ -34,4 +34,13 @@ public class PopularTournament extends Tournament {
   @SerializedName("playerCount")
   private int playerCount;
 
+  @SerializedName("currentPlayers")
+  private int currentPlayers;
+
+  @SerializedName("updatedAt")
+  private long updatedAt;
+
+  @SerializedName("open")
+  private boolean open;
+
 }

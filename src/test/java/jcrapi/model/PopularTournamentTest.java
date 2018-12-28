@@ -48,10 +48,34 @@ public class PopularTournamentTest {
   }
 
   @Test
+  public void shouldGetSetCurrentPlayers() {
+    int expected = 815;
+    unitUnderTest.setCurrentPlayers(expected);
+    assertEquals(expected, unitUnderTest.getCurrentPlayers());
+  }
+
+  @Test
+  public void shouldGetSetUpdatedAt() {
+    long expected = 4711L;
+    unitUnderTest.setUpdatedAt(expected);
+    assertEquals(expected, unitUnderTest.getUpdatedAt());
+  }
+
+  @Test
+  public void shouldGetSetOpen() {
+    boolean expected = false;
+    unitUnderTest.setOpen(expected);
+    assertEquals(expected, unitUnderTest.isOpen());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setPopularity(new Popularity());
     unitUnderTest.setPlayerCount(815);
-    String expected = "PopularTournament(popularity=" + new Popularity() + ", playerCount=815)";
+    unitUnderTest.setCurrentPlayers(815);
+    unitUnderTest.setUpdatedAt(4711L);
+    unitUnderTest.setOpen(false);
+    String expected = "PopularTournament(popularity=" + new Popularity() + ", playerCount=815, currentPlayers=815, updatedAt=4711, open=false)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

@@ -34,6 +34,9 @@ public class Tracking {
   @SerializedName("available")
   private boolean available;
 
+  @SerializedName("legible")
+  private boolean legible;
+
   @SerializedName("snapshotCount")
   private int snapshotCount;
 

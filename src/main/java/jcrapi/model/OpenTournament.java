@@ -70,10 +70,22 @@ public class OpenTournament {
   @SerializedName("createTime")
   private long createTime;
 
+  @SerializedName("updatedAt")
+  private long updatedAt;
+
   @SerializedName("startTime")
   private String startTime;
 
   @SerializedName("endTime")
   private String endTime;
+
+  @SerializedName("description")
+  private String description;
+
+  @SerializedName("open")
+  private boolean open;
+
+  @SerializedName("members")
+  private java.util.List<Member> members;
 
 }

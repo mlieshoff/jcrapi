@@ -62,12 +62,20 @@ public class ClanTrackingTest {
   }
 
   @Test
+  public void shouldGetSetLegible() {
+    boolean expected = false;
+    unitUnderTest.setLegible(expected);
+    assertEquals(expected, unitUnderTest.isLegible());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setTag("astring");
     unitUnderTest.setActive(false);
     unitUnderTest.setAvailable(false);
     unitUnderTest.setSnapshotCount(815);
-    String expected = "ClanTracking(tag=astring, active=false, available=false, snapshotCount=815)";
+    unitUnderTest.setLegible(false);
+    String expected = "ClanTracking(tag=astring, active=false, available=false, snapshotCount=815, legible=false)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }
