@@ -67,6 +67,7 @@
     <class name="FavoriteCard">
         <member name="id" type="int"/>
         <member name="name" type="String"/>
+        <member name="minLevel" type="int"/>
         <member name="maxLevel" type="int"/>
         <member name="iconUrls" type="IconUrls" deprecated="true"/>
         <member name="icon" type="String"/>
@@ -272,6 +273,7 @@
     <class name="Tracking">
         <member name="active" type="boolean"/>
         <member name="available" type="boolean"/>
+        <member name="legible" type="boolean"/>
         <member name="snapshotCount" type="int"/>
     </class>
 
@@ -355,6 +357,7 @@
         <member name="score" type="int"/>
         <member name="rank" type="int"/>
         <member name="clan" type="TournamentClan"/>
+        <member name="creator" type="boolean"/>
     </class>
 
     <class name="TournamentClan">
@@ -961,6 +964,9 @@
     <class name="PopularTournament" extends="Tournament">
         <member name="popularity" type="Popularity"/>
         <member name="playerCount" type="int"/>
+        <member name="currentPlayers" type="int"/>
+        <member name="updatedAt" type="long"/>
+        <member name="open" type="boolean"/>
     </class>
 
     <!-- clan history-->
@@ -1021,8 +1027,12 @@
         <member name="prepTime" type="int"/>
         <member name="duration" type="int"/>
         <member name="createTime" type="long"/>
+        <member name="updatedAt" type="long"/>
         <member name="startTime" type="String"/>
         <member name="endTime" type="String"/>
+        <member name="description" type="String"/>
+        <member name="open" type="boolean"/>
+        <member name="members" type="list(Member)"/>
     </class>
 
     <!-- known tournaments -->
@@ -1129,6 +1139,7 @@
         <member name="active" type="boolean"/>
         <member name="available" type="boolean"/>
         <member name="snapshotCount" type="int"/>
+        <member name="legible" type="boolean"/>
     </class>
 
     <!-- clan war log -->

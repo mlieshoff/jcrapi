@@ -69,13 +69,21 @@ public class TournamentParticipantTest {
   }
 
   @Test
+  public void shouldGetSetCreator() {
+    boolean expected = false;
+    unitUnderTest.setCreator(expected);
+    assertEquals(expected, unitUnderTest.isCreator());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setTag("astring");
     unitUnderTest.setName("astring");
     unitUnderTest.setScore(815);
     unitUnderTest.setRank(815);
     unitUnderTest.setClan(new TournamentClan());
-    String expected = "TournamentParticipant(tag=astring, name=astring, score=815, rank=815, clan=" + new TournamentClan() + ")";
+    unitUnderTest.setCreator(false);
+    String expected = "TournamentParticipant(tag=astring, name=astring, score=815, rank=815, clan=" + new TournamentClan() + ", creator=false)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

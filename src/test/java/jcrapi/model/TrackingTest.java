@@ -48,6 +48,13 @@ public class TrackingTest {
   }
 
   @Test
+  public void shouldGetSetLegible() {
+    boolean expected = false;
+    unitUnderTest.setLegible(expected);
+    assertEquals(expected, unitUnderTest.isLegible());
+  }
+
+  @Test
   public void shouldGetSetSnapshotCount() {
     int expected = 815;
     unitUnderTest.setSnapshotCount(expected);
@@ -58,8 +65,9 @@ public class TrackingTest {
   public void shouldToString() {
     unitUnderTest.setActive(false);
     unitUnderTest.setAvailable(false);
+    unitUnderTest.setLegible(false);
     unitUnderTest.setSnapshotCount(815);
-    String expected = "Tracking(active=false, available=false, snapshotCount=815)";
+    String expected = "Tracking(active=false, available=false, legible=false, snapshotCount=815)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

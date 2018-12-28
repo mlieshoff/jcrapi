@@ -40,4 +40,7 @@ public class ClanTracking {
   @SerializedName("snapshotCount")
   private int snapshotCount;
 
+  @SerializedName("legible")
+  private boolean legible;
+
 }

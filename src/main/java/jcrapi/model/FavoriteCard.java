@@ -34,6 +34,9 @@ public class FavoriteCard {
   @SerializedName("name")
   private String name;
 
+  @SerializedName("minLevel")
+  private int minLevel;
+
   @SerializedName("maxLevel")
   private int maxLevel;
 
