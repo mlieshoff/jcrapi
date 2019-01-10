@@ -492,6 +492,11 @@ public class IntegrationTest {
   }
 
   @Test
+  public void shouldGetClanWarLogWithAuthForSingleWarLog() throws IOException {
+    doGetClanWarLog(URL, AUTH, ClanWarLogRequest.builder("singular").build());
+  }
+
+  @Test
   public void shouldGetClanWarWithAuth() throws IOException {
     doGetClanWar(URL, AUTH, ClanWarRequest.builder("abc").build());
   }

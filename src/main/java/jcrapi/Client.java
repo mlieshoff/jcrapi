@@ -361,9 +361,20 @@ class Client {
 
   List<ClanWarLog> getClanWarLog(ClanWarLogRequest clanWarLogRequest) throws IOException {
     String json = get(createUrl("clan/" + clanWarLogRequest.getTag() + "/warlog"), clanWarLogRequest);
-    Type listType = new TypeToken<List<ClanWarLog>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    if (jsonIsObject(json)) {
+      ClanWarLog clanWarLog = new Gson().fromJson(json, ClanWarLog.class);
+      List<ClanWarLog> list = new ArrayList<>();
+      list.add(clanWarLog);
+      return list;
+    } else {
+      Type listType = new TypeToken<List<ClanWarLog>>() {
+      }.getType();
+      return new Gson().fromJson(json, listType);
+    }
+  }
+
+  private boolean jsonIsObject(String json) {
+    return json.startsWith("{");
   }
 
   ClanWar getClanWar(ClanWarRequest clanWarRequest) throws IOException {

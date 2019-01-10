@@ -380,6 +380,14 @@ public class ClientTest {
   }
 
   @Test
+  public void shouldGetClanWarLogForSingleWarLog() throws IOException {
+    ClanWarLogRequest clanWarLogRequest = ClanWarLogRequest.builder("abc").build();
+    when(crawler.get("lala/clan/abc/warlog", createHeaders(), clanWarLogRequest.getQueryParameters()))
+        .thenReturn("{}");
+    assertNotNull(createClient().getClanWarLog(clanWarLogRequest));
+  }
+
+  @Test
   public void shouldGetClanWar() throws IOException {
     ClanWarRequest clanWarRequest = ClanWarRequest.builder("abc").build();
     when(crawler.get("lala/clan/abc/war", createHeaders(), clanWarRequest.getQueryParameters()))
