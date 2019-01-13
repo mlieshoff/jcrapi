@@ -49,7 +49,14 @@ public class ClanWarLogStanding {
   @SerializedName("warTrophiesChange")
   private int warTrophiesChange;
 
+  @Deprecated
   @SerializedName("badges")
   private java.util.List<Badge> badges;
+
+  @SerializedName("badge")
+  private Badge badge;
+
+  @SerializedName("battlesPlayed")
+  private int battlesPlayed;
 
 }

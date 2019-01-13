@@ -90,6 +90,20 @@ public class ClanWarLogStandingTest {
   }
 
   @Test
+  public void shouldGetSetBadge() {
+    Badge expected = new Badge();
+    unitUnderTest.setBadge(expected);
+    assertEquals(expected, unitUnderTest.getBadge());
+  }
+
+  @Test
+  public void shouldGetSetBattlesPlayed() {
+    int expected = 815;
+    unitUnderTest.setBattlesPlayed(expected);
+    assertEquals(expected, unitUnderTest.getBattlesPlayed());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setTag("astring");
     unitUnderTest.setName("astring");
@@ -99,7 +113,9 @@ public class ClanWarLogStandingTest {
     unitUnderTest.setWarTrophies(815);
     unitUnderTest.setWarTrophiesChange(815);
     unitUnderTest.setBadges(new java.util.ArrayList<Badge>());
-    String expected = "ClanWarLogStanding(tag=astring, name=astring, participants=815, wins=815, crowns=815, warTrophies=815, warTrophiesChange=815, badges=" + new java.util.ArrayList<Badge>() + ")";
+    unitUnderTest.setBadge(new Badge());
+    unitUnderTest.setBattlesPlayed(815);
+    String expected = "ClanWarLogStanding(tag=astring, name=astring, participants=815, wins=815, crowns=815, warTrophies=815, warTrophiesChange=815, badges=" + new java.util.ArrayList<Badge>() + ", badge=" + new Badge() + ", battlesPlayed=815)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

@@ -104,10 +104,24 @@ public class ConstantsSpellTest {
   }
 
   @Test
+  public void shouldGetSetDamagePerLevel() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setDamagePerLevel(expected);
+    assertEquals(expected, unitUnderTest.getDamagePerLevel());
+  }
+
+  @Test
   public void shouldGetSetDescription() {
     String expected = "astring";
     unitUnderTest.setDescription(expected);
     assertEquals(expected, unitUnderTest.getDescription());
+  }
+
+  @Test
+  public void shouldGetSetDpsPerLevel() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setDpsPerLevel(expected);
+    assertEquals(expected, unitUnderTest.getDpsPerLevel());
   }
 
   @Test
@@ -143,6 +157,13 @@ public class ConstantsSpellTest {
     boolean expected = false;
     unitUnderTest.setHitsGround(expected);
     assertEquals(expected, unitUnderTest.isHitsGround());
+  }
+
+  @Test
+  public void shouldGetSetHitpointsPerLevel() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setHitpointsPerLevel(expected);
+    assertEquals(expected, unitUnderTest.getHitpointsPerLevel());
   }
 
   @Test
@@ -346,12 +367,15 @@ public class ConstantsSpellTest {
     unitUnderTest.setCapBuffTimeToAreaEffectTime(false);
     unitUnderTest.setCrownTowerDamagePercent(4711L);
     unitUnderTest.setDamage(4711L);
+    unitUnderTest.setDamagePerLevel(new java.util.ArrayList<Integer>());
     unitUnderTest.setDescription("astring");
+    unitUnderTest.setDpsPerLevel(new java.util.ArrayList<Integer>());
     unitUnderTest.setElixir(4711L);
     unitUnderTest.setHitBiggestTargets(false);
     unitUnderTest.setHitSpeed(4711L);
     unitUnderTest.setHitsAir(false);
     unitUnderTest.setHitsGround(false);
+    unitUnderTest.setHitpointsPerLevel(new java.util.ArrayList<Integer>());
     unitUnderTest.setId(4711L);
     unitUnderTest.setIgnoreBuildings(false);
     unitUnderTest.setIgnoreHero(false);
@@ -379,7 +403,7 @@ public class ConstantsSpellTest {
     unitUnderTest.setSpawnRandomizeSequence(false);
     unitUnderTest.setSpawnTime(4711L);
     unitUnderTest.setType("astring");
-    String expected = "ConstantsSpell(affectsHidden=false, arena=4711, buff=astring, buffNumber=4711, buffTime=4711, buffTimeIncreaseAfterTournamentCap=4711, buffTimeIncreasePerLevel=4711, capBuffTimeToAreaEffectTime=false, crownTowerDamagePercent=4711, damage=4711, description=astring, elixir=4711, hitBiggestTargets=false, hitSpeed=4711, hitsAir=false, hitsGround=false, id=4711, ignoreBuildings=false, ignoreHero=false, key=astring, lifeDuration=4711, lifeDurationIncreaseAfterTournamentCap=4711, lifeDurationIncreasePerLevel=4711, name=astring, noEffectToCrownTowers=false, onlyEnemies=false, onlyOwnTroops=false, projectile=astring, radius=4711, rarity=astring, spawnAngleShift=4711, spawnCharacter=astring, spawnCharacterLevelIndex=4711, spawnDeployBaseAnim=astring, spawnFromMinToMax=false, spawnInitialDelay=4711, spawnInterval=4711, spawnMaxCount=4711, spawnMaxRadius=4711, spawnMinRadius=4711, spawnRandomizeSequence=false, spawnTime=4711, type=astring)";
+    String expected = "ConstantsSpell(affectsHidden=false, arena=4711, buff=astring, buffNumber=4711, buffTime=4711, buffTimeIncreaseAfterTournamentCap=4711, buffTimeIncreasePerLevel=4711, capBuffTimeToAreaEffectTime=false, crownTowerDamagePercent=4711, damage=4711, damagePerLevel=" + new java.util.ArrayList<Integer>() + ", description=astring, dpsPerLevel=" + new java.util.ArrayList<Integer>() + ", elixir=4711, hitBiggestTargets=false, hitSpeed=4711, hitsAir=false, hitsGround=false, hitpointsPerLevel=" + new java.util.ArrayList<Integer>() + ", id=4711, ignoreBuildings=false, ignoreHero=false, key=astring, lifeDuration=4711, lifeDurationIncreaseAfterTournamentCap=4711, lifeDurationIncreasePerLevel=4711, name=astring, noEffectToCrownTowers=false, onlyEnemies=false, onlyOwnTroops=false, projectile=astring, radius=4711, rarity=astring, spawnAngleShift=4711, spawnCharacter=astring, spawnCharacterLevelIndex=4711, spawnDeployBaseAnim=astring, spawnFromMinToMax=false, spawnInitialDelay=4711, spawnInterval=4711, spawnMaxCount=4711, spawnMaxRadius=4711, spawnMinRadius=4711, spawnRandomizeSequence=false, spawnTime=4711, type=astring)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

@@ -74,4 +74,10 @@ public class Card {
   @SerializedName("description")
   private String description;
 
+  @SerializedName("starLevel")
+  private int starLevel;
+
+  @SerializedName("minLevel")
+  private int minLevel;
+
 }

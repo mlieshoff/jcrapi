@@ -69,6 +69,41 @@ public class ConstantsArenaTest {
   }
 
   @Test
+  public void shouldGetSetCardCountByArena() {
+    long expected = 4711L;
+    unitUnderTest.setCardCountByArena(expected);
+    assertEquals(expected, unitUnderTest.getCardCountByArena());
+  }
+
+  @Test
+  public void shouldGetSetCardCountCommon() {
+    double expected = 1.41;
+    unitUnderTest.setCardCountCommon(expected);
+    assertEquals(expected, unitUnderTest.getCardCountCommon(), 0.0);
+  }
+
+  @Test
+  public void shouldGetSetCardCountEpic() {
+    double expected = 1.41;
+    unitUnderTest.setCardCountEpic(expected);
+    assertEquals(expected, unitUnderTest.getCardCountEpic(), 0.0);
+  }
+
+  @Test
+  public void shouldGetSetCardCountLegendary() {
+    double expected = 1.41;
+    unitUnderTest.setCardCountLegendary(expected);
+    assertEquals(expected, unitUnderTest.getCardCountLegendary(), 0.0);
+  }
+
+  @Test
+  public void shouldGetSetCardCountRare() {
+    double expected = 1.41;
+    unitUnderTest.setCardCountRare(expected);
+    assertEquals(expected, unitUnderTest.getCardCountRare(), 0.0);
+  }
+
+  @Test
   public void shouldGetSetDailyDonationCapacityLimit() {
     long expected = 4711L;
     unitUnderTest.setDailyDonationCapacityLimit(expected);
@@ -236,6 +271,11 @@ public class ConstantsArenaTest {
     unitUnderTest.setBattleRewardGold(4711L);
     unitUnderTest.setChestArena("astring");
     unitUnderTest.setChestRewardMultiplier(4711L);
+    unitUnderTest.setCardCountByArena(4711L);
+    unitUnderTest.setCardCountCommon(1.41);
+    unitUnderTest.setCardCountEpic(1.41);
+    unitUnderTest.setCardCountLegendary(1.41);
+    unitUnderTest.setCardCountRare(1.41);
     unitUnderTest.setDailyDonationCapacityLimit(4711L);
     unitUnderTest.setDemoteTrophyLimit(4711L);
     unitUnderTest.setForceQuestChestCycle("astring");
@@ -259,7 +299,7 @@ public class ConstantsArenaTest {
     unitUnderTest.setTrainingCamp(false);
     unitUnderTest.setTrophyLimit(4711L);
     unitUnderTest.setTvArena("astring");
-    String expected = "ConstantsArena(arena=4711, arenaId=4711, battleRewardGold=4711, chestArena=astring, chestRewardMultiplier=4711, dailyDonationCapacityLimit=4711, demoteTrophyLimit=4711, forceQuestChestCycle=astring, id=4711, InUse=false, key=astring, leagueId=astring, matchmakingMaxSeconds=4711, matchmakingMaxTrophyDelta=4711, matchmakingMinTrophyDelta=4711, maxDonationCountCommon=4711, maxDonationCountEpic=4711, maxDonationCountRare=4711, name=astring, questCycle=astring, requestSize=4711, seasonRewardChest=astring, shopChestRewardMultiplier=4711, subtitle=astring, title=astring, trainingCamp=false, trophyLimit=4711, tvArena=astring)";
+    String expected = "ConstantsArena(arena=4711, arenaId=4711, battleRewardGold=4711, chestArena=astring, chestRewardMultiplier=4711, cardCountByArena=4711, cardCountCommon=1.41, cardCountEpic=1.41, cardCountLegendary=1.41, cardCountRare=1.41, dailyDonationCapacityLimit=4711, demoteTrophyLimit=4711, forceQuestChestCycle=astring, id=4711, InUse=false, key=astring, leagueId=astring, matchmakingMaxSeconds=4711, matchmakingMaxTrophyDelta=4711, matchmakingMinTrophyDelta=4711, maxDonationCountCommon=4711, maxDonationCountEpic=4711, maxDonationCountRare=4711, name=astring, questCycle=astring, requestSize=4711, seasonRewardChest=astring, shopChestRewardMultiplier=4711, subtitle=astring, title=astring, trainingCamp=false, trophyLimit=4711, tvArena=astring)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

@@ -55,6 +55,9 @@ public class ConstantsBuilding {
   @SerializedName("crowd_effects")
   private boolean crowdEffects;
 
+  @SerializedName("damage_per_level")
+  private java.util.List<Integer> damagePerLevel;
+
   @SerializedName("dash_only_once")
   private boolean dashOnlyOnce;
 
@@ -66,6 +69,9 @@ public class ConstantsBuilding {
 
   @SerializedName("destroy_at_limit")
   private boolean destroyAtLimit;
+
+  @SerializedName("dps_per_level")
+  private java.util.List<Integer> dpsPerLevel;
 
   @SerializedName("dont_stop_move_anim")
   private boolean dontStopMoveAnim;
@@ -93,6 +99,9 @@ public class ConstantsBuilding {
 
   @SerializedName("hitpoints")
   private long hitpoints;
+
+  @SerializedName("hitpoints_per_level")
+  private java.util.List<Integer> hitpointsPerLevel;
 
   @SerializedName("ignore_pushback")
   private boolean ignorePushback;

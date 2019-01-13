@@ -97,6 +97,13 @@ public class ConstantsBuildingTest {
   }
 
   @Test
+  public void shouldGetSetDamagePerLevel() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setDamagePerLevel(expected);
+    assertEquals(expected, unitUnderTest.getDamagePerLevel());
+  }
+
+  @Test
   public void shouldGetSetDashOnlyOnce() {
     boolean expected = false;
     unitUnderTest.setDashOnlyOnce(expected);
@@ -122,6 +129,13 @@ public class ConstantsBuildingTest {
     boolean expected = false;
     unitUnderTest.setDestroyAtLimit(expected);
     assertEquals(expected, unitUnderTest.isDestroyAtLimit());
+  }
+
+  @Test
+  public void shouldGetSetDpsPerLevel() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setDpsPerLevel(expected);
+    assertEquals(expected, unitUnderTest.getDpsPerLevel());
   }
 
   @Test
@@ -185,6 +199,13 @@ public class ConstantsBuildingTest {
     long expected = 4711L;
     unitUnderTest.setHitpoints(expected);
     assertEquals(expected, unitUnderTest.getHitpoints());
+  }
+
+  @Test
+  public void shouldGetSetHitpointsPerLevel() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setHitpointsPerLevel(expected);
+    assertEquals(expected, unitUnderTest.getHitpointsPerLevel());
   }
 
   @Test
@@ -408,10 +429,12 @@ public class ConstantsBuildingTest {
     unitUnderTest.setBurstKeepTarget(false);
     unitUnderTest.setCollisionRadius(4711L);
     unitUnderTest.setCrowdEffects(false);
+    unitUnderTest.setDamagePerLevel(new java.util.ArrayList<Integer>());
     unitUnderTest.setDashOnlyOnce(false);
     unitUnderTest.setDeathInheritIgnoreList(false);
     unitUnderTest.setDeathSpawnPushback(false);
     unitUnderTest.setDestroyAtLimit(false);
+    unitUnderTest.setDpsPerLevel(new java.util.ArrayList<Integer>());
     unitUnderTest.setDontStopMoveAnim(false);
     unitUnderTest.setFlyDirectPaths(false);
     unitUnderTest.setFlyFromGround(false);
@@ -421,6 +444,7 @@ public class ConstantsBuildingTest {
     unitUnderTest.setHidesWhenNotAttacking(false);
     unitUnderTest.setHitSpeed(4711L);
     unitUnderTest.setHitpoints(4711L);
+    unitUnderTest.setHitpointsPerLevel(new java.util.ArrayList<Integer>());
     unitUnderTest.setIgnorePushback(false);
     unitUnderTest.setSummonerTower(false);
     unitUnderTest.setJumpEnabled(false);
@@ -451,7 +475,7 @@ public class ConstantsBuildingTest {
     unitUnderTest.setTargetOnlyBuildings(false);
     unitUnderTest.setTileSizeOverride(4711L);
     unitUnderTest.setTurretMovement(4711L);
-    String expected = "ConstantsBuilding(allTargetsHit=false, attachedCharacterHeight=4711, attacksAir=false, attacksGround=false, buildingTarget=false, burstAffectAnimation=false, burstKeepTarget=false, collisionRadius=4711, crowdEffects=false, dashOnlyOnce=false, deathInheritIgnoreList=false, deathSpawnPushback=false, destroyAtLimit=false, dontStopMoveAnim=false, flyDirectPaths=false, flyFromGround=false, hasRotationOnTimeline=false, healOnMorph=false, hideBeforeFirstHit=false, hidesWhenNotAttacking=false, hitSpeed=4711, hitpoints=4711, ignorePushback=false, SummonerTower=false, jumpEnabled=false, kamikaze=false, loadAfterRetarget=false, loadFirstHit=false, loadTime=4711, morphKeepTarget=false, name=astring, nameEn=astring, noDeploySizeH=4711, noDeploySizeW=4711, projectile=astring, projectileStartRadius=4711, projectileStartZ=4711, projectileYOffset=4711, range=4711, rarity=astring, retargetAfterAttack=false, scale=4711, selfAsAoeCenter=false, showHealthNumber=false, sightRange=4711, spawnAttach=false, spawnConstPriority=false, spawnEffectOnce=false, specialAttackWhenHidden=false, targetOnlyBuildings=false, tileSizeOverride=4711, turretMovement=4711)";
+    String expected = "ConstantsBuilding(allTargetsHit=false, attachedCharacterHeight=4711, attacksAir=false, attacksGround=false, buildingTarget=false, burstAffectAnimation=false, burstKeepTarget=false, collisionRadius=4711, crowdEffects=false, damagePerLevel=" + new java.util.ArrayList<Integer>() + ", dashOnlyOnce=false, deathInheritIgnoreList=false, deathSpawnPushback=false, destroyAtLimit=false, dpsPerLevel=" + new java.util.ArrayList<Integer>() + ", dontStopMoveAnim=false, flyDirectPaths=false, flyFromGround=false, hasRotationOnTimeline=false, healOnMorph=false, hideBeforeFirstHit=false, hidesWhenNotAttacking=false, hitSpeed=4711, hitpoints=4711, hitpointsPerLevel=" + new java.util.ArrayList<Integer>() + ", ignorePushback=false, SummonerTower=false, jumpEnabled=false, kamikaze=false, loadAfterRetarget=false, loadFirstHit=false, loadTime=4711, morphKeepTarget=false, name=astring, nameEn=astring, noDeploySizeH=4711, noDeploySizeW=4711, projectile=astring, projectileStartRadius=4711, projectileStartZ=4711, projectileYOffset=4711, range=4711, rarity=astring, retargetAfterAttack=false, scale=4711, selfAsAoeCenter=false, showHealthNumber=false, sightRange=4711, spawnAttach=false, spawnConstPriority=false, spawnEffectOnce=false, specialAttackWhenHidden=false, targetOnlyBuildings=false, tileSizeOverride=4711, turretMovement=4711)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

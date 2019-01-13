@@ -132,6 +132,13 @@ public class ConstantsChestOrderTest {
   }
 
   @Test
+  public void shouldGetSetQuestArena3Unused() {
+    java.util.List<ConstantsQuestArena3Unused> expected = new java.util.ArrayList<ConstantsQuestArena3Unused>();
+    unitUnderTest.setQuestArena3Unused(expected);
+    assertEquals(expected, unitUnderTest.getQuestArena3Unused());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setMainCycle(new java.util.ArrayList<String>());
     unitUnderTest.setQuestArena3Super(new java.util.ArrayList<ConstantsQuestArena3Super>());
@@ -147,7 +154,8 @@ public class ConstantsChestOrderTest {
     unitUnderTest.setQuestLategame7(new java.util.ArrayList<ConstantsQuestLategame7>());
     unitUnderTest.setQuestLategame8(new java.util.ArrayList<ConstantsQuestLategame8>());
     unitUnderTest.setQuestLategame9(new java.util.ArrayList<ConstantsQuestLategame9>());
-    String expected = "ConstantsChestOrder(mainCycle=" + new java.util.ArrayList<String>() + ", questArena3Super=" + new java.util.ArrayList<ConstantsQuestArena3Super>() + ", questEarlygame1=" + new java.util.ArrayList<ConstantsQuestEarlygame1>() + ", questEarlygame2=" + new java.util.ArrayList<ConstantsQuestEarlygame2>() + ", questLategame1=" + new java.util.ArrayList<ConstantsQuestLategame1>() + ", questLategame10=" + new java.util.ArrayList<ConstantsQuestLategame10>() + ", questLategame2=" + new java.util.ArrayList<ConstantsQuestLategame2>() + ", questLategame3=" + new java.util.ArrayList<ConstantsQuestLategame3>() + ", questLategame4=" + new java.util.ArrayList<ConstantsQuestLategame4>() + ", questLategame5=" + new java.util.ArrayList<ConstantsQuestLategame5>() + ", questLategame6=" + new java.util.ArrayList<ConstantsQuestLategame6>() + ", questLategame7=" + new java.util.ArrayList<ConstantsQuestLategame7>() + ", questLategame8=" + new java.util.ArrayList<ConstantsQuestLategame8>() + ", questLategame9=" + new java.util.ArrayList<ConstantsQuestLategame9>() + ")";
+    unitUnderTest.setQuestArena3Unused(new java.util.ArrayList<ConstantsQuestArena3Unused>());
+    String expected = "ConstantsChestOrder(mainCycle=" + new java.util.ArrayList<String>() + ", questArena3Super=" + new java.util.ArrayList<ConstantsQuestArena3Super>() + ", questEarlygame1=" + new java.util.ArrayList<ConstantsQuestEarlygame1>() + ", questEarlygame2=" + new java.util.ArrayList<ConstantsQuestEarlygame2>() + ", questLategame1=" + new java.util.ArrayList<ConstantsQuestLategame1>() + ", questLategame10=" + new java.util.ArrayList<ConstantsQuestLategame10>() + ", questLategame2=" + new java.util.ArrayList<ConstantsQuestLategame2>() + ", questLategame3=" + new java.util.ArrayList<ConstantsQuestLategame3>() + ", questLategame4=" + new java.util.ArrayList<ConstantsQuestLategame4>() + ", questLategame5=" + new java.util.ArrayList<ConstantsQuestLategame5>() + ", questLategame6=" + new java.util.ArrayList<ConstantsQuestLategame6>() + ", questLategame7=" + new java.util.ArrayList<ConstantsQuestLategame7>() + ", questLategame8=" + new java.util.ArrayList<ConstantsQuestLategame8>() + ", questLategame9=" + new java.util.ArrayList<ConstantsQuestLategame9>() + ", QuestArena3Unused=" + new java.util.ArrayList<ConstantsQuestArena3Unused>() + ")";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

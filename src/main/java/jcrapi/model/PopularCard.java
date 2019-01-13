@@ -58,4 +58,10 @@ public class PopularCard {
   @SerializedName("type")
   private String type;
 
+  @SerializedName("starLevel")
+  private int starLevel;
+
+  @SerializedName("minLevel")
+  private int minLevel;
+
 }

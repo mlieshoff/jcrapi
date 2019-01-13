@@ -26,52 +26,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class TeamCard {
+public class ConstantsQuestArena3Unused {
 
-  @SerializedName("id")
-  private int id;
+  @SerializedName("arena_threshold")
+  private String arenaThreshold;
 
-  @SerializedName("name")
-  private String name;
+  @SerializedName("chest")
+  private String chest;
 
-  @SerializedName("level")
-  private int level;
-
-  @SerializedName("maxLevel")
-  private int maxLevel;
-
-  @Deprecated
-  @SerializedName("iconUrls")
-  private IconUrls iconUrls;
-
-  @SerializedName("icon")
-  private String icon;
-
-  @SerializedName("key")
-  private String key;
-
-  @SerializedName("elixir")
-  private int elixir;
-
-  @SerializedName("type")
-  private String type;
-
-  @SerializedName("rarity")
-  private String rarity;
-
-  @SerializedName("arena")
-  private int arena;
-
-  @SerializedName("requiredForUpgrade")
-  private String requiredForUpgrade;
-
-  @SerializedName("description")
-  private String description;
-
-  @SerializedName("starLevel")
-  private int starLevel;
-
-  @SerializedName("minLevel")
-  private int minLevel;
+  @SerializedName("one_time")
+  private boolean oneTime;
 
 }
