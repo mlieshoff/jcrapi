@@ -100,6 +100,52 @@ class Client {
 
   private final CrawlerFactory crawlerFactory;
 
+  private final static Map<Class, Type> TYPES = ImmutableMap.<Class, Type>builder()
+      .put(Battle.class, new TypeToken<List<Battle>>() {
+      }.getType())
+      .put(ChestCycle.class, new TypeToken<List<ChestCycle>>() {
+      }.getType())
+      .put(Clan.class, new TypeToken<List<Clan>>() {
+      }.getType())
+      .put(ClanWarLog.class, new TypeToken<List<ClanWarLog>>() {
+      }.getType())
+      .put(FullTournament.class, new TypeToken<List<FullTournament>>() {
+      }.getType())
+      .put(InPreparationTournament.class, new TypeToken<List<InPreparationTournament>>() {
+      }.getType())
+      .put(JoinableTournament.class, new TypeToken<List<JoinableTournament>>() {
+      }.getType())
+      .put(KnownTournament.class, new TypeToken<List<KnownTournament>>() {
+      }.getType())
+      .put(OneKTournament.class, new TypeToken<List<OneKTournament>>() {
+      }.getType())
+      .put(OpenTournament.class, new TypeToken<List<OpenTournament>>() {
+      }.getType())
+      .put(PopularClan.class, new TypeToken<List<PopularClan>>() {
+      }.getType())
+      .put(PopularDeck.class, new TypeToken<List<PopularDeck>>() {
+      }.getType())
+      .put(PopularPlayer.class, new TypeToken<List<PopularPlayer>>() {
+      }.getType())
+      .put(PopularTournament.class, new TypeToken<List<PopularTournament>>() {
+      }.getType())
+      .put(Profile.class, new TypeToken<List<Profile>>() {
+      }.getType())
+      .put(SearchedTournament.class, new TypeToken<List<SearchedTournament>>() {
+      }.getType())
+      .put(TopClan.class, new TypeToken<List<TopClan>>() {
+      }.getType())
+      .put(TopPlayer.class, new TypeToken<List<TopPlayer>>() {
+      }.getType())
+      .put(TopWar.class, new TypeToken<List<TopWar>>() {
+      }.getType())
+      .build();
+
+  private static final Type BATTLE_LIST = new TypeToken<List<List<Battle>>>() {
+  }.getType();
+
+  private static final Gson GSON = new Gson();
+  
   Client(String url, String developerKey, AuthMode authMode, CrawlerFactory crawlerFactory) {
     checkString(url);
     Preconditions.checkNotNull(crawlerFactory);
@@ -188,15 +234,23 @@ class Client {
   Profile getProfile(ProfileRequest profileRequest) throws IOException {
     Preconditions.checkNotNull(profileRequest, "profileRequest");
     String json = get(createUrl("player/" + profileRequest.getTag()), profileRequest);
-    return new Gson().fromJson(json, Profile.class);
+    return GSON.fromJson(json, Profile.class);
   }
 
   List<Profile> getProfiles(ProfilesRequest profilesRequest) throws IOException {
     Preconditions.checkNotNull(profilesRequest, "profilesRequest");
     String json = get(createUrl("player/" + StringUtils.join(profilesRequest.getTags(), ",")), profilesRequest);
-    Type listType = new TypeToken<ArrayList<Profile>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(Profile.class, json);
+  }
+
+  private <T> List<T> createList(Class<T> clazz, String json) {
+    if (jsonIsObject(json)) {
+      List<T> list = new ArrayList<>();
+      list.add(GSON.fromJson(json, clazz));
+      return list;
+    } else {
+      return (List<T>) GSON.fromJson(json, TYPES.get(clazz));
+    }
   }
 
   List<TopClan> getTopClans(TopClansRequest topClansRequest) throws IOException {
@@ -206,30 +260,24 @@ class Client {
       url += "/" + locationKey;
     }
     String json = get(url, topClansRequest);
-    Type listType = new TypeToken<ArrayList<TopClan>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(TopClan.class, json);
   }
 
   Clan getClan(ClanRequest clanRequest) throws IOException {
     Preconditions.checkNotNull(clanRequest);
     String json = get(createUrl("clan/" + clanRequest.getTag()), clanRequest);
-    return new Gson().fromJson(json, Clan.class);
+    return GSON.fromJson(json, Clan.class);
   }
 
   List<Clan> getClans(ClansRequest clansRequest) throws IOException {
     Preconditions.checkNotNull(clansRequest);
     String json = get(createUrl("clan/" + StringUtils.join(clansRequest.getTags(), ",")), clansRequest);
-    Type listType = new TypeToken<ArrayList<Clan>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(Clan.class, json);
   }
 
   List<Clan> getClanSearch(ClanSearchRequest clanSearchRequest) throws IOException {
     String json = get(createUrl("clan/search"), clanSearchRequest);
-    Type listType = new TypeToken<ArrayList<Clan>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(Clan.class, json);
   }
 
   List<TopPlayer> getTopPlayers(TopPlayersRequest topPlayersRequest) throws IOException {
@@ -239,81 +287,65 @@ class Client {
       url += "/" + locationKey;
     }
     String json = get(url, topPlayersRequest);
-    Type listType = new TypeToken<ArrayList<TopPlayer>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(TopPlayer.class, json);
   }
 
   Tournament getTournaments(TournamentsRequest tournamentsRequest) throws IOException {
     String json = get(createUrl("tournaments/" + tournamentsRequest.getTag()), tournamentsRequest);
-    return new Gson().fromJson(json, Tournament.class);
+    return GSON.fromJson(json, Tournament.class);
   }
 
   Endpoints getEndpoints() throws IOException {
     String json = get(createUrl("endpoints"), null);
-    return new Gson().fromJson(json, Endpoints.class);
+    return GSON.fromJson(json, Endpoints.class);
   }
 
   List<PopularClan> getPopularClans(PopularClansRequest popularClansRequest) throws IOException {
     String json = get(createUrl("popular/clans"), popularClansRequest);
-    Type listType = new TypeToken<ArrayList<PopularClan>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(PopularClan.class, json);
   }
 
   List<PopularPlayer> getPopularPlayers(PopularPlayersRequest popularPlayersRequest) throws IOException {
     String json = get(createUrl("popular/players"), popularPlayersRequest);
-    Type listType = new TypeToken<ArrayList<PopularPlayer>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(PopularPlayer.class, json);
   }
 
   List<PopularTournament> getPopularTournaments(PopularTournamentsRequest popularTournamentsRequest)
       throws IOException {
     String json = get(createUrl("popular/tournaments"), popularTournamentsRequest);
-    Type listType = new TypeToken<ArrayList<PopularTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(PopularTournament.class, json);
   }
 
   List<Battle> getClanBattles(ClanBattlesRequest clanBattlesRequest) throws IOException {
     String json = get(createUrl("clan/" + clanBattlesRequest.getTag() + "/battles"), clanBattlesRequest);
-    Type listType = new TypeToken<ArrayList<Battle>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(Battle.class, json);
   }
 
   ClanHistory getClanHistory(ClanHistoryRequest clanHistoryRequest) throws IOException {
     String json = get(createUrl("clan/" + clanHistoryRequest.getTag() + "/history"), clanHistoryRequest);
-    return new Gson().fromJson(json, ClanHistory.class);
+    return GSON.fromJson(json, ClanHistory.class);
   }
 
   ClanWeeklyHistory getClanWeeklyHistory(ClanWeeklyHistoryRequest clanWeeklyHistoryRequest) throws IOException {
     String
         json =
         get(createUrl("clan/" + clanWeeklyHistoryRequest.getTag() + "/history/weekly"), clanWeeklyHistoryRequest);
-    return new Gson().fromJson(json, ClanWeeklyHistory.class);
+    return GSON.fromJson(json, ClanWeeklyHistory.class);
   }
 
   List<OpenTournament> getOpenTournaments(OpenTournamentsRequest openTournamentsRequest) throws IOException {
     String json = get(createUrl("tournaments/open"), openTournamentsRequest);
-    Type listType = new TypeToken<ArrayList<OpenTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(OpenTournament.class, json);
   }
 
   List<KnownTournament> getKnownTournaments(KnownTournamentsRequest knownTournamentsRequest) throws IOException {
     String json = get(createUrl("tournaments/known"), knownTournamentsRequest);
-    Type listType = new TypeToken<ArrayList<KnownTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(KnownTournament.class, json);
   }
 
   List<SearchedTournament> getTournamentSearch(TournamentSearchRequest tournamentSearchRequest) throws IOException {
     String json = get(createUrl("tournaments/search"), tournamentSearchRequest);
-    Type listType = new TypeToken<ArrayList<SearchedTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(SearchedTournament.class, json);
   }
 
   List<List<Battle>> getPlayerBattles(PlayerBattlesRequest playerBattlesRequest) throws IOException {
@@ -321,56 +353,33 @@ class Client {
         + "/battles"), playerBattlesRequest);
     if (playerBattlesRequest.getTags().size() == 1) {
       List<List<Battle>> listOfBattles = new ArrayList<>();
-      Type listType = new TypeToken<ArrayList<Battle>>() {
-      }.getType();
-      List<Battle> battles = new Gson().fromJson(json, listType);
+      List<Battle> battles = GSON.fromJson(json, TYPES.get(Battle.class));
       listOfBattles.add(battles);
       return listOfBattles;
     } else {
-      Type listType = new TypeToken<List<List<Battle>>>() {
-      }.getType();
-      return new Gson().fromJson(json, listType);
+      return GSON.fromJson(json, BATTLE_LIST);
     }
   }
 
   List<ChestCycle> getPlayerChests(PlayerChestsRequest playerChestsRequest) throws IOException {
     String json = get(createUrl("player/" + StringUtils.join(playerChestsRequest.getTags(), ",")
         + "/chests"), playerChestsRequest);
-    if (playerChestsRequest.getTags().size() == 1) {
-      List<ChestCycle> list = new ArrayList<>();
-      list.add(new Gson().fromJson(json, ChestCycle.class));
-      return list;
-    } else {
-      Type listType = new TypeToken<List<ChestCycle>>() {
-      }.getType();
-      return new Gson().fromJson(json, listType);
-    }
+    return createList(ChestCycle.class, json);
   }
 
   List<PopularDeck> getPopularDecks(PopularDecksRequest popularDecksRequest) throws IOException {
     String json = get(createUrl("popular/decks"), popularDecksRequest);
-    Type listType = new TypeToken<ArrayList<PopularDeck>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(PopularDeck.class, json);
   }
 
   ClanTracking getClanTracking(ClanTrackingRequest clanTrackingRequest) throws IOException {
     String json = get(createUrl("clan/" + clanTrackingRequest.getTag() + "/tracking"), clanTrackingRequest);
-    return new Gson().fromJson(json, ClanTracking.class);
+    return GSON.fromJson(json, ClanTracking.class);
   }
 
   List<ClanWarLog> getClanWarLog(ClanWarLogRequest clanWarLogRequest) throws IOException {
     String json = get(createUrl("clan/" + clanWarLogRequest.getTag() + "/warlog"), clanWarLogRequest);
-    if (jsonIsObject(json)) {
-      ClanWarLog clanWarLog = new Gson().fromJson(json, ClanWarLog.class);
-      List<ClanWarLog> list = new ArrayList<>();
-      list.add(clanWarLog);
-      return list;
-    } else {
-      Type listType = new TypeToken<List<ClanWarLog>>() {
-      }.getType();
-      return new Gson().fromJson(json, listType);
-    }
+    return createList(ClanWarLog.class, json);
   }
 
   private boolean jsonIsObject(String json) {
@@ -379,42 +388,34 @@ class Client {
 
   ClanWar getClanWar(ClanWarRequest clanWarRequest) throws IOException {
     String json = get(createUrl("clan/" + clanWarRequest.getTag() + "/war"), clanWarRequest);
-    return new Gson().fromJson(json, ClanWar.class);
+    return GSON.fromJson(json, ClanWar.class);
   }
 
   AuthStats getAuthStats(AuthStatsRequest authStatsRequest) throws IOException {
     String json = get(createUrl("auth/stats"), authStatsRequest);
-    return new Gson().fromJson(json, AuthStats.class);
+    return GSON.fromJson(json, AuthStats.class);
   }
 
   List<OneKTournament> getOneKTournaments(OneKTournamentsRequest oneKTournamentsRequest) throws IOException {
     String json = get(createUrl("tournaments/1k"), oneKTournamentsRequest);
-    Type listType = new TypeToken<List<OneKTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(OneKTournament.class, json);
   }
 
   List<FullTournament> getFullTournaments(FullTournamentsRequest fullTournamentsRequest) throws IOException {
     String json = get(createUrl("tournaments/full"), fullTournamentsRequest);
-    Type listType = new TypeToken<List<FullTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(FullTournament.class, json);
   }
 
   List<InPreparationTournament> getInPreparationTournaments(
       InPreparationTournamentsRequest inPreparationTournamentsRequest) throws IOException {
     String json = get(createUrl("tournaments/prep"), inPreparationTournamentsRequest);
-    Type listType = new TypeToken<List<InPreparationTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(InPreparationTournament.class, json);
   }
 
   List<JoinableTournament> getJoinableTournaments(JoinableTournamentsRequest joinableTournamentsRequest)
       throws IOException {
     String json = get(createUrl("tournaments/joinable"), joinableTournamentsRequest);
-    Type listType = new TypeToken<List<JoinableTournament>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(JoinableTournament.class, json);
   }
 
   Response getLastResponse() {
@@ -428,19 +429,17 @@ class Client {
       url += "/" + locationKey;
     }
     String json = get(url, topWarsRequest);
-    Type listType = new TypeToken<ArrayList<TopWar>>() {
-    }.getType();
-    return new Gson().fromJson(json, listType);
+    return createList(TopWar.class, json);
   }
 
   Constants getConstants(ConstantsRequest constantsRequest) throws IOException {
     String json = get(createUrl("constants"), constantsRequest);
-    return new Gson().fromJson(json, Constants.class);
+    return GSON.fromJson(json, Constants.class);
   }
 
   Status getStatus() throws IOException {
     String json = get(createUrl("status"), null);
-    return new Gson().fromJson(json, Status.class);
+    return GSON.fromJson(json, Status.class);
   }
 
   String getHealth() throws IOException {
