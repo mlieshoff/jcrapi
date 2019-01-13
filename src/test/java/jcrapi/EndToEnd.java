@@ -112,6 +112,7 @@ public class EndToEnd {
     testPopularDecks();
     testApiKeyStats();
     testEndpoints();
+    testConstants();
     testStatus();
 
   }
@@ -337,6 +338,9 @@ public class EndToEnd {
           FileUtils.write(file, json, Charsets.UTF_8.name());
         }
         System.out.println(json);
+        if (json.startsWith("{")) {
+          isList = false;
+        }
         JsonElement jelement = new JsonParser().parse(json);
         if (isList) {
           jelement = jelement.getAsJsonArray();
