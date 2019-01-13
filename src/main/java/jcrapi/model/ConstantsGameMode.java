@@ -34,14 +34,56 @@ public class ConstantsGameMode {
   @SerializedName("card_level_adjustment")
   private String cardLevelAdjustment;
 
+  @SerializedName("clan_war_description")
+  private String clanWarDescription;
+
   @SerializedName("deck_selection")
   private String deckSelection;
+
+  @SerializedName("elixir_production_multiplier")
+  private int elixirProductionMultiplier;
+
+  @SerializedName("elixir_production_overtime_multiplier")
+  private int elixirProductionOvertimeMultiplier;
+
+  @SerializedName("event_deck_set_limit")
+  private String eventDeckSetLimit;
+
+  @SerializedName("fixed_arena")
+  private String fixedArena;
 
   @SerializedName("fixed_deck_order")
   private boolean fixedDeckOrder;
 
+  @SerializedName("forced_deck_cards")
+  private String forcedDeckCards;
+
+  @SerializedName("gems_per_tower1")
+  private int gemsPerTower1;
+
+  @SerializedName("gems_per_tower2")
+  private int gemsPerTower2;
+
+  @SerializedName("gems_per_tower3")
+  private int gemsPerTower3;
+
   @SerializedName("gives_clan_score")
   private boolean givesClanScore;
+
+  @SerializedName("global_buff")
+  private String globalBuff;
+
+  @SerializedName("gold_per_tower1")
+  private int goldPerTower1;
+
+  @SerializedName("gold_per_tower2")
+  private int goldPerTower2;
+
+  @SerializedName("gold_per_tower3")
+  private int goldPerTower3;
+
+  @SerializedName("heist")
+  private boolean heist;
 
   @SerializedName("heroes")
   private boolean heroes;
@@ -70,8 +112,17 @@ public class ConstantsGameMode {
   @SerializedName("separate_team_decks")
   private boolean separateTeamDecks;
 
+  @SerializedName("skin_set")
+  private String skinSet;
+
+  @SerializedName("starting_elixir")
+  private int startingElixir;
+
   @SerializedName("swapping_towers")
   private boolean swappingTowers;
+
+  @SerializedName("target_touchdowns")
+  private int targetTouchdowns;
 
   @SerializedName("use_starting_elixir")
   private boolean useStartingElixir;

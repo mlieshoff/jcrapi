@@ -152,6 +152,8 @@
         <member name="requiredForUpgrade" type="String"/>
         <member name="leftToUpgrade" type="int"/>
         <member name="description" type="String"/>
+        <member name="starLevel" type="int"/>
+        <member name="minLevel" type="int"/>
     </class>
 
     <class name="Achievment" deprecated="true">
@@ -229,6 +231,8 @@
         <member name="arena" type="int"/>
         <member name="requiredForUpgrade" type="String"/>
         <member name="description" type="String"/>
+        <member name="starLevel" type="int"/>
+        <member name="minLevel" type="int"/>
     </class>
 
     <!-- top clans -->
@@ -414,6 +418,11 @@
         <member name="battleRewardGold" alias="battle_reward_gold" type="long"/>
         <member name="chestArena" alias="chest_arena" type="String"/>
         <member name="chestRewardMultiplier" alias="chest_reward_multiplier" type="long"/>
+        <member name="cardCountByArena" alias="card_count_by_arena" type="long"/>
+        <member name="cardCountCommon" alias="card_count_common" type="double"/>
+        <member name="cardCountEpic" alias="card_count_epic" type="double"/>
+        <member name="cardCountLegendary" alias="card_count_legendary" type="double"/>
+        <member name="cardCountRare" alias="card_count_rare" type="double"/>
         <member name="dailyDonationCapacityLimit" alias="daily_donation_capacity_limit" type="long"/>
         <member name="demoteTrophyLimit" alias="demote_trophy_limit" type="long"/>
         <member name="forceQuestChestCycle" alias="force_quest_chest_cycle" type="String"/>
@@ -449,10 +458,12 @@
         <member name="burstKeepTarget" alias="burst_keep_target" type="boolean"/>
         <member name="collisionRadius" alias="collision_radius" type="long"/>
         <member name="crowdEffects" alias="crowd_effects" type="boolean"/>
+        <member name="damagePerLevel" alias="damage_per_level" type="list(Integer)"/>
         <member name="dashOnlyOnce" alias="dash_only_once" type="boolean"/>
         <member name="deathInheritIgnoreList" alias="death_inherit_ignore_list" type="boolean"/>
         <member name="deathSpawnPushback" alias="death_spawn_pushback" type="boolean"/>
         <member name="destroyAtLimit" alias="destroy_at_limit" type="boolean"/>
+        <member name="dpsPerLevel" alias="dps_per_level" type="list(Integer)"/>
         <member name="dontStopMoveAnim" alias="dont_stop_move_anim" type="boolean"/>
         <member name="flyDirectPaths" alias="fly_direct_paths" type="boolean"/>
         <member name="flyFromGround" alias="fly_from_ground" type="boolean"/>
@@ -462,6 +473,7 @@
         <member name="hidesWhenNotAttacking" alias="hides_when_not_attacking" type="boolean"/>
         <member name="hitSpeed" alias="hit_speed" type="long"/>
         <member name="hitpoints" type="long"/>
+        <member name="hitpointsPerLevel" alias="hitpoints_per_level" type="list(Integer)"/>
         <member name="ignorePushback" alias="ignore_pushback" type="boolean"/>
         <member name="isSummonerTower" alias="is_summoner_tower" type="boolean"/>
         <member name="jumpEnabled" alias="jump_enabled" type="boolean"/>
@@ -543,6 +555,7 @@
         <member name="questLategame7" alias="Quest_lategame_7" type="list(ConstantsQuestLategame7)"/>
         <member name="questLategame8" alias="Quest_lategame_8" type="list(ConstantsQuestLategame8)"/>
         <member name="questLategame9" alias="Quest_lategame_9" type="list(ConstantsQuestLategame9)"/>
+        <member name="QuestArena3Unused" alias="Quest_arena3_UNUSED" type="list(ConstantsQuestArena3Unused)"/>
     </class>
 
     <class name="ConstantsClanChest">
@@ -629,9 +642,23 @@
     <class name="ConstantsGameMode">
         <member name="battleStartCooldown" alias="battle_start_cooldown" type="long"/>
         <member name="cardLevelAdjustment" alias="card_level_adjustment" type="String"/>
+        <member name="clanWarDescription" alias="clan_war_description" type="String"/>
         <member name="deckSelection" alias="deck_selection" type="String"/>
+        <member name="elixirProductionMultiplier" alias="elixir_production_multiplier" type="int"/>
+        <member name="elixirProductionOvertimeMultiplier" alias="elixir_production_overtime_multiplier" type="int"/>
+        <member name="eventDeckSetLimit" alias="event_deck_set_limit" type="String"/>
+        <member name="fixedArena" alias="fixed_arena" type="String"/>
         <member name="fixedDeckOrder" alias="fixed_deck_order" type="boolean"/>
+        <member name="forcedDeckCards" alias="forced_deck_cards" type="String"/>
+        <member name="gemsPerTower1" alias="gems_per_tower1" type="int"/>
+        <member name="gemsPerTower2" alias="gems_per_tower2" type="int"/>
+        <member name="gemsPerTower3" alias="gems_per_tower3" type="int"/>
         <member name="givesClanScore" alias="gives_clan_score" type="boolean"/>
+        <member name="globalBuff" alias="global_buff" type="String"/>
+        <member name="goldPerTower1" alias="gold_per_tower1" type="int"/>
+        <member name="goldPerTower2" alias="gold_per_tower2" type="int"/>
+        <member name="goldPerTower3" alias="gold_per_tower3" type="int"/>
+        <member name="heist" type="boolean"/>
         <member name="heroes" type="boolean"/>
         <member name="id" type="long"/>
         <member name="name" type="String"/>
@@ -641,7 +668,10 @@
         <member name="predefinedDecks" alias="predefined_decks" type="String"/>
         <member name="sameDeckOnBoth" alias="same_deck_on_both" type="boolean"/>
         <member name="separateTeamDecks" alias="separate_team_decks" type="boolean"/>
+        <member name="skinSet" alias="skin_set" type="String"/>
+        <member name="startingElixir" alias="starting_elixir" type="int"/>
         <member name="swappingTowers" alias="swapping_towers" type="boolean"/>
+        <member name="targetTouchdowns" alias="target_touchdowns" type="int"/>
         <member name="useStartingElixir" alias="use_starting_elixir" type="boolean"/>
     </class>
 
@@ -732,6 +762,12 @@
         <member name="oneTime" alias="one_time" type="boolean"/>
     </class>
 
+    <class name="ConstantsQuestArena3Unused">
+        <member name="arenaThreshold" alias="arena_threshold" type="String"/>
+        <member name="chest" type="String"/>
+        <member name="oneTime" alias="one_time" type="boolean"/>
+    </class>
+
     <class name="ConstantsRarity">
         <member name="balanceMultiplier" alias="balance_multiplier" type="long"/>
         <member name="chanceWeight" alias="chance_weight" type="long"/>
@@ -807,12 +843,15 @@
         <member name="capBuffTimeToAreaEffectTime" alias="cap_buff_time_to_area_effect_time" type="boolean"/>
         <member name="crownTowerDamagePercent" alias="crown_tower_damage_percent" type="long"/>
         <member name="damage" type="long"/>
+        <member name="damagePerLevel" alias="damage_per_level" type="list(Integer)"/>
         <member name="description" type="String"/>
+        <member name="dpsPerLevel" alias="dps_per_level" type="list(Integer)"/>
         <member name="elixir" type="long"/>
         <member name="hitBiggestTargets" alias="hit_biggest_targets" type="boolean"/>
         <member name="hitSpeed" alias="hit_speed" type="long"/>
         <member name="hitsAir" alias="hits_air" type="boolean"/>
         <member name="hitsGround" alias="hits_ground" type="boolean"/>
+        <member name="hitpointsPerLevel" alias="hitpoints_per_level" type="list(Integer)"/>
         <member name="id" type="long"/>
         <member name="ignoreBuildings" alias="ignore_buildings" type="boolean"/>
         <member name="ignoreHero" alias="ignore_hero" type="boolean"/>
@@ -867,9 +906,14 @@
         <member name="collisionRadius" alias="collision_radius" type="long"/>
         <member name="crowdEffects" alias="crowd_effects" type="boolean"/>
         <member name="damage" type="long"/>
+        <member name="damagePerLevel" alias="damage_per_level" type="list(Integer)"/>
+        <member name="dpsPerLevel" alias="dps_per_level" type="list(Integer)"/>
         <member name="dashOnlyOnce" alias="dash_only_once" type="boolean"/>
         <member name="deathInheritIgnoreList" alias="death_inherit_ignore_list" type="boolean"/>
+        <member name="deathSpawnCharacter" alias="death_spawn_character" type="String"/>
         <member name="deathSpawnPushback" alias="death_spawn_pushback" type="boolean"/>
+        <member name="deprioritizeTargetsWithBuff" alias="deprioritize_targets_with_buff" type="boolean"/>
+        <member name="deployDelay" alias="deploy_delay" type="long"/>
         <member name="deployTime" alias="deploy_time" type="long"/>
         <member name="description" type="String"/>
         <member name="destroyAtLimit" alias="destroy_at_limit" type="boolean"/>
@@ -878,12 +922,14 @@
         <member name="elixir" type="long"/>
         <member name="flyDirectPaths" alias="fly_direct_paths" type="boolean"/>
         <member name="flyFromGround" alias="fly_from_ground" type="boolean"/>
+        <member name="flying_Height" alias="flying_height" type="long"/>
         <member name="hasRotationOnTimeline" alias="has_rotation_on_timeline" type="boolean"/>
         <member name="healOnMorph" alias="heal_on_morph" type="boolean"/>
         <member name="hideBeforeFirstHit" alias="hide_before_first_hit" type="boolean"/>
         <member name="hidesWhenNotAttacking" alias="hides_when_not_attacking" type="boolean"/>
         <member name="hitSpeed" alias="hit_speed" type="long"/>
         <member name="hitpoints" type="long"/>
+        <member name="hitpointsPerLevel" alias="hitpoints_per_level" type="list(Integer)"/>
         <member name="id" type="long"/>
         <member name="ignorePushback" alias="ignore_pushback" type="boolean"/>
         <member name="isSummonerTower" alias="is_summoner_tower" type="boolean"/>
@@ -897,6 +943,11 @@
         <member name="morphKeepTarget" alias="morph_keep_target" type="boolean"/>
         <member name="name" type="String"/>
         <member name="nameEn" alias="name_en" type="String"/>
+        <member name="overrideAttackFinishTime" alias="override_attack_finish_time" type="boolean"/>
+        <member name="prestigeSwf" alias="prestige_swf" type="String"/>
+        <member name="prestigeExportName2" alias="prestige_export_name2" type="String"/>
+        <member name="prestigeExportName3" alias="prestige_export_name3" type="String"/>
+        <member name="projectile" type="String"/>
         <member name="projectileStartRadius" alias="projectile_start_radius" type="long"/>
         <member name="projectileStartZ" alias="projectile_start_z" type="long"/>
         <member name="range" type="long"/>
@@ -905,15 +956,29 @@
         <member name="scale" type="long"/>
         <member name="selfAsAoeCenter" alias="self_as_aoe_center" type="boolean"/>
         <member name="showHealthNumber" alias="show_health_number" type="boolean"/>
+        <member name="sightClip" alias="sight_clip" type="long"/>
+        <member name="sightClipSide" alias="sight_clip_side" type="long"/>
         <member name="sightRange" alias="sight_range" type="long"/>
         <member name="spawnAttach" alias="spawn_attach" type="boolean"/>
+        <member name="spawnCharacter" alias="spawn_character" type="String"/>
+        <member name="spawnCharacterLevelIndex" alias="spawn_character_level_index" type="int"/>
         <member name="spawnConstPriority" alias="spawn_const_priority" type="boolean"/>
         <member name="spawnEffectOnce" alias="spawn_effect_once" type="boolean"/>
+        <member name="spawnInterval" alias="spawn_interval" type="long"/>
+        <member name="spawnNumber" alias="spawn_number" type="int"/>
+        <member name="spawnPauseTime" alias="spawn_pause_time" type="long"/>
+        <member name="spawnStartTime" alias="spawn_start_time" type="long"/>
         <member name="specialAttackWhenHidden" alias="special_attack_when_hidden" type="boolean"/>
         <member name="speed" type="long"/>
         <member name="speedEn" alias="speed_en" type="String"/>
+        <member name="stopMovementAfterMs" alias="stop_movement_after_ms" type="long"/>
+        <member name="summonCharacter" alias="summon_character" type="String"/>
+        <member name="summonNumber" alias="summon_number" type="int"/>
         <member name="targetOnlyBuildings" alias="target_only_buildings" type="boolean"/>
+        <member name="targetOnlyTroops" alias="target_only_troops" type="boolean"/>
         <member name="type" type="String"/>
+        <member name="waitMs" alias="wait_ms" type="long"/>
+        <member name="walkingSpeedTweakPercentage" alias="walking_speed_tweak_percentage" type="long"/>
     </class>
 
     <class name="ConstantsV1">
@@ -1130,6 +1195,8 @@
         <member name="name" type="String"/>
         <member name="rarity" type="String"/>
         <member name="type" type="String"/>
+        <member name="starLevel" type="int"/>
+        <member name="minLevel" type="int"/>
     </class>
 
     <!-- clan tracking -->
@@ -1157,6 +1224,7 @@
         <member name="cardsEarned" type="int"/>
         <member name="battlesPlayed" type="int"/>
         <member name="wins" type="int"/>
+        <member name="collectionDayBattlesPlayed" type="int"/>
     </class>
 
     <class name="ClanWarLogStanding">
@@ -1167,7 +1235,9 @@
         <member name="crowns" type="int"/>
         <member name="warTrophies" type="int"/>
         <member name="warTrophiesChange" type="int"/>
-        <member name="badges" type="list(Badge)"/>
+        <member name="badges" type="list(Badge)" deprecated="true"/>
+        <member name="badge" type="Badge"/>
+        <member name="battlesPlayed" type="int"/>
     </class>
 
     <!-- clan war -->

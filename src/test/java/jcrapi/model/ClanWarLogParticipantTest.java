@@ -69,13 +69,21 @@ public class ClanWarLogParticipantTest {
   }
 
   @Test
+  public void shouldGetSetCollectionDayBattlesPlayed() {
+    int expected = 815;
+    unitUnderTest.setCollectionDayBattlesPlayed(expected);
+    assertEquals(expected, unitUnderTest.getCollectionDayBattlesPlayed());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setTag("astring");
     unitUnderTest.setName("astring");
     unitUnderTest.setCardsEarned(815);
     unitUnderTest.setBattlesPlayed(815);
     unitUnderTest.setWins(815);
-    String expected = "ClanWarLogParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815)";
+    unitUnderTest.setCollectionDayBattlesPlayed(815);
+    String expected = "ClanWarLogParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815, collectionDayBattlesPlayed=815)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

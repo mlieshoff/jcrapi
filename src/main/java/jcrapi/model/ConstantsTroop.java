@@ -58,14 +58,29 @@ public class ConstantsTroop {
   @SerializedName("damage")
   private long damage;
 
+  @SerializedName("damage_per_level")
+  private java.util.List<Integer> damagePerLevel;
+
+  @SerializedName("dps_per_level")
+  private java.util.List<Integer> dpsPerLevel;
+
   @SerializedName("dash_only_once")
   private boolean dashOnlyOnce;
 
   @SerializedName("death_inherit_ignore_list")
   private boolean deathInheritIgnoreList;
 
+  @SerializedName("death_spawn_character")
+  private String deathSpawnCharacter;
+
   @SerializedName("death_spawn_pushback")
   private boolean deathSpawnPushback;
+
+  @SerializedName("deprioritize_targets_with_buff")
+  private boolean deprioritizeTargetsWithBuff;
+
+  @SerializedName("deploy_delay")
+  private long deployDelay;
 
   @SerializedName("deploy_time")
   private long deployTime;
@@ -91,6 +106,9 @@ public class ConstantsTroop {
   @SerializedName("fly_from_ground")
   private boolean flyFromGround;
 
+  @SerializedName("flying_height")
+  private long flyingHeight;
+
   @SerializedName("has_rotation_on_timeline")
   private boolean hasRotationOnTimeline;
 
@@ -108,6 +126,9 @@ public class ConstantsTroop {
 
   @SerializedName("hitpoints")
   private long hitpoints;
+
+  @SerializedName("hitpoints_per_level")
+  private java.util.List<Integer> hitpointsPerLevel;
 
   @SerializedName("id")
   private long id;
@@ -148,6 +169,21 @@ public class ConstantsTroop {
   @SerializedName("name_en")
   private String nameEn;
 
+  @SerializedName("override_attack_finish_time")
+  private boolean overrideAttackFinishTime;
+
+  @SerializedName("prestige_swf")
+  private String prestigeSwf;
+
+  @SerializedName("prestige_export_name2")
+  private String prestigeExportName2;
+
+  @SerializedName("prestige_export_name3")
+  private String prestigeExportName3;
+
+  @SerializedName("projectile")
+  private String projectile;
+
   @SerializedName("projectile_start_radius")
   private long projectileStartRadius;
 
@@ -172,17 +208,41 @@ public class ConstantsTroop {
   @SerializedName("show_health_number")
   private boolean showHealthNumber;
 
+  @SerializedName("sight_clip")
+  private long sightClip;
+
+  @SerializedName("sight_clip_side")
+  private long sightClipSide;
+
   @SerializedName("sight_range")
   private long sightRange;
 
   @SerializedName("spawn_attach")
   private boolean spawnAttach;
 
+  @SerializedName("spawn_character")
+  private String spawnCharacter;
+
+  @SerializedName("spawn_character_level_index")
+  private int spawnCharacterLevelIndex;
+
   @SerializedName("spawn_const_priority")
   private boolean spawnConstPriority;
 
   @SerializedName("spawn_effect_once")
   private boolean spawnEffectOnce;
+
+  @SerializedName("spawn_interval")
+  private long spawnInterval;
+
+  @SerializedName("spawn_number")
+  private int spawnNumber;
+
+  @SerializedName("spawn_pause_time")
+  private long spawnPauseTime;
+
+  @SerializedName("spawn_start_time")
+  private long spawnStartTime;
 
   @SerializedName("special_attack_when_hidden")
   private boolean specialAttackWhenHidden;
@@ -193,10 +253,28 @@ public class ConstantsTroop {
   @SerializedName("speed_en")
   private String speedEn;
 
+  @SerializedName("stop_movement_after_ms")
+  private long stopMovementAfterMs;
+
+  @SerializedName("summon_character")
+  private String summonCharacter;
+
+  @SerializedName("summon_number")
+  private int summonNumber;
+
   @SerializedName("target_only_buildings")
   private boolean targetOnlyBuildings;
 
+  @SerializedName("target_only_troops")
+  private boolean targetOnlyTroops;
+
   @SerializedName("type")
   private String type;
+
+  @SerializedName("wait_ms")
+  private long waitMs;
+
+  @SerializedName("walking_speed_tweak_percentage")
+  private long walkingSpeedTweakPercentage;
 
 }

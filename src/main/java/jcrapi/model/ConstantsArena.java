@@ -43,6 +43,21 @@ public class ConstantsArena {
   @SerializedName("chest_reward_multiplier")
   private long chestRewardMultiplier;
 
+  @SerializedName("card_count_by_arena")
+  private long cardCountByArena;
+
+  @SerializedName("card_count_common")
+  private double cardCountCommon;
+
+  @SerializedName("card_count_epic")
+  private double cardCountEpic;
+
+  @SerializedName("card_count_legendary")
+  private double cardCountLegendary;
+
+  @SerializedName("card_count_rare")
+  private double cardCountRare;
+
   @SerializedName("daily_donation_capacity_limit")
   private long dailyDonationCapacityLimit;
 

@@ -43,4 +43,7 @@ public class ClanWarLogParticipant {
   @SerializedName("wins")
   private int wins;
 
+  @SerializedName("collectionDayBattlesPlayed")
+  private int collectionDayBattlesPlayed;
+
 }

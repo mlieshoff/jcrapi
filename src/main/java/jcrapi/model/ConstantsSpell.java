@@ -58,8 +58,14 @@ public class ConstantsSpell {
   @SerializedName("damage")
   private long damage;
 
+  @SerializedName("damage_per_level")
+  private java.util.List<Integer> damagePerLevel;
+
   @SerializedName("description")
   private String description;
+
+  @SerializedName("dps_per_level")
+  private java.util.List<Integer> dpsPerLevel;
 
   @SerializedName("elixir")
   private long elixir;
@@ -75,6 +81,9 @@ public class ConstantsSpell {
 
   @SerializedName("hits_ground")
   private boolean hitsGround;
+
+  @SerializedName("hitpoints_per_level")
+  private java.util.List<Integer> hitpointsPerLevel;
 
   @SerializedName("id")
   private long id;

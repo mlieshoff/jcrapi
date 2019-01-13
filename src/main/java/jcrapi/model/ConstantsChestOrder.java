@@ -70,4 +70,7 @@ public class ConstantsChestOrder {
   @SerializedName("Quest_lategame_9")
   private java.util.List<ConstantsQuestLategame9> questLategame9;
 
+  @SerializedName("Quest_arena3_UNUSED")
+  private java.util.List<ConstantsQuestArena3Unused> QuestArena3Unused;
+
 }
