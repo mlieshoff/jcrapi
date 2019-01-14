@@ -139,6 +139,13 @@ public class TeamCardTest {
   }
 
   @Test
+  public void shouldGetSetDisplayLevel() {
+    int expected = 815;
+    unitUnderTest.setDisplayLevel(expected);
+    assertEquals(expected, unitUnderTest.getDisplayLevel());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setId(815);
     unitUnderTest.setName("astring");
@@ -155,7 +162,8 @@ public class TeamCardTest {
     unitUnderTest.setDescription("astring");
     unitUnderTest.setStarLevel(815);
     unitUnderTest.setMinLevel(815);
-    String expected = "TeamCard(id=815, name=astring, level=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=astring, description=astring, starLevel=815, minLevel=815)";
+    unitUnderTest.setDisplayLevel(815);
+    String expected = "TeamCard(id=815, name=astring, level=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=astring, description=astring, starLevel=815, minLevel=815, displayLevel=815)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

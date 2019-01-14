@@ -74,4 +74,7 @@ public class TeamCard {
   @SerializedName("minLevel")
   private int minLevel;
 
+  @SerializedName("displayLevel")
+  private int displayLevel;
+
 }
