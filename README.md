@@ -1,6 +1,6 @@
 # Java CR-API Connector
 
-## Actual version: v12.0.236-RC4
+## Actual version: v12.0.236-RC5
 
 ## Simplest Usage ##
 
