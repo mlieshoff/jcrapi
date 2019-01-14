@@ -154,6 +154,7 @@
         <member name="description" type="String"/>
         <member name="starLevel" type="int"/>
         <member name="minLevel" type="int"/>
+        <member name="displayLevel" type="int"/>
     </class>
 
     <class name="Achievment" deprecated="true">
@@ -233,6 +234,7 @@
         <member name="description" type="String"/>
         <member name="starLevel" type="int"/>
         <member name="minLevel" type="int"/>
+        <member name="displayLevel" type="int"/>
     </class>
 
     <!-- top clans -->
