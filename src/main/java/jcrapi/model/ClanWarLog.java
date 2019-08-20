@@ -28,6 +28,7 @@ import lombok.ToString;
 @ToString
 public class ClanWarLog {
 
+  @Deprecated
   @SerializedName("createdDate")
   private long createdDate;
 
@@ -39,5 +40,8 @@ public class ClanWarLog {
 
   @SerializedName("standings")
   private java.util.List<ClanWarLogStanding> standings;
+
+  @SerializedName("warEndTime")
+  private String warEndTime;
 
 }

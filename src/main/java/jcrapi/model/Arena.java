@@ -28,12 +28,16 @@ import lombok.ToString;
 @ToString
 public class Arena {
 
+  @SerializedName("id")
+  private int id;
+
   @SerializedName("name")
   private String name;
 
   @SerializedName("arena")
   private String arena;
 
+  @Deprecated
   @SerializedName("arenaID")
   private int arenaID;
 

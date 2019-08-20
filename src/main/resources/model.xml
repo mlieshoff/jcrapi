@@ -11,26 +11,27 @@
     <class name="Profile">
         <member name="tag" type="String"/>
         <member name="name" type="String"/>
-        <member name="rank" type="int"/>
+        <member name="rank" type="int" deprecated="true"/>
         <member name="trophies" type="int"/>
         <member name="arena" type="Arena"/>
         <member name="clan" type="ProfileClan"/>
         <member name="stats" type="Stats"/>
         <member name="games" type="Games"/>
-        <member name="chestCycle" type="ChestCycle"/>
+        <member name="chestCycle" type="ChestCycle" deprecated="true"/>
         <member name="leagueStatistics" type="LeagueStatistics"/>
         <member name="currentDeck" type="list(Card)"/>
         <member name="cards" type="list(Card)"/>
         <member name="achievments" type="list(Achievment)" deprecated="true"/>
         <member name="achievements" type="list(Achievement)"/>
-        <member name="battles" type="list(Battle)"/>
+        <member name="battles" type="list(Battle)" deprecated="true"/>
         <member name="deckLink" type="String"/>
     </class>
 
     <class name="Arena">
+        <member name="id" type="int"/>
         <member name="name" type="String"/>
         <member name="arena" type="String"/>
-        <member name="arenaID" type="int"/>
+        <member name="arenaID" type="int" deprecated="true"/>
         <member name="trophyLimit" type="int"/>
     </class>
 
@@ -77,6 +78,14 @@
         <member name="rarity" type="String"/>
         <member name="arena" type="int"/>
         <member name="description" type="String"/>
+        <member name="level" type="int"/>
+        <member name="displayLevel" type="int"/>
+        <member name="starLevel" type="int"/>
+        <member name="count" type="int"/>
+        <member name="requiredForUpgrade" type="int"/>
+        <member name="leftToUpgrade" type="int"/>
+        <member name="readyForUpgrade" type="boolean"/>
+        <member name="maxed" type="boolean"/>
     </class>
 
     <class name="IconUrls" deprecated="true">
@@ -92,7 +101,7 @@
         <member name="lossesPercent" type="double"/>
         <member name="draws" type="int"/>
         <member name="drawsPercent" type="double"/>
-        <member name="lastBattle" type="LastBattle"/>
+        <member name="lastBattle" type="LastBattle" deprecated="true"/>
         <member name="warDayWins" type="int"/>
     </class>
 
@@ -118,7 +127,7 @@
     </class>
 
     <class name="CurrentSeason">
-        <member name="rank" type="int"/>
+        <member name="rank" type="int" deprecated="true"/>
         <member name="trophies" type="int"/>
         <member name="bestTrophies" type="int"/>
     </class>
@@ -155,6 +164,8 @@
         <member name="starLevel" type="int"/>
         <member name="minLevel" type="int"/>
         <member name="displayLevel" type="int"/>
+        <member name="readyForUpgrade" type="boolean"/>
+        <member name="maxed" type="boolean"/>
     </class>
 
     <class name="Achievment" deprecated="true">
@@ -175,7 +186,7 @@
 
     <class name="Battle">
         <member name="type" type="String"/>
-        <member name="challengeType" type="String"/>
+        <member name="challengeType" type="String" deprecated="true"/>
         <member name="mode" type="BattleMode"/>
         <member name="winCountBefore" type="int"/>
         <member name="utcTime" type="long"/>
@@ -187,18 +198,47 @@
         <member name="team" type="list(Team)"/>
         <member name="opponent" type="list(Team)"/>
         <member name="arena" type="Arena"/>
-        <member name="tournamentTag" type="String"/>
+        <member name="tournamentTag" type="String" deprecated="true"/>
+        <member name="challenge" type="Challenge"/>
+    </class>
+
+    <class name="Challenge">
+        <member name="name" type="String"/>
+        <member name="gameMode" type="String"/>
+        <member name="enabled" type="boolean"/>
+        <member name="joinCost" type="int"/>
+        <member name="joinCostResource" type="String"/>
+        <member name="maxWins" type="int"/>
+        <member name="maxLoss" type="int"/>
+        <member name="rewardGold" type="list(Integer)"/>
+        <member name="rewardCards" type="list(Integer)"/>
+        <member name="key" type="String"/>
+        <member name="id" type="int"/>
     </class>
 
     <class name="BattleMode">
         <member name="id" type="int"/>
         <member name="name" type="String"/>
-        <member name="deck" type="String"/>
-        <member name="cardLevels" type="String"/>
+        <member name="deck" type="String" deprecated="true"/>
+        <member name="cardLevels" type="String" deprecated="true"/>
         <member name="overtimeSecons" type="int" deprecated="true"/>
         <member name="overtimeSeconds" type="int"/>
         <member name="players" type="String"/>
-        <member name="sameDeck" type="boolean"/>
+        <member name="sameDeck" type="boolean" deprecated="true"/>
+        <member name="cardLevelAdjustment" type="String"/>
+        <member name="deckSelection" type="String"/>
+        <member name="sameDeckOnBoth" type="boolean"/>
+        <member name="separateTeamDecks" type="boolean"/>
+        <member name="swappingTowers" type="boolean"/>
+        <member name="useStartingElixir" type="boolean"/>
+        <member name="randomBoosts" type="boolean"/>
+        <member name="heroes" type="boolean"/>
+        <member name="eventDeckClanWar" type="boolean"/>
+        <member name="givesClanScore" type="boolean"/>
+        <member name="fixedDeckOrder" type="boolean"/>
+        <member name="heist" type="boolean"/>
+        <member name="spellSupport" type="boolean"/>
+        <member name="hasDarkElixirCollector" type="boolean"/>
     </class>
 
     <class name="Team">
@@ -207,7 +247,7 @@
         <member name="name" type="String"/>
         <member name="crownsEarned" type="int"/>
         <member name="startTrophies" type="int"/>
-        <member name="trophyChange" type="int"/>
+        <member name="trophyChange" type="int" deprecated="true"/>
         <member name="clan" type="TeamClan"/>
         <member name="deck" type="list(TeamCard)"/>
     </class>
@@ -235,6 +275,10 @@
         <member name="starLevel" type="int"/>
         <member name="minLevel" type="int"/>
         <member name="displayLevel" type="int"/>
+        <member name="count" type="int"/>
+        <member name="leftToUpgrade" type="int"/>
+        <member name="readyForUpgrade" type="boolean"/>
+        <member name="maxed" type="boolean"/>
     </class>
 
     <!-- top clans -->
@@ -269,7 +313,7 @@
         <member name="requiredScore" type="int"/>
         <member name="donations" type="int"/>
         <member name="warTrophies" type="int"/>
-        <member name="clanChest" type="ClanChest"/>
+        <member name="clanChest" type="ClanChest" deprecated="true"/>
         <member name="badge" type="Badge"/>
         <member name="location" type="Location"/>
         <member name="tracking" type="Tracking"/>
@@ -298,12 +342,13 @@
         <member name="role" type="String"/>
         <member name="expLevel" type="int"/>
         <member name="trophies" type="int"/>
-        <member name="clanChestCrowns" type="int"/>
+        <member name="clanChestCrowns" type="int" deprecated="true"/>
         <member name="donations" type="int"/>
         <member name="donationsReceived" type="int"/>
         <member name="donationsDelta" type="int"/>
         <member name="donationsPercent" type="double"/>
         <member name="arena" type="Arena"/>
+        <member name="lastSeen" type="String"/>
     </class>
 
     <!-- top players -->
@@ -406,6 +451,8 @@
         <member name="regions" type="list(ConstantsRegion)"/>
         <member name="tournaments" type="list(ConstantsTournament)"/>
         <member name="treasureChests" alias="treasure_chests" type="ConstantsTreasureChests"/>
+        <member name="rewardGold" type="list(Integer)"/>
+        <member name="rewardCards" type="list(Integer)"/>
     </class>
 
     <class name="ConstantsAllianceBadge">
@@ -420,18 +467,18 @@
         <member name="battleRewardGold" alias="battle_reward_gold" type="long"/>
         <member name="chestArena" alias="chest_arena" type="String"/>
         <member name="chestRewardMultiplier" alias="chest_reward_multiplier" type="long"/>
-        <member name="cardCountByArena" alias="card_count_by_arena" type="long"/>
-        <member name="cardCountCommon" alias="card_count_common" type="double"/>
-        <member name="cardCountEpic" alias="card_count_epic" type="double"/>
-        <member name="cardCountLegendary" alias="card_count_legendary" type="double"/>
-        <member name="cardCountRare" alias="card_count_rare" type="double"/>
+        <member name="cardCountByArena" alias="card_count_by_arena" type="long" deprecated="true"/>
+        <member name="cardCountCommon" alias="card_count_common" type="double" deprecated="true"/>
+        <member name="cardCountEpic" alias="card_count_epic" type="double" deprecated="true"/>
+        <member name="cardCountLegendary" alias="card_count_legendary" type="double" deprecated="true"/>
+        <member name="cardCountRare" alias="card_count_rare" type="double" deprecated="true"/>
         <member name="dailyDonationCapacityLimit" alias="daily_donation_capacity_limit" type="long"/>
         <member name="demoteTrophyLimit" alias="demote_trophy_limit" type="long"/>
-        <member name="forceQuestChestCycle" alias="force_quest_chest_cycle" type="String"/>
+        <member name="forceQuestChestCycle" alias="force_quest_chest_cycle" type="String" deprecated="true"/>
         <member name="id" type="long"/>
         <member name="isInUse" alias="is_in_use" type="boolean"/>
         <member name="key" type="String"/>
-        <member name="leagueId" alias="league_id" type="String"/>
+        <member name="leagueId" alias="league_id" type="String" deprecated="true"/>
         <member name="matchmakingMaxSeconds" alias="matchmaking_max_seconds" type="long"/>
         <member name="matchmakingMaxTrophyDelta" alias="matchmaking_max_trophy_delta" type="long"/>
         <member name="matchmakingMinTrophyDelta" alias="matchmaking_min_trophy_delta" type="long"/>
@@ -441,7 +488,7 @@
         <member name="name" type="String"/>
         <member name="questCycle" alias="quest_cycle" type="String"/>
         <member name="requestSize" alias="request_size" type="long"/>
-        <member name="seasonRewardChest" alias="season_reward_chest" type="String"/>
+        <member name="seasonRewardChest" alias="season_reward_chest" type="String" deprecated="true"/>
         <member name="shopChestRewardMultiplier" alias="shop_chest_reward_multiplier" type="long"/>
         <member name="subtitle" type="String"/>
         <member name="title" type="String"/>
@@ -535,11 +582,11 @@
         <member name="maxLoss" alias="max_loss" type="long"/>
         <member name="maxWins" alias="max_wins" type="long"/>
         <member name="name" type="String"/>
-        <member name="nameEn" alias="name_en" type="String"/>
+        <member name="nameEn" alias="name_en" type="String" deprecated="true"/>
         <member name="rewardCards" alias="reward_cards" type="list(Long)"/>
         <member name="rewardGold" alias="reward_gold" type="list(Long)"/>
-        <member name="rewardSpell" alias="reward_spell" type="String"/>
-        <member name="rewardSpellMaxCount" alias="reward_spell_max_count" type="long"/>
+        <member name="rewardSpell" alias="reward_spell" type="String" deprecated="true"/>
+        <member name="rewardSpellMaxCount" alias="reward_spell_max_count" type="long" deprecated="true"/>
     </class>
 
     <class name="ConstantsChestOrder">
@@ -642,39 +689,45 @@
     </class>
 
     <class name="ConstantsGameMode">
-        <member name="battleStartCooldown" alias="battle_start_cooldown" type="long"/>
-        <member name="cardLevelAdjustment" alias="card_level_adjustment" type="String"/>
-        <member name="clanWarDescription" alias="clan_war_description" type="String"/>
-        <member name="deckSelection" alias="deck_selection" type="String"/>
-        <member name="elixirProductionMultiplier" alias="elixir_production_multiplier" type="int"/>
-        <member name="elixirProductionOvertimeMultiplier" alias="elixir_production_overtime_multiplier" type="int"/>
-        <member name="eventDeckSetLimit" alias="event_deck_set_limit" type="String"/>
-        <member name="fixedArena" alias="fixed_arena" type="String"/>
-        <member name="fixedDeckOrder" alias="fixed_deck_order" type="boolean"/>
-        <member name="forcedDeckCards" alias="forced_deck_cards" type="String"/>
-        <member name="gemsPerTower1" alias="gems_per_tower1" type="int"/>
-        <member name="gemsPerTower2" alias="gems_per_tower2" type="int"/>
-        <member name="gemsPerTower3" alias="gems_per_tower3" type="int"/>
-        <member name="givesClanScore" alias="gives_clan_score" type="boolean"/>
-        <member name="globalBuff" alias="global_buff" type="String"/>
-        <member name="goldPerTower1" alias="gold_per_tower1" type="int"/>
-        <member name="goldPerTower2" alias="gold_per_tower2" type="int"/>
-        <member name="goldPerTower3" alias="gold_per_tower3" type="int"/>
+        <member name="battleStartCooldown" alias="battle_start_cooldown" type="long" deprecated="true"/>
+        <member name="cardLevelAdjustment" type="String"/>
+        <member name="clanWarDescription" alias="clan_war_description" type="String" deprecated="true"/>
+        <member name="deckSelection" type="String"/>
+        <member name="elixirProductionMultiplier" alias="elixir_production_multiplier" type="int" deprecated="true"/>
+        <member name="elixirProductionOvertimeMultiplier" alias="elixir_production_overtime_multiplier" type="int" deprecated="true"/>
+        <member name="eventDeckSetLimit" alias="event_deck_set_limit" type="String" deprecated="true"/>
+        <member name="fixedArena" alias="fixed_arena" type="String" deprecated="true"/>
+        <member name="fixedDeckOrder" type="boolean"/>
+        <member name="forcedDeckCards" alias="forced_deck_cards" type="String" deprecated="true"/>
+        <member name="gemsPerTower1" alias="gems_per_tower1" type="int" deprecated="true"/>
+        <member name="gemsPerTower2" alias="gems_per_tower2" type="int" deprecated="true"/>
+        <member name="gemsPerTower3" alias="gems_per_tower3" type="int" deprecated="true"/>
+        <member name="givesClanScore" type="boolean"/>
+        <member name="globalBuff" alias="global_buff" type="String" deprecated="true"/>
+        <member name="goldPerTower1" alias="gold_per_tower1" type="int" deprecated="true"/>
+        <member name="goldPerTower2" alias="gold_per_tower2" type="int" deprecated="true"/>
+        <member name="goldPerTower3" alias="gold_per_tower3" type="int" deprecated="true"/>
         <member name="heist" type="boolean"/>
         <member name="heroes" type="boolean"/>
         <member name="id" type="long"/>
         <member name="name" type="String"/>
-        <member name="nameEn" alias="name_en" type="String"/>
-        <member name="overtimeSeconds" alias="overtime_seconds" type="long"/>
+        <member name="nameEn" alias="name_en" type="String" deprecated="true"/>
+        <member name="overtimeSeconds" type="long"/>
         <member name="players" type="String"/>
-        <member name="predefinedDecks" alias="predefined_decks" type="String"/>
-        <member name="sameDeckOnBoth" alias="same_deck_on_both" type="boolean"/>
-        <member name="separateTeamDecks" alias="separate_team_decks" type="boolean"/>
-        <member name="skinSet" alias="skin_set" type="String"/>
-        <member name="startingElixir" alias="starting_elixir" type="int"/>
-        <member name="swappingTowers" alias="swapping_towers" type="boolean"/>
-        <member name="targetTouchdowns" alias="target_touchdowns" type="int"/>
-        <member name="useStartingElixir" alias="use_starting_elixir" type="boolean"/>
+        <member name="predefinedDecks" alias="predefined_decks" type="String" deprecated="true"/>
+        <member name="sameDeckOnBoth" type="boolean"/>
+        <member name="separateTeamDecks" type="boolean"/>
+        <member name="skinSet" alias="skin_set" type="String" deprecated="true"/>
+        <member name="startingElixir" alias="starting_elixir" type="int" deprecated="true"/>
+        <member name="swappingTowers" type="boolean"/>
+        <member name="targetTouchdowns" alias="target_touchdowns" type="int" deprecated="true"/>
+        <member name="useStartingElixir" type="boolean"/>
+        <member name="randomBoosts" type="boolean"/>
+        <member name="eventDeckClanWar" type="boolean"/>
+        <member name="spellSupport" type="boolean"/>
+        <member name="hasDarkElixirCollector" type="boolean"/>
+        <member name="rewardGold" type="list(Integer)" deprecated="true"/>
+        <member name="rewardCards" type="list(Integer)" deprecated="true"/>
     </class>
 
     <class name="ConstantsObject">
@@ -1214,10 +1267,11 @@
     <!-- clan war log -->
 
     <class name="ClanWarLog">
-        <member name="createdDate" type="long"/>
+        <member name="createdDate" type="long" deprecated="true"/>
         <member name="seasonNumber" type="int"/>
         <member name="participants" type="list(ClanWarLogParticipant)"/>
         <member name="standings" type="list(ClanWarLogStanding)"/>
+        <member name="warEndTime" type="String"/>
     </class>
 
     <class name="ClanWarLogParticipant">
@@ -1227,6 +1281,8 @@
         <member name="battlesPlayed" type="int"/>
         <member name="wins" type="int"/>
         <member name="collectionDayBattlesPlayed" type="int"/>
+        <member name="battleCount" type="int"/>
+        <member name="battlesMissed" type="int"/>
     </class>
 
     <class name="ClanWarLogStanding">

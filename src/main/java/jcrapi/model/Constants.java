@@ -64,4 +64,10 @@ public class Constants {
   @SerializedName("treasure_chests")
   private ConstantsTreasureChests treasureChests;
 
+  @SerializedName("rewardGold")
+  private java.util.List<Integer> rewardGold;
+
+  @SerializedName("rewardCards")
+  private java.util.List<Integer> rewardCards;
+
 }

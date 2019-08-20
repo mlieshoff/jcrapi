@@ -26,53 +26,39 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Battle {
+public class Challenge {
 
-  @SerializedName("type")
-  private String type;
+  @SerializedName("name")
+  private String name;
 
-  @Deprecated
-  @SerializedName("challengeType")
-  private String challengeType;
+  @SerializedName("gameMode")
+  private String gameMode;
 
-  @SerializedName("mode")
-  private BattleMode mode;
+  @SerializedName("enabled")
+  private boolean enabled;
 
-  @SerializedName("winCountBefore")
-  private int winCountBefore;
+  @SerializedName("joinCost")
+  private int joinCost;
 
-  @SerializedName("utcTime")
-  private long utcTime;
+  @SerializedName("joinCostResource")
+  private String joinCostResource;
 
-  @SerializedName("deckType")
-  private String deckType;
+  @SerializedName("maxWins")
+  private int maxWins;
 
-  @SerializedName("teamSize")
-  private int teamSize;
+  @SerializedName("maxLoss")
+  private int maxLoss;
 
-  @SerializedName("winner")
-  private int winner;
+  @SerializedName("rewardGold")
+  private java.util.List<Integer> rewardGold;
 
-  @SerializedName("teamCrowns")
-  private int teamCrowns;
+  @SerializedName("rewardCards")
+  private java.util.List<Integer> rewardCards;
 
-  @SerializedName("opponentCrowns")
-  private int opponentCrowns;
+  @SerializedName("key")
+  private String key;
 
-  @SerializedName("team")
-  private java.util.List<Team> team;
-
-  @SerializedName("opponent")
-  private java.util.List<Team> opponent;
-
-  @SerializedName("arena")
-  private Arena arena;
-
-  @Deprecated
-  @SerializedName("tournamentTag")
-  private String tournamentTag;
-
-  @SerializedName("challenge")
-  private Challenge challenge;
+  @SerializedName("id")
+  private int id;
 
 }

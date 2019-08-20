@@ -65,4 +65,28 @@ public class FavoriteCard {
   @SerializedName("description")
   private String description;
 
+  @SerializedName("level")
+  private int level;
+
+  @SerializedName("displayLevel")
+  private int displayLevel;
+
+  @SerializedName("starLevel")
+  private int starLevel;
+
+  @SerializedName("count")
+  private int count;
+
+  @SerializedName("requiredForUpgrade")
+  private int requiredForUpgrade;
+
+  @SerializedName("leftToUpgrade")
+  private int leftToUpgrade;
+
+  @SerializedName("readyForUpgrade")
+  private boolean readyForUpgrade;
+
+  @SerializedName("maxed")
+  private boolean maxed;
+
 }

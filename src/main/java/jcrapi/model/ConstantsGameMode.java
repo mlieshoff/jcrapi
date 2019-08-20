@@ -28,57 +28,71 @@ import lombok.ToString;
 @ToString
 public class ConstantsGameMode {
 
+  @Deprecated
   @SerializedName("battle_start_cooldown")
   private long battleStartCooldown;
 
-  @SerializedName("card_level_adjustment")
+  @SerializedName("cardLevelAdjustment")
   private String cardLevelAdjustment;
 
+  @Deprecated
   @SerializedName("clan_war_description")
   private String clanWarDescription;
 
-  @SerializedName("deck_selection")
+  @SerializedName("deckSelection")
   private String deckSelection;
 
+  @Deprecated
   @SerializedName("elixir_production_multiplier")
   private int elixirProductionMultiplier;
 
+  @Deprecated
   @SerializedName("elixir_production_overtime_multiplier")
   private int elixirProductionOvertimeMultiplier;
 
+  @Deprecated
   @SerializedName("event_deck_set_limit")
   private String eventDeckSetLimit;
 
+  @Deprecated
   @SerializedName("fixed_arena")
   private String fixedArena;
 
-  @SerializedName("fixed_deck_order")
+  @SerializedName("fixedDeckOrder")
   private boolean fixedDeckOrder;
 
+  @Deprecated
   @SerializedName("forced_deck_cards")
   private String forcedDeckCards;
 
+  @Deprecated
   @SerializedName("gems_per_tower1")
   private int gemsPerTower1;
 
+  @Deprecated
   @SerializedName("gems_per_tower2")
   private int gemsPerTower2;
 
+  @Deprecated
   @SerializedName("gems_per_tower3")
   private int gemsPerTower3;
 
-  @SerializedName("gives_clan_score")
+  @SerializedName("givesClanScore")
   private boolean givesClanScore;
 
+  @Deprecated
   @SerializedName("global_buff")
   private String globalBuff;
 
+  @Deprecated
   @SerializedName("gold_per_tower1")
   private int goldPerTower1;
 
+  @Deprecated
   @SerializedName("gold_per_tower2")
   private int goldPerTower2;
 
+  @Deprecated
   @SerializedName("gold_per_tower3")
   private int goldPerTower3;
 
@@ -94,37 +108,62 @@ public class ConstantsGameMode {
   @SerializedName("name")
   private String name;
 
+  @Deprecated
   @SerializedName("name_en")
   private String nameEn;
 
-  @SerializedName("overtime_seconds")
+  @SerializedName("overtimeSeconds")
   private long overtimeSeconds;
 
   @SerializedName("players")
   private String players;
 
+  @Deprecated
   @SerializedName("predefined_decks")
   private String predefinedDecks;
 
-  @SerializedName("same_deck_on_both")
+  @SerializedName("sameDeckOnBoth")
   private boolean sameDeckOnBoth;
 
-  @SerializedName("separate_team_decks")
+  @SerializedName("separateTeamDecks")
   private boolean separateTeamDecks;
 
+  @Deprecated
   @SerializedName("skin_set")
   private String skinSet;
 
+  @Deprecated
   @SerializedName("starting_elixir")
   private int startingElixir;
 
-  @SerializedName("swapping_towers")
+  @SerializedName("swappingTowers")
   private boolean swappingTowers;
 
+  @Deprecated
   @SerializedName("target_touchdowns")
   private int targetTouchdowns;
 
-  @SerializedName("use_starting_elixir")
+  @SerializedName("useStartingElixir")
   private boolean useStartingElixir;
+
+  @SerializedName("randomBoosts")
+  private boolean randomBoosts;
+
+  @SerializedName("eventDeckClanWar")
+  private boolean eventDeckClanWar;
+
+  @SerializedName("spellSupport")
+  private boolean spellSupport;
+
+  @SerializedName("hasDarkElixirCollector")
+  private boolean hasDarkElixirCollector;
+
+  @Deprecated
+  @SerializedName("rewardGold")
+  private java.util.List<Integer> rewardGold;
+
+  @Deprecated
+  @SerializedName("rewardCards")
+  private java.util.List<Integer> rewardCards;
 
 }

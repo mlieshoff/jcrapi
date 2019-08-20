@@ -43,6 +43,7 @@ public class Team {
   @SerializedName("startTrophies")
   private int startTrophies;
 
+  @Deprecated
   @SerializedName("trophyChange")
   private int trophyChange;
 

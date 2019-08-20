@@ -265,6 +265,48 @@ public class ConstantsGameModeTest {
   }
 
   @Test
+  public void shouldGetSetRandomBoosts() {
+    boolean expected = false;
+    unitUnderTest.setRandomBoosts(expected);
+    assertEquals(expected, unitUnderTest.isRandomBoosts());
+  }
+
+  @Test
+  public void shouldGetSetEventDeckClanWar() {
+    boolean expected = false;
+    unitUnderTest.setEventDeckClanWar(expected);
+    assertEquals(expected, unitUnderTest.isEventDeckClanWar());
+  }
+
+  @Test
+  public void shouldGetSetSpellSupport() {
+    boolean expected = false;
+    unitUnderTest.setSpellSupport(expected);
+    assertEquals(expected, unitUnderTest.isSpellSupport());
+  }
+
+  @Test
+  public void shouldGetSetHasDarkElixirCollector() {
+    boolean expected = false;
+    unitUnderTest.setHasDarkElixirCollector(expected);
+    assertEquals(expected, unitUnderTest.isHasDarkElixirCollector());
+  }
+
+  @Test
+  public void shouldGetSetRewardGold() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setRewardGold(expected);
+    assertEquals(expected, unitUnderTest.getRewardGold());
+  }
+
+  @Test
+  public void shouldGetSetRewardCards() {
+    java.util.List<Integer> expected = new java.util.ArrayList<Integer>();
+    unitUnderTest.setRewardCards(expected);
+    assertEquals(expected, unitUnderTest.getRewardCards());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setBattleStartCooldown(4711L);
     unitUnderTest.setCardLevelAdjustment("astring");
@@ -299,7 +341,13 @@ public class ConstantsGameModeTest {
     unitUnderTest.setSwappingTowers(false);
     unitUnderTest.setTargetTouchdowns(815);
     unitUnderTest.setUseStartingElixir(false);
-    String expected = "ConstantsGameMode(battleStartCooldown=4711, cardLevelAdjustment=astring, clanWarDescription=astring, deckSelection=astring, elixirProductionMultiplier=815, elixirProductionOvertimeMultiplier=815, eventDeckSetLimit=astring, fixedArena=astring, fixedDeckOrder=false, forcedDeckCards=astring, gemsPerTower1=815, gemsPerTower2=815, gemsPerTower3=815, givesClanScore=false, globalBuff=astring, goldPerTower1=815, goldPerTower2=815, goldPerTower3=815, heist=false, heroes=false, id=4711, name=astring, nameEn=astring, overtimeSeconds=4711, players=astring, predefinedDecks=astring, sameDeckOnBoth=false, separateTeamDecks=false, skinSet=astring, startingElixir=815, swappingTowers=false, targetTouchdowns=815, useStartingElixir=false)";
+    unitUnderTest.setRandomBoosts(false);
+    unitUnderTest.setEventDeckClanWar(false);
+    unitUnderTest.setSpellSupport(false);
+    unitUnderTest.setHasDarkElixirCollector(false);
+    unitUnderTest.setRewardGold(new java.util.ArrayList<Integer>());
+    unitUnderTest.setRewardCards(new java.util.ArrayList<Integer>());
+    String expected = "ConstantsGameMode(battleStartCooldown=4711, cardLevelAdjustment=astring, clanWarDescription=astring, deckSelection=astring, elixirProductionMultiplier=815, elixirProductionOvertimeMultiplier=815, eventDeckSetLimit=astring, fixedArena=astring, fixedDeckOrder=false, forcedDeckCards=astring, gemsPerTower1=815, gemsPerTower2=815, gemsPerTower3=815, givesClanScore=false, globalBuff=astring, goldPerTower1=815, goldPerTower2=815, goldPerTower3=815, heist=false, heroes=false, id=4711, name=astring, nameEn=astring, overtimeSeconds=4711, players=astring, predefinedDecks=astring, sameDeckOnBoth=false, separateTeamDecks=false, skinSet=astring, startingElixir=815, swappingTowers=false, targetTouchdowns=815, useStartingElixir=false, randomBoosts=false, eventDeckClanWar=false, spellSupport=false, hasDarkElixirCollector=false, rewardGold=" + new java.util.ArrayList<Integer>() + ", rewardCards=" + new java.util.ArrayList<Integer>() + ")";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

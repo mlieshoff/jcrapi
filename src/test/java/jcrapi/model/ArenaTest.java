@@ -34,6 +34,13 @@ public class ArenaTest {
   }
 
   @Test
+  public void shouldGetSetId() {
+    int expected = 815;
+    unitUnderTest.setId(expected);
+    assertEquals(expected, unitUnderTest.getId());
+  }
+
+  @Test
   public void shouldGetSetName() {
     String expected = "astring";
     unitUnderTest.setName(expected);
@@ -63,11 +70,12 @@ public class ArenaTest {
 
   @Test
   public void shouldToString() {
+    unitUnderTest.setId(815);
     unitUnderTest.setName("astring");
     unitUnderTest.setArena("astring");
     unitUnderTest.setArenaID(815);
     unitUnderTest.setTrophyLimit(815);
-    String expected = "Arena(name=astring, arena=astring, arenaID=815, trophyLimit=815)";
+    String expected = "Arena(id=815, name=astring, arena=astring, arenaID=815, trophyLimit=815)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

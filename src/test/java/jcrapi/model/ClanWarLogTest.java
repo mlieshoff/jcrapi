@@ -62,12 +62,20 @@ public class ClanWarLogTest {
   }
 
   @Test
+  public void shouldGetSetWarEndTime() {
+    String expected = "astring";
+    unitUnderTest.setWarEndTime(expected);
+    assertEquals(expected, unitUnderTest.getWarEndTime());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setCreatedDate(4711L);
     unitUnderTest.setSeasonNumber(815);
     unitUnderTest.setParticipants(new java.util.ArrayList<ClanWarLogParticipant>());
     unitUnderTest.setStandings(new java.util.ArrayList<ClanWarLogStanding>());
-    String expected = "ClanWarLog(createdDate=4711, seasonNumber=815, participants=" + new java.util.ArrayList<ClanWarLogParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarLogStanding>() + ")";
+    unitUnderTest.setWarEndTime("astring");
+    String expected = "ClanWarLog(createdDate=4711, seasonNumber=815, participants=" + new java.util.ArrayList<ClanWarLogParticipant>() + ", standings=" + new java.util.ArrayList<ClanWarLogStanding>() + ", warEndTime=astring)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

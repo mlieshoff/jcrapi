@@ -76,6 +76,20 @@ public class ClanWarLogParticipantTest {
   }
 
   @Test
+  public void shouldGetSetBattleCount() {
+    int expected = 815;
+    unitUnderTest.setBattleCount(expected);
+    assertEquals(expected, unitUnderTest.getBattleCount());
+  }
+
+  @Test
+  public void shouldGetSetBattlesMissed() {
+    int expected = 815;
+    unitUnderTest.setBattlesMissed(expected);
+    assertEquals(expected, unitUnderTest.getBattlesMissed());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setTag("astring");
     unitUnderTest.setName("astring");
@@ -83,7 +97,9 @@ public class ClanWarLogParticipantTest {
     unitUnderTest.setBattlesPlayed(815);
     unitUnderTest.setWins(815);
     unitUnderTest.setCollectionDayBattlesPlayed(815);
-    String expected = "ClanWarLogParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815, collectionDayBattlesPlayed=815)";
+    unitUnderTest.setBattleCount(815);
+    unitUnderTest.setBattlesMissed(815);
+    String expected = "ClanWarLogParticipant(tag=astring, name=astring, cardsEarned=815, battlesPlayed=815, wins=815, collectionDayBattlesPlayed=815, battleCount=815, battlesMissed=815)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

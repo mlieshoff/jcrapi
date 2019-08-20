@@ -34,9 +34,11 @@ public class BattleMode {
   @SerializedName("name")
   private String name;
 
+  @Deprecated
   @SerializedName("deck")
   private String deck;
 
+  @Deprecated
   @SerializedName("cardLevels")
   private String cardLevels;
 
@@ -50,7 +52,50 @@ public class BattleMode {
   @SerializedName("players")
   private String players;
 
+  @Deprecated
   @SerializedName("sameDeck")
   private boolean sameDeck;
+
+  @SerializedName("cardLevelAdjustment")
+  private String cardLevelAdjustment;
+
+  @SerializedName("deckSelection")
+  private String deckSelection;
+
+  @SerializedName("sameDeckOnBoth")
+  private boolean sameDeckOnBoth;
+
+  @SerializedName("separateTeamDecks")
+  private boolean separateTeamDecks;
+
+  @SerializedName("swappingTowers")
+  private boolean swappingTowers;
+
+  @SerializedName("useStartingElixir")
+  private boolean useStartingElixir;
+
+  @SerializedName("randomBoosts")
+  private boolean randomBoosts;
+
+  @SerializedName("heroes")
+  private boolean heroes;
+
+  @SerializedName("eventDeckClanWar")
+  private boolean eventDeckClanWar;
+
+  @SerializedName("givesClanScore")
+  private boolean givesClanScore;
+
+  @SerializedName("fixedDeckOrder")
+  private boolean fixedDeckOrder;
+
+  @SerializedName("heist")
+  private boolean heist;
+
+  @SerializedName("spellSupport")
+  private boolean spellSupport;
+
+  @SerializedName("hasDarkElixirCollector")
+  private boolean hasDarkElixirCollector;
 
 }

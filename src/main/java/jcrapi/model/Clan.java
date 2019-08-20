@@ -55,6 +55,7 @@ public class Clan {
   @SerializedName("warTrophies")
   private int warTrophies;
 
+  @Deprecated
   @SerializedName("clanChest")
   private ClanChest clanChest;
 

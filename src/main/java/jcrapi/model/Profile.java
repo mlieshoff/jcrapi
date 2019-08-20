@@ -34,6 +34,7 @@ public class Profile {
   @SerializedName("name")
   private String name;
 
+  @Deprecated
   @SerializedName("rank")
   private int rank;
 
@@ -52,6 +53,7 @@ public class Profile {
   @SerializedName("games")
   private Games games;
 
+  @Deprecated
   @SerializedName("chestCycle")
   private ChestCycle chestCycle;
 
@@ -71,6 +73,7 @@ public class Profile {
   @SerializedName("achievements")
   private java.util.List<Achievement> achievements;
 
+  @Deprecated
   @SerializedName("battles")
   private java.util.List<Battle> battles;
 

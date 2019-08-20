@@ -49,6 +49,7 @@ public class Member {
   @SerializedName("trophies")
   private int trophies;
 
+  @Deprecated
   @SerializedName("clanChestCrowns")
   private int clanChestCrowns;
 
@@ -66,5 +67,8 @@ public class Member {
 
   @SerializedName("arena")
   private Arena arena;
+
+  @SerializedName("lastSeen")
+  private String lastSeen;
 
 }

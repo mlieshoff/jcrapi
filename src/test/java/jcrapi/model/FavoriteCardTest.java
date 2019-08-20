@@ -118,6 +118,62 @@ public class FavoriteCardTest {
   }
 
   @Test
+  public void shouldGetSetLevel() {
+    int expected = 815;
+    unitUnderTest.setLevel(expected);
+    assertEquals(expected, unitUnderTest.getLevel());
+  }
+
+  @Test
+  public void shouldGetSetDisplayLevel() {
+    int expected = 815;
+    unitUnderTest.setDisplayLevel(expected);
+    assertEquals(expected, unitUnderTest.getDisplayLevel());
+  }
+
+  @Test
+  public void shouldGetSetStarLevel() {
+    int expected = 815;
+    unitUnderTest.setStarLevel(expected);
+    assertEquals(expected, unitUnderTest.getStarLevel());
+  }
+
+  @Test
+  public void shouldGetSetCount() {
+    int expected = 815;
+    unitUnderTest.setCount(expected);
+    assertEquals(expected, unitUnderTest.getCount());
+  }
+
+  @Test
+  public void shouldGetSetRequiredForUpgrade() {
+    int expected = 815;
+    unitUnderTest.setRequiredForUpgrade(expected);
+    assertEquals(expected, unitUnderTest.getRequiredForUpgrade());
+  }
+
+  @Test
+  public void shouldGetSetLeftToUpgrade() {
+    int expected = 815;
+    unitUnderTest.setLeftToUpgrade(expected);
+    assertEquals(expected, unitUnderTest.getLeftToUpgrade());
+  }
+
+  @Test
+  public void shouldGetSetReadyForUpgrade() {
+    boolean expected = false;
+    unitUnderTest.setReadyForUpgrade(expected);
+    assertEquals(expected, unitUnderTest.isReadyForUpgrade());
+  }
+
+  @Test
+  public void shouldGetSetMaxed() {
+    boolean expected = false;
+    unitUnderTest.setMaxed(expected);
+    assertEquals(expected, unitUnderTest.isMaxed());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setId(815);
     unitUnderTest.setName("astring");
@@ -131,7 +187,15 @@ public class FavoriteCardTest {
     unitUnderTest.setRarity("astring");
     unitUnderTest.setArena(815);
     unitUnderTest.setDescription("astring");
-    String expected = "FavoriteCard(id=815, name=astring, minLevel=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring)";
+    unitUnderTest.setLevel(815);
+    unitUnderTest.setDisplayLevel(815);
+    unitUnderTest.setStarLevel(815);
+    unitUnderTest.setCount(815);
+    unitUnderTest.setRequiredForUpgrade(815);
+    unitUnderTest.setLeftToUpgrade(815);
+    unitUnderTest.setReadyForUpgrade(false);
+    unitUnderTest.setMaxed(false);
+    String expected = "FavoriteCard(id=815, name=astring, minLevel=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, description=astring, level=815, displayLevel=815, starLevel=815, count=815, requiredForUpgrade=815, leftToUpgrade=815, readyForUpgrade=false, maxed=false)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }
