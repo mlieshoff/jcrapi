@@ -55,6 +55,7 @@ public class ConstantsChallenge {
   @SerializedName("name")
   private String name;
 
+  @Deprecated
   @SerializedName("name_en")
   private String nameEn;
 
@@ -64,9 +65,11 @@ public class ConstantsChallenge {
   @SerializedName("reward_gold")
   private java.util.List<Long> rewardGold;
 
+  @Deprecated
   @SerializedName("reward_spell")
   private String rewardSpell;
 
+  @Deprecated
   @SerializedName("reward_spell_max_count")
   private long rewardSpellMaxCount;
 

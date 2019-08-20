@@ -28,6 +28,7 @@ import lombok.ToString;
 @ToString
 public class CurrentSeason {
 
+  @Deprecated
   @SerializedName("rank")
   private int rank;
 

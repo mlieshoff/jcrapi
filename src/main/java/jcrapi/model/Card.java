@@ -83,4 +83,10 @@ public class Card {
   @SerializedName("displayLevel")
   private int displayLevel;
 
+  @SerializedName("readyForUpgrade")
+  private boolean readyForUpgrade;
+
+  @SerializedName("maxed")
+  private boolean maxed;
+
 }

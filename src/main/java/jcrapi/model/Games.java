@@ -52,6 +52,7 @@ public class Games {
   @SerializedName("drawsPercent")
   private double drawsPercent;
 
+  @Deprecated
   @SerializedName("lastBattle")
   private LastBattle lastBattle;
 

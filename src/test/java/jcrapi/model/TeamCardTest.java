@@ -146,6 +146,34 @@ public class TeamCardTest {
   }
 
   @Test
+  public void shouldGetSetCount() {
+    int expected = 815;
+    unitUnderTest.setCount(expected);
+    assertEquals(expected, unitUnderTest.getCount());
+  }
+
+  @Test
+  public void shouldGetSetLeftToUpgrade() {
+    int expected = 815;
+    unitUnderTest.setLeftToUpgrade(expected);
+    assertEquals(expected, unitUnderTest.getLeftToUpgrade());
+  }
+
+  @Test
+  public void shouldGetSetReadyForUpgrade() {
+    boolean expected = false;
+    unitUnderTest.setReadyForUpgrade(expected);
+    assertEquals(expected, unitUnderTest.isReadyForUpgrade());
+  }
+
+  @Test
+  public void shouldGetSetMaxed() {
+    boolean expected = false;
+    unitUnderTest.setMaxed(expected);
+    assertEquals(expected, unitUnderTest.isMaxed());
+  }
+
+  @Test
   public void shouldToString() {
     unitUnderTest.setId(815);
     unitUnderTest.setName("astring");
@@ -163,7 +191,11 @@ public class TeamCardTest {
     unitUnderTest.setStarLevel(815);
     unitUnderTest.setMinLevel(815);
     unitUnderTest.setDisplayLevel(815);
-    String expected = "TeamCard(id=815, name=astring, level=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=astring, description=astring, starLevel=815, minLevel=815, displayLevel=815)";
+    unitUnderTest.setCount(815);
+    unitUnderTest.setLeftToUpgrade(815);
+    unitUnderTest.setReadyForUpgrade(false);
+    unitUnderTest.setMaxed(false);
+    String expected = "TeamCard(id=815, name=astring, level=815, maxLevel=815, iconUrls=" + new IconUrls() + ", icon=astring, key=astring, elixir=815, type=astring, rarity=astring, arena=815, requiredForUpgrade=astring, description=astring, starLevel=815, minLevel=815, displayLevel=815, count=815, leftToUpgrade=815, readyForUpgrade=false, maxed=false)";
     String actual = unitUnderTest.toString();
     assertEquals(expected, actual);
   }

@@ -77,4 +77,16 @@ public class TeamCard {
   @SerializedName("displayLevel")
   private int displayLevel;
 
+  @SerializedName("count")
+  private int count;
+
+  @SerializedName("leftToUpgrade")
+  private int leftToUpgrade;
+
+  @SerializedName("readyForUpgrade")
+  private boolean readyForUpgrade;
+
+  @SerializedName("maxed")
+  private boolean maxed;
+
 }

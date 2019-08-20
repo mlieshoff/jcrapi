@@ -43,18 +43,23 @@ public class ConstantsArena {
   @SerializedName("chest_reward_multiplier")
   private long chestRewardMultiplier;
 
+  @Deprecated
   @SerializedName("card_count_by_arena")
   private long cardCountByArena;
 
+  @Deprecated
   @SerializedName("card_count_common")
   private double cardCountCommon;
 
+  @Deprecated
   @SerializedName("card_count_epic")
   private double cardCountEpic;
 
+  @Deprecated
   @SerializedName("card_count_legendary")
   private double cardCountLegendary;
 
+  @Deprecated
   @SerializedName("card_count_rare")
   private double cardCountRare;
 
@@ -64,6 +69,7 @@ public class ConstantsArena {
   @SerializedName("demote_trophy_limit")
   private long demoteTrophyLimit;
 
+  @Deprecated
   @SerializedName("force_quest_chest_cycle")
   private String forceQuestChestCycle;
 
@@ -76,6 +82,7 @@ public class ConstantsArena {
   @SerializedName("key")
   private String key;
 
+  @Deprecated
   @SerializedName("league_id")
   private String leagueId;
 
@@ -106,6 +113,7 @@ public class ConstantsArena {
   @SerializedName("request_size")
   private long requestSize;
 
+  @Deprecated
   @SerializedName("season_reward_chest")
   private String seasonRewardChest;
 

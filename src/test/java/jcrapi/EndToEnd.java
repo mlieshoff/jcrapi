@@ -83,39 +83,40 @@ public class EndToEnd {
   }
 
   public static void main(String[] args) throws IOException, ClassNotFoundException {
-    new EndToEnd("http://api.royaleapi.com", args[0]).start();
+    new EndToEnd("http://api-v3.royaleapi.com", args[0]).start();
   }
 
   private void start() throws IOException, ClassNotFoundException {
     loadModel();
 
-    testPlayer();
-    testPlayers();
-    testPlayerBattle();
-    testPlayerBattles();
-    testPlayerChest();
-    testPlayerChests();
-    testClanSearch();
-    testClan();
-    testClans();
-    testClanBattles();
-    testClanHistory();
-    testClanTracking();
-    testClanWarLog();
-    testOpenTournaments();
-    testKnownTournaments();
-    testTopClans();
-    testTopPlayers();
-    testTopWars();
-    testPopularClans();
-    testPopularPlayers();
-    testPopularTournaments();
-    testPopularDecks();
-    testApiKeyStats();
-    testEndpoints();
-    testConstants();
-    testStatus();
-
+//    testClan();
+//    testClans();
+//    testPlayer();
+//    testPlayers();
+//    testPlayerBattle();
+//    testPlayerBattles(); broken
+//    testPlayerChest();
+//    testPlayerChests(); broken
+//    testClanSearch();
+//    testClan();
+//    testClans();
+//    testClanBattles(); empty / broken
+//    testClanHistory(); empty / broken
+//    testClanTracking();
+//    testClanWarLog();
+//    testOpenTournaments(); not found
+//    testKnownTournaments(); not found
+//    testTopClans(); not found
+//    testTopPlayers(); not found
+//    testTopWars(); not found
+//    testPopularClans(); not found
+//    testPopularPlayers(); not found
+//    testPopularTournaments(); not found
+//    testPopularDecks(); not found
+//    testApiKeyStats(); not found
+//    testEndpoints();
+//    testConstants();
+//    testStatus(); not found
   }
 
   private void printResults() {
@@ -160,14 +161,15 @@ public class EndToEnd {
 
   private void testPlayer() throws IOException {
     test(Arrays.asList(
+        "/player/2PGGCJJL"/*,
         "/player/8L9L9GL",
         "/player/L88P2282",
-        "/player/9CQ2U8QJ"
+        "/player/9CQ2U8QJ"*/
     ), Profile.class, false);
   }
 
   private void testPlayers() throws IOException {
-    test(Arrays.asList("/player/8L9L9GL,L88P2282,9CQ2U8QJ"), Profile.class, true);
+    test(Arrays.asList("/players/8L9L9GL,L88P2282,9CQ2U8QJ"), Profile.class, true);
   }
 
   private void testPlayerBattle() throws IOException {
@@ -208,7 +210,7 @@ public class EndToEnd {
   }
 
   private void testClans() throws IOException {
-    test(Arrays.asList("/clan/2CCCP,2U2GGQJ"), Clan.class, true);
+    test(Arrays.asList("/clans/2CCCP,2U2GGQJ"), Clan.class, true);
   }
 
   private void testClanBattles() throws IOException {
