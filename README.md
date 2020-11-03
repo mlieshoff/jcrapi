@@ -1,5 +1,9 @@
 # Java CR-API Connector
 
+## Sunset of API ###
+
+Due to sunset of the cr-api service (https://royaleapi.com/blog/sunset-api) this wrapper will not be continued anymore. Insstead to use *jcrapi*, please use *jcrapi2* (https://github.com/mlieshoff/jcrapi2) which is a wrapper for the official api from Supercell. You can use that new wrapper also in combination with proxy of cr-api creators.
+
 ## Actual version: v12.0.236-RC5
 
 ## Simplest Usage ##
